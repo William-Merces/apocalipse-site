@@ -1,0 +1,224 @@
+/* unified-page.css - Estilos específicos para a página unificada */
+
+/* Animações básicas */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Estilização para a seção hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease;
+}
+
+.hero-content {
+  animation: slideUp 1.2s ease;
+}
+
+/* Estilos para os cards */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-card i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.feature-card:hover i {
+  transform: scale(1.2);
+  color: var(--accent-color);
+}
+
+/* Navegação por seções */
+.section-nav {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.section-nav:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 4px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+}
+
+.section-nav a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Estilização da timeline */
+.timeline-item {
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(5px);
+}
+
+.timeline-item::before {
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(5, 46, 111, 0.4);
+}
+
+/* Estilização para blockquotes */
+blockquote {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+blockquote:hover {
+  background-color: rgba(201, 162, 39, 0.15);
+  transform: translateX(5px);
+}
+
+/* Cards de aulas */
+.lesson-card {
+  transition: all 0.3s ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Highlight box */
+.highlight-box {
+  transition: all 0.3s ease;
+}
+
+.highlight-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Caixas informativas */
+.info-box {
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  background-color: rgba(5, 46, 111, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Link de "Voltar ao topo" */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Elementos com animação no scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .section-nav {
+      position: static;
+  }
+
+  .section-nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+}
+
+/* Estilos para impressão */
+@media print {
+  .hero, .section-nav, .action-buttons, .btn, #back-to-top, footer {
+      display: none !important;
+  }
+
+  .feature-card, .info-box, .highlight-box {
+      break-inside: avoid;
+      page-break-inside: avoid;
+  }
+
+  .lesson-card {
+      border: 1px solid #ddd !important;
+  }
+}

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloco 2 - O Plano por Trás da Visão: Aula 1</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/dimension-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Carregar scripts na ordem correta -->
+  <script src="../../js/aulas-config.js"></script>
+  <script src="../../js/navigation.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <style>
+    /* Estilos específicos para a página de panorama */
+    .timeline-section {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8px;
+      height: 100%;
+      width: 4px;
+      background-color: var(--primary-color);
+      opacity: 0.3;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
+    }
+
+    .comparison-table {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .comparison-table th {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--mid-bg);
+    }
+
+    .map-container {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 2px dashed var(--primary-color);
+      text-align: center;
+    }
+
+    .map-container h4 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    .concept-box {
+      display: inline-block;
+      background-color: var(--primary-light);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      margin: 0.5rem;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .concept-box:hover {
+      transform: translateY(-3px);
+    }
+
+    .scripture-highlight {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--primary-color);
+      border-left: 3px solid var(--accent-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .reflection-prompt {
+      background-color: rgba(201, 162, 39, 0.15);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    .reflection-prompt::before {
+      content: "Reflexão: ";
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .infinity-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .infinity-bg::before {
+      content: "∞";
+      position: absolute;
+      right: -10px;
+      top: -40px;
+      font-size: 200px;
+      color: rgba(5, 46, 111, 0.05);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Container para o componente de navegação -->
+  <div id="navigation-container"></div>
+
+  <main class="container">
+    <section class="lesson-content">
+      <div class="dimension-heading">BLOCO 2: O PLANO POR TRÁS DA VISÃO</div>
+      <div class="dimension-content infinity-bg">
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-map topic-icon"></i> CONSTRUINDO SEU MAPA PESSOAL</h3>
+
+          <div class="note">
+            <h4>NOTA INTRODUTÓRIA</h4>
+            <p>
+              Você deve estar se perguntando: "Estávamos estudando o Apocalipse e agora estamos falando sobre a vida pré-mortal. Qual é a conexão?" Esta é a beleza deste curso! A cada aula, construiremos juntos um Mapa do Plano de Salvação, começando pelas origens mais remotas até a consumação final. O Apocalipse revela o fim glorioso, mas para entendê-lo plenamente, precisamos compreender o início. Hoje, começamos a construir a primeira seção do seu mapa pessoal: a Existência Pré-mortal.
+            </p>
+          </div>
+
+          <div class="map-container">
+            <h4>EXERCÍCIO DE MAPEAMENTO</h4>
+            <p>Na seção final deste guia, você encontrará um espaço para iniciar seu Mapa do Plano Divino. Enquanto estudamos esta dimensão, anote os conceitos-chave, insights pessoais e conexões que você percebe. A cada aula, seu mapa se expandirá, revelando o panorama completo do plano eterno de Deus.</p>
+
+            <div class="concept-box">Inteligências Eternas</div>
+            <div class="concept-box">Organização Espiritual</div>
+            <div class="concept-box">Grande Conselho</div>
+            <div class="concept-box">Escolha e Conflito</div>
+            <div class="concept-box">Seu Papel Pessoal</div>
+          </div>
+
+          <p>
+            A visão majestosa de Cristo e Suas mensagens às igrejas estabelecem a base para compreender todo o plano divino. Para apreciar plenamente o significado do Apocalipse, precisamos recuar e contemplar onde tudo começou.
+          </p>
+
+          <div class="activity">
+            <h4>PERSPECTIVA PREPARATÓRIA</h4>
+            <p>
+              Imagine-se observando o universo antes da criação. O que existia? Quem existia? Ao estudar esta seção, você obterá uma visão ampliada de sua própria origem eterna e do contexto maior das revelações apocalípticas.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-star topic-icon"></i> A EXISTÊNCIA PRIMORDIAL</h3>
+
+          <div class="scripture-highlight">
+            "O homem também estava no princípio com Deus. A inteligência, ou a luz da verdade, não foi criada nem feita, nem, na verdade, pode sê-lo." (D&C 93:29)
+          </div>
+
+          <p>
+            Antes da criação do universo físico, antes da organização dos espíritos, existiam inteligências eternas:
+          </p>
+
+          <ul>
+            <li><strong>Inteligências</strong> — Entidades primordiais, conscientes e autoexistentes</li>
+            <li><strong>Não criadas</strong> — Existiam eternamente, coeternas com Deus</li>
+            <li><strong>Individuais</strong> — Distintas e únicas em capacidades e atributos</li>
+            <li><strong>Agentes morais</strong> — Capazes de escolher e agir dentro de sua esfera</li>
+          </ul>
+
+          <div class="quote">
+            "A mente do homem — a inteligência imortal — existiu em igual medida com Deus... Ela não teve começo e não terá fim." (Ensinamentos do Profeta Joseph Smith, p. 352)
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              O conceito de inteligências eternas é uma doutrina distintiva dos Santos dos Últimos Dias. Enquanto outras tradições cristãs geralmente ensinam que Deus criou todas as almas "ex nihilo" (do nada), nossa compreensão revela que a essência mais fundamental de nossa identidade sempre existiu. Isto dá um novo significado à nossa individualidade e valor eterno.
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>EXERCÍCIO DE VISUALIZAÇÃO</h4>
+            <p>
+              Feche os olhos por um momento e tente visualizar este conceito: você, como inteligência, existindo desde sempre no universo eterno, com uma identidade única e capacidade de escolha. Como esta perspectiva muda sua compreensão de quem você realmente é?
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-sun topic-icon"></i> O DEUS QUE SE REVELOU</h3>
+
+          <div class="scripture-highlight">
+            "Eis que eu sou o Senhor Deus Todo-Poderoso e Infinito é o meu nome; porque eu sou sem princípio de dias ou fim de anos... E infinitas são minhas obras, e nunca cessam." (Moisés 1:3, 38)
+          </div>
+
+          <p>
+            Entre estas inteligências eternas, uma se elevou para tornar-se Deus. O Pai Celestial alcançou a divindade através de um processo que Ele agora oferece a Seus filhos:
+          </p>
+
+          <ul>
+            <li><strong>Perfeição progressiva</strong> — Desenvolvimento eterno em atributos divinos</li>
+            <li><strong>Aquisição de todo conhecimento</strong> — Compreensão de todas as verdades e leis</li>
+            <li><strong>Domínio de todos os elementos</strong> — Poder para organizar e governar a matéria</li>
+            <li><strong>Amor perfeito</strong> — Capacidade de amar e nutrir outras inteligências</li>
+          </ul>
+
+          <p>Esta compreensão do Pai Celestial como um ser que progrediu eternamente oferece uma visão poderosa de nosso próprio potencial.</p>
+
+          <div class="reflection-prompt">
+            O Élder B. H. Roberts ensinou que "o curso que Deus nos traçou para seguir está baseado na natureza e capacidade do homem, e as leis de vida são em harmonia com sua verdadeira natureza e destino." Considerando isto, como a jornada eterna do Pai Celestial ilumina sua própria jornada atual? Que atributos divinos você está desenvolvendo mais ativamente em sua vida?
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-dna topic-icon"></i> A ORGANIZAÇÃO ESPIRITUAL</h3>
+
+          <div class="scripture-highlight">
+            "Porque eis que esta é minha obra e minha glória: Levar a efeito a imortalidade e vida eterna do homem." (Moisés 1:39)
+          </div>
+
+          <p>
+            Em algum ponto da eternidade, o Pai começou a organizar inteligências em espíritos. Este processo de organização espiritual:
+          </p>
+
+          <div class="timeline-section">
+            <div class="timeline-marker"></div>
+            <h4>Deu forma e identidade</h4>
+            <p>Providenciou uma forma espiritual refletindo a imagem do Pai</p>
+          </div>
+
+          <div class="timeline-section">
+            <div class="timeline-marker"></div>
+            <h4>Estabeleceu relações</h4>
+            <p>Criou o vínculo Pai-filho entre Deus e inteligências</p>
+          </div>
+
+          <div class="timeline-section">
+            <div class="timeline-marker"></div>
+            <h4>Definiu potencial</h4>
+            <p>Implantou o potencial para a divindade em cada espírito</p>
+          </div>
+
+          <div class="timeline-section">
+            <div class="timeline-marker"></div>
+            <h4>Preservou individualidade</h4>
+            <p>Manteve as características únicas de cada inteligência</p>
+          </div>
+
+          <div class="quote">
+            "O corpo espiritual é à semelhança exata do corpo mortal, exceto que o espírito é uma entidade refinada e pura... Todos os espíritos de todos os homens, antes de tomar um corpo mortal, são à exata semelhança do corpo mortal que mais tarde possuirão, à semelhança de Deus." (Elder Bruce R. McConkie, Mormon Doctrine, p. 744)
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              Quando nascemos na mortalidade, não "esquecemos" completamente o que aprendemos na vida pré-mortal. O Presidente Joseph F. Smith ensinou: "Todos os homens nascem com a luz de Cristo, ou seja, a luz da verdade, e embora o véu do esquecimento remova a memória episódica de nossas experiências, a memória de princípios e habilidades permanece. Assim como você não se lembra de como aprendeu a andar quando bebê, mas ainda retém essa habilidade, as verdades fundamentais que aprendemos em nossas primeiras lições no céu permanecem como parte de quem somos, manifestando-se em nossas inclinações naturais para o bem e nossa capacidade de reconhecer a verdade."
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>ATIVIDADE CRIATIVA</h4>
+            <p>
+              Durante esta semana, crie uma representação visual (desenho, diagrama ou colagem) do processo de organização espiritual. Inclua símbolos que representem como sua identidade eterna foi preservada mesmo enquanto sua natureza era expandida. Traga esta criação para compartilhar durante a próxima aula.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-users topic-icon"></i> O GRANDE CONSELHO</h3>
+
+          <p>
+            A visão celestial de João em Apocalipse 4-5 (que estudaremos na próxima aula) evoca o Grande Conselho pré-mortal, onde o Pai apresentou Seu plano para nosso progresso eterno.
+          </p>
+
+          <div class="note">
+            <h4>PRINCÍPIO GOVERNANTE: CONSELHOS DIVINOS</h4>
+            <p>
+              O termo "Grande Conselho" sugere que haviam outros conselhos menores nos céus. Esta revelação sobre o governo celestial estabelece um padrão fundamental: o reino de Deus é governado por conselhos, não por decretos unilaterais. Este princípio divino está refletido na estrutura da Igreja restaurada e deve ser implementado em nossas próprias vidas.
+            </p>
+          </div>
+
+          <h4>APLICAÇÃO PRÁTICA DOS CONSELHOS</h4>
+          <p>
+            Durante a aula, exploraremos como este princípio de governar por conselhos pode ser aplicado em:
+          </p>
+
+          <ul>
+            <li>Liderança na Igreja</li>
+            <li>Administração do lar</li>
+            <li>Relacionamento conjugal</li>
+            <li>Decisões pessoais importantes</li>
+          </ul>
+
+          <p>
+            Este entendimento não apenas nos ajuda a compreender a natureza do governo celestial, mas também nos proporciona ferramentas práticas para nossa vida diária.
+          </p>
+
+          <div class="activity">
+            <h4>CONEXÃO ESCRITURAL</h4>
+            <p>
+              Durante sua leitura do Apocalipse 4-5 esta semana, observe os paralelos entre esta cena celestial e o Grande Conselho nos Céus. Anote as similaridades em termos de adoração, ordem divina e propósito central.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-map-marked topic-icon"></i> O PLANO APRESENTADO</h3>
+
+          <div class="scripture-highlight">
+            "Nós faremos uma terra onde estes possam habitar; e prová-los-emos com isto para ver se farão todas as coisas que o Senhor seu Deus lhes ordenar." (Abraão 3:24-25)
+          </div>
+
+          <p>
+            O plano do Pai incluía elementos essenciais:
+          </p>
+
+          <ul>
+            <li><strong>Criação física</strong> — Um mundo onde espíritos poderiam obter corpos físicos</li>
+            <li><strong>Véu do esquecimento</strong> — Separação temporária da memória da vida pré-mortal</li>
+            <li><strong>Arbítrio moral</strong> — Liberdade para escolher entre alternativas</li>
+            <li><strong>Oposição</strong> — Circunstâncias que permitiriam crescimento através de escolhas</li>
+            <li><strong>Redenção</strong> — Um meio de superar os efeitos negativos de escolhas erradas</li>
+          </ul>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              O termo "Grande Conselho nos Céus" não aparece diretamente nas escrituras, mas é uma descrição usada por profetas modernos para se referir aos eventos descritos em passagens como Abraão 3, Moisés 4, e Apocalipse 12. Este conselho não foi apenas um evento único, mas provavelmente uma série de reuniões divinas onde foram discutidos diferentes aspectos do plano de salvação.
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>QUESTÕES PARA CONTEMPLAÇÃO</h4>
+            <p>
+              Considere estas perguntas profundas enquanto medita sobre o Grande Conselho:
+            </p>
+            <ul>
+              <li>Por que um véu de esquecimento era necessário para nosso crescimento?</li>
+              <li>Como seria diferente nosso desenvolvimento se lembrássemos de nossa vida pré-mortal?</li>
+              <li>De que maneiras específicas a oposição em sua própria vida tem proporcionado oportunidades de crescimento?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-balance-scale topic-icon"></i> A ESCOLHA CRUCIAL</h3>
+
+          <div class="scripture-highlight">
+            "E o Senhor disse: A quem enviarei? E um respondeu como o Filho do Homem: Eis-me aqui, envia-me. E outro respondeu e disse: Eis-me aqui, envia-me. E o Senhor disse: Enviarei o primeiro. E o segundo ficou irado e não conservou seu primeiro estado; e, naquele dia, muitos o seguiram." (Abraão 3:27-28)
+          </div>
+
+          <p>
+            Esta divisão estabeleceu as linhas para o conflito cósmico que percorre toda a revelação apocalíptica:
+          </p>
+
+          <table class="comparison-table">
+            <tr>
+              <th>JESUS CRISTO</th>
+              <th>LÚCIFER</th>
+            </tr>
+            <tr>
+              <td>"Pai, seja feita a tua vontade e seja tua a glória para sempre" (Moisés 4:2)</td>
+              <td>"Eis-me aqui, envia-me, serei teu filho e redimirei a humanidade toda... dá-me, pois, a tua honra" (Moisés 4:1)</td>
+            </tr>
+            <tr>
+              <td>Preservou o arbítrio humano</td>
+              <td>Propôs destruir o arbítrio humano</td>
+            </tr>
+            <tr>
+              <td>Ofereceu-se como sacrifício</td>
+              <td>Exigiu garantia de sucesso</td>
+            </tr>
+            <tr>
+              <td>Buscou glorificar o Pai</td>
+              <td>Buscou usurpar a glória do Pai</td>
+            </tr>
+            <tr>
+              <td>Aceitou o plano do Pai</td>
+              <td>Rejeitou aspectos do plano do Pai</td>
+            </tr>
+          </table>
+
+          <div class="activity">
+            <h4>ATIVIDADE DE ANÁLISE</h4>
+            <p>
+              Estude cuidadosamente as diferenças entre as propostas de Jesus e Lúcifer na tabela acima. Identifique padrões semelhantes que você observa no mundo hoje. Como estas mesmas filosofias contrastantes se manifestam em políticas, relacionamentos e atitudes contemporâneas? Anote suas observações em seu diário de estudo.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-fire-alt topic-icon"></i> O CONFLITO CELESTIAL</h3>
+
+          <div class="scripture-highlight">
+            "E houve batalha no céu: Miguel e seus anjos lutaram contra o dragão. E lutaram o dragão e seus anjos; mas não prevaleceram, nem mais se achou lugar para eles no céu." (Apocalipse 12:7-8)
+          </div>
+
+          <p>
+            Esta "guerra nos céus" não foi um conflito com armas físicas, mas uma batalha de:
+          </p>
+
+          <ul>
+            <li><strong>Ideias</strong> — Visões concorrentes sobre o propósito da existência</li>
+            <li><strong>Persuasão</strong> — Tentativas de influenciar outras inteligências</li>
+            <li><strong>Lealdade</strong> — Teste de fidelidade ao Pai e Seu plano</li>
+            <li><strong>Testemunho</strong> — A força da convicção sobre a verdade</li>
+          </ul>
+
+          <div class="note">
+            <h4>PERSPECTIVA IMPORTANTE</h4>
+            <p>
+              O Élder Orson Pratt ensinou que a guerra nos céus não foi um evento breve, mas um conflito extenso que durou um longo período: "Esta guerra não foi decidida em um momento; o conflito foi severo. Havia divisões entre as criaturas celestiais, e ocorreu um grave conflito... e, finalmente, um terço do exército celestial foi lançado fora." Isto revela que Deus não agiu precipitadamente, mas permitiu que cada inteligência exercesse plenamente seu arbítrio.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h4>GUERRA COMO RESGATE</h4>
+            <p>
+              O Élder Bruce R. McConkie revelou um aspecto profundo da guerra nos céus: "Foi um tempo de provação intensa, pois quase todos foram inicialmente convencidos por Lúcifer, mas com muito empenho, Miguel e seus seguidores conseguiram resgatar dois terços dos filhos espirituais do Pai." Esta perspectiva mostra a guerra não apenas como um conflito, mas como uma missão de resgate — um padrão que continua em nossa obra missionária hoje.
+            </p>
+          </div>
+
+          <div class="scripture-highlight">
+            "E foi precipitado o grande dragão, a antiga serpente, chamada o Diabo, e Satanás, que engana todo o mundo; ele foi precipitado na terra, e os seus anjos foram lançados com ele." (Apocalipse 12:9)
+          </div>
+
+          <div class="activity">
+            <h4>EXERCÍCIO DURANTE A AULA</h4>
+            <p>
+              Durante a aula, você participará de uma discussão sobre como o conflito cósmico iniciado na pré-existência continua a se manifestar na Terra hoje. Prepare-se considerando como os mesmos princípios fundamentais (arbítrio versus controle, sacrifício versus expediência, glorificar a Deus versus glorificar a si mesmo) aparecem em conflitos contemporâneos.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-user-shield topic-icon"></i> NOSSA ESCOLHA PESSOAL</h3>
+
+          <div class="quote">
+            "E vimos e damos testemunho de que esses homens são filhos de Deus e herdeiros de seu reino e de sua glória, que foram mantidos unidos ao sacerdócio, que conservaram seu primeiro estado e alcançaram seu segundo estado." (Histórico da Igreja 4:208)
+          </div>
+
+          <p>
+            Como o Presidente Harold B. Lee ensinou:
+          </p>
+
+          <div class="quote">
+            "Vocês que foram ordenados ao santo sacerdócio estavam entre os nobres e grandes que foram escolhidos no início para ser governantes na Igreja de Deus. Vocês estavam entre os fortes que passaram no teste e provaram que eram fiéis." (Presidente Harold B. Lee, Conferência Geral, abril de 1973)
+          </div>
+
+          <p>
+            No entanto, mesmo tendo escolhido corretamente antes, ainda enfrentamos escolhas decisivas na mortalidade:
+          </p>
+
+          <ul>
+            <li><strong>Confirmação</strong> — Reafirmar na mortalidade a escolha que fizemos na preexistência</li>
+            <li><strong>Ampliação</strong> — Expandir nosso compromisso através de convênios progressivos</li>
+            <li><strong>Consecução</strong> — Completar a jornada que começou nas cortes celestiais</li>
+          </ul>
+
+          <div class="note">
+            <h4>ESCLARECIMENTO IMPORTANTE SOBRE CIRCUNSTÂNCIAS MORTAIS</h4>
+            <p>
+              Uma interpretação errônea comum é associar condições difíceis na mortalidade com falhas na vida pré-mortal. Quando os discípulos perguntaram a Jesus sobre um homem cego: "Mestre, quem pecou, este ou seus pais, para que nascesse cego?", Jesus respondeu: "Nem ele pecou, nem seus pais; mas foi assim para que se manifestem nele as obras de Deus" (João 9:2-3). Nossas circunstâncias mortais são complexas e divinamente projetadas para nosso crescimento e para cumprir propósitos específicos no plano de Deus — não são simples "recompensas" ou "punições" por comportamento pré-mortal.
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>MOMENTO DE INTROSPECÇÃO</h4>
+            <p>
+              Quando você pensa em sua vida atual, consegue detectar evidências de propósitos preordenados? Considere seus talentos naturais, inclinações espirituais e circunstâncias de vida. Quais poderiam ser indícios de escolhas e compromissos feitos antes de nascer? Dedique alguns momentos para registrar impressões sobre seu propósito eterno.
+            </p>
+          </div>
+
+          <div class="personal-application">
+            <h4>APLICAÇÃO PRÁTICA</h4>
+            <p>
+              Identifique uma situação em sua vida atual onde você está sendo desafiado a reafirmar seu compromisso com os princípios do plano de Deus. Como sua compreensão da pré-existência e suas escolhas anteriores podem fortalecer sua resolução nesta situação específica?
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-users-cog topic-icon"></i> PREPARAÇÃO PARA A ATIVIDADE EM CLASSE</h3>
+
+          <div class="activity">
+            <h4>ATIVIDADE DE GRUPO DURANTE A AULA</h4>
+            <p>
+              Na aula, você participará de uma atividade chamada "Ecos da Eternidade", onde será convidado a explorar como escolhas e compromissos pré-mortais podem estar se manifestando em sua vida atual. Para preparar-se:
+            </p>
+            <ul>
+              <li>Identifique pelo menos três talentos ou dons naturais que você possui</li>
+              <li>Reflita sobre momentos em que sentiu um propósito ou chamado claro em sua vida</li>
+              <li>Considere desafios recorrentes que podem estar testando compromissos feitos antes de nascer</li>
+              <li>Lembre-se de ocasiões em que sentiu uma afinidade inexplicável com certos princípios ou verdades espirituais</li>
+            </ul>
+            <p>
+              Esteja preparado para compartilhar uma destas reflexões com seu grupo durante a atividade.
+            </p>
+          </div>
+
+          <div class="note">
+            <h4>PRÁTICA DE CONSELHO</h4>
+            <p>
+              Durante a aula, também praticaremos o princípio de conselhos celestiais. Você participará de um pequeno "conselho" para abordar um desafio atual. Para preparar-se, pense em uma situação em sua vida ou na Igreja que poderia se beneficiar da sabedoria coletiva. Como você poderia aplicar os princípios do conselho celestial para encontrar soluções inspiradas?
+            </p>
+          </div>
+
+          <div class="map-container">
+            <h4>NOTA PARA SEU MAPA DO PLANO DIVINO</h4>
+            <p>
+              No espaço designado ao final do guia, comece a desenhar a seção de seu mapa correspondente à Existência Pré-mortal. Inclua os elementos fundamentais que estudamos hoje:
+            </p>
+            <div class="concept-box">Inteligências Eternas</div>
+            <div class="concept-box">A Organização Espiritual</div>
+            <div class="concept-box">O Grande Conselho</div>
+            <div class="concept-box">A Escolha e o Conflito</div>
+            <div class="concept-box">Seu Papel Pessoal</div>
+            <p>
+              Na próxima aula, expandiremos este mapa para incluir a Corte Celestial, conectando as visões de João com seu entendimento crescente do plano eterno.
+            </p>
+          </div>
+
+          <div class="reflection-prompt">
+            Se você pudesse se comunicar com seu eu pré-mortal, que pergunta faria? Que conselho acredita que seu eu pré-mortal daria a você sobre seus desafios atuais?
+          </div>
+        </div>
+
+        <!-- Navegação entre dimensões -->
+        <div class="navigation-buttons">
+          <a href="../aula1.html" class="btn btn-secondary">← Voltar para Aula 1</a>
+          <a href="convergencia.html" class="btn btn-primary">Próxima Dimensão →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Apocalipse: As Visões dos Últimos Dias</h3>
+          <p>Um curso de estudo profundo sobre o livro de Apocalipse</p>
+        </div>
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../../introducao.html">Introdução</a></li>
+            <li><a href="../aula1.html">Aula 1</a></li>
+            <li><a href="../../recursos.html">Recursos</a></li>
+            <li><a href="../../sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Informações</h4>
+          <p>Este material de apoio não é uma publicação oficial de A Igreja de Jesus Cristo dos Santos dos Últimos Dias</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 • Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</body>
+</html>

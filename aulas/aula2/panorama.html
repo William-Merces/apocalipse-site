@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloco 2 - O Plano por Trás da Visão: Aula 2</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/dimension-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="../../js/aulas-config.js"></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <style>
+      /* Estilos específicos para a página de panorama */
+      .timeline-section {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8px;
+        height: 100%;
+        width: 4px;
+        background-color: var(--primary-color);
+        opacity: 0.3;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
+      }
+
+      .comparison-table {
+        width: 100%;
+        margin: 2rem 0;
+      }
+
+      .comparison-table th {
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .comparison-table td {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--mid-bg);
+      }
+
+      .lesson-content {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .dimension-heading {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+
+      .lesson-section {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 2rem;
+      }
+
+      .lesson-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .quote {
+        background-color: rgba(201, 162, 39, 0.1);
+        border-left: 4px solid var(--accent-color);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+      }
+
+      .info-box {
+        background-color: rgba(5, 46, 111, 0.1);
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .info-box h4 {
+        color: var(--primary-color);
+        margin-top: 0;
+      }
+
+      .note {
+        background-color: rgba(5, 46, 111, 0.05);
+        border: 1px dashed var(--primary-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .activity {
+        background-color: rgba(201, 162, 39, 0.05);
+        border: 1px solid var(--accent-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .table-container {
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border: 1px solid #eaeaea;
+      }
+
+      th {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(5, 46, 111, 0.05);
+      }
+
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .two-columns {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+      }
+
+      img.diagram {
+        max-width: 100%;
+        margin: 1.5rem 0;
+        border: 1px solid #eaeaea;
+        border-radius: var(--border-radius);
+      }
+
+      .map-container {
+        background-color: var(--light-bg);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 2px dashed var(--primary-color);
+        text-align: center;
+      }
+
+      .map-container h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+
+      .concept-box {
+        display: inline-block;
+        background-color: var(--primary-light);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        margin: 0.5rem;
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .concept-box:hover {
+        transform: translateY(-3px);
+      }
+
+      .scripture-highlight {
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--primary-color);
+        border-left: 3px solid var(--accent-color);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .reflection-prompt {
+        background-color: rgba(201, 162, 39, 0.15);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+      }
+
+      .reflection-prompt::before {
+        content: "Reflexão: ";
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+
+      .infinity-bg {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .infinity-bg::before {
+        content: "∞";
+        position: absolute;
+        right: -10px;
+        top: -40px;
+        font-size: 200px;
+        color: rgba(5, 46, 111, 0.05);
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container para o componente de navegação -->
+    <div id="navigation-container"></div>
+
+    <main class="container">
+      <section class="lesson-content">
+        <div class="dimension-heading">BLOCO 2: O PLANO POR TRÁS DA VISÃO</div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-map-marked topic-icon"></i> A ORDEM CELESTIAL ETERNA</h3>
+
+          <p>
+            Na Dimensão I, exploramos a visão de João da corte celestial com seu trono, anciãos e seres viventes. Agora, expandiremos nossa compreensão para examinar o que aconteceu neste local majestoso antes mesmo da criação da terra — o Grande Conselho nos Céus e o conflito cósmico que definiu o destino de todos nós.
+          </p>
+
+          <div class="quote">
+            "Onde estavas tu, quando eu fundava a terra? Dize-mo, se tens entendimento... quando as estrelas da alva, juntas, alegremente cantavam, e todos os filhos de Deus rejubilavam?" (Jó 38:4,7)
+          </div>
+
+          <p>
+            Nesta passagem intrigante, Deus pergunta a Jó onde ele estava durante a criação, quando "os filhos de Deus rejubilavam". Esta referência sugere uma existência consciente dos filhos de Deus antes da criação da terra — o que chamamos de existência pré-mortal.
+          </p>
+
+          <div class="info-box">
+            <h4>O CONCEITO DE PRÉ-EXISTÊNCIA</h4>
+            <p>
+              Embora a maioria das denominações cristãs não ensine sobre nossa existência antes do nascimento, esta doutrina era aceita por muitos cristãos primitivos. Orígenes (185-254 d.C.), um dos mais influentes teólogos dos primeiros séculos do cristianismo, ensinava claramente a pré-existência das almas. Esta doutrina foi oficialmente rejeitada no Concílio de Constantinopla em 553 d.C., mas foi restaurada em nossos dias através da revelação moderna.
+            </p>
+          </div>
+
+          <p>
+            As escrituras revelam que antes da fundação do mundo, existia uma ordem celestial estabelecida:
+          </p>
+
+          <ul>
+            <li>Deus Pai presidia como o Supremo Criador e Governante</li>
+            <li>Jesus Cristo, o Primogênito em espírito, estava ao lado do Pai</li>
+            <li>Os "nobres e grandes" estavam entre os numerosos filhos espirituais de Deus (Abraão 3:22-23)</li>
+            <li>Conselhos celestiais eram realizados para deliberar sobre o plano divino</li>
+          </ul>
+
+          <div class="note">
+            <h4>CONEXÃO COM APOCALIPSE 4</h4>
+            <p>
+              A visão de João em Apocalipse 4 não é apenas uma descrição de como o céu é agora, mas também um vislumbre da ordem celestial eterna que existiu antes da criação. O trono, os anciãos em conselho e os seres viventes representam aspectos da governança divina que estavam em funcionamento quando o plano para nossa salvação foi apresentado. Assim, a corte celestial não é apenas o lugar de onde Deus governa o universo, mas também o cenário do drama pré-mortal que determinou o curso de toda a história.
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>REFLEXÃO</h4>
+            <p>
+              Pense por um momento: você existia como inteligência eterna antes mesmo de receber um corpo espiritual. Sua história não começou em seu nascimento, mas se estende a um passado imensamente distante. Como essa perspectiva muda sua compreensão de quem você é e de seu propósito na vida?
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-users topic-icon"></i> O GRANDE CONSELHO</h3>
+
+          <p>
+            As escrituras restauradas revelam que antes da criação da terra, houve uma reunião de significado eterno — o Grande Conselho nos Céus. Neste conselho, todos os filhos espirituais de Deus estavam presentes para aprender sobre o plano para sua progressão eterna.
+          </p>
+
+          <div class="quote">
+            "E havia entre eles um que era semelhante a Deus, e disse aos que se achavam com ele: Desceremos, pois há espaço lá, e tomaremos destes materiais e faremos uma terra onde estes possam habitar; E prová-los-emos com isto, para ver se farão todas as coisas que o Senhor seu Deus lhes ordenar." (Abraão 3:24-25)
+          </div>
+
+          <p>
+            Este conselho não foi apenas uma sessão informativa, mas um momento de deliberação, apresentação de planos e escolhas críticas. Durante este conselho:
+          </p>
+
+          <div class="table-container">
+            <table class="comparison-table">
+              <tr>
+                <th>EVENTO</th>
+                <th>DESCRIÇÃO</th>
+                <th>REFERÊNCIA</th>
+              </tr>
+              <tr>
+                <td><strong>Apresentação do Problema</strong></td>
+                <td>Foi exposta a necessidade de um plano para permitir que as inteligências espirituais progredissem e obtivessem corpos físicos e experiência mortal</td>
+                <td>Abraão 3:22-24</td>
+              </tr>
+              <tr>
+                <td><strong>Apresentação do Plano</strong></td>
+                <td>O Pai Celestial apresentou Seu plano para criar uma terra onde Seus filhos espirituais pudessem ser provados e ter a oportunidade de tornar-se como Ele</td>
+                <td>Abraão 3:24-25; Moisés 4:1-2</td>
+              </tr>
+              <tr>
+                <td><strong>Necessidade de um Salvador</strong></td>
+                <td>Foi explicado que um Salvador seria necessário para permitir o arrependimento e superação da morte</td>
+                <td>Moisés 4:1-2; Apocalipse 13:8</td>
+              </tr>
+              <tr>
+                <td><strong>Chamado para Voluntários</strong></td>
+                <td>O Pai perguntou: "A quem enviarei?" buscando quem implementaria o plano</td>
+                <td>Abraão 3:27; Moisés 4:1</td>
+              </tr>
+              <tr>
+                <td><strong>Duas Respostas</strong></td>
+                <td>Dois se ofereceram: Jesus Cristo ("Eis-me aqui, envia-me") e Lúcifer ("Eis-me aqui, envia-me")</td>
+                <td>Moisés 4:1-2; Abraão 3:27</td>
+              </tr>
+              <tr>
+                <td><strong>Duas Propostas</strong></td>
+                <td>Cristo propôs seguir o plano do Pai dando livre-arbítrio às pessoas; Lúcifer propôs salvar todos eliminando sua liberdade de escolha</td>
+                <td>Moisés 4:1-3</td>
+              </tr>
+              <tr>
+                <td><strong>A Decisão</strong></td>
+                <td>O Pai escolheu Jesus Cristo: "Enviarei o primeiro"</td>
+                <td>Abraão 3:27</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="info-box">
+            <h4>CORRELAÇÃO COM APOCALIPSE 5</h4>
+            <p>
+              Em Apocalipse 5, João vê um livro selado que ninguém pode abrir até que o Cordeiro (Cristo) é considerado digno. Este paralelo é fascinante: assim como Cristo foi o único considerado digno de implementar o plano de Deus no Conselho pré-mortal, Ele é o único digno de abrir o livro que contém o cumprimento desse plano. O Conselho pré-mortal e a cena de Apocalipse 5 são como marcadores que delimitam o início e o culminar do plano de salvação.
+            </p>
+          </div>
+
+          <div class="note">
+            <h4>POR QUE UM CONSELHO?</h4>
+            <p>
+              Se Deus é onisciente e todo-poderoso, por que realizar um conselho? O Élder Neal A. Maxwell ensinou: "Deus sempre respeita nosso arbítrio. Ele não nos impõe Seu plano. No mundo pré-mortal, Ele nos convidou, não nos comandou, a seguir Seu plano. Um conselho celestial é o ambiente onde este respeito divino pelo arbítrio é demonstrado." Este mesmo princípio de conselhos e persuasão — não coerção — continua na Igreja hoje, refletindo o padrão celestial.
+            </p>
+          </div>
+
+          <p>
+            É fundamental compreender que o objetivo do plano de Deus não era simplesmente "salvar" todos nós, mas permitir que nos tornássemos como Ele. Este objetivo mais elevado necessariamente incluía a concessão de arbítrio moral e a possibilidade de escolhas erradas, pois sem isso, não poderíamos verdadeiramente crescer ou nos tornar como Deus.
+          </p>
+
+          <div class="activity">
+            <h4>APLICAÇÃO PESSOAL</h4>
+            <p>
+              Você já considerou que sua decisão de seguir o plano de Deus e apoiar Jesus Cristo não foi feita apenas durante sua vida mortal, mas já havia sido feita no Conselho pré-mortal? O que você acha que o motivou a apoiar o plano do Pai Celestial naquele momento? E como isso pode fortalecer suas escolhas hoje?
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-fire-alt topic-icon"></i> O GRANDE CONFLITO</h3>
+
+          <p>
+            A escolha de Jesus Cristo como o Redentor designado não foi o fim, mas o início de um conflito cósmico que continua até hoje. A reação de Lúcifer à sua rejeição estabeleceu o padrão para toda a rebelião contra Deus desde então.
+          </p>
+
+          <div class="quote">
+            "E naquele dia, Satanás rebelou-se contra mim e procurou destruir o arbítrio do homem, que eu, o Senhor Deus, lhe dera; e também queria que eu lhe desse meu próprio poder; por meio do poder de meu Unigênito, fiz com que fosse lançado fora; E ele tornou-se Satanás, sim, o diabo, o pai de todas as mentiras, para enganar e cegar os homens e levá-los cativos segundo sua vontade, sim, a todos quantos não dessem ouvidos a minha voz." (Moisés 4:3-4)
+          </div>
+
+          <p>
+            Este conflito pré-mortal teve várias dimensões cruciais:
+          </p>
+
+          <div class="table-container">
+            <table class="comparison-table">
+              <tr>
+                <th>DIMENSÃO DO CONFLITO</th>
+                <th>DESCRIÇÃO</th>
+                <th>CONSEQUÊNCIAS ETERNAS</th>
+              </tr>
+              <tr>
+                <td><strong>Teológica</strong></td>
+                <td>Tratava-se de quem seria adorado: Deus (com Cristo implementando Seu plano) ou Lúcifer (exaltando a si mesmo)</td>
+                <td>Estabeleceu o padrão para toda idolatria e falsa adoração subsequente</td>
+              </tr>
+              <tr>
+                <td><strong>Moral</strong></td>
+                <td>Envolvia o próprio conceito de bem e mal: o bem é definido pela vontade de Deus ou é relativo?</td>
+                <td>Definiu o que constitui virtude versus rebelião</td>
+              </tr>
+              <tr>
+                <td><strong>Filosófica</strong></td>
+                <td>Questionava a natureza da liberdade: verdadeira liberdade vem através do arbítrio moral ou da remoção de consequências?</td>
+                <td>Estabeleceu o livre-arbítrio como princípio eterno inviolável</td>
+              </tr>
+              <tr>
+                <td><strong>Relacional</strong></td>
+                <td>Definia nossa relação com Deus: filhos que crescem ou súditos que permanecem dependentes</td>
+                <td>Determinou o propósito de nossa existência como progressão eterna</td>
+              </tr>
+            </table>
+          </div>
+
+          <p>
+            Este conflito teve consequências imediatas e dramáticas:
+          </p>
+
+          <div class="scripture-highlight">
+            "E houve batalha no céu; Miguel e seus anjos batalharam contra o dragão. Também o dragão e seus anjos batalharam, mas não prevaleceram; nem mais se achou no céu o lugar deles. E foi expulso o grande dragão, a antiga serpente, que se chama diabo e Satanás, o sedutor de todo o mundo, sim, foi atirado para a terra, e, com ele, os seus anjos." (Apocalipse 12:7-9)
+          </div>
+
+          <p>
+            João viu em sua revelação que um terço das hostes celestiais escolheu seguir Lúcifer em sua rebelião (Apocalipse 12:4). Esta escolha resultou em sua expulsão do céu e na perda de sua oportunidade de receber corpos físicos e progredir de acordo com o plano de Deus.
+          </p>
+
+          <div class="info-box">
+            <h4>A GUERRA CONTINUA</h4>
+            <p>
+              O Presidente Russell M. Nelson ensinou: "A guerra que começou no céu continua até hoje... O mesmo Satanás que foi expulso do céu, o mesmo Satanás que tentou o Salvador a abandonar Sua missão, o mesmo Satanás que tentou Pedro a negar o Senhor, esse mesmo Satanás quer que fracassemos... Esta guerra por nossas almas é cada vez mais evidente em escala mundial." (Conferência Geral, abril de 2021)
+            </p>
+          </div>
+
+          <p>
+            João coloca este conflito pré-mortal no centro de sua visão apocalíptica. Em Apocalipse 12, ele vê esta batalha celestial como parte de uma narrativa contínua que se estende do céu para a terra e através de toda a história humana. O dragão (Satanás) que foi expulso do céu continua perseguindo a mulher (a Igreja) e fazendo guerra contra o restante de sua descendência (os santos).
+          </p>
+
+          <div class="note">
+            <h4>SIMBOLISMO PROFUNDO</h4>
+            <p>
+              Em Apocalipse 12, João descreve o adversário como um "dragão vermelho com sete cabeças e dez chifres". Este simbolismo multifacetado sugere que a oposição a Deus é complexa, organizada e sistemática. As múltiplas cabeças podem representar os muitos sistemas e filosofias contrárias ao plano de Deus que aparecem ao longo da história. Os dez chifres simbolizam poder e autoridade mundana. O fato de ser vermelho pode representar tanto violência quanto pretensão à realeza (usurpando a autoridade de Cristo).
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>DISCUSSÃO EM GRUPO</h4>
+            <p>
+              Em pequenos grupos, discutam: De que formas as táticas que Lúcifer usou na rebelião pré-mortal continuam sendo empregadas hoje? Identifiquem pelo menos três estratégias específicas que ele utilizou no conflito original que ainda são evidentes em nossas experiências atuais.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-user-shield topic-icon"></i> NOSSA PARTICIPAÇÃO E ESCOLHA</h3>
+
+          <p>
+            Um aspecto profundamente pessoal desta narrativa é a compreensão de que cada um de nós participou deste Grande Conselho e fez escolhas cruciais que nos trouxeram até aqui.
+          </p>
+
+          <div class="quote">
+            "E os que guardarem seu primeiro estado receberão um acréscimo; e os que não guardarem seu primeiro estado não terão glória no mesmo reino que aqueles que guardarem seu primeiro estado; e os que guardarem seu segundo estado terão um acréscimo de glória sobre sua cabeça para todo o sempre." (Abraão 3:26)
+          </div>
+
+          <p>
+            Aqui vemos uma referência a dois "estados" ou fases de nossa existência eterna:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Primeiro Estado:</strong> Nossa existência pré-mortal como espíritos na presença de Deus
+            </li>
+            <li>
+              <strong>Segundo Estado:</strong> Nossa existência mortal na terra com corpos físicos, separados da presença imediata de Deus
+            </li>
+          </ul>
+
+          <p>
+            O fato de estarmos agora vivendo em nosso "segundo estado" significa que fomos fiéis em nosso "primeiro estado". Escolhemos seguir Jesus Cristo e o plano do Pai, rejeitando a alternativa de Lúcifer.
+          </p>
+
+          <div class="info-box">
+            <h4>VOCÊ É UM VETERANO DE GUERRA</h4>
+            <p>
+              O Élder Boyd K. Packer ensinou: "Vocês, jovens, devem saber que já são veteranos de uma guerra. Antes de vir para esta vida mortal, vocês estiveram em um conflito, em uma guerra nos céus. Vocês alinharam-se ao lado de Cristo contra Lúcifer... quando vocês nascem na mortalidade, trazem esse mesmo comprometimento, essa mesma coragem. Sua participação nesta vida será tão decisiva quanto foi no primeiro confronto." (Conferência Geral, abril de 1994)
+            </p>
+          </div>
+
+          <p>
+            O Apocalipse não é simplesmente um livro sobre eventos futuros — é a conclusão do drama cósmico que começou no Conselho pré-mortal. Nossa compreensão do Apocalipse fica incompleta se não o conectarmos a esse início.
+          </p>
+
+          <div class="note">
+            <h4>NOSSO PROPÓSITO ETERNO</h4>
+            <p>
+              Em Apocalipse 4, João vê 24 anciãos ao redor do trono de Deus, vestidos de branco e usando coroas. Esta imagem revela o destino final dos fiéis — receber autoridade e governar com Cristo. Aqueles que "guardam seu segundo estado" receberão "um acréscimo de glória" — visualizado perfeitamente nos anciãos entronizados. Sua posição não é de servos distantes, mas de colaboradores próximos que compartilham em alguma medida da majestade divina. Este é o propósito final de toda a jornada: tornar-se como Deus é.
+            </p>
+          </div>
+
+          <div class="activity">
+            <h4>ATIVIDADE REFLEXIVA</h4>
+            <p>
+              Usando seu diário de estudo, escreva uma carta para seu "eu pré-mortal" — a pessoa que você era no Grande Conselho. O que você gostaria de dizer a essa versão de você que estava prestes a embarcar na jornada mortal? Que promessas você gostaria de reafirmar? Que compromissos você renovaria? Em seguida, escreva uma resposta como se fosse seu eu pré-mortal escrevendo para seu eu atual. Que lembranças ou perspectivas eternas ele compartilharia com você agora?
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-music topic-icon"></i> A MÚSICA DO CONSELHO</h3>
+
+          <p>
+            Um detalhe fascinante do Grande Conselho pode ser encontrado na pergunta de Deus a Jó: "Onde estavas... quando as estrelas da alva, juntas, alegremente cantavam, e todos os filhos de Deus rejubilavam?" (Jó 38:4,7)
+          </p>
+
+          <p>
+            Este versículo sugere que o Grande Conselho não foi apenas uma discussão solene, mas incluiu música e celebração. Quando o plano foi apresentado, houve cânticos de alegria das "estrelas da alva" (possivelmente referindo-se a seres angelicais ou espíritos preeminentes) e júbilo entre todos os filhos de Deus.
+          </p>
+
+          <div class="info-box">
+            <h4>PARALELO EM APOCALIPSE</h4>
+            <p>
+              Em Apocalipse 4 e 5, João vê e ouve os quatro seres viventes e os 24 anciãos cantando constantemente louvores a Deus. Em Apocalipse 5:9, ele ouve um "novo cântico" específico. Estas cenas de adoração musical no céu ecoam a alegria que acompanhou a apresentação do plano no Conselho pré-mortal. Há uma conexão poderosa entre música e verdades eternas — tanto no céu quanto na terra, a música expressa realidades espirituais profundas.
+            </p>
+          </div>
+
+          <p>
+            A música sempre esteve entrelaçada com a adoração e a compreensão espiritual. Da mesma forma que Moisés e os israelitas cantaram após atravessar o Mar Vermelho (Êxodo 15), e Paulo e Silas cantaram na prisão (Atos 16:25), nós também somos convidados a expressar nossa compreensão e alegria no plano de Deus através da música.
+          </p>
+
+          <div class="activity">
+            <h4>COMPOSIÇÃO MUSICAL</h4>
+            <p>
+              Se você pudesse compor ou escolher um hino para expressar a alegria do Grande Conselho quando o plano de salvação foi revelado, que palavras ou mensagens esse hino conteria? Escreva pelo menos o primeiro verso e refrão para um "novo cântico" que poderia ter sido cantado naquele momento. Caso prefira, identifique um hino existente que captura o espírito daquele momento e explique sua escolha.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-check-double topic-icon"></i> PONTOS-CHAVE PARA REVISÃO</h3>
+          <ol>
+            <li>A visão de João da corte celestial em Apocalipse 4 reflete a ordem eterna que existia antes da criação, onde o Grande Conselho ocorreu.</li>
+            <li>No Grande Conselho, o Pai apresentou Seu plano para nossa progressão eterna, incluindo a necessidade de um Salvador.</li>
+            <li>Jesus Cristo e Lúcifer apresentaram propostas diferentes, com Cristo respeitando o livre-arbítrio e Lúcifer buscando eliminá-lo.</li>
+            <li>O conflito que começou no céu continua na terra, conforme visto em Apocalipse 12, com as mesmas questões fundamentais em jogo.</li>
+            <li>Nossa presença na terra indica que fomos fiéis em nosso "primeiro estado", escolhendo seguir a Cristo.</li>
+            <li>O plano de Deus foi recebido com música e alegria por Seus filhos espirituais, assim como os seres celestiais em Apocalipse cantam louvores ao redor do trono.</li>
+            <li>O Apocalipse não é apenas um livro sobre o futuro, mas a conclusão do drama cósmico que começou no Conselho pré-mortal.</li>
+          </ol>
+
+          <div class="map-container">
+            <h4>SEU MAPA DO PLANO DIVINO</h4>
+            <p>
+              Ao continuar desenvolvendo seu mapa do plano divino, adicione os elementos-chave do Grande Conselho e do conflito pré-mortal. Conecte estes elementos com as visões de João em Apocalipse 4, 5 e 12, observando como o drama celestial continua a se desenrolar através da história humana até sua conclusão.
+            </p>
+            <div class="concept-box">O Grande Conselho</div>
+            <div class="concept-box">A Escolha do Salvador</div>
+            <div class="concept-box">O Conflito Cósmico</div>
+            <div class="concept-box">Seu Papel Pessoal</div>
+            <div class="concept-box">A Vitória Final</div>
+          </div>
+        </div>
+
+        <div class="navigation-buttons">
+          <a href="../aula2.html" class="btn btn-secondary">← Voltar para Aula 2</a>
+          <a href="convergencia.html" class="btn btn-primary">Próxima Dimensão →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../../introducao.html">Introdução</a></li>
+            <li><a href="../aula2.html">Aula 2</a></li>
+            <li><a href="../../recursos.html">Recursos</a></li>
+            <li><a href="../../sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </body>
+</html>

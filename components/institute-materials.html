@@ -1,0 +1,168 @@
+<!-- Seção de Materiais do Instituto -->
+<div class="resource-section">
+  <h2 class="section-title">📖 MATERIAIS DO INSTITUTO</h2>
+
+  <div class="resource-item">
+    <div class="resource-icon">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+    <div class="resource-content">
+      <h3>Manuais e Guias de Estudo</h3>
+      <p>Materiais oficiais do Sistema Educacional da Igreja, com comentários doutrinários e explicações sobre o simbolismo do Apocalipse.</p>
+
+      <div class="institute-materials">
+        <div class="institute-item">
+          <div class="institute-cover">
+            <img src="/api/placeholder/150/200" alt="Manual João o Amado" />
+          </div>
+          <div class="institute-info">
+            <h4>Manual "João o Amado e o Livro de Apocalipse"</h4>
+            <p>Curso completo usado no Instituto focado nos escritos de João, com ênfase especial no Apocalipse e seu significado para os últimos dias.</p>
+            <a href="https://www.churchofjesuschrist.org/study/manual/institute-secondary-electives-student-readings-and-selected-course-outlines/the-writings-of-john-the-beloved-course-outline?lang=por" class="resource-link" target="_blank">ACESSAR MANUAL</a>
+          </div>
+        </div>
+
+        <div class="institute-item">
+          <div class="institute-info">
+            <h4>Seções do Manual "Novo Testamento: Manual do Aluno"</h4>
+            <ul class="chapters-list">
+              <li>
+                <a href="https://www.churchofjesuschrist.org/study/manual/new-testament-student-manual/introduction-to-the-revelation-of-john?lang=por" target="_blank">
+                  Apocalipse 1–3: Sete igrejas da Ásia
+                </a>
+              </li>
+              <li>
+                <a href="https://www.churchofjesuschrist.org/study/manual/new-testament-student-manual/revelation-4-5?lang=por" target="_blank">
+                  Apocalipse 4–5: O Trono de Deus e o Livro Selado
+                </a>
+              </li>
+              <li>
+                <a href="https://www.churchofjesuschrist.org/study/manual/new-testament-student-manual/revelation-6-11?lang=por" target="_blank">
+                  Apocalipse 6–11: Abertura dos selos
+                </a>
+              </li>
+              <li>
+                <a href="https://www.churchofjesuschrist.org/study/manual/new-testament-student-manual/revelation-12-22?lang=por" target="_blank">
+                  Apocalipse 12–22: Símbolos e a vitória final
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="institute-cover">
+            <img src="/api/placeholder/150/200" alt="Manual Novo Testamento" />
+          </div>
+        </div>
+      </div>
+
+      <div class="institute-notes">
+        <div class="note-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="note-content">
+          <p><strong>Dica de estudo:</strong> Os manuais do Instituto apresentam interpretações oficiais da Igreja sobre os símbolos e profecias do Apocalipse, ajudando a distinguir as doutrinas restauradas de interpretações populares incorretas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Estilo CSS para esta seção -->
+<style>
+  .institute-materials {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 25px;
+  }
+
+  .institute-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .institute-cover {
+    align-self: center;
+  }
+
+  .institute-cover img {
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+
+  .institute-info h4 {
+    color: #002664;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .chapters-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+
+  .chapters-list li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .chapters-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #d2b149;
+  }
+
+  .chapters-list li a {
+    color: #002664;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .chapters-list li a:hover {
+    color: #d2b149;
+    text-decoration: underline;
+  }
+
+  .institute-notes {
+    display: flex;
+    background-color: #fff8e6;
+    border-left: 4px solid #d2b149;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 25px;
+  }
+
+  .note-icon {
+    color: #d2b149;
+    font-size: 20px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .note-content p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    .institute-item {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .institute-info {
+      flex: 1;
+    }
+
+    .institute-cover {
+      flex: 0 0 150px;
+    }
+  }

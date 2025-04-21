@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloco 2 - A Queda de Adão e Eva e a Necessidade do Resgate</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/dimension-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="../../js/aulas-config.js"></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <style>
+      /* Estilos específicos para a página de panorama */
+      .timeline-section {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8px;
+        height: 100%;
+        width: 4px;
+        background-color: var(--primary-color);
+        opacity: 0.3;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
+      }
+
+      .comparison-table {
+        width: 100%;
+        margin: 2rem 0;
+      }
+
+      .comparison-table th {
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .comparison-table td {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--mid-bg);
+      }
+
+      .lesson-content {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .dimension-heading {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+
+      .lesson-section {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 2rem;
+      }
+
+      .lesson-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .quote {
+        background-color: rgba(201, 162, 39, 0.1);
+        border-left: 4px solid var(--accent-color);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+      }
+
+      .info-box {
+        background-color: rgba(5, 46, 111, 0.1);
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .info-box h4 {
+        color: var(--primary-color);
+        margin-top: 0;
+      }
+
+      .note {
+        background-color: rgba(5, 46, 111, 0.05);
+        border: 1px dashed var(--primary-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .activity {
+        background-color: rgba(201, 162, 39, 0.05);
+        border: 1px solid var(--accent-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .table-container {
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border: 1px solid #eaeaea;
+      }
+
+      th {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(5, 46, 111, 0.05);
+      }
+
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .two-columns {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+      }
+
+      img.diagram {
+        max-width: 100%;
+        margin: 1.5rem 0;
+        border: 1px solid #eaeaea;
+        border-radius: var(--border-radius);
+      }
+
+      .map-container {
+        background-color: var(--light-bg);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 2px dashed var(--primary-color);
+        text-align: center;
+      }
+
+      .map-container h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+
+      .concept-box {
+        display: inline-block;
+        background-color: var(--primary-light);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        margin: 0.5rem;
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .concept-box:hover {
+        transform: translateY(-3px);
+      }
+
+      .scripture-highlight {
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--primary-color);
+        border-left: 3px solid var(--accent-color);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .reflection-prompt {
+        background-color: rgba(201, 162, 39, 0.15);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+      }
+
+      .reflection-prompt::before {
+        content: "Reflexão: ";
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+
+      .infinity-bg {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .infinity-bg::before {
+        content: "∞";
+        position: absolute;
+        right: -10px;
+        top: -40px;
+        font-size: 200px;
+        color: rgba(5, 46, 111, 0.05);
+        z-index: 0;
+      }
+
+      .voce-sabia {
+        background-color: rgba(255, 223, 100, 0.15);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        position: relative;
+      }
+
+      .voce-sabia h4 {
+        color: var(--accent-color);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .voce-sabia::before {
+        content: "?";
+        position: absolute;
+        right: 1rem;
+        top: 0.5rem;
+        font-size: 3rem;
+        font-weight: bold;
+        color: rgba(201, 162, 39, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container para o componente de navegação -->
+    <div id="navigation-container"></div>
+
+    <main class="container">
+      <section class="lesson-content">
+        <div class="dimension-heading">BLOCO 2: A QUEDA DE ADÃO E EVA E A NECESSIDADE DO RESGATE</div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-leaf topic-icon"></i> A QUEDA EM PERSPECTIVA RESTAURADA</h3>
+
+          <p>
+            A visão do livro selado e do Cordeiro digno de abri-lo nos convida a examinar mais profundamente por que tal resgate era necessário. Para isso, devemos voltar ao princípio — à Queda de Adão e Eva — e compreender este evento fundamental através das lentes da verdade restaurada.
+          </p>
+
+          <div class="quote">
+            "Portanto, em consequência de transgressão, vem a queda, que queda traz a morte; e como fostes afastados da presença de Deus por causa da transgressão, estais mortos, tanto para as coisas temporais como para as coisas espirituais." (Alma 42:9)
+          </div>
+
+          <p>
+            A compreensão restaurada da Queda difere significativamente de muitas interpretações tradicionais cristãs. Em vez de ser vista apenas como uma tragédia ou um ato de rebelião imperdoável, a Queda é entendida como parte necessária do plano de Deus — um passo crucial, embora doloroso, na progressão eterna da humanidade.
+          </p>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-users topic-icon"></i> ADÃO E EVA: PIONEIROS, NÃO VILÕES</h3>
+
+          <p>
+            Na doutrina restaurada, Adão e Eva são vistos não como fracos pecadores ou rebeldes obstinados, mas como pioneiros corajosos que abriram o caminho para o progresso humano:
+          </p>
+
+          <div class="quote">
+            "Adão caiu para que os homens existissem; e os homens existem para que tenham alegria." (2 Néfi 2:25)
+          </div>
+
+          <p>
+            Esta declaração revolucionária de Leí estabelece a Queda não como uma catástrofe, mas como um pré-requisito para a existência e alegria humanas. Eva é particularmente honrada por sua sabedoria e coragem ao reconhecer a necessidade da Queda:
+          </p>
+
+          <div class="quote">
+            "E Eva, sua esposa, ouviu todas essas coisas e alegrou-se, dizendo: Se não fosse por nossa transgressão, jamais teríamos tido semente e jamais teríamos conhecido o bem e o mal e a alegria de nossa redenção e a vida eterna que Deus concede a todos os obedientes." (Moisés 5:11)
+          </div>
+
+          <div class="voce-sabia">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              A perspectiva restaurada sobre Adão e Eva é tão preciosa e significativa que é preservada nas ordenanças do templo. Enquanto muitas tradições cristãs retratam Eva como fraca e facilmente enganada, causando a ruína da humanidade, a perspectiva restaurada honra Eva como sábia e corajosa, reconhecendo o papel essencial que desempenhou no plano divino. O Élder Dallin H. Oaks ensinou: "Alguns cristãos condenam Eva por sua ação, concluindo que ela e suas filhas estão de alguma forma sob uma maldição... Os Santos dos Últimos Dias não compartilham dessa visão. Iluminados pela revelação, celebramos a escolha de Eva e honramos sua sabedoria e coragem."
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-archway topic-icon"></i> ADÃO-MIGUEL: CONEXÃO COM APOCALIPSE</h3>
+
+          <p>
+            Esta conexão ilumina o papel de Adão não apenas como o primeiro homem, mas como uma figura-chave em todo o plano de salvação, do princípio ao fim. Longe de ser o "vilão" da história da salvação, Adão é um dos protagonistas heroicos que luta pela implementação do plano de Deus desde o início.
+          </p>
+
+          <div class="voce-sabia">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              O nome Miguel em hebraico significa "Quem é como Deus?" — uma pergunta retórica que implica "Ninguém é como Deus!" Este nome é particularmente adequado para Adão que, como o primeiro homem, foi criado "à imagem de Deus" (Gênesis 1:27). Esta semelhança não era apenas física, mas também refletia seu papel como regente terreno de Deus, encarregado de "dominar" a terra (Gênesis 1:28) como representante divino.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-seedling topic-icon"></i> A NATUREZA E CONDIÇÕES ORIGINAIS</h3>
+
+          <p>
+            Antes de compreender plenamente as consequências da Queda, devemos considerar a natureza original de Adão e Eva e o ambiente no qual viviam.
+          </p>
+
+          <h4>CORPOS TERRESTRES DIFERENTES</h4>
+          <p>
+            Antes da Queda, Adão e Eva possuíam corpos que eram fisicamente diferentes dos nossos:
+          </p>
+
+          <div class="quote">
+            "E eu, Deus, criei o homem do pó da terra e soprei em suas narinas o fôlego da vida; e o homem tornou-se uma alma vivente, a primeira carne sobre a terra, também o primeiro homem;" (Moisés 3:7)
+          </div>
+
+          <div class="quote">
+            "E o homem se tornou uma alma vivente, a primeira carne sobre a terra, o primeiro homem também; não obstante, todas as coisas haviam sido criadas anteriormente; mas foram criadas espiritualmente e feitas de acordo com a minha palavra." (Moisés 3:7)
+          </div>
+
+          <p>
+            Estas descrições, juntamente com outros ensinamentos restaurados, revelam características importantes dos corpos pré-Queda:
+          </p>
+
+          <ol>
+            <li><strong>Fisicamente Imortais</strong> - Não estavam sujeitos à morte física</li>
+            <li><strong>Sem Sangue como o Conhecemos</strong> - O Presidente Joseph Fielding Smith ensinou que os corpos de Adão e Eva eram "vivificados por espírito e não por sangue"</li>
+            <li><strong>Não Reprodutivos</strong> - Embora instruídos a "multiplicar e encher a terra", seus corpos ainda não podiam reproduzir-se</li>
+            <li><strong>Não Sujeitos a Doença ou Dor</strong> - Estavam livres das fragilidades físicas que enfrentamos</li>
+          </ol>
+
+          <div class="info-box">
+            <p>
+              O Élder Russell M. Nelson, com sua formação médica, explicou: "A Queda de Adão e Eva trouxe mudanças fundamentais em seus corpos. Em seu estado prévio, Adão e Eva não eram capazes de reproduzir. Não estavam sujeitos à morte. Ao caírem, seus corpos foram alterados. O sangue tornou-se o elemento vital de seus corpos físicos, 'carne na qual está a vida' - essencial para a propagação da vida, mas também tornando seus corpos mortais."
+            </p>
+          </div>
+
+          <h4>O AMBIENTE EDÊNICO</h4>
+          <p>
+            O Jardim do Éden proporcionava um ambiente fisicamente e espiritualmente perfeito:
+          </p>
+
+          <ol>
+            <li><strong>Presença Direta de Deus</strong> - Adão e Eva "ouviram a voz do Senhor Deus, quando andava no jardim pela viração do dia" (Gênesis 3:8)</li>
+            <li><strong>Harmonia Perfeita</strong> - Não havia conflito, violência ou morte entre as criaturas</li>
+            <li><strong>Abundância sem Esforço</strong> - "De toda árvore do jardim podes comer livremente" (Gênesis 2:16)</li>
+            <li><strong>Inocência</strong> - "E estavam ambos nus, o homem e sua mulher, e não se envergonhavam" (Gênesis 2:25)</li>
+          </ol>
+
+          <p>
+            Este ambiente era maravilhoso, mas limitado em termos de crescimento potencial. O Profeta Joseph Smith explicou: "Adão e Eva só conheciam a face de seu Pai" e "não tinham conhecimento do bem e do mal". Este estado de inocência, embora belo, era também um estado de estagnação espiritual.
+          </p>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-balance-scale topic-icon"></i> AS CONSEQUÊNCIAS DA QUEDA</h3>
+
+          <p>
+            Quando Adão e Eva partilharam do fruto proibido, ocorreram mudanças profundas e de longo alcance que afetaram não apenas eles, mas toda a criação:
+          </p>
+
+          <h4>1. MORTE FÍSICA</h4>
+          <div class="quote">
+            "Mas do fruto da árvore do conhecimento do bem e do mal, dela não comerás; não obstante, poderás escolher segundo tua vontade, porque te é dado; mas lembra-te de que eu o proíbo, porque no dia em que dele comeres, certamente morrerás." (Moisés 3:17)
+          </div>
+
+          <p>
+            A mortalidade entrou no mundo como resultado direto da Queda. Os corpos de Adão e Eva passaram por transformações biológicas fundamentais:
+          </p>
+
+          <ul>
+            <li>O sangue tornou-se o elemento vital de seus corpos</li>
+            <li>Seus sistemas começaram a degenerar e envelhecer</li>
+            <li>Tornaram-se suscetíveis a doenças e lesões</li>
+            <li>A morte tornou-se inevitável</li>
+          </ul>
+
+          <div class="info-box">
+            <p>
+              O Presidente Joseph Fielding Smith explicou: "A morte física veio por causa da queda... O sangue era o elemento vital de seus corpos mortais, e através dele a morte natural foi transmitida a toda a posteridade de Adão."
+            </p>
+          </div>
+
+          <h4>2. MORTE ESPIRITUAL</h4>
+          <div class="quote">
+            "Portanto, tanto quanto o espírito não morre, e a queda trouxe ao seres humanos a morte espiritual assim como a temporal, isto é, eles foram banidos da presença do Senhor, era necessário que a humanidade fosse resgatada da morte espiritual." (Alma 42:9)
+          </div>
+
+          <p>
+            A morte espiritual — separação da presença de Deus — foi talvez a consequência mais grave da Queda. Esta separação tem múltiplos aspectos:
+          </p>
+
+          <ul>
+            <li><strong>Separação Física</strong> - Expulsão do jardim onde Deus andava</li>
+            <li><strong>Separação Perceptiva</strong> - Incapacidade de suportar a presença direta de Deus</li>
+            <li><strong>Separação Moral</strong> - A introdução do pecado criou uma barreira entre humanidade e Deus</li>
+            <li><strong>Separação Relacional</strong> - Uma sensação de alienação e vergonha diante de Deus</li>
+          </ul>
+
+          <h4>3. INIMIZADE COM DEUS</h4>
+          <div class="quote">
+            "Pois o homem natural é inimigo de Deus e tem-no sido desde a queda de Adão e sê-lo-á para sempre e sempre, a não ser que ceda ao influxo do Santo Espírito..." (Mosias 3:19)
+          </div>
+
+          <p>
+            Esta "inimizade" não significa hostilidade ativa, mas uma desarmonia fundamental — uma divergência de natureza, propósito e desejo que se manifesta como:
+          </p>
+
+          <ul>
+            <li><strong>Inclinação para o Pecado</strong> - Tendência para agir contrariamente à vontade de Deus</li>
+            <li><strong>Pensamento Carnal</strong> - Foco nos desejos físicos em detrimento das realidades espirituais</li>
+            <li><strong>Orgulho</strong> - Tendência a colocar a vontade pessoal acima da vontade de Deus</li>
+          </ul>
+
+          <h4>4. SUJEIÇÃO À INFLUÊNCIA DE SATANÁS</h4>
+          <p>
+            Uma das consequências mais graves, porém frequentemente negligenciadas, da Queda foi a nova vulnerabilidade da humanidade à influência de Satanás:
+          </p>
+
+          <div class="quote">
+            "Satanás deseja possuir-vos, para peneirar-vos como trigo." (Lucas 22:31)
+          </div>
+
+          <p>
+            O Livro de Mórmon explica as consequências extremas que essa influência teria tido sem a intervenção de Cristo:
+          </p>
+
+          <div class="quote">
+            "E nossos espíritos teriam sido como o seu; e nós teríamos nos tornado demônios, anjos de um demônio, a fim de sermos afastados da presença de nosso Deus e permanecermos com o pai das mentiras, em miséria, como ele mesmo; sim, como o ser que enganou nossos primeiros pais, que se transforma quase em um anjo de luz e incita os filhos dos homens a combinações secretas de assassinato e a toda sorte de obras secretas das trevas." (2 Néfi 9:9)
+          </div>
+
+          <div class="voce-sabia">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              Esta passagem revela uma verdade profunda: sem a expiação de Cristo, teríamos nos tornado "demônios, anjos de um demônio". Isto explica a urgência de nossa necessidade de redenção e a magnitude da misericórdia divina. Como ensinou o Élder D. Todd Christofferson: "Sem a Expiação de Jesus Cristo, não apenas não poderíamos retornar à presença de Deus, mas efetivamente nos tornaríamos, por natureza, como Satanás. A redenção de Cristo não apenas nos salva das consequências do pecado, mas da própria transformação em seres infernais."
+            </p>
+          </div>
+
+          <h4>5. MUDANÇAS NA CRIAÇÃO FÍSICA</h4>
+          <p>
+            A Queda não afetou apenas a humanidade, mas toda a criação:
+          </p>
+
+          <div class="quote">
+            "Maldita é a terra por tua causa; com dor comerás dela todos os dias da tua vida. Espinhos e cardos também te produzirá; e comerás a erva do campo." (Gênesis 3:17-18)
+          </div>
+
+          <p>
+            Estas mudanças incluíram:
+          </p>
+
+          <ul>
+            <li>Introdução de espinhos, cardos e "ervas nocivas"</li>
+            <li>Necessidade de trabalho árduo para cultivar alimentos</li>
+            <li>Introdução de parasitas, doenças e desequilíbrios ecológicos</li>
+            <li>Morte e predação no reino animal</li>
+          </ul>
+
+          <p>
+            O Apóstolo Paulo refere-se a este aspecto da Queda ao escrever que "toda a criação geme e está juntamente com dores de parto até agora" (Romanos 8:22), aguardando sua própria redenção.
+          </p>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-cross topic-icon"></i> A MAGNITUDE DA EXPIAÇÃO: RESPOSTA À QUEDA</h3>
+
+          <p>
+            Compreendendo a profundidade da Queda, podemos apreciar mais plenamente a magnitude da Expiação de Cristo. Cada aspecto da Queda é diretamente abordado pelo poder redentor de Cristo:
+          </p>
+
+          <div class="table-container">
+            <table class="comparison-table">
+              <tr>
+                <th>CONSEQUÊNCIA DA QUEDA</th>
+                <th>RESPOSTA DA EXPIAÇÃO</th>
+              </tr>
+              <tr>
+                <td>Morte Física</td>
+                <td>Ressurreição universal e imortalidade</td>
+              </tr>
+              <tr>
+                <td>Morte Espiritual</td>
+                <td>Reconciliação com Deus, restauração à Sua presença</td>
+              </tr>
+              <tr>
+                <td>Inimizade com Deus</td>
+                <td>Transformação espiritual (o "novo homem"), capacidade de tornar-se "um com Deus"</td>
+              </tr>
+              <tr>
+                <td>Sujeição a Satanás</td>
+                <td>Poder sobre Satanás, libertação de seu domínio</td>
+              </tr>
+              <tr>
+                <td>Mudanças na Criação</td>
+                <td>Renovação da terra, restauração da ordem paradisíaca</td>
+              </tr>
+            </table>
+          </div>
+
+          <p>
+            O fato do Cordeiro ser "como tendo sido morto" (Apocalipse 5:6) representa vividamente Sua vitória sobre todas as consequências da Queda. As marcas da morte permanecem visíveis, mas não têm mais poder — a morte foi vencida pela vida.
+          </p>
+
+          <div class="voce-sabia">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              A frase "desde a fundação do mundo" aparece repetidamente no Apocalipse em relação ao Cordeiro "que foi morto desde a fundação do mundo" (Apocalipse 13:8). Isto sugere que a expiação de Cristo, embora realizada em um momento específico na história (o Getsêmani e o Calvário), tem eficácia eterna e retroativa. A redenção estava "em vigor" desde o momento da Queda, por causa do compromisso pré-mortal de Cristo e da certeza de Seu sacrifício futuro.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-search topic-icon"></i> A QUEDA EM PERSPECTIVA CORRETA</h3>
+
+          <p>
+            As visões distorcidas da Queda levaram a doutrinas prejudiciais que têm causado sofrimento desnecessário. É importante corrigir estas distorções:
+          </p>
+
+          <h4>1. A SUPOSTA "MALDIÇÃO DE EVA"</h4>
+          <p>
+            Algumas tradições interpretaram erroneamente as consequências da Queda para Eva:
+          </p>
+
+          <div class="quote">
+            "Multiplicarei grandemente a tua dor e a tua conceição; com dor darás à luz filhos; e o teu desejo será para o teu marido, e ele te dominará." (Gênesis 3:16)
+          </div>
+
+          <p>
+            A interpretação restaurada esclarece:
+          </p>
+
+          <ul>
+            <li>Esta não é uma "maldição" punitiva, mas uma descrição das condições da mortalidade</li>
+            <li>O termo hebraico traduzido como "dominar" pode ser mais precisamente entendido como "presidir" em retidão</li>
+            <li>O Presidente Spencer W. Kimball ensinou: "Lamento que muitas pessoas traduzam [este versículo] como indicando que o homem deve governar. Estou utilizando o verbo 'presidir'... Não há nenhuma inferência de que o homem tenha domínio ditatorial sobre a mulher."</li>
+          </ul>
+
+          <div class="info-box">
+            <p>
+              O Élder Bruce C. Hafen explicou: "O Jardim representava uma época de inocência, quando Adão e Eva viviam em um estado semelhante ao da criança... não um estado superior de inteligência ou desenvolvimento. A Queda representou seu passo adiante, não para trás."
+            </p>
+          </div>
+
+          <h4>2. O PECADO ORIGINAL E OS BEBÊS</h4>
+          <p>
+            Algumas tradições sustentam que os bebês nascem culpados pelo pecado de Adão, levando a preocupações sobre crianças falecidas antes do batismo. A verdade restaurada é clara:
+          </p>
+
+          <div class="quote">
+            "Todos os espíritos humanos eram inocentes no princípio; e tendo Deus redimido o homem da queda, o homem tornou a ficar, em seu estado de infância, inocente diante de Deus." (D&C 93:38)
+          </div>
+
+          <div class="quote">
+            "Portanto, as criancinhas são íntegras, pois são incapazes de cometer
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Bloco 2 - A Queda de Adão e Eva (Continuação)</title>
+                <link rel="stylesheet" href="../../css/styles.css" />
+                <link rel="stylesheet" href="../../css/dimension-styles.css" />
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+                />
+                <script src="../../js/aulas-config.js"></script>
+                <script src="../../js/navigation.js" defer></script>
+                <script src="../../js/main.js" defer></script>
+                <style>
+                  /* Estilos específicos para a página de panorama */
+                  .timeline-section {
+                    position: relative;
+                    padding-left: 3rem;
+                    margin-bottom: 2rem;
+                  }
+
+                  .timeline-section::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 8px;
+                    height: 100%;
+                    width: 4px;
+                    background-color: var(--primary-color);
+                    opacity: 0.3;
+                  }
+
+                  .timeline-marker {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: var(--primary-color);
+                    box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
+                  }
+
+                  .comparison-table {
+                    width: 100%;
+                    margin: 2rem 0;
+                  }
+
+                  .comparison-table th {
+                    text-align: center;
+                    background-color: var(--primary-color);
+                    color: white;
+                    padding: 1rem;
+                    font-size: 1.1rem;
+                  }
+
+                  .comparison-table td {
+                    padding: 0.75rem 1rem;
+                    border: 1px solid var(--mid-bg);
+                  }
+
+                  .lesson-content {
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    padding: 2rem;
+                    margin-bottom: 2rem;
+                  }
+
+                  .dimension-heading {
+                    display: inline-block;
+                    background-color: var(--primary-color);
+                    color: white;
+                    padding: 0.5rem 1rem;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    margin-bottom: 1.5rem;
+                  }
+
+                  .lesson-section {
+                    margin-bottom: 2rem;
+                    border-bottom: 1px solid #eaeaea;
+                    padding-bottom: 2rem;
+                  }
+
+                  .lesson-section:last-child {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                  }
+
+                  .quote {
+                    background-color: rgba(201, 162, 39, 0.1);
+                    border-left: 4px solid var(--accent-color);
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                    font-style: italic;
+                  }
+
+                  .info-box {
+                    background-color: rgba(5, 46, 111, 0.1);
+                    border: 1px solid var(--primary-color);
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                  }
+
+                  .info-box h4 {
+                    color: var(--primary-color);
+                    margin-top: 0;
+                  }
+
+                  .note {
+                    background-color: rgba(5, 46, 111, 0.05);
+                    border: 1px dashed var(--primary-color);
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                  }
+
+                  .activity {
+                    background-color: rgba(201, 162, 39, 0.05);
+                    border: 1px solid var(--accent-color);
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                  }
+
+                  .table-container {
+                    overflow-x: auto;
+                    margin: 1.5rem 0;
+                  }
+
+                  table {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+
+                  th, td {
+                    padding: 0.75rem;
+                    text-align: left;
+                    border: 1px solid #eaeaea;
+                  }
+
+                  th {
+                    background-color: var(--primary-color);
+                    color: white;
+                  }
+
+                  tr:nth-child(even) {
+                    background-color: rgba(5, 46, 111, 0.05);
+                  }
+
+                  .two-columns {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                  }
+
+                  @media (max-width: 768px) {
+                    .two-columns {
+                      grid-template-columns: 1fr;
+                    }
+                  }
+
+                  .navigation-buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 2rem;
+                  }
+
+                  img.diagram {
+                    max-width: 100%;
+                    margin: 1.5rem 0;
+                    border: 1px solid #eaeaea;
+                    border-radius: var(--border-radius);
+                  }
+
+                  .map-container {
+                    background-color: var(--light-bg);
+                    border-radius: var(--border-radius);
+                    padding: 2rem;
+                    margin: 2rem 0;
+                    border: 2px dashed var(--primary-color);
+                    text-align: center;
+                  }
+
+                  .map-container h4 {
+                    margin-top: 0;
+                    color: var(--primary-color);
+                  }
+
+                  .concept-box {
+                    display: inline-block;
+                    background-color: var(--primary-light);
+                    color: white;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: var(--border-radius);
+                    margin: 0.5rem;
+                    box-shadow: var(--card-shadow);
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                  }
+
+                  .concept-box:hover {
+                    transform: translateY(-3px);
+                  }
+
+                  .scripture-highlight {
+                    font-size: 1.25rem;
+                    font-style: italic;
+                    color: var(--primary-color);
+                    border-left: 3px solid var(--accent-color);
+                    padding-left: 1rem;
+                    margin: 1.5rem 0;
+                  }
+
+                  .reflection-prompt {
+                    background-color: rgba(201, 162, 39, 0.15);
+                    border-radius: var(--border-radius);
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                    font-style: italic;
+                  }
+
+                  .reflection-prompt::before {
+                    content: "Reflexão: ";
+                    font-weight: bold;
+                    color: var(--accent-color);
+                  }
+
+                  .infinity-bg {
+                    position: relative;
+                    overflow: hidden;
+                  }
+
+                  .infinity-bg::before {
+                    content: "∞";
+                    position: absolute;
+                    right: -10px;
+                    top: -40px;
+                    font-size: 200px;
+                    color: rgba(5, 46, 111, 0.05);
+                    z-index: 0;
+                  }
+
+                  .voce-sabia {
+                    background-color: rgba(255, 223, 100, 0.15);
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                    position: relative;
+                  }
+
+                  .voce-sabia h4 {
+                    color: var(--accent-color);
+                    margin-top: 0;
+                    margin-bottom: 0.5rem;
+                  }
+
+                  .voce-sabia::before {
+                    content: "?";
+                    position: absolute;
+                    right: 1rem;
+                    top: 0.5rem;
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: rgba(201, 162, 39, 0.2);
+                  }
+                </style>
+              </head>
+              <body>
+                <!-- Container para o componente de navegação -->
+                <div id="navigation-container"></div>
+
+                <main class="container">
+                  <section class="lesson-content">
+                    <div class="dimension-heading">BLOCO 2: A QUEDA DE ADÃO E EVA (CONTINUAÇÃO)</div>
+
+                    <div class="dimension-section">
+                      <h3><i class="fas fa-search topic-icon"></i> A QUEDA EM PERSPECTIVA CORRETA (CONTINUAÇÃO)</h3>
+
+                      <h4>2. O PECADO ORIGINAL E OS BEBÊS (CONTINUAÇÃO)</h4>
+                      <div class="quote">
+                        "Portanto, as criancinhas são íntegras, pois são incapazes de cometer pecado; portanto a maldição de Adão lhes é removida em mim, que não têm poder sobre elas..." (Morôni 8:8)
+                      </div>
+
+                      <p>
+                        O Presidente Joseph F. Smith testemunhou em uma visão que as crianças falecidas "são recebidas pelo Pai Celestial para a sua glória e exaltação plenas". O conceito de que os bebês são culpados ou sofrerão por causa do pecado de Adão é abominável a Deus.
+                      </p>
+
+                      <h4>3. PERSPECTIVA DE GÊNERO RESTAURADA</h4>
+                      <p>
+                        Uma compreensão correta da Queda evita os extremos de culpar Eva ou minimizar seu papel:
+                      </p>
+
+                      <ul>
+                        <li>Eva não é a "vilã" da história, mas uma heroína sábia que viu a necessidade da mortalidade</li>
+                        <li>Adão e Eva são parceiros iguais, ambos tomando decisões críticas que moldam o destino humano</li>
+                        <li>Homens e mulheres compartilham responsabilidade igual pelo avanço do plano de Deus</li>
+                      </ul>
+
+                      <div class="info-box">
+                        <p>
+                          O Presidente Dallin H. Oaks ensinou: "Homem e mulher foram criados para complementarem-se mutuamente. Não foram criados como competidores... A plenitude da alegria — o propósito de nossa existência — só pode ser experimentada na relação familiar de homem e mulher agindo juntos em retidão."
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="dimension-section">
+                      <h3><i class="fas fa-lightbulb topic-icon"></i> A QUEDA COMO PARTE DO PLANO ETERNO</h3>
+
+                      <p>
+                        A revelação moderna esclarece que a Queda não foi um acidente ou surpresa, mas uma parte necessária do plano eterno:
+                      </p>
+
+                      <div class="quote">
+                        "E aconteceu que o Senhor falou com Adão, dizendo: Por que ofereces sacrifícios ao Senhor? E Adão respondeu-lhe: Não sei; sei apenas que o Senhor me mandou. E então o anjo falou, dizendo: Isto é à semelhança do sacrifício do Unigênito do Pai, que é cheio de graça e verdade." (Moisés 5:6-7)
+                      </div>
+
+                      <p>
+                        Este relato mostra que o plano de redenção já estava em vigor imediatamente após a Queda, confirmando que era parte de um desenho divino maior.
+                      </p>
+
+                      <h4>NECESSIDADE DA QUEDA</h4>
+                      <p>
+                        A Queda era necessária por várias razões:
+                      </p>
+
+                      <ol>
+                        <li><strong>Verdadeira Agência</strong> - Para que o arbítrio moral fosse genuíno, a possibilidade de escolher contra Deus tinha que existir</li>
+                        <li><strong>Conhecimento Experimental</strong> - A diferença entre bem e mal só pode ser verdadeiramente compreendida através da experiência</li>
+                        <li><strong>Progresso</strong> - O estado de inocência não permitia o crescimento real para a maturidade espiritual</li>
+                        <li><strong>Posteridade</strong> - O corpo pré-Queda não era capaz de reprodução, impedindo a vinda dos espíritos para a mortalidade</li>
+                        <li><strong>Redenção</strong> - Sem a Queda, o poder redentor de Cristo não poderia ser manifestado</li>
+                      </ol>
+
+                      <div class="quote">
+                        "Adão caiu para que os homens existissem; e os homens existem para que tenham alegria" (2 Néfi 2:25). Ademais, "E o Messias vem na plenitude dos tempos para redimir da queda os filhos dos homens" (2 Néfi 2:26).
+                      </div>
+
+                      <h4>A CORAGEM DE ADÃO E EVA</h4>
+                      <p>
+                        Visto corretamente, a decisão de Adão e Eva de partilhar do fruto proibido demonstra extraordinária coragem e sacrifício:
+                      </p>
+
+                      <ul>
+                        <li>Eles abandonaram um estado de relativa facilidade e conforto</li>
+                        <li>Assumiram conscientemente a dor, o trabalho árduo e a morte</li>
+                        <li>Fizeram isso para que "os homens existissem" e pudesse haver progresso</li>
+                      </ul>
+
+                      <div class="info-box">
+                        <p>
+                          O Élder Dallin H. Oaks honrou este sacrifício: "Adão e Eva foram os primeiros a trilhar o caminho para o progresso e a felicidade da humanidade.... Sua transgressão foi um grande passo para a frente, uma escolha corajosa."
+                        </p>
+                      </div>
+
+                      <div class="activity">
+                        <h4>EXERCÍCIO DE REFLEXÃO</h4>
+                        <p>
+                          Considere as próprias escolhas difíceis que você enfrentou em sua vida — momentos em que optou pelo crescimento doloroso em vez da felicidade fácil e temporária. Como essas experiências deram a você uma nova apreciação pela escolha de Adão e Eva? Como você vê o padrão da Queda e Redenção refletido em sua própria jornada?
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="dimension-section">
+                      <h3><i class="fas fa-check-double topic-icon"></i> CONCLUSÃO: LIÇÕES DA QUEDA PARA HOJE</h3>
+
+                      <p>
+                        A compreensão correta da Queda tem implicações profundas para nossa vida hoje:
+                      </p>
+
+                      <ol>
+                        <li><strong>Valor da Adversidade</strong> - As dificuldades da mortalidade não são punição, mas oportunidades de crescimento</li>
+                        <li><strong>Gratidão por Escolhas Corajosas</strong> - Podemos honrar Adão e Eva e outros que fizeram escolhas difíceis que abriram caminho para nosso progresso</li>
+                        <li><strong>Parceria de Gênero</strong> - Homens e mulheres avançam juntos o plano de Deus como parceiros iguais com funções complementares</li>
+                        <li><strong>Propósito na Vida</strong> - A mortalidade não é uma queda acidental da graça, mas uma jornada planejada de progresso</li>
+                        <li><strong>Magnitude de Cristo</strong> - Apenas quando compreendemos a profundidade da Queda podemos apreciar verdadeiramente a altura da redenção</li>
+                      </ol>
+
+                      <p>
+                        Ao concluirmos este estudo da Queda, somos levados de volta à visão de João do Cordeiro Digno. Agora podemos entender mais claramente por que só Ele podia abrir o livro selado — porque só Ele tem poder para superar todas as consequências da Queda e implementar a redenção em sua totalidade.
+                      </p>
+
+                      <p>
+                        O livro selado contém não apenas o destino da história humana, mas o destino de cada indivíduo. Assim como João, podemos chorar quando confrontados com nossa própria incapacidade de superarmos os efeitos da Queda. No entanto, como João, também podemos regozijar-nos quando vemos o Cordeiro que prevaleceu em nosso favor.
+                      </p>
+
+                      <div class="note">
+                        <p>
+                          No próximo bloco, exploraremos como a abertura dos quatro primeiros selos libera forças que moldam a história humana após a Queda, e como essas forças continuam a operar hoje enquanto o drama da redenção continua a se desenrolar.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="map-container">
+                      <h4>SEU MAPA DO PLANO DIVINO</h4>
+                      <p>
+                        Ao continuar desenvolvendo seu mapa do plano divino, adicione os elementos-chave da Queda e da Redenção. Conecte estes elementos com as visões de João em Apocalipse 5, observando como o drama da redenção continua a se desenrolar através da história humana.
+                      </p>
+                      <div class="concept-box">A Queda Necessária</div>
+                      <div class="concept-box">Consequências da Queda</div>
+                      <div class="concept-box">O Cordeiro Redentor</div>
+                      <div class="concept-box">Nosso Crescimento através da Mortalidade</div>
+                      <div class="concept-box">A Redenção Final</div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                      <a href="../aula2.html" class="btn btn-secondary">← Voltar para Aula 2</a>
+                      <a href="proxima-dimensao.html" class="btn btn-primary">Próxima Dimensão →</a>
+                    </div>
+                  </section>
+                </main>
+
+                <footer>
+                  <div class="container">
+                    <div class="footer-links">
+                      <h4>Links Rápidos</h4>
+                      <ul>
+                        <li><a href="../../index.html">Início</a></li>
+                        <li><a href="../../introducao.html">Introdução</a></li>
+                        <li><a href="../aula2.html">Aula 2</a></li>
+                        <li><a href="../../recursos.html">Recursos</a></li>
+                        <li><a href="../../sobre.html">Sobre</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </footer>
+
+                <button id="back-to-top" class="back-to-top">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+              </body>
+            </html>

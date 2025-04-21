@@ -1,0 +1,284 @@
+<!-- Ferramentas Interativas -->
+<div class="resource-section">
+  <h2 class="section-title">🔍 FERRAMENTAS INTERATIVAS</h2>
+
+  <div class="tools-container">
+    <!-- Linha do Tempo Profética -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Linha do Tempo Profética</h3>
+      </div>
+      <p>Uma cronologia interativa mostrando como as profecias de diferentes videntes se complementam através das dispensações.</p>
+      <div class="tool-preview">
+        <img src="/api/placeholder/350/200" alt="Linha do Tempo Profética" />
+      </div>
+      <a href="#" class="tool-button">
+        <i class="fas fa-chart-line"></i> EXPLORAR LINHA DO TEMPO
+      </a>
+    </div>
+
+    <!-- Atlas de Símbolos Apocalípticos -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon">
+          <i class="fas fa-atlas"></i>
+        </div>
+        <h3>Atlas de Símbolos Apocalípticos</h3>
+      </div>
+      <p>Dicionário visual de símbolos do Apocalipse, explicando seus significados em múltiplos contextos e conexões históricas.</p>
+      <div class="tool-preview">
+        <img src="/api/placeholder/350/200" alt="Atlas de Símbolos" />
+      </div>
+      <a href="#" class="tool-button">
+        <i class="fas fa-book-open"></i> ACESSAR ATLAS
+      </a>
+    </div>
+
+    <!-- Explorador de Convergências -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3>Explorador de Convergências</h3>
+      </div>
+      <p>Ferramenta que permite visualizar como diferentes profecias e revelações se conectam e se complementam.</p>
+      <div class="tool-preview">
+        <img src="/api/placeholder/350/200" alt="Explorador de Convergências" />
+      </div>
+      <a href="#" class="tool-button">
+        <i class="fas fa-network-wired"></i> EXPLORAR CONEXÕES
+      </a>
+    </div>
+  </div>
+
+  <!-- Recursos Compilados de Apocalipse -->
+  <div class="resources-hub">
+    <div class="hub-header">
+      <h3><i class="fas fa-folder-open"></i> Todos os Recursos de Apocalipse</h3>
+      <p>Acesse nossa coleção completa de materiais de estudo, organizados por tipo e tópico</p>
+    </div>
+
+    <div class="hub-grid">
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-video"></i></div>
+        <span>Cursos em Vídeo</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-book"></i></div>
+        <span>Manuais & Guias</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-university"></i></div>
+        <span>Recursos Acadêmicos</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-microphone-alt"></i></div>
+        <span>Discursos & Conferências</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-newspaper"></i></div>
+        <span>Artigos da Liahona</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-headphones"></i></div>
+        <span>Áudios & Podcasts</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-images"></i></div>
+        <span>Infográficos</span>
+      </a>
+
+      <a href="#" class="hub-item">
+        <div class="hub-icon"><i class="fas fa-tools"></i></div>
+        <span>Ferramentas Interativas</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Estilo CSS para esta seção -->
+<style>
+  .tools-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .tool-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    transition: transform 0.3s ease;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tool-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .tool-icon {
+    background-color: #f0f4f8;
+    color: #002664;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-right: 15px;
+  }
+
+  .tool-header h3 {
+    color: #002664;
+    margin: 0;
+  }
+
+  .tool-card p {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .tool-preview {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .tool-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tool-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #002664;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .tool-button:hover {
+    background-color: #001a47;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Recursos Hub */
+  .resources-hub {
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 40px;
+  }
+
+  .hub-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .hub-header h3 {
+    color: #002664;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .hub-header p {
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .hub-item {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .hub-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-decoration: none;
+  }
+
+  .hub-icon {
+    background-color: #dbe5f1;
+    color: #002664;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .hub-item:hover .hub-icon {
+    background-color: #d2b149;
+    color: white;
+  }
+
+  .hub-item span {
+    color: #002664;
+    font-weight: bold;
+  }
+
+  @media (min-width: 768px) {
+    .tools-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hub-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .tools-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hub-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

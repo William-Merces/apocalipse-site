@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloco 3 - Conexões Proféticas: Aula 2</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/dimension-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Carregar scripts na ordem correta -->
+  <script src="../../js/aulas-config.js"></script>
+  <script src="../../js/navigation.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <style>
+    /* Estilos específicos para a página de convergência */
+    .prophet-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border-top: 5px solid var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+
+    .prophet-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .prophet-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prophet-header h4 {
+      color: white;
+      margin: 0;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .prophet-header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: skewX(-15deg) translateX(50%);
+    }
+
+    .prophet-content {
+      padding: 1.5rem;
+    }
+
+    .prophet-content h5 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    .prophet-content ul {
+      margin-bottom: 1rem;
+    }
+
+    .connection-line {
+      position: relative;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .connection-line::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+      z-index: 0;
+    }
+
+    .connection-badge {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    .convergence-visual {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .vision-sphere {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .vision-sphere::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border: 2px dashed var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .vision-connector {
+      position: relative;
+      width: 100px;
+      height: 2px;
+      background-color: var(--accent-color);
+      align-self: center;
+    }
+
+    .vision-connector::before,
+    .vision-connector::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .vision-connector::before {
+      left: 0;
+    }
+
+    .vision-connector::after {
+      right: 0;
+    }
+
+    .insight-box {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .insight-box h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .insight-type {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .convergence-chart {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+
+    .convergence-chart th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .convergence-chart td {
+      padding: 1rem;
+      border: 1px solid var(--mid-bg);
+      vertical-align: top;
+    }
+
+    .convergence-chart th:first-child,
+    .convergence-chart td:first-child {
+      background-color: var(--primary-light);
+      color: white;
+      font-weight: bold;
+    }
+
+    .scripture-reference {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    .scripture-highlight {
+      display: block;
+      background-color: rgba(5, 46, 111, 0.05);
+      border-left: 3px solid var(--primary-color);
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+    }
+
+    .prophet-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .prophet-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Estilo para os testemunhos conjuntos */
+    .testimony-box {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .testimony-box::before {
+      content: "\201C";  /* Unicode para aspas duplas de abertura */
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-size: 150px;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+    }
+
+    .testimony-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimony-content p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .testimony-attribution {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    .prophet-attribution {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Estilos para aplicação pessoal */
+    .application-steps {
+      counter-reset: step-counter;
+      margin: 2rem 0;
+    }
+
+    .application-step {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .application-step::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .application-step h4 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    /* Elementos de visualização */
+    .throne-visualization {
+      background-color: rgba(5, 46, 111, 0.05);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .throne-circle {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(201, 162, 39, 0.2) 100%);
+      border: 2px solid var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+    }
+
+    .throne-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+    }
+
+    .throne-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .throne-element {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .element-1 { top: 0; left: 50%; transform: translateX(-50%); }
+    .element-2 { top: 50%; right: 0; transform: translateY(-50%); }
+    .element-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .element-4 { top: 50%; left: 0; transform: translateY(-50%); }
+
+    .prophet-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .prophet-column {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .prophet-column h4 {
+      text-align: center;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .prophet-insight {
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .prophet-insight::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 768px) {
+      .convergence-visual {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vision-connector {
+        width: 2px;
+        height: 60px;
+      }
+
+      .vision-connector::before,
+      .vision-connector::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .vision-connector::before {
+        top: 0;
+      }
+
+      .vision-connector::after {
+        top: auto;
+        bottom: 0;
+      }
+
+      .throne-circle {
+        width: 200px;
+        height: 200px;
+      }
+
+      .throne-element {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Container para o componente de navegação -->
+  <div id="navigation-container"></div>
+
+  <main class="container">
+    <section class="lesson-content">
+      <div class="dimension-heading">BLOCO 3: CONEXÕES PROFÉTICAS</div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-sync-alt topic-icon"></i> CONVERGÊNCIA DE TESTEMUNHOS SOBRE O PLANO ETERNO</h3>
+
+        <p>
+          Neste bloco, aprofundaremos nossa compreensão do plano eterno através da convergência de múltiplos testemunhos proféticos. Enriquecendo os princípios já explorados sobre o Cristo Glorificado (Bloco 1) e o Plano Personalizado (Bloco 2), examinaremos como outros videntes expandem nossa visão destes temas.
+        </p>
+
+        <div class="note">
+          <h4>A IMPORTÂNCIA DA MÚLTIPLA TESTEMUNHA</h4>
+          <p>
+            "Este é o terceiro dia que vos falo, tendo ressuscitado dos mortos... Para que, pela boca de duas ou três testemunhas, todas as coisas sejam confirmadas." (3 Néfi 17:4)
+          </p>
+          <p>
+            O próprio Senhor estabeleceu o princípio de múltiplas testemunhas. Quando diversas vozes proféticas convergem em torno de verdades similares, recebemos não apenas confirmação, mas um panorama mais amplo e rico de revelação divina.
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            O padrão de múltiplas testemunhas reflete a própria natureza da Trindade. O Pai testifica do Filho (Mateus 3:17), o Filho testifica do Pai (João 14:6-9), e o Espírito Santo testifica de ambos (João 15:26). Esta natureza interdependente do testemunho divino estabelece um modelo para nossa própria busca de verdade — raramente recebemos compreensão completa através de uma única fonte.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-user-alt topic-icon"></i> PROFETA CONVIDADO 1: ENOQUE, O VIDENTE DA GLÓRIA FINAL</h3>
+
+        <div class="prophet-card">
+          <div class="prophet-header">
+            <h4>CONTEXTO HISTÓRICO E GEOGRÁFICO</h4>
+          </div>
+          <div class="prophet-content">
+            <p>
+              Enoque viveu aproximadamente 3.000 anos antes de Cristo, sete gerações após Adão. Seu ministério ocorreu durante um período de crescente iniquidade, quando "os filhos dos homens multiplicaram-se naquela terra" (Moisés 7:1). A região onde Enoque ministrou é descrita como uma área montanhosa chamada "monte Sião" (Moisés 7:17), possivelmente localizada na Mesopotâmia (atual Oriente Médio).
+            </p>
+            <div class="insight-box">
+              <h4><span class="insight-type">PANORAMA CULTURAL</span></h4>
+              <p>
+                Enoque viveu em uma época de transição da cultura nômade primitiva para assentamentos urbanos iniciais. A tecnologia estava em estágios iniciais, com a metalurgia apenas começando a ser desenvolvida. O contexto religioso era marcado por diversas formas de idolatria e degeneração dos ensinamentos puros transmitidos por Adão. Quando Enoque começou seu ministério, tinha apenas 65 anos — considerado jovem naquela época de longevidade extraordinária — e enfrentou tremenda oposição inicial.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>ELEMENTOS-CHAVE DA VISÃO DE ENOQUE</h4>
+        <div class="scripture-highlight">
+          "E passou que Enoque olhou; e, desde Noé, contemplou todas as famílias da Terra; e clamou ao Senhor, dizendo: Quando virá o dia do Senhor? Quando será derramado o sangue do Justo, a fim de que todos os que choram sejam santificados e tenham vida eterna?" (Moisés 7:45)
+        </div>
+
+        <p>
+          Na visão de Enoque, vemos uma expansão significativa dos temas revelados a João em Patmos e também das verdades que exploramos sobre o plano personalizado. Consideremos as principais conexões:
+        </p>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>1. A Identidade de Cristo como Juiz Misericordioso</h4>
+            <div class="scripture-highlight">
+              "O Justo está levantado diante de mim e o Cordeiro está morto desde a fundação do mundo." (Moisés 7:47)
+            </div>
+            <p><strong>CONEXÃO COM O BLOCO 1:</strong> João viu Cristo "semelhante ao Filho do Homem" (Apocalipse 1:13) em majestade e glória. Enoque complementa esta visão identificando-O como "o Justo" e "o Cordeiro morto desde a fundação do mundo". Esta linguagem enfatiza tanto a justiça quanto a misericórdia de Cristo — os mesmos atributos que vimos em Suas mensagens às sete igrejas, onde Ele tanto corrigia quanto confortava.</p>
+            <div class="quote">
+              "Enoque contemplou Cristo em Sua função dual como Juiz justo e Salvador misericordioso. Esta mesma dualidade aparece nas mensagens às sete igrejas do Apocalipse, onde Cristo tanto adverte quanto convida, tanto repreende quanto promete consolação." <span class="quote-attribution">— Élder Jeffrey R. Holland</span>
+            </div>
+            <div class="insight-box">
+              <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+              <p>
+                O título "o Justo" usado por Enoque para Cristo (Moisés 7:45, 47) é particularmente significativo porque remete ao papel de Cristo como Advogado e Mediador. Em hebraico, a mesma raiz para "justiça" (tsedek) está relacionada aos conceitos de retidão, integridade e fidelidade aos convênios. Assim, quando Enoque vê Cristo como "o Justo", ele O reconhece como Aquele que perfeitamente cumpre Seus convênios e, portanto, pode defender nosso caso diante do Pai.
+              </p>
+            </div>
+          </div>
+          <div class="prophet-column">
+            <h4>2. O Plano Eterno Revelado em Sua Totalidade</h4>
+            <p>Talvez a contribuição mais notável de Enoque seja sua visão abrangente do plano eterno, do início ao fim:</p>
+            <div class="scripture-highlight">
+              "E o Senhor mostrou a Enoque todas as coisas, mesmo até o fim do mundo; e ele viu o dia dos justos, a hora de sua redenção; e recebeu uma plenitude de alegria." (Moisés 7:67)
+            </div>
+            <p><strong>CONEXÃO COM O BLOCO 2:</strong> No Bloco 2, exploramos como Deus preparou um plano personalizado para cada um de nós. A visão de Enoque expande este conceito, revelando o destino coletivo dos fiéis. Ele viu não apenas nossa origem pré-mortal, mas também nossa destinação final — "o dia dos justos" e "a hora de sua redenção".</p>
+            <div class="quote">
+              "As visões de Enoque são notáveis por sua abrangência. Enquanto muitos profetas veem partes específicas do plano, Enoque contemplou 'todas as coisas, mesmo até o fim do mundo'. Esta perspectiva expansiva nos ajuda a conectar todas as partes do plano de salvação em um panorama coerente e inspirador." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>3. A Cidade de Sião: Modelo para Nossa Preparação Final</h4>
+            <div class="scripture-highlight">
+              "E aconteceu que Sião não mais foi encontrada, porque Deus a recebeu em seu próprio seio; e desde aquele tempo surgiu o ditado: SIÃO FUGIU." (Moisés 7:69)
+            </div>
+            <p>Uma das realizações mais notáveis de Enoque foi a estabelecimento de Sião — uma comunidade tão justa que foi eventualmente arrebatada para o céu:</p>
+            <div class="scripture-highlight">
+              "E o Senhor chamou seu povo SIÃO, porque eram unos de coração e vontade e viviam em retidão; e não havia pobres entre eles." (Moisés 7:18)
+            </div>
+            <p><strong>CONEXÃO COM AS MENSAGENS ÀS SETE IGREJAS:</strong> No Bloco 1, vimos como Cristo advertiu e aconselhou as sete igrejas sobre como permanecer fiéis em um mundo hostil. A Sião de Enoque representa o auge deste ideal — uma comunidade que não apenas resistiu às influências mundanas, mas transcendeu-as completamente.</p>
+            <div class="quote">
+              "Quando estudamos as características da Sião de Enoque, vemos o cumprimento perfeito das exortações de Cristo às sete igrejas. Onde Sardes era advertida por ser 'morta', a Sião de Enoque era intensamente vital e viva no Espírito. Onde Laodiceia era 'morna', Sião era fervorosa em devoção. Onde Pérgamo tolerava falsos ensinos, Sião era pura em doutrina." <span class="quote-attribution">— Élder D. Todd Christofferson</span>
+            </div>
+          </div>
+          <div class="prophet-column">
+            <h4>4. O Deus que Chora: Compaixão Divina e Plano Personalizado</h4>
+            <p>Um dos aspectos mais profundos da visão de Enoque é sua revelação da natureza compassiva de Deus:</p>
+            <div class="scripture-highlight">
+              "E aconteceu que o Deus do céu olhou para o restante do povo e chorou... E Enoque disse ao Senhor: Como é que podes chorar, sendo que és santo e de eternidade a eternidade?" (Moisés 7:28-29)
+            </div>
+            <p><strong>CONEXÃO COM O PLANO PERSONALIZADO:</strong> No Bloco 2, exploramos como o Pai preparou um plano adaptado especificamente para cada um de nós. A visão de Enoque sobre o Deus que chora aprofunda dramaticamente esta verdade — o Pai não apenas conhece nosso caminho individual, mas sente profundamente nossas lutas e triunfos.</p>
+            <div class="quote">
+              "As lágrimas de Deus revelam que o plano personalizado que Ele criou para cada um de nós não é uma fria configuração administrativa, mas uma expressão de amor profundo e pessoal. O próprio Criador do universo está emocionalmente investido no destino de cada filho Seu. Nenhum de nós é apenas um número ou uma estatística no plano divino." <span class="quote-attribution">— Élder Neal A. Maxwell</span>
+            </div>
+            <div class="insight-box">
+              <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+              <p>
+                O choro de Deus testemunhado por Enoque representa uma contribuição teológica única dos Santos dos Últimos Dias. Enquanto muitas tradições religiosas enfatizam a transcendência e impassibilidade de Deus (a ideia de que Deus é incapaz de sofrer ou ser afetado por emoções), a revelação moderna através de Enoque mostra um Deus que se importa profundamente e é movido pela condição de Seus filhos. Esta visão é consistente com o Deus revelado por Jesus Cristo, que chorou diante do túmulo de Lázaro (João 11:35) e sobre Jerusalém (Lucas 19:41).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">PONTO DE REFLEXÃO</span></h4>
+          <p>
+            Como o conhecimento de que Deus chora por você — compartilhando sua dor, decepção e luta — muda sua percepção de suas provações atuais? Como isso afeta sua confiança no plano personalizado que Ele preparou para você?
+          </p>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>5. A Consumação Final: Nova Jerusalém e Segunda Vinda</h4>
+            <p>Enoque viu não apenas o estabelecimento de sua própria Sião, mas também o destino final dessa cidade celestial:</p>
+            <div class="scripture-highlight">
+              "E o dia virá em que a terra descansará; mas antes desse dia os céus escurecerão e um véu de trevas cobrirá a Terra; e os céus tremerão e também a Terra... E será chamada SIÃO, uma Nova Jerusalém. E aconteceu que Enoque viu o dia da vinda do Filho do Homem, na última hora; sim, em carne." (Moisés 7:61, 62, 65)
+            </div>
+            <p><strong>CONEXÃO COM O APOCALIPSE DE JOÃO:</strong> O vislumbre de Enoque da Nova Jerusalém e da Segunda Vinda antecipa as visões de João em Apocalipse 21, onde ele vê "a santa cidade, a nova Jerusalém, que descia do céu, da parte de Deus, preparada como uma noiva adornada para o seu marido" (Apocalipse 21:2).</p>
+            <div class="quote">
+              "O que Enoque viu em visão, João experimentaria em realidade. A Nova Jerusalém não é apenas uma cidade física, mas o símbolo da união final entre o céu e a terra, entre a Sião de Enoque arrebatada ao céu e a Sião dos últimos dias estabelecida na terra." <span class="quote-attribution">— Élder Bruce R. McConkie</span>
+            </div>
+            <p><strong>CONEXÃO COM A PREPARAÇÃO PESSOAL:</strong> A profecia de Enoque sobre a união final da Sião celestial com a terrena complementa o tema do Bloco 2 sobre nossa preparação pessoal para cumprir nosso papel no plano divino. Assim como Cristo preparou mensagens específicas para cada uma das sete igrejas, Ele está preparando cada um de nós para participar nesta reunião final das Siões.</p>
+            <div class="quote">
+              "Assim como Enoque preparou seu povo para serem arrebatados, nós estamos sendo preparados para a gloriosa reunião com os santos de todas as eras. Cada chamado, cada provação, cada experiência em nossa jornada mortal é parte dessa preparação." <span class="quote-attribution">— Élder Ronald A. Rasband</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-tools topic-icon"></i> EXERCÍCIO DE APLICAÇÃO: CONSTRUINDO SIÃO PESSOAL</h3>
+        <div class="activity">
+          <h4>CONSTRUINDO SIÃO PESSOAL</h4>
+          <p>
+            1. Considere os três princípios fundamentais de Sião mencionados em Moisés 7:18:
+          </p>
+          <ul>
+            <li>Unidade de coração e mente</li>
+            <li>Vida em retidão</li>
+            <li>Nenhuma pobreza entre eles</li>
+          </ul>
+          <p>
+            2. Para cada princípio, identifique:
+          </p>
+          <ul>
+            <li>Um aspecto de sua vida que já reflete este princípio</li>
+            <li>Uma área onde você precisa crescer</li>
+            <li>Uma ação específica que você pode tomar esta semana para incorporar mais plenamente este princípio</li>
+          </ul>
+          <p>
+            3. Compartilhe sua reflexão com um parceiro de estudo, enfatizando como estes princípios podem ser aplicados tanto individualmente quanto coletivamente em sua família, ala/ramo, ou comunidade.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-user-alt topic-icon"></i> PROFETA CONVIDADO 2: NÉFI, O VIDENTE DO LIVRO SELADO</h3>
+
+        <div class="prophet-card">
+          <div class="prophet-header">
+            <h4>CONTEXTO HISTÓRICO E GEOGRÁFICO</h4>
+          </div>
+          <div class="prophet-content">
+            <p>
+              Néfi, filho de Leí, viveu aproximadamente 600 a.C. Sua jornada o levou de Jerusalém através da Península Arábica até o Oceano Índico e finalmente às Américas (provavelmente na região da Mesoamérica). Como profeta-fundador de uma nova civilização, Néfi registrou visões extraordinárias que complementam notavelmente os testemunhos tanto de João quanto de Enoque.
+            </p>
+            <div class="insight-box">
+              <h4><span class="insight-type">PANORAMA CULTURAL</span></h4>
+              <p>
+                Néfi cresceu em Jerusalém durante um período de crise internacional. O Império Neobabilônico, sob Nabucodonosor, estava expandindo seu poder, enquanto o pequeno reino de Judá enfrentava ameaças externas e corrupção interna. Religiosa e culturalmente, o povo havia se afastado dos convênios, substituindo a adoração verdadeira por rituais vazios e sincretismo com práticas pagãs. Néfi foi formado no contexto dessa tensão religiosa e política, emergindo como uma voz de restauração e reforma.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>ELEMENTOS-CHAVE DA VISÃO DE NÉFI</h4>
+        <p>
+          A visão de Néfi, registrada em 1 Néfi 11-14, oferece paralelos impressionantes com o Apocalipse de João e expande nossa compreensão do plano personalizado:
+        </p>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>1. A Conexão do Véu: Contemplando o Cristo em Glória</h4>
+            <div class="scripture-highlight">
+              "Fui arrebatado no Espírito do Senhor a um monte muito alto... E o Espírito disse-me: Olha! E olhei e vi uma árvore... E sua beleza excedia, sim, era superior a toda beleza; e sua brancura excedia a brancura da neve." (1 Néfi 11:1, 8)
+            </div>
+            <p><strong>CONEXÃO COM O BLOCO 1:</strong> Enquanto João viu Cristo em Sua glória ressuscitada, Néfi contemplou tanto o Cristo pré-mortal quanto Sua missão mortal. Essas visões complementares revelam a consistência da identidade de Cristo através de todas as eras — o mesmo Ser glorioso que João viu andando entre os candeeiros de ouro.</p>
+            <div class="quote">
+              "As visões de João e Néfi, embora separadas por sete séculos e metade do mundo, confirmam a mesma verdade: Jesus Cristo é o centro do plano eterno de Deus. João O vê em Sua glória ressuscitada; Néfi O contempla em Sua condescendência e sacrifício. Juntos, oferecem um testemunho completo do Senhor eterno." <span class="quote-attribution">— Élder Gerrit W. Gong</span>
+            </div>
+          </div>
+          <div class="prophet-column">
+            <h4>2. O Livro Selado: Revelação Progressiva do Plano Divino</h4>
+            <div class="scripture-highlight">
+              "Eis que ele contém um registro dos judeus, desde o princípio até ao começo do reinado de Zedequias, rei de Judá; e contém também muitas das profecias dos santos profetas; e é um registro semelhante às gravações que estão sobre as placas de latão, só que menos numerosas." (1 Néfi 13:23-24)
+            </div>
+            <p>Néfi viu ainda como este registro seria corrompido por "aquela grande e abominável igreja" (1 Néfi 13:26) e como o Senhor providenciaria "outros livros" para restaurar as verdades perdidas (1 Néfi 13:39-40).</p>
+            <p><strong>CONEXÃO COM O APOCALIPSE DE JOÃO:</strong> Em Apocalipse 5, João vê "um livro selado com sete selos" que apenas o Cordeiro era digno de abrir. O livro selado de João e o livro corrompido/restaurado de Néfi representam aspectos complementares da revelação divina.</p>
+            <div class="quote">
+              "Os livros selados nas visões de João e Néfi simbolizam como a verdade divina está sendo progressivamente revelada de acordo com nossa preparação para recebê-la. O Apocalipse de João enfatiza o desdobramento do plano de Deus no tempo, enquanto a visão de Néfi foca no processo de restauração de verdades perdidas." <span class="quote-attribution">— Elder Neal A. Maxwell</span>
+            </div>
+            <p><strong>CONEXÃO COM O PLANO PERSONALIZADO:</strong> Esta revelação progressiva reflete como o plano personalizado que exploramos no Bloco 2 se desenrola em nossa vida — não recebemos toda verdade e entendimento de uma vez, mas linha sobre linha, conforme estamos preparados para receber.</p>
+            <div class="quote">
+              "O princípio da revelação contínua em nossa vida pessoal segue o mesmo padrão que Néfi viu em sua visão sobre a restauração da verdade. O Senhor revela Seu plano para nós gradualmente, à medida que estamos preparados e dispostos a agir com fé." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>3. A Batalha Contínua: Guerra Espiritual Através dos Tempos</h4>
+            <div class="scripture-highlight">
+              "E vi que se formou uma grande fossa entre o palácio e a igreja de Deus; e a escuridão da abominável igreja cegou os olhos e endureceu o coração dos filhos dos homens." (1 Néfi 15:28, 30)
+            </div>
+            <p>Tal como João viu em Apocalipse 12, Néfi testemunhou o conflito contínuo entre as forças da retidão e da iniquidade.</p>
+            <p><strong>CONEXÃO COM O BLOCO 2:</strong> Esta visão da batalha contínua complementa nossa discussão sobre como a guerra nos céus persiste na mortalidade, exigindo que façamos escolhas diárias que refletem nossa lealdade pré-mortal a Cristo.</p>
+            <div class="quote">
+              "A visão de Néfi mostra que a guerra que começou nos céus nunca terminou realmente, apenas mudou de arena. A 'grande e espaçosa fossa' entre o caminho da retidão e a grande e espaçosa edificação representa a divisão que cada um de nós enfrenta diariamente ao escolher entre o plano de salvação e as falsas alternativas de Satanás." <span class="quote-attribution">— Elder David A. Bednar</span>
+            </div>
+            <div class="insight-box">
+              <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+              <p>
+                A "grande e abominável igreja" vista por Néfi não se refere a nenhuma denominação específica, mas representa todas as forças, influências e filosofias que se opõem a Cristo e Seu plano. O Elder Bruce R. McConkie ensinou que esta entidade "consiste em todas... as organizações de qualquer nome ou natureza... que são designadas para levar os homens por um curso que os afaste de Deus e Suas leis e, portanto, da salvação no reino de Deus."
+              </p>
+            </div>
+          </div>
+          <div class="prophet-column">
+            <h4>4. O Remanescente da Aliança: Identidade e Propósito Restaurados</h4>
+            <div class="scripture-highlight">
+              "E acontecerá que se os gentios derem ouvidos ao Cordeiro de Deus no dia em que ele se manifestar a eles em palavra e também em poder, verdadeiramente, para remover-lhes as pedras de tropeço— E não endurecerem o coração contra o Cordeiro de Deus, serão contados com a semente de teu pai." (1 Néfi 14:1-2)
+            </div>
+            <p><strong>CONEXÃO COM AS CARTAS ÀS SETE IGREJAS:</strong> A mensagem de Néfi aos gentios ecoa a exortação de Cristo às igrejas da Ásia para "ter ouvidos para ouvir". Tanto as sete igrejas quanto os gentios dos últimos dias são chamados a reconhecer suas identidades como povo de convênio e a permanecerem fiéis a seu propósito divino.</p>
+            <div class="quote">
+              "As promessas feitas por Cristo às sete igrejas em Apocalipse têm paralelos notáveis com as promessas que Néfi viu sendo estendidas aos gentios nos últimos dias. Em ambos os casos, a fidelidade aos convênios determina a identidade espiritual, não a linhagem física." <span class="quote-attribution">— Elder Paul V. Johnson</span>
+            </div>
+            <p><strong>CONEXÃO COM O PLANO PERSONALIZADO:</strong> As visões de Néfi sobre os gentios tornando-se "contados com a semente" de Jacó ilustram como nossa identidade eterna é determinada por nossas escolhas, não por circunstâncias de nascimento — um princípio central do plano personalizado de Deus.</p>
+            <div class="quote">
+              "Quando os gentios aceitam o evangelho e são fiéis a seus convênios, eles são 'contados com a casa de Israel'. Isto ilustra um princípio fundamental: nosso verdadeiro passaporte para a exaltação não é nossa nacionalidade, etnia ou cultura, mas nossa fidelidade aos convênios que fizemos com Deus." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>5. O Chamado à Preparação: Enfrentando os Últimos Dias</h4>
+            <div class="scripture-highlight">
+              "E aconteceu que eu, Néfi, vi que o poder do Cordeiro de Deus descia sobre os santos da igreja do Cordeiro e sobre o povo do convênio do Senhor... e estavam armados com retidão e com o poder de Deus, em grande glória." (1 Néfi 14:14)
+            </div>
+            <p><strong>CONEXÃO COM O APOCALIPSE DE JOÃO:</strong> Esta visão de santos armados com retidão complementa as imagens de Apocalipse 7, onde João vê uma multidão "vestida de vestes brancas" (Apocalipse 7:9) que "lavaram suas vestes e as branquearam no sangue do Cordeiro" (Apocalipse 7:14).</p>
+            <div class="quote">
+              "Tanto Néfi quanto João viram como o povo do Senhor seria fortalecido nos últimos dias. As 'vestes brancas' de João e a 'armadura de retidão' de Néfi representam a mesma verdade: a proteção divina vem através da pureza pessoal e fidelidade aos convênios." <span class="quote-attribution">— Élder Gary E. Stevenson</span>
+            </div>
+            <p><strong>APLICAÇÃO PARA NOSSA PREPARAÇÃO PESSOAL:</strong> A visão de Néfi nos convida a avaliar nossa própria preparação espiritual para os desafios dos últimos dias. A "armadura de retidão" não é concedida automaticamente, mas desenvolvida através de escolhas diárias consistentes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-tools topic-icon"></i> EXERCÍCIO DE AUTORREFLEXÃO: SUA ARMADURA PESSOAL</h3>
+
+        <div class="activity">
+          <p>
+            1. Considere os componentes da armadura de Deus descritos por Paulo em Efésios 6:13-17:
+          </p>
+          <ul>
+            <li>Cinto da verdade</li>
+            <li>Couraça da justiça</li>
+            <li>Calçados da preparação do evangelho da paz</li>
+            <li>Escudo da fé</li>
+            <li>Capacete da salvação</li>
+            <li>Espada do Espírito</li>
+          </ul>
+          <p>
+            2. Para cada peça da armadura, avalie honestamente:
+          </p>
+          <ul>
+            <li>Quão fortemente esta proteção está desenvolvida em sua vida (1-10)</li>
+            <li>Uma ameaça específica contra a qual esta proteção o defende</li>
+            <li>Uma ação concreta que você pode tomar para fortalecer esta área</li>
+          </ul>
+          <p>
+            3. Identifique padrões em sua autoavaliação. Onde estão seus pontos fortes? Onde estão suas vulnerabilidades? Como você pode construir sobre seus pontos fortes para fortalecer suas áreas mais fracas?
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-chart-pie topic-icon"></i> CONVERGÊNCIA FINAL: O TESTEMUNHO UNIFICADO</h3>
+
+        <p>
+          Ao reunirmos os testemunhos de João, Enoque e Néfi, emerge um poderoso testemunho unificado:
+        </p>
+
+        <div class="insight-box">
+          <h4>1. Cristo é o Centro</h4>
+          <p>
+            Todas as três testemunhas contemplam Cristo como a figura central do plano eterno de Deus — João O vê em glória ressuscitada, Enoque O contempla como o Justo e o Cordeiro, e Néfi testemunha Sua condescendência e sacrifício.
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4>2. O Plano é Pessoal</h4>
+          <p>
+            Cada testemunha revela aspectos de como o plano eterno de Deus se conecta a indivíduos — João através das cartas personalizadas às sete igrejas, Enoque pela revelação do Deus que chora por Seus filhos, e Néfi pela promessa de identidade restaurada aos gentios fiéis.
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4>3. A Jornada Coletiva</h4>
+          <p>
+            Todas as três testemunhas contemplam o movimento do povo de Deus através do tempo para um destino glorioso — João vê a Nova Jerusalém, Enoque vê o retorno de sua Sião, e Néfi vê os santos armados com poder para os últimos dias.
+          </p>
+        </div>
+
+        <div class="quote">
+          "Quando estudamos todos estes profetas em conjunto, não estamos apenas acumulando informações, mas construindo uma visão integral. É como montar as peças de um quebra-cabeça divino — cada profeta contribui com peças essenciais para a imagem completa." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-lightbulb topic-icon"></i> APLICAÇÃO: VIVENDO NA CONVERGÊNCIA</h3>
+
+        <p>
+          Como podemos aplicar estas verdades convergentes em nossa vida diária?
+        </p>
+
+        <ol>
+          <li><strong>Busque Múltiplas Testemunhas:</strong> Em sua própria busca por revelação pessoal, valorize o padrão de múltiplas testemunhas. Busque confirmação de verdades importantes através de várias fontes inspiradas.</li>
+          <li><strong>Conecte as Escrituras:</strong> Pratique a leitura cruzada entre o Apocalipse, o livro de Moisés e 1 Néfi, identificando conexões e temas que aprofundam sua compreensão do plano divino.</li>
+          <li><strong>Visualize o Plano Completo:</strong> Regularmente "dê um passo atrás" para contemplar o panorama geral do plano de Deus, conectando suas experiências diárias com seu propósito eterno.</li>
+          <li><strong>Aplique a Visão Profética:</strong> Permita que as visões destes profetas informem suas decisões diárias, lembrando que cada escolha o move em direção a um dos dois destinos que eles contemplaram — a Nova Jerusalém de justiça ou a grande e espaçosa edificação de orgulho.</li>
+        </ol>
+
+        <div class="quote">
+          "Ter uma visão das coisas como realmente são, foram e serão é ter uma perspectiva especial. Esses profetas visionários não apenas viram a estrada à frente, mas a jornada inteira. Sua visão nos mostra não apenas o que está imediatamente diante de nós, mas nosso destino final." <span class="quote-attribution">— Élder Neal A. Maxwell</span>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-users topic-icon"></i> DESAFIO FINAL: TORNE-SE UMA TESTEMUNHA CONVERGENTE</h3>
+
+        <p>
+          Como estudante destes profetas visionários, você tem o privilégio e a responsabilidade de se tornar uma testemunha convergente em sua própria esfera de influência:
+        </p>
+
+        <div class="application-steps">
+          <div class="application-step">
+            <h4>Identifique Seu Círculo</h4>
+            <p>Considere quem está em sua esfera de influência — família, amigos, colegas, membros da ala/ramo.</p>
+          </div>
+          <div class="application-step">
+            <h4>Compartilhe Sua Perspectiva</h4>
+            <p>Encontre oportunidades apropriadas para compartilhar as perspectivas que você ganhou através deste estudo.</p>
+          </div>
+          <div class="application-step">
+            <h4>Viva Seu Testemunho</h4>
+            <p>Permita que estas visões proféticas moldem suas escolhas diárias de maneiras visíveis para os outros.</p>
+          </div>
+          <div class="application-step">
+            <h4>Conecte-se ao Plano Maior</h4>
+            <p>Ajude outros a ver como suas lutas e triunfos pessoais se conectam ao desdobramento do grande plano de felicidade.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "O mundo necessita de postos avançados de observação e sentinelas na muralha da Sião, para anunciar a alvorada do dia grande e terrível do Senhor, e cada membro da Igreja, armado com este conhecimento, torna-se tal sentinela." <span class="quote-attribution">— Presidente Joseph F. Smith</span>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-quote-right topic-icon"></i> CONCLUSÃO: O PANORAMA COMPLETO</h3>
+
+        <p>
+          À medida que concluímos este estudo da convergência profética, voltamos a uma verdade fundamental: o Senhor provê múltiplas testemunhas para nos dar uma visão mais completa de Seu plano. João, Enoque e Néfi, cada um a partir de sua perspectiva única, oferecem vislumbres essenciais que, quando combinados, revelam um panorama glorioso do propósito divino.
+        </p>
+
+        <p>
+          Conforme seguimos para a próxima aula, onde contemplaremos o trono celestial e o Cordeiro digno, carregamos conosco este testemunho unificado — que Cristo está no centro, que o plano é pessoal, e que nossa jornada coletiva avança inexoravelmente para a gloriosa consumação que todos estes videntes contemplaram.
+        </p>
+
+        <div class="quote">
+          "Embora sigamos o caminho um passo de cada vez, é reconfortante saber que o mapa completo existe, que a jornada tem um destino glorioso, e que profetas ao longo de todas as eras levantaram suas vozes em testemunho desse destino." <span class="quote-attribution">— Élder Neal A. Maxwell</span>
+        </div>
+      </div>
+
+      <div class="navigation-buttons">
+        <a href="../aula1.html" class="btn btn-secondary">← Voltar para Aula 1</a>
+        <a href="../aula3.html" class="btn btn-primary">Próxima Aula →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="../../introducao.html">Introdução</a></li>
+          <li><a href="../aula1.html">Aula 1</a></li>
+          <li><a href="../aula3.html">Aula 3</a></li>
+          <li><a href="../../recursos.html">Recursos</a></li>
+          <li><a href="../../sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

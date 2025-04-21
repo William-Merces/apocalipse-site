@@ -1,0 +1,1169 @@
+/**
+ * Estilos aprimorados da página inicial (index.html)
+ * Curso: Apocalipse - As Visões dos Últimos Dias
+ *
+ * Versão otimizada com melhor contraste, organização e experiência do usuário
+ */
+
+:root {
+  --primary-color: #052e6f; /* Azul escuro */
+  --primary-dark: #031d4c; /* Azul mais escuro */
+  --accent-color: #e9b44c; /* Dourado */
+  --accent-dark: #c4962f; /* Dourado escuro */
+  --light-bg: #f5f7fa; /* Fundo claro */
+  --dark-text: #333; /* Texto escuro para fundos claros */
+  --light-text: #fff; /* Texto claro para fundos escuros */
+  --text-secondary: #666; /* Texto secundário */
+  --border-radius: 8px; /* Arredondamento padrão */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra padrão */
+  --transition-default: all 0.3s ease; /* Transição padrão */
+}
+
+/* Estilos globais para melhorar a legibilidade */
+body {
+  color: var(--dark-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition-default);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   Seção Hero (Banner Principal) - Melhorado contraste e legibilidade
+   ========================================================================== */
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  color: var(--light-text);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../api/placeholder/1200/600');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  color: var(--light-text);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+}
+
+.hero__subtitle {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero__description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Estrutura de Seções - Melhor distribuição visual
+   ========================================================================== */
+
+.section {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.section:nth-child(even) {
+  background-color: var(--light-bg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Sistema de Cards - Melhorado para maior legibilidade
+   ========================================================================== */
+
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card--info {
+  border-top: 4px solid var(--primary-color);
+}
+
+.card--accent {
+  border-top: 4px solid var(--accent-color);
+}
+
+.card__title {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 1.4rem;
+}
+
+.card__content {
+  color: var(--dark-text);
+}
+
+/* ==========================================================================
+   Accordion de Aulas - Estrutura do curso compacta
+   ========================================================================== */
+
+.course-cycle {
+  margin-bottom: 3rem;
+}
+
+.cycle-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.lesson-accordion {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.lesson-item {
+  border-bottom: 1px solid #eee;
+}
+
+.lesson-item:last-child {
+  border-bottom: none;
+}
+
+.lesson-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lesson-header:hover {
+  background-color: var(--light-bg);
+}
+
+.lesson-header.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.lesson-header.active .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.lesson-number {
+  background-color: var(--accent-color);
+  color: var(--primary-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.lesson-header.active .lesson-number {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.lesson-title {
+  flex: 1;
+  font-weight: bold;
+}
+
+.fa-chevron-down {
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.lesson-header.active .fa-chevron-down {
+  color: white;
+}
+
+.lesson-content {
+  display: none;
+  padding: 1.5rem 1.5rem 2rem;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+.lesson-content.active {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+.lesson-content p {
+  margin-bottom: 1rem;
+  color: var(--dark-text);
+}
+
+.lesson-content p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Blocos de Aprendizado Compactos
+   ========================================================================== */
+.learning-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.learning-block {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  position: relative;
+  transition: var(--transition-default);
+}
+
+.learning-block__number {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-color);
+  color: var(--dark-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.learning-block__title {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.learning-block__duration {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.learning-block__expand {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transition-default);
+}
+
+.learning-block__expand:hover {
+  color: var(--accent-color);
+}
+
+.learning-block__details {
+  display: none;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+}
+
+.learning-block__details.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ==========================================================================
+   Grade de Revelações Compacta
+   ========================================================================== */
+.revelations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.revelation-item {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition-default);
+}
+
+.revelation-item__icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.revelation-item__title {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.revelation-item__expand {
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.revelation-item__expand:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.revelation-item__details {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  text-align: left;
+}
+
+.revelation-item__details.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ==========================================================================
+   Plano de Salvação Tradicional Diagram
+   ========================================================================== */
+.plan-of-salvation-diagram {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.plan-of-salvation-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Card Destaque (para a seção de motivação sobre formatura)
+   ========================================================================== */
+.card--highlight {
+  background-color: #fafafa;
+  border-top: 4px solid var(--accent-color);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.card__action {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Créditos Horizontais (versão compacta)
+   ========================================================================== */
+.credits-horizontal {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.credit-block-h {
+  flex: 1;
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition-default);
+}
+
+.credit-block-h:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.credit-block-h__number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.credit-block-h__label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.credit-block-h--total {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.credit-block-h--total .credit-block-h__number {
+  color: var(--accent-color);
+}
+
+.credit-block-h--total .credit-block-h__label {
+  color: white;
+}
+
+/* ==========================================================================
+   Avatar do Professor (placeholder)
+   ========================================================================== */
+.author-card__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author-card__avatar svg {
+  width: 180px;
+  height: 180px;
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  opacity: 0.8;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-footer {
+  padding: 1rem 2rem;
+  background-color: var(--light-bg);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Lista de Objetivos - Melhor visualização
+   ========================================================================== */
+
+.objectives-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.objectives-list li {
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 1.5rem;
+  color: var(--dark-text);
+}
+
+.objectives-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Card do Autor/Professor - Melhor organização
+   ========================================================================== */
+
+.author-card {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  border-left: 5px solid var(--accent-color);
+}
+
+.author-card__info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.author-card__name {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.author-card__title {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.author-card__bio {
+  color: var(--dark-text);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Callout Cards - Cards de destaque com melhor contraste
+   ========================================================================== */
+
+.callout-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  margin: 2.5rem 0;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.callout-card__title {
+  color: var(--accent-color);
+  margin-top: 0;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.callout-card__content {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   Features do Aplicativo - Melhor visualização
+   ========================================================================== */
+
+.app-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.app-feature {
+  flex: 1;
+  min-width: 260px;
+  max-width: 300px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition-default);
+  border-top: 3px solid transparent;
+}
+
+.app-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-top-color: var(--accent-color);
+}
+
+.app-feature__icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  transition: var(--transition-default);
+}
+
+.app-feature:hover .app-feature__icon {
+  transform: scale(1.1);
+}
+
+.app-feature__title {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.app-feature__description {
+  color: var(--dark-text);
+}
+
+/* ==========================================================================
+   Citações - Melhorada legibilidade
+   ========================================================================== */
+
+.quote-box {
+  background-color: rgba(5, 46, 111, 0.05);
+  border-left: 7px solid var(--primary-color);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  position: relative;
+  color: var(--dark-text);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.quote-box::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 50px;
+  color: var(--accent-color);
+  opacity: 0.5;
+  font-family: Georgia, serif;
+}
+
+.quote-box__text {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.quote-box__attribution {
+  text-align: right;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Ícones Colaborativos - Melhor organização
+   ========================================================================== */
+
+.collaborative-icons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.collab-icon {
+  text-align: center;
+  transition: var(--transition-default);
+}
+
+.collab-icon:hover {
+  transform: translateY(-5px);
+}
+
+.collab-icon__icon {
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  transition: var(--transition-default);
+}
+
+.collab-icon:hover .collab-icon__icon {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+.collab-icon__label {
+  margin: 0;
+  color: var(--dark-text);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Formulários - Melhor legibilidade e feedback
+   ========================================================================== */
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-default);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 46, 111, 0.1);
+}
+
+.form-control--textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+/* ==========================================================================
+   Botões de Ação - Melhor feedback visual
+   ========================================================================== */
+
+.action-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-default);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.action-button:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.action-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-button--outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.action-button--outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.action-button__icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Botão Voltar ao Topo
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-default);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 4rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+.footer-links h4 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: white;
+  opacity: 0.8;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+.footer-contact h4 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Media Queries - Responsividade aprimorada
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .learning-blocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .learning-block__number {
+    position: static;
+    margin-right: 1rem;
+  }
+
+  .learning-block__title {
+    flex: 1;
+  }
+
+  .learning-block__duration {
+    margin: 0 1rem;
+  }
+
+  .learning-block__details {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .author-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cycle-title {
+    font-size: 1.3rem;
+  }
+
+  .lesson-header {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .lesson-content {
+    padding: 1rem;
+  }
+
+  .lesson-number {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .revelations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credits-horizontal {
+    flex-direction: column;
+  }
+
+  .collaborative-icons {
+    gap: 2rem;
+  }
+
+  .action-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .app-features {
+    gap: 1.5rem;
+  }
+
+  .modal-content {
+    margin: 20px auto;
+    width: 95%;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Animações e transições
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}

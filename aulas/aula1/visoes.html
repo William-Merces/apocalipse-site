@@ -1,0 +1,3550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloco 1 - As Sete Cartas: Aula 2</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/dimension-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Carrega primeiro a configuração de aulas -->
+    <script src="../../js/aulas-config.js"></script>
+    <!-- Em seguida o script de navegação -->
+    <script src="../../js/navigation.js" defer></script>
+    <!-- Por último o script principal -->
+    <script src="../../js/main.js" defer></script>
+    <style>
+      /* Base styling */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Container styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Main content */
+      main {
+        padding: 30px 0;
+      }
+
+      /* Headings */
+      h2 {
+        color: #16213e;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        position: relative;
+      }
+
+      h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #e2c275;
+      }
+
+      h3 {
+        color: #16213e;
+        font-size: 1.7rem;
+        margin: 2rem 0 1.5rem;
+        padding-left: 15px;
+        border-left: 4px solid #e2c275;
+      }
+
+      h4 {
+        color: #16213e;
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1rem;
+      }
+
+      /* Lesson content */
+      .lesson-content {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+
+      /* Dimension heading */
+      .dimension-heading {
+        font-size: 1.1rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Lesson sections */
+      .lesson-section {
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .lesson-section:last-child {
+        border-bottom: none;
+      }
+
+      /* Quote styling */
+      .quote {
+        background-color: #f8f9fa;
+        border-left: 4px solid #e2c275;
+        padding: 15px 20px;
+        margin: 20px 0;
+        font-style: italic;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      /* Info box styling */
+      .info-box {
+        background-color: #e8f4f8;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .info-box h4 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+
+      /* Note styling */
+      .note {
+        background-color: #fff8e8;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 25px 0;
+      }
+
+      .note h4 {
+        margin-top: 0;
+        color: #e67e22;
+      }
+
+      /* Activity styling */
+      .activity {
+        background-color: #f0f8f1;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 25px 0;
+      }
+
+      .activity h4 {
+        margin-top: 0;
+        color: #27ae60;
+      }
+
+      /* Table styling */
+      .table-container {
+        overflow-x: auto;
+        margin: 25px 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #16213e;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      /* Navigation buttons */
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: #16213e;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #0d1b33;
+      }
+
+      .btn-secondary {
+        background-color: #e2e6ea;
+        color: #16213e;
+      }
+
+      .btn-secondary:hover {
+        background-color: #d1d7dd;
+      }
+
+      /* Footer styling */
+      footer {
+        background-color: #16213e;
+        color: white;
+        padding: 40px 0;
+      }
+
+      .footer-links h4 {
+        color: white;
+        margin-bottom: 15px;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links a {
+        color: #cfd8dc;
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #16213e;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .back-to-top:hover {
+        background-color: #0d1b33;
+        transform: translateY(-3px);
+      }
+
+      /* Ajustes para textos em fundos escuros */
+      .immersive-experience h4 {
+        color: #ffffff;
+      }
+
+      .info-box h4 {
+        color: #ffffff;
+      }
+
+      .role-header h4 {
+        color: #ffffff;
+      }
+
+      .prophet-header {
+        color: #ffffff;
+      }
+
+      .revelation-header h4 {
+        color: #ffffff;
+      }
+
+      .purpose-header h4 {
+        color: #ffffff;
+      }
+
+      #navigation-container h4,
+      .footer-links h4 {
+        color: #ffffff;
+      }
+
+      [class*='-header'] h4,
+      [class*='-header'] .title {
+        color: #ffffff;
+      }
+
+      /* ENHANCED STYLING FOR IMMERSIVE EXPERIENCE */
+      .immersive-experience {
+        background: linear-gradient(to bottom, #1a1a2e, #16213e);
+        color: #f8f9fa;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 20px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .immersive-experience::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .immersive-experience p {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 18px;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .divine-speech {
+        font-style: italic;
+        font-weight: 500;
+        color: #e2c275;
+        border-left: 3px solid #e2c275;
+        padding-left: 15px;
+        margin: 25px 0;
+      }
+
+      .key-moment {
+        font-weight: 500;
+        color: #a6dcef;
+      }
+
+      .immersive-title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        color: #e2c275;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+      }
+
+      .app-download {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .app-download a {
+        color: #e2c275;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+
+      .app-download a:hover {
+        text-decoration: underline;
+      }
+
+      .app-icon {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .immersive-experience p {
+        animation: fadeIn 0.5s ease-out forwards;
+        opacity: 0;
+      }
+
+      .immersive-experience p:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      .immersive-experience p:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .immersive-experience p:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      .immersive-experience p:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      /* ENHANCED STYLING FOR PROPHET REACTIONS */
+      .prophet-reactions-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+        justify-content: center;
+      }
+
+      .prophet-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        width: 220px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .prophet-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .prophet-header {
+        background-color: #16213e;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .prophet-content {
+        padding: 15px;
+        font-size: 0.95rem;
+      }
+
+      .scripture-reference {
+        display: block;
+        text-align: right;
+        font-style: italic;
+        color: #555;
+        margin-top: 10px;
+        font-size: 0.85rem;
+      }
+
+      .christ-response-container {
+        background: linear-gradient(to right, #f8f9fa, #e2e6ea);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .response-title {
+        text-align: center;
+        font-size: 1.3rem;
+        color: #16213e;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .response-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #e2c275;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .response-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .step-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+
+      .step-number {
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        background-color: #e2c275;
+        color: #16213e;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .step-title {
+        font-weight: 600;
+        color: #16213e;
+        margin-bottom: 10px;
+        margin-top: 5px;
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .scripture-quote {
+        font-style: italic;
+        color: #16213e;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        display: block;
+      }
+
+      /* ENHANCED STYLING FOR REVELATION PURPOSE */
+      .revelation-purpose {
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        margin: 30px 0;
+      }
+
+      .purpose-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 0;
+        justify-content: center;
+      }
+
+      .purpose-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 300px;
+        transition: transform 0.3s ease;
+      }
+
+      .purpose-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .purpose-header {
+        background-color: #16213e;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+      }
+
+      .purpose-number {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        background-color: white;
+        color: #16213e;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .purpose-content {
+        padding: 20px;
+      }
+
+      .purpose-title {
+        font-weight: 600;
+        color: #16213e;
+        margin-bottom: 10px;
+      }
+
+      .purpose-description {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .purpose-reference {
+        font-style: italic;
+        color: #666;
+        margin-top: 10px;
+        display: block;
+        text-align: right;
+        font-size: 0.85rem;
+      }
+
+      /* ENHANCED STYLING FOR SACERDOTAL ROLES */
+      .role-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .role-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .role-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .role-header {
+        background-color: #16213e;
+        color: white;
+        padding: 20px;
+        position: relative;
+      }
+
+      .role-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .role-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .role-content {
+        padding: 20px;
+      }
+
+      .role-description {
+        margin-bottom: 15px;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .role-scripture {
+        font-style: italic;
+        color: #666;
+        padding-left: 15px;
+        border-left: 3px solid #e2c275;
+        margin: 15px 0;
+        font-size: 0.9rem;
+      }
+
+      .role-application {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 0.95rem;
+      }
+
+      .role-application-title {
+        font-weight: 600;
+        color: #16213e;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* ENHANCED STYLING FOR KEY POINTS */
+      .key-points-container {
+        background: linear-gradient(to right, #f0f3f7, #e2e6ea);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+      }
+
+      .key-points-title {
+        text-align: center;
+        color: #16213e;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .key-points-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #e2c275;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .key-points-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .key-point-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .key-point-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .key-point-number {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: rgba(22, 33, 62, 0.1);
+      }
+
+      .key-point-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .key-point-text {
+        color: #333;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      /* ENHANCED STYLING FOR REVELATION INFO */
+      .revelation-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .revelation-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .revelation-header {
+        background-color: #16213e;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .revelation-title {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .revelation-content {
+        padding: 20px;
+        color: #444;
+      }
+
+      .revelation-content p {
+        margin-bottom: 15px;
+        line-height: 1.7;
+      }
+
+      .revelation-content ul {
+        padding-left: 20px;
+      }
+
+      .revelation-content li {
+        margin-bottom: 10px;
+      }
+
+      .revelation-footer {
+        background-color: #f8f9fa;
+        padding: 15px 20px;
+        border-top: 1px solid #eee;
+        font-style: italic;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Adicionar a seção de estilos de divider para a experiência imersiva */
+      .immersive-section {
+        background-color: rgba(5, 46, 111, 0.03);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+      }
+
+      .immersive-section p {
+        margin-bottom: 1rem;
+      }
+
+      .divider {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+
+      .divider hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0)
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container para o componente de navegação -->
+    <div id="navigation-container"></div>
+
+    <main class="container">
+      <section class="lesson-content">
+        <div class="dimension-heading" style="color:white;">BLOCO 1: O CRISTO GLORIFICADO</div>
+        <div class="dimension-content infinity-bg">
+
+          <h2>JESUS RESSURRETO E GLORIFICADO</h2>
+
+          <div class="lesson-section">
+            <p>
+              A primeira coisa que João viu foi seu mestre Jesus. A visão apocalíptica de Cristo não é apenas uma descrição de Sua aparência, mas uma
+              revelação de Sua essência — combinando os papéis de Sumo Sacerdote, Rei Soberano, Juiz
+              Divino e Salvador Compassivo em uma única e gloriosa Pessoa.
+            </p>
+            <p>
+              Ao explorarmos juntos o primeiro capítulo do Apocalipse, você descobrirá por que João
+              caiu "como morto" diante desta visão e como o toque tranquilizador de Cristo
+              transforma nosso temor em fé, nossa incerteza em esperança.
+            </p>
+            <p>Está pronto para ter seu entendimento de Jesus Cristo refinado?</p>
+
+            <h3>VIVENCIAR O QUE JOÃO VIU</h3>
+            <p>
+              O texto abaixo é a adaptação e transcrição de uma experiência imersiva disponível no
+              app Visions, que existe para tentar replicar através da tecnologia a experiência de
+              João para que você possa vivenciar e, assim, compreender melhor as visões proféticas.
+            </p>
+
+            <div class="immersive-experience">
+              <h4 class="immersive-title">A Visão de João em Patmos</h4>
+
+              <p>Você é João. O último apóstolo vivo.</p>
+
+              <p>
+                Sessenta anos se passaram desde que os olhos de Cristo encontraram os seus à beira
+                do mar da Galileia. Sessenta anos desde que você O viu partir aos céus, prometendo
+                voltar. Seus irmãos, os outros apóstolos, já não estão mais aqui. Um a um foram
+                perseguidos, apedrejados, crucificados, decapitados. E você… você ainda está aqui.
+              </p>
+
+              <p>Mas não em liberdade.</p>
+
+              <p>
+                Você foi exilado na ilha de Patmos — um lugar seco, pedregoso, isolado. Um presídio
+                natural romano, para criminosos perigosos. Mas o seu "crime" foi outro: testemunhar
+                que Jesus é o Cristo.
+              </p>
+
+              <p>
+                As noites são frias. O silêncio é cortado apenas pelo vento e pelas ondas. E ali, em
+                sua velhice, em sua solidão, você ora. Ainda guarda o Dia do Senhor. Ainda guarda a
+                esperança. Mesmo depois de tudo.
+              </p>
+
+              <p>
+                Você ouve notícias. Igrejas que antes floresciam agora enfrentam perseguições
+                cruéis. Alguns líderes desviam-se. Outros vendem doutrinas baratas. O império ruge
+                mais alto do que nunca. Domiciano, o imperador, exige adoração como se fosse um
+                deus.
+              </p>
+
+              <p>E onde está Ele? O Mestre. O Messias. O que venceu a morte. O que Ele espera que você faça?</p>
+
+              <p>
+                Você fecha os olhos e tenta se lembrar da última vez em que O viu. Você quer que Ele
+                venha. Clama em espírito. E então… <span class="key-moment">acontece</span>.
+              </p>
+
+              <div class="divine-speech">
+                "Eu, João, que também sou vosso irmão e companheiro na aflição… achei-me na ilha
+                chamada Patmos… fui arrebatado em espírito no dia do Senhor…"
+              </div>
+
+                <p>
+                  De repente, não há mais pedras sob seus pés. Não há mais exílio. Há apenas
+                  Espírito. Há uma presença tão intensa, tão viva, que os seus ossos estremecem. Um
+                  som como o estrondo de uma trombeta ecoa por todo o seu ser.
+                </p>
+
+              <div class="divine-speech">
+                "Escreve o que vês em um livro e envia-o às sete igrejas…"
+              </div>
+
+              <p>
+                Você se vira, como se sua alma tivesse sido chamada — e então você O vê.
+              </p>
+
+                <p>Mas não como antes.</p>
+
+                <p>
+                  Não o Mestre cansado, de sandálias e pés empoeirados. Não o homem que lavou os
+                  seus pés ou chorou no Getsêmani. Agora Ele é
+                  <span class="key-moment">glorificado</span>.
+                </p>
+
+                <div class="divine-speech">
+                  "Vi um semelhante ao Filho do Homem, vestido até os pés, com um cinto de ouro…
+                  seus cabelos brancos como a lã… seus olhos como chama de fogo… sua voz como o som
+                  de muitas águas…"
+                </div>
+
+                <p>
+                  Você tenta olhar diretamente, mas é como tentar encarar o sol do meio-dia. Seu
+                  rosto brilha como o sol em sua força. Sua palavra corta como espada. Ele caminha
+                  entre sete candelabros — como que entre as igrejas, velando por elas, mesmo em
+                  meio à escuridão.
+                </p>
+
+                <p>Você cai como morto. Seu coração não aguenta. Quem suportaria?</p>
+
+                <p>
+                  Mas Ele toca você. A mesma mão que um dia curou cegos, que um dia segurou Pedro ao
+                  afundar, agora repousa sobre você.
+                </p>
+
+                <div class="divine-speech">
+                  "Não temas. Eu sou o Primeiro e o Último. Aquele que vive. Estive morto, mas eis
+                  que estou vivo pelos séculos dos séculos."
+                </div>
+
+                <p>Você não está mais sozinho. Ele vive.</p>
+
+                <p>
+                  E mais do que isso: Ele guarda as chaves da morte e do inferno. Ele reina. E Ele
+                  tem algo a mostrar. Uma revelação. Um desvelar do que virá. O futuro do mundo. O
+                  fim da noite. O triunfo final do Cordeiro.
+                </p>
+
+                <p>Mas… você está pronto para ver?</p>
+
+                <div class="app-download">
+                  <span class="app-icon">📱</span>
+                  Baixe o app Visions para a experiência imersiva completa com narração, vídeos e
+                  imagens interativas
+                  <a href="#">Download</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-section">
+              <h3>A REVELAÇÃO DE JESUS CRISTO</h3>
+
+              <div class="quote">
+                "A revelação de Jesus Cristo, que Deus lhe deu para mostrar aos seus servos as
+                coisas que em breve devem acontecer. E ele a enviou pelo seu anjo ao seu servo João,
+                o qual testificou da palavra de Deus, e do testemunho de Jesus Cristo, e de tudo o
+                que viu." (Apocalipse 1:1-2)
+              </div>
+
+              <div class="revelation-info">
+                <div class="revelation-card">
+                  <div class="revelation-header">
+                    <h4 class="revelation-title">Origem Divina</h4>
+                  </div>
+                  <div class="revelation-content">
+                    <p>
+                      A revelação procede de Deus Pai para Jesus Cristo, depois para um anjo, então
+                      para João, e finalmente para a igreja. Esta cadeia de transmissão estabelece
+                      sua autenticidade e autoridade divina.
+                    </p>
+                    <div class="divine-transmission">
+                      <div class="transmission-path">
+                        <div class="transmission-step">
+                          <div class="transmission-icon">
+                            <i class="fas fa-crown"></i>
+                          </div>
+                          <div class="transmission-text">Deus Pai</div>
+                        </div>
+                        <div class="transmission-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="transmission-step">
+                          <div class="transmission-icon">
+                            <i class="fas fa-cross"></i>
+                          </div>
+                          <div class="transmission-text">Jesus Cristo</div>
+                        </div>
+                        <div class="transmission-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="transmission-step">
+                          <div class="transmission-icon">
+                            <i class="fas fa-dove"></i>
+                          </div>
+                          <div class="transmission-text">Anjo</div>
+                        </div>
+                        <div class="transmission-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="transmission-step">
+                          <div class="transmission-icon">
+                            <i class="fas fa-pen"></i>
+                          </div>
+                          <div class="transmission-text">João</div>
+                        </div>
+                        <div class="transmission-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="transmission-step">
+                          <div class="transmission-icon">
+                            <i class="fas fa-church"></i>
+                          </div>
+                          <div class="transmission-text">Igrejas</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      background-color: #fff8e8;
+                      border-radius: 8px;
+                      padding: 15px;
+                      margin: 20px 0;
+                      border-left: 4px solid #e2c275;
+                    "
+                  >
+                    <p style="margin: 0 0 10px 0; font-weight: 600">A Santidade desta Revelação</p>
+                    <p style="font-size: 0.95rem; margin: 0 0 10px 0">
+                      Deus considera o Apocalipse uma revelação extraordinariamente sagrada, ao
+                      ponto de incluir uma advertência solene ao seu término:
+                    </p>
+                    <p
+                      style="
+                        font-style: italic;
+                        color: #444;
+                        font-size: 0.95rem;
+                        border-left: 2px solid #999;
+                        padding-left: 12px;
+                        margin: 10px 0;
+                      "
+                    >
+                      "Porque eu testifico a todo aquele que ouvir as palavras da profecia deste
+                      livro que, se alguém lhes acrescentar alguma coisa, Deus fará vir sobre ele as
+                      pragas que estão escritas neste livro; e, se alguém tirar quaisquer palavras
+                      do livro desta profecia, Deus tirará a sua parte do livro da vida."
+                      <span style="font-size: 0.85rem">— Apocalipse 22:18-19</span>
+                    </p>
+                    <p style="font-size: 0.95rem; margin: 10px 0 0 0">
+                      Ao mesmo tempo, o livro contém promessas extraordinárias para aqueles que
+                      seguem fielmente seus ensinamentos:
+                    </p>
+                    <p
+                      style="
+                        font-style: italic;
+                        color: #444;
+                        font-size: 0.95rem;
+                        border-left: 2px solid #999;
+                        padding-left: 12px;
+                        margin: 10px 0;
+                      "
+                    >
+                      "<strong>Bem-aventurado</strong> aquele que lê, e os que ouvem as palavras
+                      desta profecia, e guardam as coisas que nela estão escritas; porque o tempo
+                      está próximo." <span style="font-size: 0.85rem">— Apocalipse 1:3</span>
+                    </p>
+                    <div
+                      style="
+                        display: flex;
+                        background-color: rgba(226, 194, 117, 0.15);
+                        padding: 12px;
+                        border-radius: 6px;
+                        margin-top: 10px;
+                      "
+                    >
+                      <div
+                        style="
+                          min-width: 30px;
+                          margin-right: 12px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                        "
+                      >
+                        <i class="fas fa-star" style="color: #e2c275; font-size: 1.2rem"></i>
+                      </div>
+                      <p style="margin: 0; font-size: 0.95rem">
+                        A palavra grega traduzida como "bem-aventurado" (<strong>μακάριος</strong> -
+                        makários) significa mais que mera felicidade terrena — indica uma profunda
+                        bênção espiritual, o tipo de felicidade que transcende as circunstâncias e
+                        permanece mesmo em meio às provações. Ao se empenhar nesse curso, verá essa
+                        promessa ser cumprida em sua própria vida.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="revelation-footer">
+                    Cada etapa desta transmissão confirma a origem celestial da mensagem
+                  </div>
+                </div>
+
+                <div class="revelation-card">
+                  <div class="revelation-header">
+                    <h4 class="revelation-title">Propósito Prático</h4>
+                  </div>
+                  <div class="revelation-content">
+                    <p>
+                      O livro de Apocalipse foi revelado com um propósito claro: mostrar aos servos
+                      do Senhor
+                      <strong>"as coisas que em breve devem acontecer"</strong> (Apocalipse 1:1).
+                    </p>
+                    <div
+                      class="purpose-highlight"
+                      style="
+                        background-color: #f8f9fa;
+                        padding: 15px;
+                        border-left: 4px solid #e2c275;
+                        margin: 15px 0;
+                      "
+                    >
+                      <p style="font-style: italic; margin-bottom: 10px">
+                        Mais do que uma revelação sobre o futuro, é um convite à preparação
+                        espiritual. Seu objetivo não é simplesmente satisfazer a curiosidade sobre o
+                        futuro, mas preparar os santos para os eventos que virão e fortalecer sua fé
+                        em tempos de provação e perseguição.
+                      </p>
+                      <p style="margin-bottom: 0">
+                        É uma mensagem profética com aplicação prática — que consola, corrige,
+                        desperta e conduz à fidelidade.
+                      </p>
+                    </div>
+                    <div
+                      class="application-box"
+                      style="
+                        background-color: #f0f8f1;
+                        border-radius: 8px;
+                        padding: 15px;
+                        margin-top: 15px;
+                      "
+                    >
+                      <p style="font-weight: 600; color: #16213e; margin-bottom: 10px">
+                        Evite o erro comum de apenas admirar as escrituras
+                      </p>
+                      <p style="margin-bottom: 10px">
+                        O Apocalipse não foi revelado para ser apenas estudado, discutido ou
+                        admirado — mas para ser <strong>vivido</strong>. Esta revelação sagrada foi
+                        dada para moldar discípulos fiéis, preparar os santos para tempos difíceis,
+                        e inspirar ações concretas em direção à retidão.
+                      </p>
+                      <div style="display: flex; margin-top: 15px; align-items: center">
+                        <div
+                          style="
+                            min-width: 40px;
+                            height: 40px;
+                            background-color: #16213e;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            margin-right: 15px;
+                          "
+                        >
+                          <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <p style="margin: 0; font-style: italic">
+                          "O que o Senhor quer que eu faça com o que aprendi hoje?" — Essa pergunta
+                          simples pode ser o elo entre a inspiração e a transformação.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="revelation-footer">
+                    Conhecimento profético com propósito transformador
+                  </div>
+                </div>
+
+                <div class="revelation-card">
+                  <div class="revelation-header">
+                    <h4 class="revelation-title">Conhecer a Cristo Plenamente</h4>
+                  </div>
+                  <div class="revelation-content">
+                    <div
+                      style="
+                        background-color: #16213e;
+                        padding: 20px;
+                        border-radius: 8px;
+                        color: white;
+                        margin-bottom: 20px;
+                        position: relative;
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          opacity: 0.2;
+                          font-size: 3rem;
+                        "
+                      >
+                        <i class="fas fa-infinity"></i>
+                      </div>
+                      <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px">
+                        O Coração da Vida Eterna
+                      </p>
+                      <p style="font-style: italic; margin-bottom: 0">
+                        "E a vida eterna é esta: que te conheçam a ti só, por único Deus verdadeiro,
+                        e a Jesus Cristo, a quem enviaste."
+                        <span style="font-size: 0.9rem">— João 17:3</span>
+                      </p>
+                    </div>
+
+                    <p>
+                      O Apocalipse não é apenas um livro sobre eventos futuros — é a revelação
+                      completa de Jesus Cristo, um convite para conhecê-Lo em Sua totalidade e
+                      majestade divina:
+                    </p>
+
+                    <div style="display: flex; margin: 20px 0">
+                      <div
+                        style="
+                          min-width: 40px;
+                          background-color: #16213e;
+                          border-radius: 5px 0 0 5px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                        "
+                      >
+                        <i class="fas fa-eye" style="color: white; font-size: 1.2rem"></i>
+                      </div>
+                      <div
+                        style="
+                          flex-grow: 1;
+                          padding: 15px;
+                          background-color: #f0f3f7;
+                          border-radius: 0 5px 5px 0;
+                        "
+                      >
+                        <p style="margin: 0; font-weight: 600; color: #16213e">Ver Além do Véu</p>
+                        <p style="margin: 8px 0 0 0; font-size: 0.95rem">
+                          O livro nos ensina a ver além das aparências, discernindo a verdadeira
+                          natureza dos sistemas mundanos e reconhecendo as forças espirituais por
+                          trás dos eventos da história, preparando-nos para reconhecer Cristo quando
+                          Ele vier.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; margin: 20px 0">
+                      <div
+                        style="
+                          min-width: 40px;
+                          background-color: #16213e;
+                          border-radius: 5px 0 0 5px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                        "
+                      >
+                        <i class="fas fa-fire-alt" style="color: white; font-size: 1.2rem"></i>
+                      </div>
+                      <div
+                        style="
+                          flex-grow: 1;
+                          padding: 15px;
+                          background-color: #f0f3f7;
+                          border-radius: 0 5px 5px 0;
+                        "
+                      >
+                        <p style="margin: 0; font-weight: 600; color: #16213e">
+                          A Unidade com Cristo
+                        </p>
+                        <p style="margin: 8px 0 0 0; font-size: 0.95rem">
+                          Na oração intercessória, Jesus pediu "para que todos sejam um, como tu, ó
+                          Pai, o és em mim, e eu em ti" (João 17:21). O Apocalipse revela o que
+                          significa tornar-se verdadeiramente um com o Cristo glorificado.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      style="
+                        background-color: #fff8e8;
+                        border-radius: 8px;
+                        padding: 15px;
+                        margin: 20px 0;
+                        border-left: 4px solid #e2c275;
+                      "
+                    >
+                      <p style="margin: 0 0 10px 0; font-weight: 600">
+                        A Versão Inspirada das Dez Virgens
+                      </p>
+                      <p style="font-size: 0.95rem; margin: 0">
+                        Na versão tradicional da parábola das dez virgens, o noivo diz: "Eu não vos
+                        conheço." Porém, Joseph Smith, em sua tradução inspirada, revela uma verdade
+                        mais profunda ao registrar: "<strong>Vós não me conheceis</strong>." Esta
+                        alteração sutil mas profunda ecoa o tema central do Apocalipse: apenas
+                        aqueles que verdadeiramente conhecem a Cristo em Sua plenitude estarão
+                        preparados para Sua vinda.
+                      </p>
+                    </div>
+
+                    <div style="border: 1px solid #ddd; border-radius: 8px; margin-top: 20px">
+                      <div
+                        style="
+                          background-color: #f0f3f7;
+                          padding: 12px 15px;
+                          border-bottom: 1px solid #ddd;
+                          display: flex;
+                          align-items: center;
+                        "
+                      >
+                        <i class="fas fa-lightbulb" style="color: #16213e; margin-right: 10px"></i>
+                        <span style="font-weight: 600; color: #16213e">Reflexão Prática</span>
+                      </div>
+                      <div style="padding: 15px">
+                        <p style="margin: 0 0 10px 0; font-size: 0.95rem">
+                          O verdadeiro conhecimento de Cristo não é meramente intelectual — é
+                          transformador, íntimo e experiencial. A cada semana deste curso, pergunte
+                          a si mesmo:
+                        </p>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 0.95rem">
+                          <li>Que aspecto da natureza de Cristo estou descobrindo?</li>
+                          <li>Como esta revelação está mudando minha maneira de ver o mundo?</li>
+                          <li>
+                            De que forma estou me tornando mais semelhante ao Cristo que contemplo?
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="revelation-footer">
+                    Conhecer a Cristo plenamente é o propósito final de toda revelação
+                  </div>
+                </div>
+              </div>
+
+              <!-- Primeiro VOCÊ SABIA? sobre o que Apocalipse 22:18-19 realmente significa -->
+              <div
+                class="info-box"
+                style="
+                  background-color: #16213e;
+                  border-radius: 10px;
+                  padding: 20px;
+                  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                  margin: 25px 0;
+                "
+              >
+                <div style="display: flex; align-items: center; margin-bottom: 15px">
+                  <div
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      background-color: #e2c275;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-right: 15px;
+                    "
+                  >
+                    <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                  </div>
+                  <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                </div>
+
+                <p style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px">
+                  O que Apocalipse 22:18–19 realmente quer dizer?
+                </p>
+
+                <p style="color: white; margin-bottom: 15px; line-height: 1.6">
+                  Alguns utilizam Apocalipse 22:18–19 —
+                  <em
+                    >"Se alguém lhes acrescentar alguma coisa, Deus fará vir sobre ele as pragas
+                    escritas neste livro"</em
+                  >
+                  — como argumento contra o Livro de Mórmon ou qualquer escritura adicional. Mas
+                  será que essa interpretação se sustenta?
+                </p>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    1. Essa advertência se refere à Bíblia inteira ou apenas ao livro de Apocalipse?
+                  </p>
+                  <p style="color: white; margin-bottom: 10px; line-height: 1.6">
+                    Na época de João, a Bíblia ainda
+                    <strong>não existia como um volume único</strong>. As escrituras circulavam em
+                    <strong>papiros separados</strong>, e o Apocalipse era apenas mais um rolo entre
+                    outros. Como João poderia estar se referindo a um livro que só seria compilado
+                    séculos depois?
+                  </p>
+                  <p
+                    style="
+                      color: white;
+                      font-style: italic;
+                      margin-bottom: 10px;
+                      padding-left: 15px;
+                      border-left: 3px solid #e2c275;
+                    "
+                  >
+                    "A todo aquele que ouvir as palavras da profecia deste livro…" (Apocalipse
+                    22:18)
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    → A advertência é específica: refere-se <strong>ao livro de Apocalipse</strong>,
+                    não à Bíblia completa.
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    2. Se essa advertência anulasse revelações futuras, o Evangelho de João também
+                    deveria ser rejeitado?
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    A maioria dos estudiosos afirma que o Evangelho de João e suas epístolas foram
+                    escritos <strong>depois</strong> do Apocalipse. Se levássemos a advertência ao
+                    pé da letra e a aplicássemos à Bíblia inteira,
+                    <strong>o próprio Evangelho de João teria que ser removido</strong> — algo que
+                    ninguém defende.
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    3. Uma advertência semelhante aparece no início da Bíblia. Isso invalida os
+                    livros seguintes?
+                  </p>
+                  <p
+                    style="
+                      color: white;
+                      font-style: italic;
+                      margin-bottom: 10px;
+                      padding-left: 15px;
+                      border-left: 3px solid #e2c275;
+                    "
+                  >
+                    "Nada acrescentareis à palavra que vos ordeno, nem diminuireis dela…"
+                    (Deuteronômio 4:2)
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    Essa exortação de Moisés está no início do Pentateuco. Se interpretada da mesma
+                    forma literal, então todos os outros livros da Bíblia — como Salmos, Isaías, os
+                    evangelhos, e até o próprio Apocalipse —
+                    <strong>teriam que ser descartados</strong>.
+                  </p>
+                </div>
+
+                <p
+                  style="
+                    color: white;
+                    font-weight: 600;
+                    text-align: center;
+                    margin: 20px 0;
+                    padding: 10px;
+                    background-color: rgba(226, 194, 117, 0.2);
+                    border-radius: 5px;
+                  "
+                >
+                  Limitar o poder de Deus a um único volume é repetir o erro de antigamente: tentar
+                  controlar a revelação divina ao invés de se submeter a ela.
+                </p>
+
+                <div style="margin-top: 20px">
+                  <p style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px">
+                    O Livro de Mórmon confirma o Apocalipse
+                  </p>
+                  <p style="color: white; margin-bottom: 15px; line-height: 1.6">
+                    O Livro de Mórmon <strong>não contradiz</strong> o Apocalipse — ele o
+                    <strong>testifica</strong>.
+                  </p>
+                  <p
+                    style="
+                      color: white;
+                      font-style: italic;
+                      margin-bottom: 15px;
+                      padding-left: 15px;
+                      border-left: 3px solid #e2c275;
+                    "
+                  >
+                    "Viste o restante destas coisas? Mas não as escreverás; pois o Senhor Deus
+                    ordenou ao apóstolo do Cordeiro de Deus que as escrevesse." (1 Néfi 14:24–25)
+                  </p>
+                  <p style="color: white; margin-bottom: 15px; line-height: 1.6">
+                    Néfi viu em visão os mesmos eventos futuros que João, mas foi
+                    <strong>proibido de registrá-los</strong>, porque essa missão já havia sido dada
+                    ao apóstolo. E ele conclui com poder:
+                  </p>
+                  <p
+                    style="
+                      color: white;
+                      font-style: italic;
+                      margin-bottom: 15px;
+                      padding-left: 15px;
+                      border-left: 3px solid #e2c275;
+                    "
+                  >
+                    "Vi as coisas que meu irmão João escreveria. E testifico que as coisas que ele
+                    escreverá são justas e verdadeiras." (1 Néfi 14:28–30)
+                  </p>
+                  <p style="color: white; margin-bottom: 15px; line-height: 1.6">
+                    Além disso, o Livro de Mórmon confirma muitas doutrinas e símbolos encontrados
+                    no Apocalipse:
+                  </p>
+
+                  <div style="width: 100%; overflow-x: auto">
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 0">
+                      <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">
+                        <th
+                          style="
+                            padding: 10px;
+                            text-align: left;
+                            border-right: 1px solid rgba(255, 255, 255, 0.2);
+                          "
+                        >
+                          Apocalipse
+                        </th>
+                        <th style="padding: 10px; text-align: left">Livro de Mórmon</th>
+                      </tr>
+                      <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">
+                        <td style="padding: 10px; border-right: 1px solid rgba(255, 255, 255, 0.2)">
+                          7 selos (Ap 5–8)
+                        </td>
+                        <td style="padding: 10px">2 Néfi 27 (livro selado com os sete selos)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">
+                        <td
+                          style="
+                            padding: 10px;
+                            border-right: 1px solid rgba(255, 255, 255, 0.2);
+                            color: white;
+                          "
+                        >
+                          Trono de Deus e o Cordeiro (Ap 5:6–13)
+                        </td>
+                        <td style="padding: 10px; color: white">Mosias 15:1–9; 3 Néfi 11:10–11</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">
+                        <td style="padding: 10px; border-right: 1px solid rgba(255, 255, 255, 0.2)">
+                          Multidão vestida de branco (Ap 7:9–14)
+                        </td>
+                        <td style="padding: 10px">Éter 13:10; Alma 13:11–12</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">
+                        <td
+                          style="
+                            padding: 10px;
+                            border-right: 1px solid rgba(255, 255, 255, 0.2);
+                            color: white;
+                          "
+                        >
+                          Julgamento final (Ap 20:12–15)
+                        </td>
+                        <td style="padding: 10px; color: white; color: white">
+                          2 Néfi 9:15–16; Mosias 3:24
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px; border-right: 1px solid rgba(255, 255, 255, 0.2)">
+                          Nova Jerusalém (Ap 21)
+                        </td>
+                        <td style="padding: 10px">Éter 13:2–10; 3 Néfi 20:22</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Segundo VOCÊ SABIA? sobre a história do Apocalipse na Bíblia -->
+              <div
+                class="info-box"
+                style="
+                  background-color: #16213e;
+                  border-radius: 10px;
+                  padding: 20px;
+                  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                  margin: 25px 0;
+                "
+              >
+                <div style="display: flex; align-items: center; margin-bottom: 15px">
+                  <div
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      background-color: #e2c275;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-right: 15px;
+                    "
+                  >
+                    <i class="fas fa-scroll" style="color: #16213e; font-size: 1.2rem"></i>
+                  </div>
+                  <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                </div>
+
+                <p style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px">
+                  A história do Apocalipse na Bíblia
+                </p>
+
+                <div style="margin-bottom: 15px">
+                  <p style="color: white; margin-bottom: 10px; line-height: 1.6">
+                    <strong
+                      >O livro de Apocalipse não foi unanimemente aceito nos primeiros
+                      séculos.</strong
+                    >
+                    Alguns cristãos antigos duvidavam que João, o apóstolo, fosse o autor. Por isso,
+                    <strong
+                      >diversos manuscritos e listas de livros sagrados dos primeiros séculos
+                      omitiram o Apocalipse</strong
+                    >. Por exemplo:
+                  </p>
+                  <ul style="color: white; padding-left: 20px; margin: 0">
+                    <li style="margin-bottom: 8px">
+                      A <strong>Peshitta síria</strong> (século IV) não o incluía.
+                    </li>
+                    <li style="margin-bottom: 8px">
+                      O <strong>Cânon Muratori</strong> (século II) cita a maioria dos livros do
+                      Novo Testamento, mas o Apocalipse aparece com incertezas.
+                    </li>
+                    <li style="margin-bottom: 8px">
+                      Em algumas versões da <strong>Vulgata</strong> latina, ele só foi incluído
+                      tardiamente.
+                    </li>
+                    <li>Em regiões como o Oriente Ortodoxo, sua aceitação foi ainda mais lenta.</li>
+                  </ul>
+                </div>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    E se não fosse João, o apóstolo, quem seria?
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    Alguns estudiosos sugeriram que o autor seria outro João, chamado
+                    <strong>João, o Presbítero</strong>, devido ao estilo e vocabulário distintos do
+                    Evangelho. No entanto, a tradição majoritária — confirmada por
+                    <strong>revelação moderna</strong> (D&C 77; 1 Néfi 14) — reconhece o apóstolo
+                    João como o autor.
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    O Livro de Mórmon não é posterior ao Apocalipse.
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    Embora a tradução moderna tenha sido publicada em 1830,
+                    <strong
+                      >muitos dos registros compilados em suas placas são anteriores ao
+                      Apocalipse.</strong
+                    >
+                    Néfi viveu 600 anos antes de Cristo e registrou que viu as visões de João —
+                    enquanto outros escritos, como o registro dos jareditas, são ainda mais antigos.
+                    A maior parte do conteúdo do Livro de Mórmon
+                    <strong>não é uma inscrição posterior</strong>, mas um
+                    <strong>testemunho paralelo ou antecedente</strong> e profético do mesmo plano
+                    de Deus.
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                  "
+                >
+                  <p style="color: white; font-weight: 600; margin-bottom: 10px">
+                    A Bíblia completa só foi consolidada séculos depois
+                  </p>
+                  <p style="color: white; margin: 0; line-height: 1.6">
+                    <strong
+                      >A Bíblia completa como conhecemos só foi consolidada por volta do século
+                      IV</strong
+                    >, nos Concílios de Hipona (393 d.C.) e Cartago (397 d.C.). Até então,
+                    <strong>não havia um "livro único"</strong> chamado "Bíblia" — apenas coleções
+                    de escritos em circulação. Isso torna impossível que João estivesse se referindo
+                    à Bíblia inteira em Apocalipse 22:18–19. Isso demonstra o perigo de se tomar
+                    conclusões sem realmente entender as escrituras em seu devido contexto e sem
+                    aprofundar em seu conteúdo.
+                  </p>
+                </div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>JOÃO NA ILHA DE PATMOS</h3>
+
+                <div class="quote">
+                  "Eu, João, que também sou vosso irmão e companheiro na tribulação, no reino e na
+                  perseverança em Jesus, estava na ilha chamada Patmos, por causa da palavra de Deus
+                  e do testemunho de Jesus." (Apocalipse 1:9)
+                </div>
+
+                <p>
+                  O autor identifica-se simplesmente como "João", presumido pela tradição cristã
+                  primitiva como sendo o apóstolo João, filho de Zebedeu. Ele estava exilado na ilha
+                  de Patmos, uma pequena ilha rochosa no Mar Egeu, a aproximadamente 100 km da costa
+                  de Éfeso (atual Turquia).
+                </p>
+
+                <div class="info-box">
+                  <h4>VOCÊ SABIA?</h4>
+                  <p>
+                    <em>
+                      João estava em Patmos quando escreveu o livro de Apocalipse? A formulação
+                      "estava na ilha chamada Patmos" é significativa. O uso do tempo verbal passado
+                      sugere que João não estava mais em Patmos quando escreveu pelo menos partes do
+                      livro. Provavelmente ele recebeu a visão enquanto exilado em Patmos, mas pode
+                      ter registrado ou finalizado o livro após seu retorno à Ásia Menor. Segundo a
+                      tradição, João foi exilado durante a perseguição do imperador Domiciano (81-96
+                      d.C.) e posteriormente libertado, retornando a Éfeso onde viveu até idade
+                      avançada. Esta sequência cronológica explica como João poderia ter recebido as
+                      visões em Patmos, mas ainda ter tido oportunidade de organizá-las e
+                      escrevê-las em um formato mais estruturado posteriormente.
+                    </em>
+                  </p>
+                </div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>O DIA DO SENHOR</h3>
+
+                <div class="quote">
+                  "Eu fui arrebatado no Espírito no dia do Senhor, e ouvi detrás de mim uma grande
+                  voz, como de trombeta." (Apocalipse 1:10)
+                </div>
+
+                <p>
+                  João recebeu esta revelação "no dia do Senhor", tradicionalmente entendido como o
+                  primeiro dia da semana (domingo), que os cristãos primitivos observavam como dia
+                  de adoração em comemoração à ressurreição de Cristo.
+                </p>
+
+                <h4>O Significado do Dia do Senhor</h4>
+                <p>
+                  O Dia do Senhor é um tempo sagrado estabelecido por Deus desde a antiguidade. Este
+                  dia especial serve como um lembrete semanal para voltarmos nossos corações ao
+                  Criador, renovarmos nossos convênios e fortalecermos nossa fé.
+                </p>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+                  <p>
+                    A expressão "Dia do Senhor" (em grego: "Kyriakē hēmera") mencionada em
+                    Apocalipse 1:10 tem um significado profundo na teologia cristã. Diferente do
+                    "Dia do Senhor" do Antigo Testamento (em hebraico: "Yom Yahweh"), associado ao
+                    julgamento divino, aqui refere-se ao primeiro dia da semana, o domingo, dia da
+                    ressurreição de Cristo. O "dia do Senhor" mencionado por João estabelece uma
+                    conexão entre a observância semanal do dia de adoração cristão e a expectativa
+                    da vinda final de Cristo. Quando os primeiros cristãos se reuniam no domingo,
+                    não estavam apenas lembrando a ressurreição passada de Cristo, mas também
+                    antecipando Sua vinda futura. Este vínculo entre adoração semanal e esperança
+                    escatológica infundia a vida cristã comum com significado profético.
+                  </p>
+                </div>
+
+                <h4>Um Sinal e Convênio Perpétuo</h4>
+                <p>
+                  Desde os tempos bíblicos, o Senhor declarou que o dia de descanso é um sinal
+                  especial entre Deus e Seu povo. No livro de Êxodo, Ele designou o shabat como uma
+                  "aliança perpétua":
+                </p>
+
+                <div class="quote">
+                  "Os filhos de Israel guardarão o shabat, celebrando-o por aliança perpétua de
+                  geração em geração. Entre mim e os filhos de Israel será um sinal para sempre"
+                  (Êxodo 31:16-17)
+                </div>
+
+                <p>Séculos depois, por meio do profeta Ezequiel, Deus reiterou:</p>
+
+                <div class="quote">
+                  "Santificai os Meus shabats, e eles servirão de sinal entre mim e vós, para que
+                  saibais que Eu sou o Senhor vosso Deus" (Ezequiel 20:20)
+                </div>
+
+                <p>
+                  Ou seja, guardar o Dia do Senhor sempre distinguiu o povo de Deus, sinalizando
+                  fidelidade a Ele em todas as épocas.
+                </p>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "Estamos sob convênio de nos lembrar d'Ele e guardar Seus mandamentos. No dia do
+                  batismo, fazemos convênio de tomar sobre nós o nome de Jesus Cristo, sempre nos
+                  lembrar d'Ele e guardar Seus mandamentos. Quando tomamos o sacramento, renovamos
+                  esse convênio."
+                  <p style="text-align: right; margin-top: 10px">— Presidente Russell M. Nelson</p>
+                </div>
+
+                <p>
+                  Esta ordem sagrada permanece vigente nos dias atuais. Em revelação moderna, o
+                  Senhor declarou que Seu povo deve observar o santo dia de descanso com devoção:
+                </p>
+
+                <div class="quote">
+                  "E para que mais plenamente te conserves limpo das manchas do mundo, irás à casa
+                  de oração e oferecerás teus sacramentos no meu dia santificado; porque em verdade
+                  este é um dia designado para descansares de teus labores e prestares tua devoção
+                  ao Altíssimo" (D&C 59:9-10)
+                </div>
+
+                <h4>Bênçãos Prometidas da Observância do Dia do Senhor</h4>
+
+                <div class="table-container">
+                  <table>
+                    <tr>
+                      <th>Escritura</th>
+                      <th>Bênção Prometida</th>
+                    </tr>
+                    <tr>
+                      <td>D&C 59:9-19</td>
+                      <td>"A plenitude da terra será vossa"</td>
+                    </tr>
+                    <tr>
+                      <td>Isaías 58:13-14</td>
+                      <td>
+                        "Te deleitarás no Senhor, e te farei cavalgar sobre as alturas da terra"
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Êxodo 31:13</td>
+                      <td>"Para que saibais que Eu sou o Senhor, que vos santifica"</td>
+                    </tr>
+                    <tr>
+                      <td>Ezequiel 20:20</td>
+                      <td>"Para que saibais que Eu sou o Senhor vosso Deus"</td>
+                    </tr>
+                    <tr>
+                      <td>Marcos 2:27</td>
+                      <td>Benefício para o homem, pois "o shabat foi feito por causa do homem"</td>
+                    </tr>
+                    <tr>
+                      <td>D&C 59:13</td>
+                      <td>"Para que tua alegria seja completa"</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">PARA REFLETIR</h4>
+                  </div>
+                  <p>
+                    Você já notou que muitas das promessas associadas à observância do Dia do Senhor
+                    estão relacionadas à "terra"? Isso aponta para algo mais profundo que o
+                    benefício material imediato. Na visão de Apocalipse, os fiéis "reinarão pelos
+                    séculos dos séculos" (Apocalipse 22:5) como "reis e sacerdotes" (Apocalipse
+                    1:6). Ao pedirmos "seja feita a tua vontade, assim na terra como no céu" (Mateus
+                    6:10), estamos antecipando esse reino futuro. Quando guardamos o Dia do Senhor,
+                    estamos praticando confiança em Deus para nossa provisão, trabalhando um dia a
+                    menos na semana e dedicando esse tempo para os assuntos eternos. Isso reflete o
+                    princípio de "buscar primeiro o reino de Deus" (Mateus 6:33) para que todas as
+                    outras coisas nos sejam acrescentadas. Iniciar a semana adorando a Deus no Dia
+                    do Senhor estabelece a primazia do eterno sobre o temporal. O que isso significa
+                    para você?
+                  </p>
+                </div>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+
+
+
+                  <!-- VOCÊ SABIA? - Dias Sagrados ao Redor do Mundo -->
+<div
+class="info-box"
+style="
+  background-color: #16213e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 25px 0;
+"
+>
+<div style="display: flex; align-items: center; margin-bottom: 15px">
+  <div
+    style="
+      width: 40px;
+      height: 40px;
+      background-color: #e2c275;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    "
+  >
+    <i class="fas fa-globe" style="color: #16213e; font-size: 1.2rem"></i>
+  </div>
+  <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+</div>
+<div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 15px;">
+  <h5 style="color: #e2c275; margin-bottom: 10px; font-size: 1.1rem;">Santos dos Últimos Dias: Adaptações Culturais</h5>
+  <p style="color: white; margin-bottom: 10px; line-height: 1.6">
+    A Igreja de Jesus Cristo dos Santos dos Últimos Dias reconhece o domingo como o
+  dia de adoração, mas adapta-se conforme as circunstâncias locais:
+  </p>
+  <ul style="color: white; padding-left: 20px; margin: 0">
+    <li style="margin-bottom: 5px"> - Em Israel, os membros observam o sábado (shabat) como dia de adoração, respeitando a cultura local</li>
+    <li style="margin-bottom: 5px"> - Em países muçulmanos como o Egito, as reuniões acontecem na sexta-feira (Jumu'ah - o dia sagrado islâmico).</li>
+
+    <li> - A participação semanal da Santa Ceia é algo que distingue A Igreja de Jesus Cristo — poucas denominações o fazem com tal frequência.</li>
+    <li style="margin-bottom: 5px"> - Estas adaptações demonstram o princípio de
+      que o espírito da lei transcende observâncias rígidas de calendário, embora o
+      padrão geral da Igreja seja a adoração dominical. Para os Santos dos Últimos
+      Dias, mais importante do que saber qual dia da semana guardar é compreender como
+      santificá-lo.</li>
+  </ul>
+</div>
+<p style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px">
+  Dias Sagrados ao Redor do Mundo
+</p>
+
+<p style="color: white; margin-bottom: 15px; line-height: 1.6">
+  Diversas tradições religiosas observam dias sagrados de adoração, cada uma com suas práticas e significados únicos. Vamos explorar algumas das curiosidades mais fascinantes:
+</p>
+
+<div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+  <h5 style="color: #e2c275; margin-bottom: 10px; font-size: 1.1rem;">Judaísmo: O Shabat como Primeira Lei Trabalhista</h5>
+  <p style="color: white; margin-bottom: 10px; line-height: 1.6">
+    O Shabat judaico foi revolucionário para sua época! Há mais de 3.000 anos, ele estabeleceu o primeiro "direito trabalhista" da história: um dia de descanso garantido para todos — incluindo escravos e até animais. Esta prática democratizante era inédita no mundo antigo.
+  </p>
+  <ul style="color: white; padding-left: 20px; margin: 0">
+    <li style="margin-bottom: 5px">As duas velas acesas na sexta-feira ao pôr do sol simbolizam "zachor" (lembrar) e "shamor" (guardar) o Shabat</li>
+    <li style="margin-bottom: 5px">A challah trançada representa amor, paz e união — suas tranças simbolizam a interdependência da comunidade</li>
+    <li style="margin-bottom: 5px">O Shabat criou o primeiro "detox digital" da história — 39 categorias de trabalho são evitadas, incluindo ligar aparelhos eletrônicos</li>
+    <li>A cerimônia de Havdalah despede o Shabat com especiarias aromáticas para "confortar a alma" que se entristece com a partida do dia sagrado</li>
+  </ul>
+</div>
+
+<div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+  <h5 style="color: #e2c275; margin-bottom: 10px; font-size: 1.1rem;">Cristianismo: Múltiplas Faces do Domingo</h5>
+  <ul style="color: white; padding-left: 20px; margin: 0">
+    <li style="margin-bottom: 8px">
+      <strong>Ortodoxos Orientais:</strong> Rezam de pé durante toda a liturgia dominical, não ajoelhados. Por quê? Ficar de pé simboliza a ressurreição — cada domingo é uma "mini-Páscoa"! O ajoelhar é reservado apenas para momentos de penitência.
+    </li>
+    <li style="margin-bottom: 8px">
+      <strong>Monges Cartuxos:</strong> Entre as ordens mais rigorosas, comunicam-se apenas por gestos no domingo. O silêncio é tão sagrado que até as necessidades básicas são expressas sem palavras.
+    </li>
+    <li style="margin-bottom: 8px">
+      <strong>Católicos Trapistas:</strong> Os monges observam o domingo com tanto rigor que suas famosas cervejas só são produzidas nos outros dias da semana. O silêncio contemplativo é prioritário.
+    </li>
+    <li>
+      <strong>Adventistas do Sétimo Dia:</strong> São os únicos entre os principais grupos cristãos a manter o sábado (do pôr do sol de sexta ao pôr do sol de sábado), seguindo o padrão bíblico original.
+    </li>
+  </ul>
+</div>
+
+<div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+  <h5 style="color: #e2c275; margin-bottom: 10px; font-size: 1.1rem;">Islamismo: A Sexta-feira em Sincronia</h5>
+  <p style="color: white; margin-bottom: 10px; line-height: 1.6">
+    Embora não tenham um "shabat" equivalente, os muçulmanos têm a sexta-feira (Jumu'ah) como dia especial:
+  </p>
+  <ul style="color: white; padding-left: 20px; margin: 0">
+    <li style="margin-bottom: 5px">Mais de um bilhão de muçulmanos ao redor do mundo param simultaneamente para a oração de sexta-feira</li>
+    <li style="margin-bottom: 5px">Durante a oração, todos ficam ombro a ombro, independente de status social, simbolizando igualdade perante Alá</li>
+    <li style="margin-bottom: 5px">Em alguns países muçulmanos, o "fim de semana" é sexta e sábado, adaptando o calendário civil ao ritmo religioso</li>
+    <li>O sermão (khutbah) aborda tanto questões espirituais quanto sociais contemporâneas</li>
+  </ul>
+</div>
+
+<p style="color: white; font-weight: 600; text-align: center; margin: 20px 0; padding: 10px; background-color: rgba(226, 194, 117, 0.2); border-radius: 5px;">
+  Independente do dia escolhido, cada tradição encontrou formas únicas de criar um tempo sagrado em meio ao ritmo acelerado do mundo.
+</p>
+</div>
+                </div>
+
+                <h4>Além de Listas: O Domingo como Deleite Espiritual</h4>
+                <p>
+                  Os líderes modernos da Igreja enfatizam que santificar o Dia do Senhor vai além de
+                  cumprir uma lista rígida de "podes" e "não podes". O Élder Russell M. Nelson
+                  relatou que, quando era jovem, buscou orientações em listas de coisas permitidas
+                  ou proibidas no Dia do Senhor. Com o tempo, porém, ele aprendeu nas escrituras que
+                  "sua conduta e sua atitude no Dia do Senhor constituíam um sinal entre ele e seu
+                  Pai Celestial".
+                </p>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "Não precisei mais de listas do que fazer ou evitar. Quando tinha que decidir se
+                  uma atividade era ou não adequada para o Dia do Senhor, simplesmente me
+                  perguntava: 'Que sinal quero dar a Deus?' Essa pergunta fez com que minhas
+                  escolhas para o Dia do Senhor ficassem bem claras."
+                  <p style="text-align: right; margin-top: 10px">— Élder Russell M. Nelson</p>
+                </div>
+
+                <p>
+                  Em vez de encará-lo como um dia cercado de proibições, passamos a vê-lo como uma
+                  oportunidade de demonstrar nossa fidelidade e amor a Deus em cada decisão.
+                </p>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "Existe não apenas um tipo de descanso que consiste em não trabalhar, mas outro
+                  tipo que consiste em trabalhar como se brincássemos. Este segundo tipo de
+                  descanso, que é o melhor, não pode ser alcançado pela mera decisão de trabalhar
+                  com moderação."
+                  <p style="text-align: right; margin-top: 10px">
+                    — C.S. Lewis, <em>The Problem of Pain</em>
+                  </p>
+                </div>
+
+                <p>
+                  O próprio Salvador ensinou o princípio por trás do Dia santo ao declarar: "o
+                  shabat foi feito por causa do homem, e não o homem por causa do shabat" (Marcos
+                  2:27). Ele quis que entendêssemos que o Dia do Senhor é um presente de Deus para
+                  nosso benefício, um dia separado para nosso bem-estar espiritual e físico.
+                </p>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+                  <p>
+                    Sobre a tradução do termo original: No hebraico, "shabat" (שַׁבָּת) significa
+                    "descanso" e refere-se ao sétimo dia. Em muitas línguas, o nome do sétimo dia
+                    deriva desse termo, como "sábado" em português e "Saturday" em inglês. No
+                    entanto, a Bíblia original não usava nomes específicos para os dias da semana,
+                    mas sim numerais (primeiro dia, segundo dia, etc.). Assim, a ênfase bíblica está
+                    no ciclo semanal de sete dias, não em um dia específico nomeado. Esta
+                    compreensão ajuda a explicar como a observância cristã pôde mover-se do sétimo
+                    para o primeiro dia da semana após a ressurreição, mantendo o princípio divino
+                    de separar um dia em sete para adoração.
+                  </p>
+                </div>
+
+                <h4>Atividades Significativas para o Dia do Senhor</h4>
+                <p>
+                  Cada membro da Igreja e cada família pode encontrar maneiras pessoais e criativas
+                  de tornar o Dia do Senhor espiritualmente significativo. A observância do Dia do
+                  Senhor não se limita a ir às reuniões dominicais – essa é apenas a parte central.
+                </p>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+                  <p>
+                    Há diversas práticas sobre como santificar esse dia. Os Santos dos Últimos Dias
+                    participam da Santa Ceia todos os domingos, o que não é comum na maioria das
+                    denominações. Além disso, cada família desenvolve tradições próprias para
+                    demonstrar devoção a Deus nesse dia. O foco deve estar em como santificamos o
+                    Dia do Senhor, buscando tornar esse dia um tempo sagrado de renovação
+                    espiritual, serviço e comunhão com Deus e com os outros.
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "O domingo não é um dia apenas de comparecer à igreja passivamente. Não é um tempo
+                  de férias da adoração. O domingo é o dia de realizar a obra ativa de Deus e Seus
+                  filhos, e adorá-Lo como Ele nos instruiu. É um tempo para deixarmos de lado nossas
+                  próprias atividades e fazermos a obra de Deus."
+                  <p style="text-align: right; margin-top: 10px">— Presidente Spencer W. Kimball</p>
+                </div>
+
+                <h4>Ideias para Santificar o Dia do Senhor</h4>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>Conexão com Entes Queridos</h4>
+                    <ul>
+                      <li>Escrever cartas ou mensagens para missionários</li>
+                      <li>Ligar para parentes distantes</li>
+                      <li>Fazer videochamadas com familiares que moram longe</li>
+                      <li>Compartilhar testemunhos ou experiências espirituais com amigos</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>Fortalecimento Espiritual</h4>
+                    <ul>
+                      <li>Revisitar bênçãos patriarcais e outras bênçãos recebidas</li>
+                      <li>Estudar revistas da Igreja e discursos recentes</li>
+                      <li>Rever a lição do Vem e Segue-Me da semana</li>
+                      <li>Realizar uma "noite familiar extra" com foco espiritual</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>História da Família</h4>
+                    <ul>
+                      <li>Pesquisar genealogia em família</li>
+                      <li>Contar histórias de antepassados</li>
+                      <li>Montar árvores genealógicas</li>
+                      <li>Preparar nomes para ordenanças do templo</li>
+                      <li>Cozinhar receitas tradicionais de antepassados</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>Serviço ao Próximo</h4>
+                    <ul>
+                      <li>Convidar alguém para jantar dominical</li>
+                      <li>Visitar enfermos ou idosos</li>
+                      <li>Preparar um bolo ou pão para um vizinho</li>
+                      <li>Escrever mensagens de apoio a pessoas necessitadas</li>
+                      <li>Fazer visitas como ministrador(a)</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>Reflexão e Planejamento</h4>
+                    <ul>
+                      <li>Realizar um conselho familiar</li>
+                      <li>Definir metas espirituais para a semana</li>
+                      <li>Escrever no diário pessoal</li>
+                      <li>Refletir sobre o progresso no caminho do convênio</li>
+                      <li>Planejar serviço para a semana</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    style="
+                      width: 30%;
+                      min-width: 250px;
+                      border: 1px solid #ccc;
+                      border-radius: 10px;
+                      padding: 15px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <h4>Conexão com a Natureza</h4>
+                    <ul>
+                      <li>Fazer caminhadas tranquilas em família</li>
+                      <li>Observar o pôr do sol e conversar sobre a criação</li>
+                      <li>Contemplar as estrelas e discutir a vastidão do universo</li>
+                      <li>Cultivar um jardim ou cuidar de plantas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+                  <p>
+                    O sacramento não é somente para honrar o sacrifício de Cristo, mas também para
+                    comemorar Sua vitória. Em Mateus 26:29, Jesus diz: "Não beberei deste fruto da
+                    videira até aquele dia em que o beberei de novo convosco no Reino de meu Pai."
+                    Esta promessa refere-se ao banquete celestial que será realizado na Segunda
+                    Vinda com Abraão, Isaque e Jacó (Mateus 8:11). Assim, cada vez que participamos
+                    do sacramento, não apenas olhamos para o passado (o sacrifício), mas também para
+                    o futuro (o banquete celestial), celebrando a vitória de Cristo sobre a morte e
+                    antecipando Seu glorioso retorno.
+                  </p>
+                </div>
+
+                <h4>Ensinamentos Inspirados sobre o Dia do Senhor</h4>
+                <p>
+                  O Presidente Spencer W. Kimball ensinou que não basta simplesmente nos abstermos
+                  do trabalho secular no Dia do Senhor; precisamos preencher o dia com ações justas
+                  e significativas:
+                </p>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "O domingo é um dia santo no qual se deve fazer coisas dignas e sagradas.
+                  Abster-se de trabalho e recreação é importante, mas insuficiente. O domingo pede
+                  pensamentos e atos construtivos, e se alguém passa o dia apenas ocioso sem fazer
+                  nada, está quebrando o domingo. Para observá-lo, a pessoa estará de joelhos em
+                  oração, preparando aulas, estudando o evangelho, meditando, visitando os doentes e
+                  aflitos, descansando, lendo material edificante e comparecendo a todas as reuniões
+                  daquele dia às quais for esperado. Deixar de fazer essas coisas apropriadas é uma
+                  transgressão por omissão."
+                  <p style="text-align: right; margin-top: 10px">— Presidente Spencer W. Kimball</p>
+                </div>
+
+                <div
+                  style="
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #e2c275;
+                    padding: 15px 20px;
+                    margin: 20px 0;
+                    font-style: italic;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
+                  "
+                >
+                  "O momento presente é o único tempo em que qualquer dever pode ser realizado ou
+                  qualquer graça recebida."
+                  <p style="text-align: right; margin-top: 10px">
+                    — C.S. Lewis, <em>The Screwtape Letters</em>
+                  </p>
+                </div>
+
+                <p>
+                  Esta orientação inspirada nos lembra que santificar o Dia do Senhor não é apenas
+                  evitar o mal, mas encher o dia com o bem – adorando, servindo e fortalecendo-nos
+                  espiritualmente. Assim, o Dia do Senhor torna-se verdadeiramente "um deleite", e
+                  não um dia de restrições estéreis.
+                </p>
+
+                <h4>A Tradição do Dia do Senhor</h4>
+                <p>
+                  A tradição de observar o domingo como "dia do Senhor" é um lembrete de que somos
+                  chamados a viver cada semana em ritmo com a narrativa redentora de Deus — morte em
+                  sexta-feira, descanso no shabat, e ressurreição no domingo — antecipando a vinda
+                  de Cristo, quando entraremos no descanso sabático perfeito e experimentaremos a
+                  ressurreição completa.
+                </p>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+                  <p>
+                    Evidências bíblicas sobre a prática da adoração no primeiro dia da semana
+                    (domingo) entre os primeiros cristãos podem ser encontradas em várias passagens,
+                    incluindo:
+                    <ul>
+                      <li>Jesus ressuscitou no primeiro dia da semana (Mateus 28:1).</li>
+                      <li>Os discípulos se reuniram no primeiro dia da semana (João 20:19,26).</li>
+                      <li>O Espírito Santo desceu no Pentecostes, que caiu em um domingo (Atos 2).</li>
+                      <li>Paulo instruiu os coríntios a separarem ofertas no primeiro dia da semana (1 Coríntios 16:2).</li>
+                      <li>Os discípulos se reuniram para "partir o pão" (comunhão) no primeiro dia da semana (Atos 20:7).</li>
+                      <li>João recebeu sua revelação apocalíptica estando "em espírito no dia do Senhor" (Apocalipse 1:10).</li>
+                    </ul>
+
+                    Estas referências bíblicas, juntamente com escritos da Igreja primitiva como a Didaqué (cerca de 100 d.C.) e os escritos de Inácio de Antioquia, Justino Mártir e Tertuliano, documentam o desenvolvimento da prática cristã de adoração no domingo, embora algumas comunidades cristãs, especialmente as de origem judaica, inicialmente observassem tanto o shabat quanto o domingo.
+                    observassem tanto o shabat quanto o domingo.
+                  </p>
+                </div>
+
+                <h4>Práticas de Diferentes Tradições Religiosas</h4>
+
+                <div class="info-box">
+                  <div style="display: flex; align-items: center; margin-bottom: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background-color: #e2c275;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 15px;
+                      "
+                    >
+                      <i class="fas fa-lightbulb" style="color: #16213e; font-size: 1.2rem"></i>
+                    </div>
+                    <h4 style="margin: 0; color: white; font-size: 1.3rem">VOCÊ SABIA?</h4>
+                  </div>
+
+
+                  <div class="lesson-section">
+                    <h3>A VISÃO DO CRISTO GLORIFICADO</h3>
+
+                    <div class="quote">
+                      "E voltei-me para ver quem falava comigo. E, ao voltar-me, vi sete candeeiros
+                      de ouro, e no meio dos candeeiros um semelhante ao Filho do Homem, vestido até
+                      aos pés de uma veste comprida, e cingido pelo peito com um cinto de ouro. A
+                      sua cabeça e cabelos eram brancos como lã branca, como a neve, e os seus olhos
+                      como chama de fogo; e os seus pés, semelhantes a latão reluzente, como se
+                      tivessem sido refinados numa fornalha, e a sua voz como a voz de muitas águas.
+                      E ele tinha na sua destra sete estrelas; e da sua boca saía uma aguda espada
+                      de dois fios; e o seu rosto era como o sol, quando resplandece na sua força."
+                      (Apocalipse 1:12-16)
+                    </div>
+
+                    <p>
+                      João contempla uma visão surpreendente de Cristo glorificado, drasticamente
+                      diferente do Jesus que ele havia conhecido durante Seu ministério terreno.
+                      Esta não é mais o humilde carpinteiro de Nazaré, mas o ressurreto Senhor da
+                      glória, o Jeová do Antigo Testamento. Cada detalhe desta descrição transmite
+                      significado simbólico profundo:
+                    </p>
+
+                    <div class="table-container">
+                      <table>
+                        <tr>
+                          <th>SÍMBOLO</th>
+                          <th>SIGNIFICADO</th>
+                          <th>CONEXÃO COM O AT</th>
+                          <th>APLICAÇÃO</th>
+                        </tr>
+                        <tr>
+                          <td>Sete candeeiros de ouro</td>
+                          <td>As sete igrejas (1:20)</td>
+                          <td>Menorá do Tabernáculo</td>
+                          <td>Cristo caminha entre Suas igrejas como luz do mundo</td>
+                        </tr>
+                        <tr>
+                          <td>Veste comprida</td>
+                          <td>Dignidade e autoridade sacerdotal</td>
+                          <td>Vestes do sumo sacerdote</td>
+                          <td>Cristo como nosso Sumo Sacerdote eterno</td>
+                        </tr>
+                        <tr>
+                          <td>Cinto de ouro</td>
+                          <td>Realeza e serviço</td>
+                          <td>Cintos dos reis e servos</td>
+                          <td>Cristo como Rei-Servo</td>
+                        </tr>
+                        <tr>
+                          <td>Cabelos brancos</td>
+                          <td>Sabedoria, pureza, eternidade</td>
+                          <td>"Ancião de Dias" em Daniel 7:9</td>
+                          <td>Cristo como a encarnação da sabedoria eterna</td>
+                        </tr>
+                        <tr>
+                          <td>Olhos como chama de fogo</td>
+                          <td>Percepção e julgamento penetrantes</td>
+                          <td>"Seus olhos observam" (Sl 11:4)</td>
+                          <td>Cristo discerne todos os segredos do coração</td>
+                        </tr>
+                        <tr>
+                          <td>Pés como latão refinado</td>
+                          <td>Estabilidade, valor e pureza</td>
+                          <td>Base da pia de bronze do templo</td>
+                          <td>Cristo como fundamento inabalável</td>
+                        </tr>
+                        <tr>
+                          <td>Voz como muitas águas</td>
+                          <td>Poder e autoridade</td>
+                          <td>Voz de Deus em Ezequiel 43:2</td>
+                          <td>A Palavra de Cristo como poder criador e ordenador</td>
+                        </tr>
+                        <tr>
+                          <td>Sete estrelas</td>
+                          <td>Mensageiros das sete igrejas</td>
+                          <td>As "estrelas" na mão de Deus (Jó 38:31)</td>
+                          <td>Cristo sustenta e dirige os líderes de Sua igreja</td>
+                        </tr>
+                        <tr>
+                          <td>Espada afiada de dois fios</td>
+                          <td>Palavra de Deus, poder de julgamento</td>
+                          <td>"Minha palavra é como fogo" (Jr 23:29)</td>
+                          <td>Cristo julga com verdade e justiça</td>
+                        </tr>
+                        <tr>
+                          <td>Rosto como o sol</td>
+                          <td>Glória divina, luz pura</td>
+                          <td>"Semblante resplandeceu como o sol" (Mt 17:2)</td>
+                          <td>Cristo como fonte de toda luz espiritual</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="info-box">
+                    <h4>VOCÊ SABIA?</h4>
+                    <p>
+                      <em>
+                        A descrição do Cristo glorificado em Apocalipse 1 tem paralelos notáveis com
+                        a visão do "Filho do Homem" em Daniel 7:13-14 e com a "aparência da glória
+                        do SENHOR" em Ezequiel 1:26-28. Estas conexões não são acidentais, mas
+                        intencionais, identificando Jesus Cristo como o cumprimento das profecias
+                        messiânicas do Antigo Testamento e como a própria manifestação da glória de
+                        Jeová. Esta continuidade entre o Jeová do Antigo Testamento e o Jesus do
+                        Novo Testamento é um testemunho poderoso da divindade de Cristo. Ele não era
+                        simplesmente um homem bom ou um profeta, mas "o resplendor da glória de Deus
+                        e a expressão exata do seu ser" (Hebreus 1:3).
+                      </em>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="lesson-section">
+                  <h3>O QUE SIGNIFICA A MENORÁ</h3>
+
+                  <p>
+                    Os sete candeeiros entre os quais Cristo caminha são explicitamente
+                    identificados como as sete igrejas (1:20). Este simbolismo evoca a menorá, o
+                    candelabro de sete braços que ficava no tabernáculo e no templo.
+                  </p>
+
+                  <div class="info-box">
+                    <h4>VOCÊ SABIA?</h4>
+                    <p>
+                      <em>
+                        A menorá no templo judaico simbolizava vários conceitos importantes:
+                      </em>
+                    </p>
+                    <ul>
+                      <li>
+                        <em
+                          >Luz divina: Representava a presença iluminadora de Deus entre Seu
+                          povo</em
+                        >
+                      </li>
+                      <li>
+                        <em
+                          >Testemunho: As sete chamas brilhavam continuamente como testemunho
+                          visível</em
+                        >
+                      </li>
+                      <li>
+                        <em>Guia: Fornecia luz no lugar santo, guiando o serviço sacerdotal</em>
+                      </li>
+                      <li>
+                        <em
+                          >Beleza: Era meticulosamente ornamentada, revelando a natureza estética da
+                          adoração</em
+                        >
+                      </li>
+                      <li>
+                        <em
+                          >Unidade: Os sete braços saíam de uma base única, mostrando diversidade na
+                          unidade</em
+                        >
+                      </li>
+                    </ul>
+                    <p>
+                      <em> Da mesma forma, as igrejas de Cristo são chamadas a: </em>
+                    </p>
+                    <ul>
+                      <li><em>Refletir a luz divina em um mundo escuro</em></li>
+                      <li><em>Manter um testemunho contínuo de Cristo</em></li>
+                      <li><em>Guiar as pessoas em sua jornada espiritual</em></li>
+                      <li><em>Demonstrar a beleza da santidade</em></li>
+                      <li>
+                        <em
+                          >Manter a unidade na diversidade, como um só corpo com muitos membros</em
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="lesson-section">
+                  <h3>A REAÇÃO DE JOÃO</h3>
+
+                  <div class="quote">
+                    "E eu, quando o vi, caí a seus pés como morto; e ele pôs sobre mim a sua mão
+                    direita, dizendo-me: Não temas; Eu sou o primeiro e o último, e o que vive; fui
+                    morto, mas eis aqui estou vivo para todo o sempre. Amém! E tenho as chaves da
+                    morte e do Hades." (Apocalipse 1:17-18)
+                  </div>
+
+                  <p class="intro-text">
+                    A reação de João à visão do Cristo glorificado é profundamente humana e
+                    compreensível. Confrontado com tal majestade transcendente, ele cai "como
+                    morto". Esta resposta de reverência e temor sagrado não é sem precedentes:
+                  </p>
+
+                  <div class="prophet-reactions-container">
+                    <div class="prophet-card">
+                      <div class="prophet-header">Isaías</div>
+                      <div class="prophet-content">
+                        Exclamou "Ai de mim!" quando confrontado com a santidade divina,
+                        reconhecendo sua própria impureza diante da glória do Senhor.
+                        <span class="scripture-reference">Isaías 6:5</span>
+                      </div>
+                    </div>
+
+                    <div class="prophet-card">
+                      <div class="prophet-header">Ezequiel</div>
+                      <div class="prophet-content">
+                        Caiu sobre seu rosto quando testemunhou a aparição da glória divina, incapaz
+                        de permanecer de pé diante da manifestação celestial.
+                        <span class="scripture-reference">Ezequiel 1:28</span>
+                      </div>
+                    </div>
+
+                    <div class="prophet-card">
+                      <div class="prophet-header">Daniel</div>
+                      <div class="prophet-content">
+                        Ficou "sem forças" durante sua visão, com seu vigor convertido em
+                        desfalecimento quando contemplou o mensageiro celestial.
+                        <span class="scripture-reference">Daniel 10:8</span>
+                      </div>
+                    </div>
+
+                    <div class="prophet-card">
+                      <div class="prophet-header">Discípulos</div>
+                      <div class="prophet-content">
+                        "Caíram com o rosto em terra" na Transfiguração, sobrecarregados pela glória
+                        revelada de Cristo diante deles no monte.
+                        <span class="scripture-reference">Mateus 17:6</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="christ-response-container">
+                    <h4 class="response-title">A Resposta Compassiva de Cristo</h4>
+                    <p>
+                      A reação de Cristo à prostração de João é igualmente reveladora. Ele não
+                      repreende João nem o deixa em seu estado de terror reverencial. Em vez disso,
+                      Cristo responde com compaixão:
+                    </p>
+
+                    <div class="response-steps">
+                      <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Toca João</div>
+                        <div class="step-description">
+                          Um ato de compaixão e conexão pessoal, estabelecendo contato físico para
+                          restaurar e fortalecer.
+                          <span class="scripture-quote"
+                            >"Ele pôs sobre mim a sua mão direita..."</span
+                          >
+                        </div>
+                      </div>
+
+                      <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Tranquiliza</div>
+                        <div class="step-description">
+                          Dissipa o medo com palavras de conforto, mostrando que sua presença não
+                          vem para condenar, mas para revelar.
+                          <span class="scripture-quote">"Não temas..."</span>
+                        </div>
+                      </div>
+
+                      <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Identifica-se</div>
+                        <div class="step-description">
+                          Revela Sua identidade eterna, assegurando a João que está diante do mesmo
+                          Cristo que ele conheceu.
+                          <span class="scripture-quote">"Eu sou o primeiro e o último..."</span>
+                        </div>
+                      </div>
+
+                      <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Afirma Vitória</div>
+                        <div class="step-description">
+                          Declara Sua conquista sobre a morte, lembrando João da ressurreição e seu
+                          significado eterno.
+                          <span class="scripture-quote"
+                            >"Fui morto, mas eis aqui estou vivo..."</span
+                          >
+                        </div>
+                      </div>
+
+                      <div class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Declara Autoridade</div>
+                        <div class="step-description">
+                          Proclama Seu poder soberano sobre os reinos da morte, demonstrando
+                          controle sobre o destino final.
+                          <span class="scripture-quote"
+                            >"Tenho as chaves da morte e do Hades."</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="info-box">
+                    <h4>VOCÊ SABIA?</h4>
+                    <p>
+                      <em>
+                        A declaração de Cristo "tenho as chaves da morte e do Hades" tem profundas
+                        implicações teológicas que se conectam à doutrina restaurada da salvação dos
+                        mortos. Estas "chaves" significam autoridade para liberar as almas do estado
+                        pós-morte. Em 1 Pedro 3:18-20 e 4:6, aprendemos que Cristo, após Sua morte,
+                        "pregou aos espíritos em prisão". Esta missão pós-morte de Cristo
+                        estabeleceu o padrão para a obra vicária que agora realizamos nos templos.
+                        As mesmas chaves que Cristo possui e usou para pregar aos mortos foram
+                        restauradas em nossos dias e são utilizadas quando realizamos ordenanças de
+                        salvação pelos falecidos. Como ensinou o Presidente Russell M. Nelson: "As
+                        mesmas chaves que 'abrem as portas' para os vivos também abrem as portas
+                        para os mortos. Estas chaves foram restauradas a Joseph Smith como parte da
+                        'dispensação da plenitude dos tempos'" (Abril 2021).
+                      </em>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="lesson-section">
+                  <h3>REIS E SACERDOTES</h3>
+
+                  <div class="quote">
+                    "E nos fez reis e sacerdotes para Deus e seu Pai; a ele glória e poder para todo
+                    o sempre. Amém!" (Apocalipse 1:6)
+                  </div>
+
+                  <p>
+                    João declara que Cristo "nos fez reis e sacerdotes para Deus". Este conceito
+                    profundo amplia nossa compreensão da identidade e do destino dos seguidores de
+                    Cristo:
+                  </p>
+
+                  <div class="role-grid">
+                    <div class="role-card">
+                      <div class="role-header">
+                        <h4 class="role-title">Status Presente</h4>
+                        <div class="role-icon"><i class="fas fa-crown"></i></div>
+                      </div>
+                      <div class="role-content">
+                        <p class="role-description">
+                          Como seguidores de Cristo, já possuímos uma identidade real e sacerdotal,
+                          mesmo enquanto vivemos neste mundo.
+                        </p>
+                        <div class="role-scripture">
+                          "Vós, porém, sois geração eleita, sacerdócio real, nação santa, povo
+                          adquirido..." (1 Pedro 2:9)
+                        </div>
+                        <div class="role-application">
+                          <span class="role-application-title">Aplicação Atual:</span>
+                          Reconhecer nossa identidade como filhos e filhas reais de Deus, vivendo
+                          com dignidade correspondente a esta elevada posição.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="role-card">
+                      <div class="role-header">
+                        <h4 class="role-title">Responsabilidade Atual</h4>
+                        <div class="role-icon"><i class="fas fa-hands-helping"></i></div>
+                      </div>
+                      <div class="role-content">
+                        <p class="role-description">
+                          Somos chamados a ministrar e servir como representantes de Deus, mediando
+                          Sua presença e poder no mundo.
+                        </p>
+                        <div class="role-scripture">
+                          "Como também vós mesmos, quais pedras vivas, sois edificados casa
+                          espiritual e sacerdócio santo..." (1 Pedro 2:5)
+                        </div>
+                        <div class="role-application">
+                          <span class="role-application-title">Aplicação Atual:</span>
+                          Exercer ministério ativo em nossos círculos de influência, servindo como
+                          pontes entre Deus e aqueles ao nosso redor.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="role-card">
+                      <div class="role-header">
+                        <h4 class="role-title">Destino Futuro</h4>
+                        <div class="role-icon"><i class="fas fa-star"></i></div>
+                      </div>
+                      <div class="role-content">
+                        <p class="role-description">
+                          Estamos sendo preparados para posições de liderança e serviço no reino
+                          vindouro de Cristo, quando reinaremos com Ele.
+                        </p>
+                        <div class="role-scripture">
+                          "E reinarão para todo o sempre." (Apocalipse 22:5)
+                        </div>
+                        <div class="role-application">
+                          <span class="role-application-title">Aplicação Atual:</span>
+                          Desenvolver agora as qualidades e habilidades que usaremos em nossa futura
+                          função de governar e ministrar no reino celestial.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="info-box">
+                    <h4>VOCÊ SABIA?</h4>
+                    <p>
+                      <em>
+                        A frase "nos fez reis e sacerdotes" utiliza linguagem da aliança do Antigo
+                        Testamento encontrada em Êxodo 19:6, onde Deus promete fazer de Israel "um
+                        reino de sacerdotes e uma nação santa". Esta linguagem é deliberadamente
+                        aplicada à igreja cristã no Novo Testamento, indicando que os seguidores de
+                        Cristo são agora o "Israel de Deus" (Gálatas 6:16), herdeiros das promessas
+                        do convênio. Esta transferência de identidade do convênio não significa que
+                        o Israel literal foi rejeitado, mas que a Igreja de Cristo foi enxertada na
+                        mesma oliveira (Romanos 11).
+                      </em>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="lesson-section">
+                  <h3>O PROPÓSITO DA REVELAÇÃO</h3>
+
+                  <div class="quote">
+                    "Escreve as coisas que tens visto, e as que são, e as que depois destas hão de
+                    acontecer." (Apocalipse 1:19)
+                  </div>
+
+                  <p>
+                    Cristo dá a João uma estrutura tripla para organizar sua visão profética,
+                    providenciando uma chave interpretativa para o livro inteiro:
+                  </p>
+
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(3, 1fr);
+                      gap: 20px;
+                      margin: 30px 0;
+                    "
+                  >
+                    <div
+                      style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #16213e;
+                          color: white;
+                          padding: 15px;
+                          position: relative;
+                        "
+                      >
+                        <span
+                          style="
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: white;
+                            color: #16213e;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                          "
+                          >1</span
+                        >
+                        <h4 style="margin: 0; padding-left: 45px; color: white">
+                          As coisas que tens visto
+                        </h4>
+                      </div>
+                      <div style="padding: 20px">
+                        <p style="margin: 0 0 15px 0">
+                          Refere-se à visão do Cristo glorificado que João acabara de testemunhar -
+                          a revelação fundamental da pessoa de Cristo em Sua majestade.
+                        </p>
+                        <span
+                          style="
+                            font-style: italic;
+                            color: #666;
+                            display: block;
+                            text-align: right;
+                            font-size: 0.85rem;
+                          "
+                          >Capítulo 1</span
+                        >
+                      </div>
+                    </div>
+
+                    <div
+                      style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #16213e;
+                          color: white;
+                          padding: 15px;
+                          position: relative;
+                        "
+                      >
+                        <span
+                          style="
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: white;
+                            color: #16213e;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                          "
+                          >2</span
+                        >
+                        <h4 style="margin: 0; padding-left: 45px; color: white">As que são</h4>
+                      </div>
+                      <div style="padding: 20px">
+                        <p style="margin: 0 0 15px 0">
+                          Engloba as mensagens às sete igrejas da Ásia - lidando com condições
+                          presentes, desafios e promessas para os fiéis em cada congregação.
+                        </p>
+                        <span
+                          style="
+                            font-style: italic;
+                            color: #666;
+                            display: block;
+                            text-align: right;
+                            font-size: 0.85rem;
+                          "
+                          >Capítulos 2-3</span
+                        >
+                      </div>
+                    </div>
+
+                    <div
+                      style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #16213e;
+                          color: white;
+                          padding: 15px;
+                          position: relative;
+                        "
+                      >
+                        <span
+                          style="
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: white;
+                            color: #16213e;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                          "
+                          >3</span
+                        >
+                        <h4 style="margin: 0; padding-left: 45px; color: white">
+                          As que depois destas hão de acontecer
+                        </h4>
+                      </div>
+                      <div style="padding: 20px">
+                        <p style="margin: 0 0 15px 0">
+                          Abrange as profecias de eventos futuros - visões do trono de Deus,
+                          julgamentos divinos, conflito cósmico, e o triunfo final de Cristo e Seu
+                          reino.
+                        </p>
+                        <span
+                          style="
+                            font-style: italic;
+                            color: #666;
+                            display: block;
+                            text-align: right;
+                            font-size: 0.85rem;
+                          "
+                          >Capítulos 4-22</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-box">
+                  <h4>VOCÊ SABIA?</h4>
+                  <p>
+                    <em>
+                      O livro de Apocalipse não é o único texto apocalíptico que existia no mundo
+                      antigo. O gênero apocalíptico era bastante conhecido, caracterizado por visões
+                      simbólicas, intervenção angelical, numerologia, e quadros contrastantes do
+                      conflito entre bem e mal. Outros exemplos incluem partes de Daniel, Ezequiel,
+                      e textos não-canônicos como 1 Enoque e a Ascensão de Isaías. O que distingue o
+                      Apocalipse de João não é seu gênero, mas sua autoridade apostólica e seu
+                      testemunho centrado em Cristo. Enquanto muitos apocalipses pseudônimos foram
+                      atribuídos a figuras antigas como Enoque ou Abraão, o Apocalipse genuinamente
+                      vem de uma testemunha ocular de Cristo. Esta autenticidade dá à sua mensagem
+                      um peso e autoridade únicos.
+                    </em>
+                  </p>
+                </div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>ATUANDO COMO REIS E SACERDOTES</h3>
+
+                <p>
+                  Para vivermos como "reis e sacerdotes" hoje, considere estas aplicações práticas:
+                </p>
+
+                <div class="role-grid">
+                  <div class="role-card">
+                    <div class="role-header">
+                      <h4 class="role-title">Assumir Responsabilidade</h4>
+                      <div class="role-icon"><i class="fas fa-clipboard-check"></i></div>
+                    </div>
+                    <div class="role-content">
+                      <p class="role-description">
+                        Como um rei, assuma responsabilidade por sua esfera de influência — seu lar,
+                        seu trabalho, sua comunidade. Não espere que outros resolvam problemas que
+                        você pode abordar.
+                      </p>
+                      <div class="role-application">
+                        <span class="role-application-title">Pergunta Para Refletir:</span>
+                        Identifique uma área em sua vida que precisa de sua liderança ativa. Como
+                        você pode assumir maior responsabilidade ali esta semana?
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-header">
+                      <h4 class="role-title">Servir como Mediador</h4>
+                      <div class="role-icon"><i class="fas fa-hands-praying"></i></div>
+                    </div>
+                    <div class="role-content">
+                      <p class="role-description">
+                        Como um sacerdote, seja uma ponte entre Deus e outros. Interceda em oração
+                        por pessoas específicas. Seja um pacificador que traz a presença de Deus
+                        para situações de conflito.
+                      </p>
+                      <div class="role-application">
+                        <span class="role-application-title">Exercício Prático:</span>
+                        Dedique 10 minutos diários intercedendo especificamente pelos desafios
+                        enfrentados por cinco pessoas em sua vida.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-header">
+                      <h4 class="role-title">Exercer Autoridade Espiritual</h4>
+                      <div class="role-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <div class="role-content">
+                      <p class="role-description">
+                        Use sua autoridade não para controlar outros, mas para resistir ao mal e
+                        promover o bem. Como ensinou o Élder Dieter F. Uchtdorf: "No reino de Deus,
+                        grandeza e liderança significam ver os outros como eles realmente são — como
+                        Deus os vê — e então estender a mão e ministrar a eles."
+                      </p>
+                      <div class="role-application">
+                        <span class="role-application-title">Desafio:</span>
+                        Identifique uma influência negativa em sua vida e exercite sua autoridade
+                        espiritual para estabelecer limites contra ela.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-header">
+                      <h4 class="role-title">Preparar-se para o Futuro</h4>
+                      <div class="role-icon"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="role-content">
+                      <p class="role-description">
+                        Desenvolva agora as qualidades que usará para governar e ministrar no reino
+                        de Cristo. Como ensinou o Presidente Dallin H. Oaks: "A vida mortal é o
+                        tempo para nos prepararmos para a eternidade... o tempo para nos tornarmos o
+                        que nosso Pai Celestial deseja que nos tornemos."
+                      </p>
+                      <div class="role-application">
+                        <span class="role-application-title">Autoavaliação:</span>
+                        Que qualidade de liderança ou caráter você precisa desenvolver para estar
+                        melhor preparado para suas responsabilidades eternas?
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-header">
+                      <h4 class="role-title">Viver com Visão Real</h4>
+                      <div class="role-icon"><i class="fas fa-eye"></i></div>
+                    </div>
+                    <div class="role-content">
+                      <p class="role-description">
+                        Veja além das circunstâncias imediatas, como um rei que considera o bem de
+                        todo o reino. Tome decisões baseadas não apenas em necessidades imediatas,
+                        mas em princípios eternos.
+                      </p>
+                      <div class="role-application">
+                        <span class="role-application-title">Exercício de Perspectiva:</span>
+                        Ao enfrentar uma decisão, pergunte-se: "Como esta escolha parecerá daqui a
+                        cem anos na eternidade?"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>PONTOS-CHAVE PARA REVISÃO</h3>
+
+                <div class="key-points-container">
+                  <h4 class="key-points-title">Resumo das Verdades Essenciais</h4>
+                  <div class="key-points-grid">
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          1
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            O Apocalipse é fundamentalmente uma "revelação de Jesus Cristo" que
+                            desvela Sua majestade e autoridade glorificadas, mostrando-O como a
+                            figura central e suprema da história e da eternidade.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          2
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            João recebeu esta visão enquanto exilado em Patmos, mas pode ter escrito
+                            o livro após seu retorno à Ásia Menor, dando-lhe tempo para refletir
+                            sobre o significado das revelações recebidas.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          3
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            A visão de Cristo glorificado apresenta-O como o Juiz divino, Sumo
+                            Sacerdote, e Rei Soberano — o Jeová do Antigo Testamento agora revelado
+                            em Sua glória plena após completar Sua obra redentora.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          4
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            A reação de temor reverencial de João é apropriada quando confrontado
+                            com a glória divina, mas Cristo responde com toque pessoal e
+                            tranquilização, demonstrando que Sua majestade é temperada com
+                            misericórdia.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          5
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            Cristo fez Seus seguidores "reis e sacerdotes", chamando-os a liderar
+                            através do serviço e a preparar-se para responsabilidades futuras em Seu
+                            reino, vivendo agora com a dignidade e propósito de sua identidade real
+                            e sacerdotal.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          6
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            O propósito da revelação é triplo: registrar o que João viu (a visão de
+                            Cristo), o que é (as condições das igrejas), e o que virá depois
+                            (eventos futuros), fornecendo uma estrutura interpretativa para o livro
+                            inteiro.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="key-point-card">
+                      <div style="position: relative; display: flex">
+                        <div
+                          style="
+                            position: absolute;
+                            top: 0;
+                            left: 15px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(22, 33, 62, 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #16213e;
+                          "
+                        >
+                          7
+                        </div>
+                        <div style="width: 100%; padding-left: 55px">
+                          <p style="margin: 0; line-height: 1.7; color: #333; font-size: 0.95rem">
+                            As "chaves da morte e do Hades" possuídas por Cristo conectam-se à
+                            doutrina restaurada da salvação dos mortos e ao trabalho redentor
+                            realizado nos templos, demonstrando o alcance universal da autoridade e
+                            redenção de Cristo.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="activity">
+                  <h4>DESAFIO DE APLICAÇÃO SEMANAL</h4>
+                  <p>
+                    <em>
+                      Durante esta semana, pratique olhar para Cristo com um entendimento mais
+                      profundo de Sua natureza glorificada. Ao orar, visualize-O como João O viu -
+                      não apenas como o Jesus histórico, mas como o Cristo eterno e glorificado.
+                      Observe como isso afeta sua adoração, suas orações e seu compromisso com o
+                      serviço cristão. Ao final da semana, reflita sobre como esta visão expandida
+                      de Cristo impactou sua caminhada espiritual diária.
+                    </em>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Navegação entre dimensões -->
+              <div class="navigation-buttons">
+                <a href="../aula1.html" class="btn btn-secondary">← Voltar para Aula 1</a>
+                <a href="panorama.html" class="btn btn-primary">Próxima Dimensão →</a>
+              </div>
+            </div>
+          </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>Apocalipse: As Visões dos Últimos Dias</h3>
+            <p>Um curso de estudo profundo sobre o livro de Apocalipse</p>
+          </div>
+          <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+              <li><a href="../../index.html">Início</a></li>
+              <li><a href="../../introducao.html">Introdução</a></li>
+              <li><a href="../aula1.html">Aula 1</a></li>
+              <li><a href="../../recursos.html">Recursos</a></li>
+              <li><a href="../../sobre.html">Sobre</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Informações</h4>
+            <p>
+              Este material de apoio não é uma publicação oficial de A Igreja de Jesus Cristo dos
+              Santos dos Últimos Dias
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 • Todos os direitos reservados</p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="../../js/aulas-config.js"></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>

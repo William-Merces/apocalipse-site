@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloco 3 - Conexões Proféticas: Aula 1</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/dimension-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Carregar scripts na ordem correta -->
+  <script src="../../js/aulas-config.js"></script>
+  <script src="../../js/navigation.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <style>
+    /* Estilos específicos para a página de convergência */
+    .prophet-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border-top: 5px solid var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+
+    .prophet-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .prophet-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prophet-header h4 {
+      color: white;
+      margin: 0;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .prophet-header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: skewX(-15deg) translateX(50%);
+    }
+
+    .prophet-content {
+      padding: 1.5rem;
+    }
+
+    .prophet-content h5 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    .prophet-content ul {
+      margin-bottom: 1rem;
+    }
+
+    .connection-line {
+      position: relative;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .connection-line::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+      z-index: 0;
+    }
+
+    .connection-badge {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    .convergence-visual {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .vision-sphere {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .vision-sphere::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border: 2px dashed var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .vision-connector {
+      position: relative;
+      width: 100px;
+      height: 2px;
+      background-color: var(--accent-color);
+      align-self: center;
+    }
+
+    .vision-connector::before,
+    .vision-connector::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .vision-connector::before {
+      left: 0;
+    }
+
+    .vision-connector::after {
+      right: 0;
+    }
+
+    .insight-box {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .insight-box h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .insight-type {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .convergence-chart {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+
+    .convergence-chart th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .convergence-chart td {
+      padding: 1rem;
+      border: 1px solid var(--mid-bg);
+      vertical-align: top;
+    }
+
+    .convergence-chart th:first-child,
+    .convergence-chart td:first-child {
+      background-color: var(--primary-light);
+      color: white;
+      font-weight: bold;
+    }
+
+    .scripture-reference {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    .scripture-highlight {
+      display: block;
+      background-color: rgba(5, 46, 111, 0.05);
+      border-left: 3px solid var(--primary-color);
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+    }
+
+    .prophet-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .prophet-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Estilo para os testemunhos conjuntos */
+    .testimony-box {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .testimony-box::before {
+      content: "\201C";  /* Unicode para aspas duplas de abertura */
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-size: 150px;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+    }
+
+    .testimony-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimony-content p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .testimony-attribution {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    .prophet-attribution {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Estilos para aplicação pessoal */
+    .application-steps {
+      counter-reset: step-counter;
+      margin: 2rem 0;
+    }
+
+    .application-step {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .application-step::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .application-step h4 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 768px) {
+      .convergence-visual {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vision-connector {
+        width: 2px;
+        height: 60px;
+      }
+
+      .vision-connector::before,
+      .vision-connector::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .vision-connector::before {
+        top: 0;
+      }
+
+      .vision-connector::after {
+        top: auto;
+        bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Container para o componente de navegação -->
+  <div id="navigation-container"></div>
+
+  <main class="container">
+    <section class="lesson-content">
+      <div class="dimension-heading">BLOCO 3: CONEXÕES PROFÉTICAS</div>
+      <div class="dimension-content">
+        
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-sync-alt topic-icon"></i> POR QUE CONVERGÊNCIA?</h3>
+
+          <p>
+            O estudo do Apocalipse não se limita ao que João viu. A revelação moderna nos permite enxergar a mesma realidade espiritual por meio de diferentes lentes. Nesta dimensão, convidamos principalmente Abraão e outros videntes, cujas visões ampliam e aprofundam nossa compreensão do Cristo pré-mortal e do plano eterno que João contemplou.
+          </p>
+
+          <div class="note">
+            <h4>O PRINCÍPIO DA DUPLA TESTEMUNHA</h4>
+            <p>
+              Doutrina e Convênios 6:28 ensina que "em boca de duas ou três testemunhas toda palavra será estabelecida". Quando diferentes profetas testificam de visões semelhantes, recebemos confirmação e mais profundidade de entendimento. Este princípio fundamental não existe apenas para verificação, mas para enriquecimento — cada testemunha profética revela aspectos distintos da mesma verdade eterna.
+            </p>
+          </div>
+
+          <div class="convergence-visual">
+            <div class="vision-sphere">Visão de João<br/>(95 d.C.)</div>
+            <div class="vision-connector"></div>
+            <div class="vision-sphere">Visão de Abraão<br/>(2000 a.C.)</div>
+            <div class="vision-connector"></div>
+            <div class="vision-sphere">Visão de Joseph Smith<br/>(1918)</div>
+          </div>
+
+          <div class="insight-box">
+            <h4><span class="insight-type">PRINCÍPIO-CHAVE</span> A REVELAÇÃO COMPLEMENTAR</h4>
+            <p>
+              A convergência profética opera como um prisma divino — quando a luz da verdade passa através de diferentes videntes, ela se desdobra em um espectro mais amplo de entendimento. Nenhum profeta recebe a revelação completa; cada um contribui com uma perspectiva única que, quando combinada, oferece uma visão mais abrangente do plano de Deus.
+            </p>
+            <p>
+              O Élder Neal A. Maxwell ensinou: "Todos os profetas testificaram de Cristo, mas cada um viu algo único e específico. O Senhor revelou diferentes aspectos de Si mesmo e de Seu evangelho a diferentes profetas, considerando suas necessidades, circunstâncias e capacidade espiritual — mas todas essas revelações são partes harmoniosas da mesma verdade eterna."
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-book-open topic-icon"></i> ABRAÃO: O VIDENTE DAS ESTRELAS E DO CRISTO PRÉ-MORTAL</h3>
+
+          <div class="prophet-card">
+            <div class="prophet-header">
+              <h4>ABRAÃO (APROXIMADAMENTE 2000 A.C.)</h4>
+            </div>
+            <div class="prophet-content">
+              <div class="prophet-image-container">
+                <img src="/api/placeholder/300/300" alt="Representação do patriarca Abraão" class="prophet-image" />
+              </div>
+
+              <h5>CONTEXTO HISTÓRICO E GEOGRÁFICO DA VISÃO</h5>
+              <p>
+                Abraão viveu em uma encruzilhada cultural entre a Mesopotâmia e o Egito, duas grandes civilizações do mundo antigo. Em Ur dos Caldeus e posteriormente no Egito, Abraão testemunhou sociedades imersas na idolatria e adoração astral. Nestas terras, hoje parte da África e do Oriente Médio, as pessoas adoravam o sol, a lua e as estrelas como divindades. Foi neste contexto africano-asiático que o Senhor revelou a Abraão a verdadeira natureza dos corpos celestes, não como deuses, mas como criações ordenadas de um Deus supremo, e a organização do reino celestial onde Cristo presidia.
+              </p>
+
+              <div class="scripture-highlight">
+                "Ora, o Senhor havia-me mostrado, a mim, Abraão, as inteligências que foram organizadas antes de existir o mundo; e entre todas essas havia muitas nobres e grandes; E Deus viu essas almas que eram boas e ele ficou no meio delas e disse: A estes farei meus governantes; pois ele se achava entre os que eram espíritos e viu que eles eram bons; e disse-me: Abraão, tu és um deles; foste escolhido antes de nasceres."
+                <span class="scripture-reference">Abraão 3:22-23</span>
+              </div>
+
+              <h5>ELEMENTOS-CHAVE DA VISÃO COSMOLÓGICA</h5>
+              <ul>
+                <li>
+                  <strong>O Cosmos Ordenado e o Trono de Deus</strong>
+                  <p>
+                    "E vi as estrelas, que eram muito grandes, e que uma delas estava mais próxima do trono de Deus; e havia muitas grandes que estavam próximas dele; E o Senhor disse-me: Estas são as que governam; e o nome da grande é Kolob, porque ela está próxima de mim..." (Abraão 3:2-3)
+                  </p>
+                  <p>
+                    Abraão viu que o universo não é um caos aleatório, mas uma criação ordenada e hierárquica. Kolob, a estrela "mais próxima do trono de Deus", representa o centro de governança divina — o mesmo trono que João veria mais tarde em sua visão apocalíptica (Apocalipse 4). Este cosmos ordenado reflete a natureza organizada do governo celestial e do sacerdócio, onde Cristo preside no centro.
+                  </p>
+                </li>
+                <li>
+                  <strong>As Inteligências Organizadas e a Hierarquia Espiritual</strong>
+                  <p>
+                    "Se duas coisas existirem e houver uma acima da outra, haverá coisas maiores acima delas... Se houver duas inteligências e uma for mais inteligente do que a outra, não obstante essas duas inteligências terem tido princípio, uma será mais inteligente do que a outra; haverá, pois, outra mais inteligente do que elas." (Abraão 3:16, 19)
+                  </p>
+                  <p>
+                    Abraão viu que, assim como existe uma ordem entre os corpos celestes, existe uma ordem entre as inteligências espirituais. Cristo estava no ápice desta hierarquia entre os filhos espirituais do Pai — "mais inteligente do que todos eles" (Abraão 3:19). A visão de Abraão complementa perfeitamente a visão de João do Cristo glorificado, revelando-O não apenas como o Redentor ressuscitado, mas como o Ser preeminente desde antes da fundação do mundo.
+                  </p>
+                </li>
+                <li>
+                  <strong>O Cristo Pré-mortal Revelado</strong>
+                  <p>
+                    "E havia entre eles um que era semelhante a Deus e ele disse aos que se achavam com ele: Desceremos, pois há espaço lá, e levaremos destes materiais e faremos uma terra onde estes possam habitar..." (Abraão 3:24)
+                  </p>
+                  <p>
+                    Abraão contemplou o Cristo pré-mortal atuando como o Criador, o mesmo "Alpha e Omega, o princípio e o fim" (Apocalipse 1:8) que João veria em Patmos. Esta visão revela que o Cristo glorificado do Apocalipse não começou Sua existência em Belém, mas foi o Jeová do Antigo Testamento, o Criador, o "Eu Sou" antes de Abraão (João 8:58).
+                  </p>
+                </li>
+                <li>
+                  <strong>O Grande Conselho e a Escolha do Salvador</strong>
+                  <p>
+                    "E o Senhor disse: A quem enviarei? E um respondeu como o Filho do Homem: Eis-me aqui, envia-me. E outro respondeu e disse: Eis-me aqui, envia-me. E o Senhor disse: Enviarei o primeiro." (Abraão 3:27)
+                  </p>
+                  <p>
+                    Abraão testemunhou o momento crucial onde Cristo se ofereceu voluntariamente como o Salvador no Grande Conselho. Esta visão nos permite entender que o Cristo glorificado que João viu não era apenas um conquistador triunfante, mas um Ser que livremente escolheu o caminho do sacrifício. Os olhos "como chama de fogo" (Apocalipse 1:14) pertenciam Àquele que, desde o princípio, ardeu com amor puro por Seus irmãos e irmãs espirituais.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              A visão de Abraão sobre Kolob e as estrelas próximas ao trono de Deus fornece um contexto astronômico para entender a futura glorificação da Terra. Em Apocalipse 21, João vê a Nova Jerusalém descendo do céu e a Terra sendo transformada. Os profetas modernos ensinam que a Terra eventualmente será celestializada e "voltará" para a presença de Deus — possivelmente para a região próxima a Kolob. As estrelas "caindo do céu" mencionadas em Apocalipse 6:13 podem se referir a esta reconfiguração cósmica, quando nossa esfera planetária retornar à sua órbita celestial original.
+            </p>
+          </div>
+        </div>
+
+        <div class="connection-line">
+          <span class="connection-badge">CONVERGÊNCIA</span>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-key topic-icon"></i> MOISÉS: O VIDENTE DA CRIAÇÃO E DA QUEDA</h3>
+
+          <div class="prophet-card">
+            <div class="prophet-header">
+              <h4>MOISÉS (APROXIMADAMENTE 1400 A.C.)</h4>
+            </div>
+            <div class="prophet-content">
+              <div class="prophet-image-container">
+                <img src="/api/placeholder/300/300" alt="Representação de Moisés" class="prophet-image" />
+              </div>
+
+              <h5>CONTEXTO HISTÓRICO-CULTURAL</h5>
+              <p>
+                Moisés foi criado como príncipe no Egito africano, educado nas mais avançadas ciências e artes do mundo antigo. Embora nascido israelita, sua formação cultural foi profundamente africana, e foi neste contexto que Deus lhe revelou visões extraordinárias que complementam nossa compreensão do Cristo pré-mortal.
+              </p>
+
+              <div class="scripture-highlight">
+                "E vi muitas terras; e cada terra chamava-se mundo e havia habitantes na face delas... E agora, Moisés, meu filho, falar-te-ei a respeito desta terra onde estás; e escreverás as coisas que te direi."
+                <span class="scripture-reference">Moisés 1:29, 40</span>
+              </div>
+
+              <p>
+                Moisés não apenas recebeu a revelação do Sinai, mas contemplou visões cósmicas que expandem nossa compreensão da criação e do papel de Cristo nela.
+              </p>
+
+              <h5>ELEMENTOS-CHAVE DA VISÃO</h5>
+              <ul>
+                <li>
+                  <strong>O Cristo Pré-mortal como Jeová</strong>
+                  <p>
+                    "E eis que a glória do Senhor estava sobre Moisés, de maneira que Moisés permaneceu na presença de Deus e falou com ele face a face." (Moisés 1:31)
+                  </p>
+                  <p>
+                    Moisés encontrou o mesmo Cristo glorificado que João veria séculos depois, mas em Sua manifestação pré-mortal como Jeová. Esta continuidade é crucial para entender o Apocalipse — o Cristo que João viu era o mesmo Deus que falou a Moisés, agora em Sua forma ressuscitada e glorificada.
+                  </p>
+                </li>
+                <li>
+                  <strong>A Obra e Glória do Pai e do Filho</strong>
+                  <p>
+                    "Porque eis que esta é minha obra e minha glória: Levar a efeito a imortalidade e vida eterna do homem." (Moisés 1:39)
+                  </p>
+                  <p>
+                    Esta declaração fundamental ilumina o propósito por trás de toda a narrativa apocalíptica. O livro de Apocalipse não é primariamente sobre destruição, mas sobre redenção e exaltação — o cumprimento da "obra e glória" declarada a Moisés.
+                  </p>
+                </li>
+                <li>
+                  <strong>A Oposição Satânica e o Conflito Cósmico</strong>
+                  <p>
+                    "Satanás veio tentá-lo, dizendo: Moisés, filho do homem, adora-me." (Moisés 1:12)
+                  </p>
+                  <p>
+                    Moisés experimentou diretamente o confronto com Satanás, cujo objetivo era usurpar o lugar de Cristo. Este encontro prefigura o conflito cósmico descrito em Apocalipse 12, onde o dragão guerreia contra os santos e o Cordeiro.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              Quando Satanás tentou Moisés, ele se declarou "o Unigênito" (Moisés 1:19), tentando roubar a identidade de Cristo. Esta falsificação aparece repetidamente no Apocalipse, onde a besta imita o Cordeiro (Apocalipse 13:11) e oferece sua própria marca em contraste com o selo de Deus (Apocalipse 7:3 vs. 13:16). A experiência de Moisés oferece um vislumbre íntimo da motivação por trás deste conflito milenar: a contínua tentativa de Satanás de usurpar o papel e a adoração devidos somente a Cristo.
+            </p>
+          </div>
+        </div>
+
+        <div class="connection-line">
+          <span class="connection-badge">CONVERGÊNCIA</span>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-project-diagram topic-icon"></i> ENOQUE: O VIDENTE DA CIDADE CELESTIAL</h3>
+
+          <div class="prophet-card">
+            <div class="prophet-header">
+              <h4>ENOQUE (APROXIMADAMENTE 3000 A.C.)</h4>
+            </div>
+            <div class="prophet-content">
+              <div class="prophet-image-container">
+                <img src="/api/placeholder/300/300" alt="Representação de Enoque" class="prophet-image" />
+              </div>
+
+              <h5>CONTEXTO HISTÓRICO</h5>
+              <p>
+                Enoque viveu sete gerações após Adão, em um tempo de grande iniquidade. Sua visão, restaurada através do livro de Moisés, proporciona um testemunho adicional do Cristo pré-mortal e da cidade celestial que João veria descer no Apocalipse.
+              </p>
+
+              <div class="scripture-highlight">
+                "E aconteceu que Enoque olhou; e, a partir de Noé, contemplou todas as famílias da terra; e clamou ao Senhor, dizendo: Quando virá o dia do Senhor? Quando será derramado o sangue do Justo, para que todos os que choram sejam santificados e tenham vida eterna?"
+                <span class="scripture-reference">Moisés 7:45</span>
+              </div>
+
+              <h5>ELEMENTOS-CHAVE DA VISÃO</h5>
+              <ul>
+                <li>
+                  <strong>O Cristo Pré-mortal Chorando</strong>
+                  <p>
+                    "E aconteceu que o Deus do céu olhou para o restante do povo e chorou; e Enoque testificou disso, dizendo: Como é que os céus choram e derramam suas lágrimas como a chuva sobre as montanhas? E Enoque disse ao Senhor: Como é que tu podes chorar, vendo que és santo e de toda eternidade para toda eternidade?" (Moisés 7:28-29)
+                  </p>
+                  <p>
+                    Enoque testemunhou algo profundamente comovente: o Cristo pré-mortal, o Deus do céu, chorando pela humanidade. Esta visão revela o mesmo Cristo compassivo que João veria caminhar entre os candeeiros de ouro, cuidando de Suas igrejas (Apocalipse 2-3).
+                  </p>
+                </li>
+                <li>
+                  <strong>A Cidade Celestial e o Povo de Sião</strong>
+                  <p>
+                    "E aconteceu que Enoque viu o dia da vinda do Filho do Homem, na carne; e rejubilou-se sua alma, dizendo: O Justo é levantado e o Cordeiro, que foi morto desde a fundação do mundo, é... com o tempo Sião foi levada ao céu." (Moisés 7:47, 21)
+                  </p>
+                  <p>
+                    Enoque não apenas profetizou sobre o Cristo pré-mortal, mas também viu a ascensão de sua própria cidade, Sião, ao céu. Esta Sião celeste é a mesma cidade santa, a Nova Jerusalém, que João viu "descendo do céu, da parte de Deus" (Apocalipse 21:2).
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              A tradicional compreensão da Nova Jerusalém é expandida pelas revelações modernas. A cidade que João viu não é apenas uma criação divina totalmente nova, mas inclui a cidade de Enoque que retorna: "E o Senhor disse a Enoque: Então tu e toda a tua cidade os encontrareis lá, e nós os receberemos em nosso seio e eles nos verão; e lançar-nos-emos a seu pescoço e eles, a nosso pescoço e beijar-nos-emos uns aos outros" (Moisés 7:63). Este encontro entre os habitantes da cidade celestial e os santos terrestres é o cumprimento do plano eterno que João vislumbrou no Apocalipse.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-globe-africa topic-icon"></i> A DIMENSÃO AFRICANA DAS VISÕES PROFÉTICAS</h3>
+
+          <p>
+            Um aspecto frequentemente negligenciado das escrituras é sua significativa dimensão africana. Muitas das visões cruciais que iluminam o Cristo pré-mortal e o plano de salvação têm conexões africanas profundas:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Abraão e o Egito</strong>
+              <p>
+                O livro de Abraão, que contém algumas das revelações mais profundas sobre o Cristo pré-mortal, foi preservado em papiros egípcios. Abraão recebeu suas visões enquanto residia no Egito, no continente africano, e escreveu: "Mas mantive o registro dos pais, sim, até o princípio da criação... que em minhas mãos caiu; e tento mantê-lo até os dias presentes" (Abraão 1:31).
+              </p>
+            </li>
+            <li>
+              <strong>Moisés: O Príncipe Africano</strong>
+              <p>
+                Moisés, o grande legislador, foi "instruído em toda a sabedoria dos egípcios" (Atos 7:22). Sua formação na corte faraônica o preparou para receber e registrar revelações sobre o Cristo pré-mortal:
+              </p>
+              <div class="scripture-highlight">
+                "Mas agora meus próprios olhos contemplaram Deus; não, porém, meus olhos naturais, mas, sim, meus olhos espirituais, pois meus olhos naturais não poderiam ter contemplado; porque eu teria secado e morrido em sua presença; mas sua glória estava sobre mim e contemplei sua face, pois fui transfigurado perante ele."
+                <span class="scripture-reference">Moisés 1:11</span>
+              </div>
+            </li>
+            <li>
+              <strong>Um Testemunho Global</strong>
+              <p>
+                As escrituras restauradas, incluindo a Pérola de Grande Valor com suas visões africanas (Abraão, Moisés), unem-se ao Livro de Mórmon (das Américas), à Bíblia (da Ásia) e a Doutrina e Convênios (moderna) para formar um poderoso testemunho multicultural do Cristo pré-mortal, mortal e glorificado.
+              </p>
+            </li>
+          </ul>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              O Apocalipse de João frequentemente menciona que os redimidos vêm "de toda tribo, e língua, e povo, e nação" (Apocalipse 5:9). Este testemunho global reflete-se no próprio cânon das escrituras restauradas, onde vozes de todos os continentes habitados testificam da mesma verdade eterna. O testemunho africano de Abraão e Moisés, o testemunho asiático dos profetas bíblicos, o testemunho americano dos profetas nefitas, e o testemunho moderno de Joseph Smith convergem para criar uma visão panorâmica do Cristo eterno que João viu no Apocalipse.
+            </p>
+          </div>
+        </div>
+
+        <div class="connection-line">
+          <span class="connection-badge">CONVERGÊNCIA</span>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-star topic-icon"></i> A CONVERGÊNCIA DAS VISÕES EM JOSEPH SMITH</h3>
+
+          <p>
+            Joseph Smith não foi apenas o recipiente da restauração, mas um vidente que experimentou sua própria convergência profética, unindo os testemunhos de João, Abraão, Moisés, Enoque e outros em uma visão coerente do plano eterno:
+          </p>
+
+          <div class="prophet-card">
+            <div class="prophet-header">
+              <h4>JOSEPH SMITH (1805-1844)</h4>
+            </div>
+            <div class="prophet-content">
+              <div class="prophet-image-container">
+                <img src="/api/placeholder/300/300" alt="Retrato do Profeta Joseph Smith" class="prophet-image" />
+              </div>
+
+              <h5>VISÕES DO CRISTO ETERNO</h5>
+              <ul>
+                <li>
+                  <strong>A Primeira Visão e o Cristo Glorificado</strong>
+                  <div class="scripture-highlight">
+                    "Vi um pilar de luz acima de minha cabeça, mais brilhante que o sol, que descia gradualmente sobre mim... Quando a luz pousou sobre mim, vi dois Personagens, cujo esplendor e glória desafiam qualquer descrição..."
+                    <span class="scripture-reference">Joseph Smith—História 1:16-17</span>
+                  </div>
+                  <p>
+                    Assim como João, Joseph Smith contemplou seres celestiais em glória indescritível. Esta visão confirma e expande o testemunho apocalíptico, revelando que o Cristo glorificado não está sozinho, mas serve como mediador junto ao Pai.
+                  </p>
+                </li>
+                <li>
+                  <strong>A Visão dos Três Graus de Glória e o Plano Eterno</strong>
+                  <div class="scripture-highlight">
+                    "E assim vimos a glória do celestial, que excede em todas as coisas — onde Deus, sim, o Pai, reina em seu trono para todo o sempre; diante de cujo trono todas as coisas curvam-se em humilde reverência e glorificam-no para todo o sempre."
+                    <span class="scripture-reference">D&C 76:92-93</span>
+                  </div>
+                  <p>
+                    Joseph Smith e Sidney Rigdon contemplaram o mesmo trono celestial que João viu no Apocalipse 4. Esta visão expandiu nossa compreensão do destino final da humanidade, revelando que o propósito do plano não é apenas salvar, mas exaltar — permitindo que os fiéis se sentem "com o Filho no trono do Pai", como prometido em Apocalipse 3:21.
+                  </p>
+                </li>
+                <li>
+                  <strong>A Visão do Reino Celestial e a Hierarquia Divina</strong>
+                  <div class="scripture-highlight">
+                    "Vi o incomparável esplendor e beleza do portão por onde entrarão os herdeiros desse reino, que era semelhante a chamas circulantes de fogo; também o refulgente trono de Deus, sobre o qual estavam sentados o Pai e o Filho."
+                    <span class="scripture-reference">D&C 137:2-3</span>
+                  </div>
+                  <p>
+                    Esta visão de Joseph Smith do reino celestial complementa diretamente a visão de João em Apocalipse 21-22, fornecendo detalhes adicionais sobre a realidade celestial que aguarda os fiéis.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h4>VOCÊ SABIA?</h4>
+            <p>
+              A experiência de Joseph Smith de cair "como morto" diante da glória divina (JSH 1:20) ecoa diretamente a experiência de João quando viu o Cristo glorificado (Apocalipse 1:17). Ambos os videntes precisaram ser fortalecidos para suportar a presença celestial. Esta similaridade não é coincidência, mas demonstra a continuidade da experiência profética através das eras, confirmando a realidade objetiva dessas visões.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-project-diagram topic-icon"></i> A SÍNTESE CONVERGENTE</h3>
+
+          <p>
+            Quando estudamos estas diferentes visões proféticas em conjunto, uma imagem mais completa emerge do Cristo eterno e do plano de salvação:
+          </p>
+
+          <table class="convergence-chart">
+            <thead>
+              <tr>
+                <th>Profeta</th>
+                <th>Aspecto do Cristo Revelado</th>
+                <th>Conexão com Apocalipse</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Abraão</td>
+                <td>O Cristo como o Criador preeminente: "Um semelhante a Deus" (Abraão 3:24)</td>
+                <td>O Cristo como o "Alfa e Ômega, o princípio e o fim" (Apocalipse 1:8)</td>
+              </tr>
+              <tr>
+                <td>Moisés</td>
+                <td>O Cristo como Jeová, o Deus da Aliança (Moisés 1:3)</td>
+                <td>O Cristo como "o Primeiro e o Último" (Apocalipse 1:17)</td>
+              </tr>
+              <tr>
+                <td>Enoque</td>
+                <td>O Cristo compassivo que chora pela humanidade (Moisés 7:28)</td>
+                <td>O Cristo que caminha entre os candeeiros e conhece as obras das igrejas (Apocalipse 2:1-2)</td>
+              </tr>
+              <tr>
+                <td>Joseph Smith</td>
+                <td>O Cristo glorificado junto ao Pai (JSH 1:17)</td>
+                <td>O Cristo que se senta no trono com o Pai (Apocalipse 3:21)</td>
+              </tr>
+              <tr>
+                <td>João</td>
+                <td>O Cristo ressurreto com as chaves da morte e do inferno (Apocalipse 1:18)</td>
+                <td>O cumprimento de todas as profecias anteriores</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            Cada profeta contribuiu com peças distintas do mosaico divino:
+          </p>
+          <ul>
+            <li>Abraão: Revelou nossas origens pré-mortais e o Grande Conselho.</li>
+            <li>Moisés: Descreveu a Criação e o propósito divino da imortalidade e vida eterna.</li>
+            <li>Enoque: Vislumbrou a cidade celestial e a salvação final.</li>
+            <li>Joseph Smith: Unificou estas visões e restaurou ordenanças ligadas ao templo.</li>
+            <li>João: Profetizou a consumação de todas as coisas e o triunfo final do Cordeiro.</li>
+          </ul>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-hand-holding-heart topic-icon"></i> APLICAÇÃO PESSOAL DA CONVERGÊNCIA</h3>
+
+          <p>
+            O princípio da convergência profética não é apenas um conceito teológico abstrato — é uma ferramenta poderosa para nosso crescimento espiritual pessoal. Quando aprendemos a buscar e reconhecer padrões de verdade convergentes, nossa compreensão e testemunho se aprofundam.
+          </p>
+
+          <div class="application-steps">
+            <div class="application-step">
+              <h4>Identifique Testemunhas Múltiplas</h4>
+              <p>
+                Ao estudar qualquer princípio do evangelho, procure pelo menos duas ou três fontes escriturais que abordem o mesmo conceito. Por exemplo, a natureza e os atributos de Cristo são revelados em Doutrina e Convênios 93, Hebreus 1, e Moisés 1, cada um fornecendo perspectivas complementares.
+              </p>
+            </div>
+
+            <div class="application-step">
+              <h4>Compare Contextos Históricos e Culturais</h4>
+              <p>
+                Considere como o contexto cultural de cada revelação afeta sua apresentação. Por exemplo, Abraão escreveu no contexto africano-egípcio, João durante a perseguição romana, e Joseph Smith na América em expansão — cada contexto ressalta aspectos diferentes da mesma verdade eterna.
+              </p>
+            </div>
+
+            <div class="application-step">
+              <h4>Busque Padrões e Símbolos Recorrentes</h4>
+              <p>
+                Identifique símbolos compartilhados entre diferentes revelações. O "livro selado" aparece no Apocalipse 5, em Isaías 29 e em 2 Néfi 27 — cada instância expandindo nossa compreensão do papel das escrituras nos últimos dias.
+              </p>
+            </div>
+
+            <div class="application-step">
+              <h4>Aplique à Revelação Pessoal</h4>
+              <p>
+                Estenda o princípio da convergência à sua própria revelação pessoal. Quando você recebe a mesma impressão ou orientação através de múltiplas fontes — escrituras, oração, líderes, experiências de vida — isso frequentemente indica uma verdade que o Senhor está enfatizando para você.
+              </p>
+            </div>
+
+            <div class="application-step">
+              <h4>Ensine com Convergência</h4>
+              <p>
+                Ao compartilhar o evangelho, apresente princípios usando múltiplas fontes convergentes. Por exemplo, ao ensinar sobre a Expiação, combine os relatos dos Evangelhos com as explicações doutrinárias de Paulo, as revelações modernas e os testemunhos do Livro de Mórmon para criar uma compreensão mais rica e profunda.
+              </p>
+            </div>
+          </div>
+
+          <div class="personal-application">
+            <h4>EXERCÍCIO DE CONVERGÊNCIA PESSOAL</h4>
+            <p>
+              Identifique um princípio ou doutrina que tem sido significativo em sua vida recentemente. Durante a próxima semana, dedique-se a estudar esse princípio através de pelo menos três fontes diferentes:
+            </p>
+            <ul>
+              <li>Uma escritura antiga (Bíblia ou Livro de Mórmon)</li>
+              <li>Uma revelação moderna (Doutrina e Convênios ou declarações proféticas recentes)</li>
+              <li>Sua própria experiência pessoal ou inspiração</li>
+            </ul>
+            <p>
+              Anote como essas diferentes fontes convergem e se complementam, revelando camadas mais profundas de verdade e significado. Esteja preparado para compartilhar seus insights em nossa próxima aula.
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-tools topic-icon"></i> ATIVIDADE COMPARATIVA</h3>
+
+          <p>
+            Para aprofundar sua compreensão da convergência profética, leia os textos a seguir e complete a tabela em seu diário de estudo:
+          </p>
+
+          <ul>
+            <li><strong>Apocalipse 1:16–20</strong> — A visão de João das sete estrelas</li>
+            <li><strong>Abraão 3:22–28</strong> — A visão de Abraão das inteligências organizadas</li>
+            <li><strong>D&C 138:53–59</strong> — A visão de Joseph F. Smith dos nobres e grandes</li>
+          </ul>
+
+          <table class="convergence-chart">
+            <tr>
+              <th>Profeta</th>
+              <th>O que ele viu?</th>
+              <th>O que aprendeu sobre Cristo?</th>
+              <th>Aplicação pessoal</th>
+            </tr>
+            <tr>
+              <td>João</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Abraão</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Joseph F. Smith</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <div class="activity">
+            <h4>DESAFIO DA CONVERGÊNCIA</h4>
+            <p>
+              Durante a semana, escolha uma doutrina central do evangelho (ex: arrependimento, ressurreição, julgamento final). Estude como diferentes profetas a explicaram. Depois, escreva em seu diário: "O que aprendi sobre o plano de Deus ao ouvir vários videntes sobre o mesmo assunto?"
+            </p>
+          </div>
+        </div>
+
+        <div class="dimension-section">
+          <h3><i class="fas fa-quote-right topic-icon"></i> PENSAMENTO FINAL</h3>
+
+          <div class="quote">
+            "Assim como um estereoscópio combina duas imagens ligeiramente diferentes para criar uma única imagem com profundidade, o Senhor nos dá múltiplas perspectivas proféticas da mesma verdade eterna. Quando alinhamos essas perspectivas corretamente em nossa mente e coração, a verdade ganha uma dimensão e profundidade que não seria possível através de uma única fonte." (Élder Neal A. Maxwell)
+          </div>
+
+          <p>
+            A visão do Cristo glorificado de João no Apocalipse não é um evento isolado, mas o ápice de um testemunho profético convergente que se estende desde antes da fundação do mundo. Quando combinamos esta visão com os testemunhos complementares de Abraão, Moisés, Enoque, Joseph Smith e outros, obtemos uma compreensão mais rica e profunda não apenas de quem Cristo é, mas de quem nós somos e qual é nosso destino eterno.
+          </p>
+
+          <p>
+            O Cristo que caminha entre os candeeiros de ouro é o mesmo que se ofereceu no Grande Conselho, que criou os mundos, que chorou pela humanidade, que retornará em glória, e que nos convidará a sentar com Ele em Seu trono. Esta convergência profética não apenas ilumina nossa mente, mas transforma nosso coração, revelando um Salvador mais glorioso do que jamais poderíamos compreender através de uma única visão ou testemunho.
+          </p>
+
+          <p>
+            À medida que continuamos nossa jornada através do Apocalipse, lembre-se de que não estamos apenas estudando o futuro, mas contemplando a culminação de um plano eterno que se originou antes mesmo que o primeiro raio de luz brilhasse em Kolob.
+          </p>
+        </div>
+
+        <!-- Navegação entre dimensões -->
+        <div class="navigation-buttons">
+          <a href="../aula1.html" class="btn btn-secondary">← Voltar para Aula 1</a>
+          <a href="../aula2.html" class="btn btn-primary">Próxima Aula →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="../../introducao.html">Introdução</a></li>
+          <li><a href="../aula1.html">Aula 1</a></li>
+          <li><a href="../../recursos.html">Recursos</a></li>
+          <li><a href="../../sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

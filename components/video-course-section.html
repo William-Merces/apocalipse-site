@@ -1,0 +1,241 @@
+<!-- Seção de Curso em Vídeo -->
+<div class="resource-section featured-course">
+  <h2 class="section-title">🎥 CURSO EM VÍDEO</h2>
+
+  <div class="resource-item video-course">
+    <div class="course-info">
+      <h3>"Apocalipse: Uma Análise Profunda" – Irmão Getúlio</h3>
+      <h4>Central das Escrituras</h4>
+
+      <p class="course-description">
+        Série completa de vídeos que explora o livro de Apocalipse versículo por versículo, aplicando o contexto
+        doutrinário da Igreja e revelações modernas para esclarecer o simbolismo e as profecias.
+      </p>
+
+      <div class="course-features">
+        <div class="feature">
+          <i class="fas fa-video"></i>
+          <span>15+ aulas detalhadas</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-book-reader"></i>
+          <span>Análise profunda do simbolismo</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>Explicações contextualizadas</span>
+        </div>
+      </div>
+
+      <div class="course-actions">
+        <a href="https://www.youtube.com/watch?v=6nd0xLXpYoI" class="btn btn-watch" target="_blank">
+          <i class="fas fa-play-circle"></i> Assistir Aula 1
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLvTii1tX89ttAer0TFezmFpOvWY-1Kdni" class="btn btn-playlist" target="_blank">
+          <i class="fas fa-list"></i> Ver Playlist Completa
+        </a>
+      </div>
+    </div>
+
+    <div class="course-preview">
+      <div class="video-thumbnail">
+        <div class="play-overlay">
+          <i class="fas fa-play-circle"></i>
+        </div>
+        <img src="/api/placeholder/480/270" alt="Curso Apocalipse - Central das Escrituras" />
+      </div>
+      <div class="instructor">
+        <div class="instructor-info">
+          <span class="instructor-name">Irmão Getúlio</span>
+          <span class="instructor-title">Central das Escrituras</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Estilo CSS para esta seção -->
+<style>
+  .featured-course {
+    background-color: #f0f4f8;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  .video-course {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 0;
+  }
+
+  .course-info {
+    padding: 25px;
+  }
+
+  .course-info h3 {
+    color: #002664;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .course-info h4 {
+    color: #d2b149;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .course-description {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .course-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f5f7fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .feature i {
+    color: #4a86e8;
+  }
+
+  .course-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-watch {
+    background-color: #d2b149;
+    color: white;
+  }
+
+  .btn-watch:hover {
+    background-color: #b39435;
+    color: white;
+    text-decoration: none;
+  }
+
+  .btn-playlist {
+    background-color: #002664;
+    color: white;
+  }
+
+  .btn-playlist:hover {
+    background-color: #001a47;
+    color: white;
+    text-decoration: none;
+  }
+
+  .course-preview {
+    margin-top: 15px;
+  }
+
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .play-overlay i {
+    font-size: 70px;
+    color: white;
+  }
+
+  .video-thumbnail:hover .play-overlay {
+    opacity: 1;
+  }
+
+  .instructor {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #f5f7fa;
+  }
+
+  .instructor-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instructor-name {
+    font-weight: bold;
+    color: #002664;
+  }
+
+  .instructor-title {
+    font-size: 14px;
+    color: #666;
+  }
+
+  @media (min-width: 768px) {
+    .video-course {
+      flex-direction: row;
+    }
+
+    .course-info {
+      flex: 3;
+    }
+
+    .course-preview {
+      flex: 2;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-thumbnail {
+      flex-grow: 1;
+    }
+  }
+</style>

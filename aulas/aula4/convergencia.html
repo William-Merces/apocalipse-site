@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloco 3 - Os Quatro Cavaleiros do Apocalipse</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/dimension-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Carregar scripts na ordem correta -->
+  <script src="../../js/aulas-config.js"></script>
+  <script src="../../js/navigation.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <style>
+    /* Estilos específicos para a página dos quatro cavaleiros */
+    .rider-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .rider-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .rider-white {
+      border-top: 8px solid #f0f0f0;
+    }
+
+    .rider-red {
+      border-top: 8px solid #d92b2b;
+    }
+
+    .rider-black {
+      border-top: 8px solid #2a2a2a;
+    }
+
+    .rider-pale {
+      border-top: 8px solid #b2b86c;
+    }
+
+    .rider-header {
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .rider-white .rider-header {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    .rider-red .rider-header {
+      background-color: #d92b2b;
+      color: white;
+    }
+
+    .rider-black .rider-header {
+      background-color: #2a2a2a;
+      color: white;
+    }
+
+    .rider-pale .rider-header {
+      background-color: #b2b86c;
+      color: white;
+    }
+
+    .rider-header h4 {
+      margin: 0;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .rider-white .rider-header h4 {
+      color: #333;
+    }
+
+    .rider-red .rider-header h4,
+    .rider-black .rider-header h4,
+    .rider-pale .rider-header h4 {
+      color: white;
+    }
+
+    .rider-icon {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+    }
+
+    .rider-content {
+      padding: 1.5rem;
+    }
+
+    .rider-content h5 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    .rider-content ul {
+      margin-bottom: 1rem;
+    }
+
+    .seal-timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .seal-timeline::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      z-index: 0;
+    }
+
+    .seal-item {
+      flex: 1;
+      min-width: 120px;
+      max-width: 150px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-top: 30px;
+    }
+
+    .seal-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 3px solid white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .seal-item:nth-child(odd) .seal-dot {
+      background-color: var(--primary-color);
+    }
+
+    .seal-item:nth-child(even) .seal-dot {
+      background-color: var(--accent-color);
+    }
+
+    .seal-year {
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+
+    .seal-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .historical-context {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .historical-context h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .prophet-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .prophet-column {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .prophet-column h4 {
+      text-align: center;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .prophet-insight {
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .prophet-insight::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+    }
+
+    .application-steps {
+      counter-reset: step-counter;
+      margin: 2rem 0;
+    }
+
+    .application-step {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .application-step::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .application-step h4 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    .scripture-highlight {
+      display: block;
+      background-color: rgba(5, 46, 111, 0.05);
+      border-left: 3px solid var(--primary-color);
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+    }
+
+    .testimony-box {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .testimony-box::before {
+      content: "\201C";  /* Unicode para aspas duplas de abertura */
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-size: 150px;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+    }
+
+    .testimony-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimony-content p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .testimony-attribution {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    .prophet-attribution {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .contemporary-box {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .contemporary-box h4 {
+      color: var(--accent-color);
+      margin-top: 0;
+    }
+
+    .insight-box {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .insight-box h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .insight-type {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .activity {
+      background-color: rgba(5, 46, 111, 0.05);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border: 1px dashed var(--primary-color);
+    }
+
+    .activity h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 768px) {
+      .seal-timeline {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .seal-timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        right: auto;
+        width: 4px;
+        height: auto;
+      }
+
+      .seal-item {
+        padding-top: 0;
+        padding-left: 50px;
+        max-width: 100%;
+        text-align: left;
+      }
+
+      .seal-dot {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Container para o componente de navegação -->
+  <div id="navigation-container"></div>
+
+  <main class="container">
+    <section class="lesson-content">
+      <div class="dimension-heading">BLOCO 3: OS QUATRO CAVALEIROS DO APOCALIPSE</div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-horse topic-icon"></i> SÍMBOLOS PODEROSOS DA HISTÓRIA HUMANA</h3>
+
+        <p>
+          Com a abertura dos quatro primeiros selos, João testemunha a saída dos famosos "quatro cavaleiros do Apocalipse" — figuras que se tornaram alguns dos símbolos mais reconhecíveis e potentes da literatura apocalíptica. Estes cavaleiros representam forças fundamentais que moldam a história humana após a Queda e que continuam a operar enquanto o plano de redenção se desenrola.
+        </p>
+
+        <div class="scripture-highlight">
+          "E vi quando o Cordeiro abriu um dos sete selos, e ouvi um dos quatro seres viventes dizendo, como se fora voz de trovão: Vem! E olhei, e eis um cavalo branco e o seu cavaleiro com um arco; e foi-lhe dada uma coroa, e ele saiu vencendo e para vencer." (Apocalipse 6:1-2)
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-landmark topic-icon"></i> CONTEXTO HISTÓRICO E CULTURAL</h3>
+
+        <p>
+          Para compreender plenamente o impacto que estas imagens teriam sobre os primeiros leitores de João, precisamos considerar alguns elementos contextuais importantes:
+        </p>
+
+        <div class="historical-context">
+          <ol>
+            <li><strong>Cavalos na Antiguidade</strong> - Os cavalos eram símbolos de poder militar e econômico. Apenas os mais poderosos (exércitos e realeza) possuíam cavalos para guerra. Sua aparição sempre sinalizava poder, movimento rápido e força.</li>
+            <li><strong>Cavalaria Romana</strong> - Nos tempos de João, a cavalaria romana era uma visão familiar e temida nas províncias, representando o poder imperial e frequentemente trazendo más notícias (impostos, recrutamento, punição).</li>
+            <li><strong>Cavaleiros Partas</strong> - O Império Parta (Irã/Iraque modernos) era famoso por seus temíveis arqueiros montados, que representavam uma constante ameaça às fronteiras orientais de Roma. A imagem do primeiro cavaleiro com arco evocaria esta conexão para os leitores contemporâneos.</li>
+            <li><strong>Cores Simbólicas</strong> - Na literatura antiga, cores carregavam significados simbólicos poderosos: branco para conquista/pureza, vermelho para guerra/sangue, preto para fome/carestia, e amarelo pálido para morte/pestilência.</li>
+            <li><strong>Precedentes Proféticos</strong> - O livro de Zacarias (1:8-17; 6:1-8) já havia usado cavalos coloridos para representar forças divinas patrulhando e julgando a terra.</li>
+          </ol>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A expressão "os quatro cavaleiros do Apocalipse" nunca aparece no texto bíblico. Esta frase se popularizou apenas séculos depois. O texto apenas descreve quatro cavaleiros individuais que aparecem em sequência, sem agrupá-los explicitamente. No entanto, seu padrão comum e aparição sequencial claramente os identifica como um conjunto relacionado de símbolos.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-book-reader topic-icon"></i> PERSPECTIVAS INTERPRETATIVAS</h3>
+
+        <p>
+          Antes de examinarmos cada cavaleiro individualmente, devemos considerar as diversas abordagens interpretativas aplicadas a estas figuras:
+        </p>
+
+        <ol>
+          <li><strong>Preterista</strong> - Os cavaleiros representam eventos específicos da história romana do primeiro século (guerras civis, fome, epidemias)</li>
+          <li><strong>Historicista</strong> - Os cavaleiros representam períodos da história da Igreja ao longo dos séculos</li>
+          <li><strong>Futurista</strong> - Os cavaleiros representam eventos específicos que ocorrerão durante a futura Grande Tribulação</li>
+          <li><strong>Idealista</strong> - Os cavaleiros representam forças ou princípios atemporais que operam continuamente na história humana</li>
+          <li><strong>Apocalíptica Judaica</strong> - Os cavaleiros representam "dores de parto" messiânicas, tribulações que precedem a era messiânica</li>
+        </ol>
+
+        <p>
+          À luz da revelação moderna, particularmente D&C 77:7, que sugere que os sete selos representam períodos de mil anos da história terrena, adotaremos principalmente uma interpretação histórico-contínua. Esta abordagem vê os cavaleiros como representantes de forças que operam tanto em períodos históricos específicos quanto continuamente ao longo da história humana pós-Queda.
+        </p>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A visão medieval dos quatro cavaleiros era frequentemente mais sombria do que o texto bíblico sugere. Enquanto o Apocalipse apresenta apenas o quarto cavaleiro como explicitamente ligado à morte, a tradição medieval posterior retratou todos os quatro como agentes totalmente negativos. A arte e literatura medievais frequentemente retratavam os cavaleiros como os "Quatro Flagelos de Deus".
+          </p>
+        </div>
+
+        <div class="seal-timeline">
+          <div class="seal-item">
+            <div class="seal-dot">1</div>
+            <div class="seal-year">4000-3000 a.C.</div>
+            <div class="seal-label">De Adão a Noé</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">2</div>
+            <div class="seal-year">3000-2000 a.C.</div>
+            <div class="seal-label">De Noé a Abraão</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">3</div>
+            <div class="seal-year">2000-1000 a.C.</div>
+            <div class="seal-label">De Abraão a Davi</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">4</div>
+            <div class="seal-year">1000 a.C.-1 d.C.</div>
+            <div class="seal-label">De Davi a Cristo</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">5</div>
+            <div class="seal-year">1-1000 d.C.</div>
+            <div class="seal-label">Era Cristã Primitiva</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">6</div>
+            <div class="seal-year">1000-2000 d.C.</div>
+            <div class="seal-label">Idade Média à Restauração</div>
+          </div>
+          <div class="seal-item">
+            <div class="seal-dot">7</div>
+            <div class="seal-year">2000-3000 d.C.</div>
+            <div class="seal-label">Milênio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-horse-head topic-icon"></i> O PRIMEIRO CAVALEIRO: BRANCO</h3>
+
+        <div class="rider-card rider-white">
+          <div class="rider-header">
+            <div class="rider-icon"><i class="fas fa-crown"></i></div>
+            <h4>O CAVALEIRO DO CAVALO BRANCO</h4>
+          </div>
+          <div class="rider-content">
+            <div class="scripture-highlight">
+              "E olhei, e eis um cavalo branco e o seu cavaleiro com um arco; e foi-lhe dada uma coroa, e ele saiu vencendo e para vencer." (Apocalipse 6:2)
+            </div>
+            <p>
+              O primeiro cavaleiro cavalga um cavalo branco, carrega um arco, recebe uma coroa, e "sai vencendo e para vencer". Esta figura tem gerado interpretações divergentes:
+            </p>
+            <h5>INTERPRETAÇÕES DO PRIMEIRO CAVALEIRO</h5>
+            <ol>
+              <li><strong>Cristo ou o Evangelho</strong> - Devido à cor branca (pureza, vitória) e à coroa, muitos intérpretes antigos e alguns modernos identificam este cavaleiro como Cristo ou o avanço triunfante do evangelho.</li>
+              <li><strong>Conquista Militar</strong> - Outros veem este cavaleiro como representando conquista militar e imperialismo, possivelmente a expansão do Império Romano ou impérios subsequentes.</li>
+              <li><strong>Falso Messias</strong> - Uma terceira interpretação vê o primeiro cavaleiro como um conquistador falso ou enganador, possivelmente relacionado ao "anticristo".</li>
+              <li><strong>Vitória em Geral</strong> - Uma interpretação mais ampla vê este cavaleiro como representando o espírito de conquista e domínio que caracteriza a história humana.</li>
+            </ol>
+            <h5>CONTEXTO HISTÓRICO RELEVANTE</h5>
+            <p>
+              Se aplicarmos a estrutura de D&C 77:7 (os sete selos representando sete períodos de mil anos), o primeiro selo corresponderia aproximadamente ao período de Adão a Noé (4000-3000 a.C.). Este período foi caracterizado por:
+            </p>
+            <ul>
+              <li>Estabelecimento das primeiras civilizações (Mesopotâmia, Egito pré-dinástico)</li>
+              <li>Desenvolvimento da agricultura, metalurgia e cidades-estado</li>
+              <li>Expansão territorial e conquistas primitivas</li>
+              <li>Surgimento da "violência" que culminaria no dilúvio (Gênesis 6:11)</li>
+            </ul>
+            <h5>SÍMBOLOS DETALHADOS DO PRIMEIRO CAVALEIRO</h5>
+            <ol>
+              <li><strong>Cavalo Branco</strong> - Na antiguidade, os líderes militares frequentemente montavam cavalos brancos em desfiles triunfais. A cor branca simboliza vitória, autoridade, e conquista.</li>
+              <li><strong>Arco</strong> - O arco era uma arma de longo alcance, permitindo ao usuário derrotar inimigos à distância. Também era a arma característica dos temidos arqueiros partas, sugerindo poder militar terrível.</li>
+              <li><strong>Coroa</strong> - A palavra grega "stephanos" refere-se a uma coroa de vencedor, como a concedida em competições atléticas, não a uma coroa real (que seria "diadema"). Isto sugere vitória e conquista, não necessariamente autoridade legítima.</li>
+              <li><strong>"Vencendo e Para Vencer"</strong> - Esta frase indica um processo contínuo e imparável de conquista. O cavaleiro não apenas vence momentaneamente, mas continua vencendo indefinidamente.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            O termo grego para "arco" (toxon) no Apocalipse 6:2 pode ter um jogo de palavras com a palavra "toxikon" (veneno, toxina). Alguns comentaristas sugerem que isto poderia implicar que as conquistas do primeiro cavaleiro trazem efeitos venenosos ou toxicidade espiritual.
+          </p>
+        </div>
+
+        <div class="activity">
+          <h4>SIGNIFICADO ATUAL DO PRIMEIRO CAVALEIRO</h4>
+          <p>
+            Independentemente de sua identidade específica, o primeiro cavaleiro representa o espírito de conquista e ambição por domínio que tem caracterizado a história humana desde a Queda. Isto pode se manifestar como:
+          </p>
+          <ul>
+            <li>Imperialismo e expansão territorial</li>
+            <li>Dominação econômica e corporativa</li>
+            <li>Competição agressiva por recursos e influência</li>
+            <li>Imposição de ideologias</li>
+          </ul>
+          <p>
+            Em um sentido pessoal, o primeiro cavaleiro também pode representar nossa própria busca por conquista e domínio, seja saudável (superação pessoal, estabelecimento de metas nobres) ou prejudicial (dominação sobre outros, busca egoísta de poder).
+          </p>
+          <p>
+            <strong>APLICAÇÃO:</strong> Como você pode distinguir entre ambição saudável e o espírito tóxico de conquista em sua própria vida? Onde você vê o "primeiro cavaleiro" operando no mundo de hoje?
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-horse-head topic-icon"></i> O SEGUNDO CAVALEIRO: VERMELHO</h3>
+
+        <div class="rider-card rider-red">
+          <div class="rider-header">
+            <div class="rider-icon"><i class="fas fa-sword"></i></div>
+            <h4>O CAVALEIRO DO CAVALO VERMELHO</h4>
+          </div>
+          <div class="rider-content">
+            <div class="scripture-highlight">
+              "E saiu outro cavalo, vermelho; e ao seu cavaleiro foi-lhe dado que tirasse a paz da terra e que os homens se matassem uns aos outros; também foi-lhe dada uma grande espada." (Apocalipse 6:4)
+            </div>
+            <p>
+              O segundo cavaleiro monta um corcel vermelho, tem poder para "tirar a paz da terra", faz com que os homens "se matem uns aos outros", e recebe "uma grande espada". Sua identidade é menos controversa do que a do primeiro cavaleiro.
+            </p>
+            <h5>INTERPRETAÇÃO DO SEGUNDO CAVALEIRO</h5>
+            <p>
+              Quase universalmente, o segundo cavaleiro é entendido como representando guerra, conflito e derramamento de sangue. Os símbolos são diretos e vívidos:
+            </p>
+            <ol>
+              <li><strong>Cavalo Vermelho</strong> - A cor do sangue, simbolizando violência, derramamento de sangue e guerra</li>
+              <li><strong>Tirar a Paz</strong> - Representando o fim de períodos de paz e o início de conflitos</li>
+              <li><strong>Matança Mútua</strong> - Indicando guerra civil, conflito interno e pessoa contra pessoa, não apenas guerras entre nações</li>
+              <li><strong>Grande Espada</strong> - A espada romana (machaira) era uma arma de combate próximo, sugerindo violência pessoal e direta</li>
+            </ol>
+            <h5>CONTEXTO HISTÓRICO RELEVANTE</h5>
+            <p>
+              Seguindo a estrutura do D&C 77:7, o segundo selo corresponderia aproximadamente ao período de Noé a Abraão (3000-2000 a.C.). Este período foi caracterizado por:
+            </p>
+            <ul>
+              <li>Fragmentação pós-dilúvio da sociedade humana</li>
+              <li>Surgimento de reinos guerreiros na Mesopotâmia, Egito e outros lugares</li>
+              <li>Desenvolvimento de armas de bronze mais letais</li>
+              <li>Crescimento de conflitos por recursos, território e poder</li>
+            </ul>
+            <p>
+              O historiador Will Durant observou: "A guerra parece ser uma das constantes da história... Nos 3.421 anos de história registrada, apenas 268 foram livres de guerra."
+            </p>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A "grande espada" mencionada no texto grego é uma "machaira" — uma espada curta ou adaga usada em combate próximo. Este não era o "gladius" (a espada longa de legionário) ou o "xiphos" (a espada grega). A machaira era frequentemente usada para execuções e sacrifícios, adicionando uma dimensão mais pessoal e íntima à violência simbolizada.
+          </p>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>APLICAÇÃO HISTÓRICA CONTÍNUA</h4>
+            <p>
+              O segundo cavaleiro representa não apenas guerras físicas, mas todos os tipos de conflito e hostilidade ao longo da história humana:
+            </p>
+            <ol>
+              <li><strong>Guerras Convencionais</strong> - Conflitos nacionais e internacionais com forças militares</li>
+              <li><strong>Guerras Civis</strong> - Conflitos internos dentro de nações e comunidades</li>
+              <li><strong>Violência Interpessoal</strong> - Homicídios, agressões e conflitos entre indivíduos</li>
+              <li><strong>Conflito Ideológico</strong> - "Guerras culturais" e lutas por influência e controle social</li>
+            </ol>
+            <p>
+              Os números são impressionantes: estima-se que as guerras tenham sido responsáveis por 150-1.000 milhões de mortes humanas ao longo da história registrada. Somente no século XX, aproximadamente 108 milhões de pessoas morreram em guerras.
+            </p>
+          </div>
+          <div class="prophet-column">
+            <h4>APLICAÇÃO ESPIRITUAL</h4>
+            <p>
+              Em um nível espiritual, o segundo cavaleiro também representa:
+            </p>
+            <ul>
+              <li><strong>Conflito Interno</strong> - A guerra dentro de nós mesmos, entre nossa natureza carnal e espiritual</li>
+              <li><strong>Contendas</strong> - O espírito de contenda que Cristo condenou (3 Néfi 11:29)</li>
+              <li><strong>Divisão</strong> - A fragmentação de famílias, comunidades e sociedades</li>
+            </ul>
+            <div class="quote">
+              "O único caminho para a paz é seguir o Príncipe da Paz." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+            </div>
+            <p>
+              Ao seguirmos o exemplo de Cristo, resistimos à influência do segundo cavaleiro em nossa vida pessoal e comunidades.
+            </p>
+            <h5>CONEXÃO PROFÉTICA</h5>
+            <p>
+              O segundo cavaleiro tem paralelos com profecias do Livro de Mórmon sobre os últimos dias:
+            </p>
+            <div class="scripture-highlight">
+              "Em meus dias, porém, haverá grandes guerras e contendas entre meu povo." (2 Néfi 30:10)
+            </div>
+            <div class="insight-box">
+              <p>
+                <strong>PERGUNTA PARA REFLEXÃO:</strong> Como você pode ser um pacificador em um mundo cada vez mais caracterizado pelo conflito? De que maneiras Cristo nos oferece paz mesmo quando o "segundo cavaleiro" parece estar galopando pelo mundo?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-horse-head topic-icon"></i> O TERCEIRO CAVALEIRO: PRETO</h3>
+
+        <div class="rider-card rider-black">
+          <div class="rider-header">
+            <div class="rider-icon"><i class="fas fa-balance-scale"></i></div>
+            <h4>O CAVALEIRO DO CAVALO PRETO</h4>
+          </div>
+          <div class="rider-content">
+            <div class="scripture-highlight">
+              "E quando abriu o terceiro selo, ouvi o terceiro ser vivente, dizendo: Vem, e vê. E olhei, e eis um cavalo preto e o seu cavaleiro com uma balança na mão. E ouvi uma voz no meio dos quatro seres viventes, que dizia: Uma medida de trigo por um denário, e três medidas de cevada por um denário, e não danifiques o azeite e o vinho." (Apocalipse 6:5-6)
+            </div>
+            <p>
+              O terceiro cavaleiro monta um cavalo preto, carrega uma balança, e é acompanhado por uma proclamação sobre preços de alimentos básicos. Este cavaleiro representa escassez econômica, fome e desigualdade.
+            </p>
+            <h5>SÍMBOLOS-CHAVE DO TERCEIRO CAVALEIRO</h5>
+            <ol>
+              <li><strong>Cavalo Preto</strong> - A cor preta simboliza morte, luto, carestia e fome</li>
+              <li><strong>Balança</strong> - Instrumento para medir com precisão mercadorias escassas, indicando racionamento</li>
+              <li><strong>Proclamação de Preços</strong> - Revela inflação severa e escassez de alimentos básicos</li>
+            </ol>
+            <h5>RELEVÂNCIA ECONÔMICA HISTÓRICA</h5>
+            <p>
+              A proclamação sobre preços revela condições econômicas específicas:
+            </p>
+            <p>
+              "Uma medida de trigo por um denário, e três medidas de cevada por um denário"
+            </p>
+            <ul>
+              <li><strong>Medida (Choinix)</strong> - Aproximadamente um litro, considerado a ração diária mínima para uma pessoa</li>
+              <li><strong>Denário</strong> - O salário diário típico de um trabalhador comum</li>
+              <li><strong>Trigo vs. Cevada</strong> - O trigo era preferido; a cevada era mais barata e geralmente usada para alimentar animais ou pelos muito pobres</li>
+            </ul>
+            <p>
+              Esta é uma imagem de inflação extrema, onde um trabalhador inteiro dia de trabalho compra apenas comida suficiente para um dia para uma pessoa — sem nada sobrando para outras necessidades ou para sustentar uma família. Isto indica escassez grave, embora não fome total.
+            </p>
+            <h5>CONTEXTO HISTÓRICO AMPLO</h5>
+            <p>
+              Seguindo a estrutura de D&C 77:7, o terceiro selo corresponderia aproximadamente ao período de Abraão a Moisés (2000-1500 a.C.). Este período incluiu:
+            </p>
+            <ul>
+              <li>Fomes severas mencionadas na Bíblia (Gênesis 12:10, 26:1, 41-42)</li>
+              <li>A história de José no Egito e sua administração da fome</li>
+              <li>O desenvolvimento de sistemas econômicos mais complexos</li>
+              <li>Crescente estratificação social e desigualdade nas civilizações antigas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A frase "não danifiques o azeite e o vinho" tem sido objeto de muita especulação. Provavelmente indica que produtos de luxo permanecem disponíveis enquanto necessidades básicas são escassas — um padrão comum em desastres econômicos, onde os ricos frequentemente podem manter seu estilo de vida enquanto os pobres sofrem intensamente. Alternativamente, pode indicar que oliveiras e vinhedos, que levam anos para maturar, devem ser preservados mesmo durante a escassez atual.
+          </p>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>MANIFESTAÇÕES CONTÍNUAS</h4>
+            <p>
+              O terceiro cavaleiro continua a cavalgar através da história humana, visto em:
+            </p>
+            <ol>
+              <li><strong>Fomes Históricas</strong> - A Grande Fome Irlandesa (1845-1849), a Fome Holandesa (1944-1945), a Grande Fome Chinesa (1959-1961), etc.</li>
+              <li><strong>Colapsos Econômicos</strong> - A Grande Depressão, hiperinflação, crises econômicas recorrentes</li>
+              <li><strong>Desigualdade Sistêmica</strong> - Sistemas onde alguns têm abundância enquanto outros mal sobrevivem</li>
+              <li><strong>Manipulação de Mercado</strong> - Controle artificial de preços e suprimentos para proveito de poucos às custas de muitos</li>
+            </ol>
+            <p>
+              O impacto histórico da fome é imenso. Estima-se que centenas de milhões de pessoas tenham morrido de fome ao longo da história humana. Mesmo hoje, aproximadamente 811 milhões de pessoas sofrem de desnutrição crônica.
+            </p>
+          </div>
+          <div class="prophet-column">
+            <h4>APLICAÇÃO ESPIRITUAL E PESSOAL</h4>
+            <p>
+              O terceiro cavaleiro também pode representar:
+            </p>
+            <ul>
+              <li><strong>Fome Espiritual</strong> - "Eis que vêm dias, diz o Senhor Deus, em que enviarei fome sobre a terra, não fome de pão, nem sede de água, mas de ouvir as palavras do Senhor" (Amós 8:11)</li>
+              <li><strong>Escassez de Propósito</strong> - Vazio existencial e falta de significado que muitos experimentam em sociedades materialistas</li>
+              <li><strong>Desigualdade de Conhecimento</strong> - Disparidades no acesso à educação, informação e verdade espiritual</li>
+            </ul>
+            <div class="insight-box">
+              <h4><span class="insight-type">APLICAÇÃO MODERNA</span></h4>
+              <p>
+                Como você pode ajudar a combater os efeitos do "terceiro cavaleiro" em sua comunidade? Considere:
+              </p>
+              <ol>
+                <li>Apoiar organizações que combatem a fome</li>
+                <li>Estabelecer reservas de alimentos prudentes</li>
+                <li>Compartilhar abundância espiritual e material com outros</li>
+                <li>Defender sistemas econômicos mais justos e equitativos</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A frase "uma medida de trigo por um denário" descreve uma situação onde o preço do alimento básico aumentou aproximadamente 10-15 vezes acima do normal. Em tempos normais do primeiro século, um denário compraria 8-16 medidas de trigo, não apenas uma. Este é um nível de inflação experimentado em diversas crises econômicas modernas, como a hiperinflação na Alemanha de Weimar, Zimbábue, ou Venezuela.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-horse-head topic-icon"></i> O QUARTO CAVALEIRO: AMARELO PÁLIDO</h3>
+
+        <div class="rider-card rider-pale">
+          <div class="rider-header">
+            <div class="rider-icon"><i class="fas fa-skull"></i></div>
+            <h4>O CAVALEIRO DO CAVALO AMARELO PÁLIDO</h4>
+          </div>
+          <div class="rider-content">
+            <div class="scripture-highlight">
+              "E olhei, e eis um cavalo amarelo, e o nome do que estava assentado sobre ele era Morte, e o inferno o seguia; e foi-lhes dado poder para matar a quarta parte da terra, com espada, com fome, e com peste, e com as feras da terra." (Apocalipse 6:8)
+            </div>
+            <p>
+              O quarto e mais terrível dos cavaleiros monta um cavalo de cor "chloros" (verde-amarelo pálido), é explicitamente chamado "Morte", é acompanhado pelo "Hades" (o reino dos mortos), e tem poder para matar por múltiplos meios.
+            </p>
+            <h5>SÍMBOLOS PODEROSOS DO QUARTO CAVALEIRO</h5>
+            <ol>
+              <li><strong>Cavalo Chloros</strong> - A palavra grega descreve a cor verde-amarelada de um cadáver ou pessoa gravemente doente, a cor da morte e doença</li>
+              <li><strong>Cavaleiro Nomeado "Morte"</strong> - Único cavaleiro explicitamente nomeado, personificando a própria morte</li>
+              <li><strong>Hades como Seguidor</strong> - O reino dos mortos segue para reivindicar as almas dos que a Morte mata</li>
+              <li><strong>Poder sobre "Um Quarto"</strong> - Indica escala massiva mas limitada de destruição</li>
+              <li><strong>Quatro Métodos de Morte</strong> - Espada (guerra), fome, pestilência (doenças), e animais selvagens</li>
+            </ol>
+            <h5>CONTEXTUALIZAÇÃO HISTÓRICA</h5>
+            <p>
+              Seguindo D&C 77:7, o quarto selo corresponderia aproximadamente ao período de Moisés à era de Cristo (1500-500 a.C.). Este período incluiu:
+            </p>
+            <ul>
+              <li>As pragas do Egito, combinando múltiplos métodos de morte</li>
+              <li>Guerras de Josué e ciclos de conflito no livro dos Juízes</li>
+              <li>Expansão e queda de impérios: Egito, Assíria, Babilônia, Pérsia</li>
+              <li>Grandes epidemias e desastres naturais documentados em registros históricos</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A palavra grega "chloros" (de onde derivamos "clorofila") se refere primariamente a um amarelo esverdeado pálido. É a única cor dos quatro cavalos que não é uma cor primária ou básica. Esta tonalidade específica era associada na antiguidade com doença, decomposição e morte — a cor da vida drenada do corpo.
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A menção a "feras da terra" como causa de morte pode parecer estranha para leitores modernos, mas era uma realidade séria no mundo antigo. Quando populações humanas eram enfraquecidas por guerra e fome, predadores como lobos, leões e ursos frequentemente se tornavam mais ousados, atacando assentamentos humanos. Além disso, pragas frequentemente eram carregadas por animais (ratos, pulgas, mosquitos), adicionando outra dimensão a esta ameaça.
+          </p>
+        </div>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>IMPACTO HISTÓRICO AMPLIADO</h4>
+            <p>
+              O quarto cavaleiro representa a culminação dos três anteriores, combinando seus efeitos em uma sinergia mortal:
+            </p>
+            <ol>
+              <li><strong>Conquista/Guerra</strong> (Primeiro e Segundo Cavaleiros) → destruição de infraestrutura e recursos</li>
+              <li><strong>Escassez Econômica</strong> (Terceiro Cavaleiro) → sistemas enfraquecidos de saúde e segurança</li>
+              <li><strong>Resultado:</strong> aumento de mortalidade por doenças, fome e até ataques de animais</li>
+            </ol>
+            <p>
+              Este padrão tem se repetido ao longo da história: guerras levam à fome, que leva a epidemias e colapso social, formando um círculo vicioso de morte.
+            </p>
+            <h5>ESTATÍSTICAS E IMPACTO HISTÓRICO</h5>
+            <p>
+              Os quatro métodos de morte do quarto cavaleiro têm tido impacto devastador ao longo da história:
+            </p>
+            <ol>
+              <li><strong>Guerra:</strong> Estimados 150-1.000 milhões de mortes na história humana</li>
+              <li><strong>Fome:</strong> Estimados centenas de milhões de mortes</li>
+              <li><strong>Pestilência:</strong> A Peste Negra matou 75-200 milhões (30-60% da população europeia); a Gripe Espanhola de 1918 matou 50-100 milhões; e inúmeras outras epidemias</li>
+              <li><strong>Animais Selvagens:</strong> Menos comum hoje, mas significativo historicamente</li>
+            </ol>
+            <p>
+              A menção de "um quarto da terra" lembra-nos que, por mais devastadores que sejam estes cavaleiros, seu poder é limitado. Não são capazes de erradicar a humanidade completamente.
+            </p>
+          </div>
+          <div class="prophet-column">
+            <h4>SIGNIFICADO ESPIRITUAL E PARALELOS PROFÉTICOS</h4>
+            <p>
+              O quarto cavaleiro também tem dimensões espirituais:
+            </p>
+            <ol>
+              <li><strong>Morte Espiritual</strong> - Separação de Deus como resultado último da Queda</li>
+              <li><strong>Hades/Inferno Seguindo</strong> - As consequências eternas do pecado não redimido</li>
+              <li><strong>Medo da Morte</strong> - O poder que a morte tem para gerar temor e desespero</li>
+            </ol>
+            <p>
+              O Livro de Mórmon oferece insights sobre como escapar espiritualmente dos efeitos do quarto cavaleiro:
+            </p>
+            <div class="scripture-highlight">
+              "Mas eis que a ressurreição de Cristo redime a humanidade, sim, toda a humanidade, e leva-a de volta à presença do Senhor." (Mórmon 9:13)
+            </div>
+            <p>
+              O poder do quarto cavaleiro, embora terrível, é limitado e temporário. A ressurreição de Cristo finalmente derrota a morte e o inferno, como João testemunhará mais tarde em sua visão: "E a morte e o inferno foram lançados no lago de fogo." (Apocalipse 20:14)
+            </p>
+            <div class="insight-box">
+              <p>
+                <strong>APLICAÇÃO PESSOAL:</strong> Como a compreensão do poder limitado da morte pode mudar sua perspectiva sobre os desafios da mortalidade? Como o conhecimento da vitória final de Cristo sobre a morte influencia suas escolhas e prioridades agora?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-users topic-icon"></i> CONVIDADOS PROFÉTICOS: TESTEMUNHAS ADICIONAIS</h3>
+
+        <p>
+          Assim como em nossos blocos anteriores, é valioso considerar como outros profetas providenciam perspectivas complementares sobre os quatro cavaleiros e seu significado.
+        </p>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>CONVIDADO 1: EZEQUIEL E OS QUATRO JULGAMENTOS</h4>
+            <p>
+              O profeta Ezequiel, escrevendo durante o exílio babilônico (cerca de 593-571 a.C.), falou de quatro julgamentos que têm notáveis paralelos com os quatro cavaleiros:
+            </p>
+            <div class="scripture-highlight">
+              "Ainda que estes três homens, Noé, Daniel e Jó, estivessem no meio dela, eles, pela sua justiça, livrariam apenas as suas próprias vidas, diz o Senhor Deus. Se eu fizer passar pela terra bestas feras... Se eu trouxer a espada sobre aquela terra... Ou se eu enviar a peste para aquela terra... pela fome..." (Ezequiel 14:14-21)
+            </div>
+            <p>
+              Ezequiel menciona exatamente os mesmos quatro métodos de julgamento que são atribuídos ao quarto cavaleiro:
+            </p>
+            <ol>
+              <li>Espada (guerra)</li>
+              <li>Fome</li>
+              <li>Bestas feras</li>
+              <li>Peste (doença)</li>
+            </ol>
+            <p>
+              Esta correspondência sugere que os quatro cavaleiros representam forças divinas de julgamento que têm operado consistentemente ao longo da história humana. Eles não são inovações do Apocalipse, mas manifestações de padrões divinos estabelecidos.
+            </p>
+          </div>
+          <div class="prophet-column">
+            <h4>CONVIDADO 2: ZACARIAS E OS QUATRO CAVALOS</h4>
+            <p>
+              O profeta Zacarias (escrevendo por volta de 520-518 a.C.) teve visões que parecem ser precursoras diretas dos quatro cavaleiros de João:
+            </p>
+            <div class="scripture-highlight">
+              "Naquela noite tive uma visão. Vi um homem montado num cavalo vermelho... Atrás dele havia cavalos vermelhos, marrons e brancos... Numa outra visão que tive naquela noite, vi quatro carruagens saindo do meio de duas montanhas de bronze. A primeira carruagem era puxada por cavalos vermelhos; a segunda, por cavalos pretos; a terceira, por cavalos brancos; e a quarta, por cavalos malhados, todos eles fortes." (Zacarias 1:8, 6:1-3)
+            </div>
+            <p>
+              Embora a correspondência de cores não seja exata, existem paralelos notáveis. Os cavalos de Zacarias, como os de João, são:
+            </p>
+            <ol>
+              <li>Agentes enviados por Deus para patrulhar a terra</li>
+              <li>Associados com julgamento e misericórdia divinos</li>
+              <li>Representantes de forças que afetam nações e impérios</li>
+            </ol>
+            <p>
+              Esta conexão sugere que os quatro cavaleiros do Apocalipse são parte de um padrão estabelecido de simbolismo profético, não uma inovação completamente nova de João.
+            </p>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            Ezequiel escreveu aproximadamente 660 anos antes de João, mas ambos estavam em situações semelhantes — isolados e exilados por poderes imperiais hostis (Babilônia para Ezequiel, Roma para João). Ambos receberam visões extraordinárias usando simbolismo semelhante, sugerindo continuidade na forma como Deus revela verdades apocalípticas.
+          </p>
+        </div>
+
+        <div class="prophet-column">
+          <h4>CONVIDADO 3: ENOQUE E OS ANIMAIS CELESTES</h4>
+          <p>
+            Embora não faça parte do cânone bíblico padrão, o Livro de Enoque (documento judaico do primeiro ou segundo século a.C., citado em Judas 1:14-15) contém visões fascinantes que se relacionam com o simbolismo animal do Apocalipse:
+          </p>
+          <div class="scripture-highlight">
+            "E vi no meio daquele trono e dos quatro seres viventes... um Cordeiro, como se tivesse sido morto..." (Apocalipse 5:6)
+          </div>
+          <p>
+            O Livro de Enoque similarmente usa simbolismo animal para representar figuras celestiais e históricas em sua "Visão dos Animais", incluindo o Messias como um cordeiro branco. Este paralelo sugere que o uso que João faz de animais simbólicos (o Cordeiro, os quatro seres viventes, os cavalos) se conecta a uma tradição mais ampla de simbolismo apocalíptico judaico.
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            A revelação moderna trouxe à luz escritos adicionais de Enoque no Livro de Moisés, incluindo visões que têm paralelos notáveis com o Apocalipse. Por exemplo, Enoque vê "grandes tribulações" e "os anjos do céu lançando fora suas foices para colher a terra" (Moisés 7:61), conceitos que ecoam em Apocalipse 7:14 e 14:15-19.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-calendar-alt topic-icon"></i> OS CAVALEIROS EM NOSSOS DIAS</h3>
+
+        <div class="testimony-box">
+          <div class="testimony-content">
+            <p>
+              "Certamente vemos os sinais dos tempos como declarado nas escrituras. Os quatro cavaleiros do Apocalipse estão entre nós."
+            </p>
+            <div class="testimony-attribution">
+              <div class="prophet-attribution">Élder Ezra Taft Benson (1976)</div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Como devemos entender os quatro cavaleiros no contexto de nossos dias atuais?
+        </p>
+
+        <div class="contemporary-box">
+          <h4>MANIFESTAÇÕES CONTEMPORÂNEAS</h4>
+          <ol>
+            <li><strong>Primeiro Cavaleiro (Conquista)</strong>
+              <ul>
+                <li>Imperialismo econômico e cultural</li>
+                <li>Domínio corporativo global</li>
+                <li>Tentativas de estabelecer hegemonias políticas e militares</li>
+                <li>A luta contínua pelo controle de recursos e mercados</li>
+              </ul>
+            </li>
+            <li><strong>Segundo Cavaleiro (Guerra)</strong>
+              <ul>
+                <li>Conflitos persistentes em várias regiões do mundo</li>
+                <li>Terrorismo e formas assimétricas de guerra</li>
+                <li>Corridas armamentistas e proliferação nuclear</li>
+                <li>Divisões sociais e culturais cada vez mais intensas</li>
+              </ul>
+            </li>
+            <li><strong>Terceiro Cavaleiro (Escassez Econômica)</strong>
+              <ul>
+                <li>Desigualdade global crescente</li>
+                <li>Crises econômicas recorrentes</li>
+                <li>Insegurança alimentar afetando milhões</li>
+                <li>Manipulação de mercados e recursos</li>
+              </ul>
+            </li>
+            <li><strong>Quarto Cavaleiro (Morte)</strong>
+              <ul>
+                <li>Pandemias como a COVID-19</li>
+                <li>Resistência antimicrobiana crescente</li>
+                <li>Doenças emergentes devido a mudanças ecológicas</li>
+                <li>Crises de saúde mental e epidemias de suicídio</li>
+                <li>Efeitos letais de desastres naturais intensificados por mudanças climáticas</li>
+              </ul>
+            </li>
+          </ol>
+          <p>
+            Os cavaleiros continuam a cavalgar, embora suas manifestações evoluam com o tempo. O importante é lembrar que, como João testemunharia mais tarde em sua visão, estes poderes são temporários e limitados. Eles são permitidos por Deus, mas não são o capítulo final da história.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-hands-helping topic-icon"></i> RESPOSTAS ESPIRITUAIS AOS QUATRO CAVALEIROS</h3>
+
+        <p>
+          Como os fiéis devem responder à realidade contínua dos quatro cavaleiros?
+        </p>
+
+        <div class="application-steps">
+          <div class="application-step">
+            <h4>Manter Perspectiva Eterna</h4>
+            <p>Lembrar que o plano de Deus é maior que os poderes temporários dos cavaleiros</p>
+          </div>
+          <div class="application-step">
+            <h4>Preparação Prudente</h4>
+            <p>Desenvolver autossuficiência espiritual e temporal</p>
+          </div>
+          <div class="application-step">
+            <h4>Serviço Compassivo</h4>
+            <p>Ajudar a aliviar o sofrimento causado pelos cavaleiros</p>
+          </div>
+          <div class="application-step">
+            <h4>Construção de Comunidade</h4>
+            <p>Fortalecer laços familiares e comunitários que oferecem resiliência</p>
+          </div>
+          <div class="application-step">
+            <h4>Foco no Cordeiro</h4>
+            <p>Lembrar que a visão começa não com os cavaleiros, mas com o Cordeiro que os controla</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "A reunião de Israel é o trabalho mais importante em nosso tempo. Nada se compara em magnitude, importância ou majestade." <span class="quote-attribution">— Presidente Russell M. Nelson</span>
+        </div>
+
+        <p>
+          Esta reunião é a resposta divina ao caos representado pelos quatro cavaleiros — reunindo os eleitos de Deus para segurança em meio à turbulência dos últimos dias.
+        </p>
+
+        <div class="activity">
+          <h4>APLICAÇÃO PESSOAL: FOCO NO CORDEIRO, NÃO NOS CAVALEIROS</h4>
+          <p>
+            Em um mundo onde os quatro cavaleiros continuam a exercer sua influência, nossa tarefa não é nos fixarmos no cavalgar dos cavaleiros, mas dirigir nossa atenção e devoção ao Cordeiro. Como observou C.S. Lewis: "Se lermos a história, descobriremos que os cristãos que mais fizeram pelo mundo presente foram precisamente aqueles que mais pensaram no próximo."
+          </p>
+          <p>
+            <strong>EXERCÍCIO DE APLICAÇÃO:</strong> Durante a próxima semana, a cada vez que você ouvir notícias sobre guerra, crise econômica, fome ou doença (os quatro cavaleiros), faça uma pausa para:
+          </p>
+          <ol>
+            <li>Reconhecer a realidade e o sofrimento envolvidos</li>
+            <li>Oferecer uma oração pelos afetados</li>
+            <li>Reafirmar sua confiança no Cordeiro que controla todos os selos</li>
+            <li>Considerar uma ação específica que você pode tomar para contrariar os efeitos do "cavaleiro" em questão</li>
+          </ol>
+          <p>
+            Os quatro cavaleiros podem estar galopando, mas o Cordeiro reina supremo. No fim, os cavaleiros passarão, mas o "reino do nosso Deus e o poder do seu Cristo" permanecerão para sempre (Apocalipse 12:10).
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-puzzle-piece topic-icon"></i> A SEQUÊNCIA E ESTRUTURA DOS SELOS</h3>
+
+        <p>
+          Para concluir nossa exploração dos quatro cavaleiros, é valioso considerar a estrutura mais ampla da visão dos sete selos e como os quatro primeiros selos se encaixam nela.
+        </p>
+
+        <h4>PADRÃO NUMÉRICO DOS SETE SELOS</h4>
+        <p>
+          Os sete selos seguem um padrão numérico claramente definido:
+        </p>
+
+        <div class="prophet-comparison">
+          <div class="prophet-column">
+            <h4>1. Quatro Primeiros Selos (Apocalipse 6:1-8)</h4>
+            <ul>
+              <li>Os Quatro Cavaleiros</li>
+              <li>Compartilham um padrão comum (um ser vivente chama "Vem!", aparece um cavalo colorido)</li>
+              <li>Representam condições terrenas durante a história humana</li>
+            </ul>
+          </div>
+          <div class="prophet-column">
+            <h4>2. Quinto e Sexto Selos (Apocalipse 6:9-17)</h4>
+            <ul>
+              <li>Mudança de foco para realidades espirituais e cósmicas</li>
+              <li>Sem cavaleiros ou seres viventes chamando</li>
+              <li>Representam transições importantes no plano divino</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prophet-column">
+          <h4>3. Sétimo Selo (Apocalipse 8-11)</h4>
+          <ul>
+            <li>Mais elaborado e complexo que os outros</li>
+            <li>Contém as sete trombetas</li>
+            <li>Representa a consumação do plano de Deus</li>
+          </ul>
+        </div>
+
+        <p>
+          Este padrão de 4-2-1 (ou 4-3 se agruparmos os três últimos selos) é encontrado em outras estruturas do Apocalipse e da literatura apocalíptica judaica, sugerindo uma organização intencional.
+        </p>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            O padrão de agrupamento 4-3 (quatro primeiros itens semelhantes seguidos por três distintos) aparece em vários lugares nas escrituras: as sete igrejas (Apocalipse 2-3), as sete trombetas (Apocalipse 8-11), e as sete taças (Apocalipse 16). Este padrão pode estar relacionado ao simbolismo bíblico tradicional: quatro representando a totalidade da criação terrena (quatro direções, quatro ventos, etc.) e três representando completude divina (a Trindade, os três "Santo" de Isaías 6:3, etc.).
+          </p>
+        </div>
+
+        <h4>OS SELOS COMO PERÍODOS HISTÓRICOS</h4>
+        <p>
+          Em D&C 77:7, o Senhor explica:
+        </p>
+
+        <div class="scripture-highlight">
+          "Q. O que devemos entender pelos sete selos com que [o livro] estava selado? R. Devemos entender que o primeiro selo contém as coisas do primeiro milênio e o segundo, as do segundo milênio, e assim por diante até o sétimo."
+        </div>
+
+        <p>
+          Esta revelação estabelece um quadro cronológico para os sete selos, abrangendo aproximadamente:
+        </p>
+
+        <ul>
+          <li><strong>Primeiro Selo:</strong> 4000-3000 a.C. (Adão a Noé)</li>
+          <li><strong>Segundo Selo:</strong> 3000-2000 a.C. (Noé a Abraão)</li>
+          <li><strong>Terceiro Selo:</strong> 2000-1000 a.C. (Abraão a Davi)</li>
+          <li><strong>Quarto Selo:</strong> 1000 a.C. - 1 d.C. (Davi a Cristo)</li>
+          <li><strong>Quinto Selo:</strong> 1-1000 d.C. (Era Cristã/Igreja Primitiva)</li>
+          <li><strong>Sexto Selo:</strong> 1000-2000 d.C. (Idade Média à Restauração)</li>
+          <li><strong>Sétimo Selo:</strong> 2000-3000 d.C. (Milênio)</li>
+        </ul>
+
+        <p>
+          Esta estrutura cronológica ajuda a contextualizar os quatro cavaleiros como forças que têm operado ao longo de toda a história humana desde a Queda, não apenas em um período futuro específico.
+        </p>
+
+        <div class="insight-box">
+          <h4><span class="insight-type">VOCÊ SABIA?</span></h4>
+          <p>
+            Embora D&C 77:7 estabeleça um quadro cronológico geral para os sete selos, o Élder Bruce R. McConkie ensinou que "cada selo também representa condições que prevalecerão sobre a terra durante vários períodos". Isto sugere que os cavaleiros, embora possam ter manifestações específicas em períodos específicos, também representam forças contínuas que atravessam a história humana.
+          </p>
+        </div>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-layer-group topic-icon"></i> OS QUATRO CAVALEIROS NO TEMPO E NA ETERNIDADE</h3>
+
+        <p>
+          A visão dos quatro cavaleiros apresenta várias camadas de significado:
+        </p>
+
+        <div class="application-steps">
+          <div class="application-step">
+            <h4>Histórico-Cronológica</h4>
+            <p>Representando condições durante períodos específicos da história da terra</p>
+          </div>
+          <div class="application-step">
+            <h4>Histórico-Contínua</h4>
+            <p>Simbolizando forças recorrentes operando ao longo de toda a história humana</p>
+          </div>
+          <div class="application-step">
+            <h4>Escatológica</h4>
+            <p>Prefigurando condições intensificadas nos últimos dias antes da Segunda Vinda</p>
+          </div>
+          <div class="application-step">
+            <h4>Espiritual-Pessoal</h4>
+            <p>Representando forças e escolhas que afetam nossa jornada individual de salvação</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "As escrituras são frequentemente polifônicas, transmitindo múltiplas verdades e aplicações em um único símbolo ou narrativa." <span class="quote-attribution">— Élder Neal A. Maxwell</span>
+        </div>
+
+        <p>
+          Os quatro cavaleiros são um exemplo perfeito desse princípio.
+        </p>
+      </div>
+
+      <div class="dimension-section">
+        <h3><i class="fas fa-cross topic-icon"></i> CONCLUSÃO: OS CAVALEIROS E O CORDEIRO</h3>
+
+        <p>
+          Ao concluirmos nossa exploração dos quatro cavaleiros, é crucial reconectar estes símbolos poderosos ao contexto maior da visão de João. Os cavaleiros não são figuras independentes, mas são liberados pela abertura dos selos pelo Cordeiro que foi morto.
+        </p>
+
+        <p>
+          Esta conexão estabelece três verdades essenciais:
+        </p>
+
+        <div class="insight-box">
+          <h4>1. Os Cavaleiros Estão Sob Controle Divino</h4>
+          <p>
+            Eles não são forças independentes ou aleatórias, mas agentes permitidos a operar dentro de limites estabelecidos pelo Cordeiro
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4>2. Os Cavaleiros Servem ao Propósito Divino</h4>
+          <p>
+            Por mais destrutivos que pareçam, são parte do processo de redenção iniciado pelo Cordeiro
+          </p>
+        </div>
+
+        <div class="insight-box">
+          <h4>3. Os Cavaleiros São Temporários; O Cordeiro É Eterno</h4>
+          <p>
+            A visão começa e termina não com os cavaleiros, mas com o Cordeiro que reina para sempre
+          </p>
+        </div>
+
+        <div class="testimony-box">
+          <div class="testimony-content">
+            <p>
+              "Como discípulos do Senhor Jesus Cristo, temos o poder de permanecer firmes e serenos durante os tempos tumultuosos. Por quê? Porque conhecemos o plano final, sabemos que o Salvador está ao leme, e que Ele guiará as coisas para o bem daqueles que O seguem."
+            </p>
+            <div class="testimony-attribution">
+              <div class="prophet-attribution">Presidente Russell M. Nelson</div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Na próxima aula, exploraremos os quinto e sexto selos, onde a visão se eleva das condições terrenas para as realidades celestiais e a culminação da história humana, enquanto o Cordeiro continua a implementar o plano divino de redenção.
+        </p>
+      </div>
+
+      <div class="navigation-buttons">
+        <a href="../aula1.html" class="btn btn-secondary">← Voltar para Aula 1</a>
+        <a href="../aula3.html" class="btn btn-primary">Próxima Aula →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="../../introducao.html">Introdução</a></li>
+          <li><a href="../aula1.html">Aula 1</a></li>
+          <li><a href="../aula3.html">Aula 3</a></li>
+          <li><a href="../../recursos.html">Recursos</a></li>
+          <li><a href="../../sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
