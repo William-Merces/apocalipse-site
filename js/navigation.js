@@ -359,6 +359,12 @@ function setupDropdown() {
         dropdownToggle.addEventListener('click', function(e) {
             e.preventDefault();
             dropdown.classList.toggle('active');
+            
+            // Garante que o menu mobile é exibido
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu && !navMenu.classList.contains('active')) {
+                navMenu.classList.add('active');
+            }
         });
     }
 

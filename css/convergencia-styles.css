@@ -1,0 +1,409 @@
+/* Estilos específicos para a página de convergência */
+.prophet-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border-top: 5px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.prophet-card:hover {
+  transform: translateY(-5px);
+}
+
+.prophet-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.prophet-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.prophet-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(-15deg) translateX(50%);
+}
+
+.prophet-content {
+  padding: 1.5rem;
+}
+
+.prophet-content h5 {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.prophet-content ul {
+  margin-bottom: 1rem;
+}
+
+.connection-line {
+  position: relative;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.connection-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  z-index: 0;
+}
+
+.connection-badge {
+  position: relative;
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.convergence-visual {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.vision-sphere {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.vision-sphere::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px dashed var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.vision-connector {
+  position: relative;
+  width: 100px;
+  height: 2px;
+  background-color: var(--accent-color);
+  align-self: center;
+}
+
+.vision-connector::before,
+.vision-connector::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vision-connector::before {
+  left: 0;
+}
+
+.vision-connector::after {
+  right: 0;
+}
+
+.insight-box {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+  border-left: 4px solid var(--primary-color);
+}
+
+.insight-box h4 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.insight-type {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.convergence-chart {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.convergence-chart th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.convergence-chart td {
+  padding: 1rem;
+  border: 1px solid var(--mid-bg);
+  vertical-align: top;
+}
+
+.convergence-chart th:first-child,
+.convergence-chart td:first-child {
+  background-color: var(--primary-light);
+  color: white;
+  font-weight: bold;
+}
+
+.scripture-reference {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.scripture-highlight {
+  display: block;
+  background-color: rgba(5, 46, 111, 0.05);
+  border-left: 3px solid var(--primary-color);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.prophet-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.prophet-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Estilo para os testemunhos e citações */
+.testimony-box {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.testimony-box::before {
+  content: "\201C";  /* Unicode para aspas duplas de abertura */
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 150px;
+  color: rgba(255, 255, 255, 0.1);
+  font-family: Georgia, serif;
+}
+
+.testimony-content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimony-content p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.testimony-attribution {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.prophet-attribution {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para citações */
+.quote {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.quote::before {
+  content: "\201C";  /* Unicode para aspas duplas de abertura */
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 150px;
+  color: rgba(255, 255, 255, 0.1);
+  font-family: Georgia, serif;
+}
+
+.quote-attribution {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+/* Estilos para aplicação pessoal */
+.application-steps {
+  counter-reset: step-counter;
+  margin: 2rem 0;
+}
+
+.application-step {
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.application-step::before {
+  counter-increment: step-counter;
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.application-step h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* Estilo para seções de comparação de profetas */
+.prophet-comparison {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.prophet-column {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.prophet-column h4 {
+  text-align: center;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Ícones para os títulos */
+.topic-icon {
+  margin-right: 0.5rem;
+  color: var(--accent-color);
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .convergence-visual {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vision-connector {
+    width: 2px;
+    height: 60px;
+  }
+
+  .vision-connector::before,
+  .vision-connector::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .vision-connector::before {
+    top: 0;
+  }
+
+  .vision-connector::after {
+    top: auto;
+    bottom: 0;
+  }
+  
+  .prophet-comparison {
+    flex-direction: column;
+  }
+  
+  .prophet-column {
+    min-width: 100%;
+  }
+}

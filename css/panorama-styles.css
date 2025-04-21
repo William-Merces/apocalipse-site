@@ -1,0 +1,114 @@
+/* Estilos específicos para a página de panorama */
+.timeline-section {
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  height: 100%;
+  width: 4px;
+  background-color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
+}
+
+.comparison-table {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.comparison-table th {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.comparison-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--mid-bg);
+}
+
+.map-container {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 2px dashed var(--primary-color);
+  text-align: center;
+}
+
+.map-container h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.concept-box {
+  display: inline-block;
+  background-color: var(--primary-light);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  margin: 0.5rem;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.concept-box:hover {
+  transform: translateY(-3px);
+}
+
+.scripture-highlight {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--primary-color);
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.reflection-prompt {
+  background-color: rgba(201, 162, 39, 0.15);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+.reflection-prompt::before {
+  content: "Reflexão: ";
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.infinity-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.infinity-bg::before {
+  content: "∞";
+  position: absolute;
+  right: -10px;
+  top: -40px;
+  font-size: 200px;
+  color: rgba(5, 46, 111, 0.05);
+  z-index: 0;
+}
