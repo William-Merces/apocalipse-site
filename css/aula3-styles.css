@@ -1,0 +1,149 @@
+/**
+ * Arquivo: aula3-styles.css
+ * Descrição: Estilos específicos para a Aula 3 do curso de Apocalipse
+ *
+ * Este arquivo contém estilos para:
+ * - Conteúdo das lições
+ * - Cabeçalhos e títulos
+ * - Boxes informativos
+ * - Citações e notas
+ * - Tabelas e grids
+ * - Elementos de atividade e reflexão
+ */
+
+/* ==========================================================================
+   1. Conteúdo da Lição
+   Estilos base para o conteúdo das aulas
+   ========================================================================== */
+.lesson-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.lesson-section {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 2rem;
+}
+
+.lesson-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ==========================================================================
+   2. Cabeçalhos e Títulos
+   Estilos para títulos e elementos de destaque
+   ========================================================================== */
+.dimension-heading {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  margin: -2rem -2rem 2rem -2rem;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. Boxes Informativos
+   Diferentes tipos de boxes para informações específicas
+   ========================================================================== */
+.info-box {
+  background-color: rgba(5, 46, 111, 0.1);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.info-box h4 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.note {
+  background-color: rgba(5, 46, 111, 0.05);
+  border: 1px dashed var(--primary-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.activity {
+  background-color: rgba(201, 162, 39, 0.05);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* ==========================================================================
+   4. Citações e Destaques
+   Estilos para citações e textos em destaque
+   ========================================================================== */
+.quote {
+  background-color: rgba(201, 162, 39, 0.1);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   5. Tabelas
+   Estilos para apresentação de dados tabulares
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #eaeaea;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(5, 46, 111, 0.05);
+}
+
+/* ==========================================================================
+   6. Layout em Colunas
+   Grids e layouts responsivos
+   ========================================================================== */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   7. Navegação
+   Botões e elementos de navegação
+   ========================================================================== */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}

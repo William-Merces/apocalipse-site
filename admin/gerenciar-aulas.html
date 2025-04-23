@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+    <!-- Configurações básicas do documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Aulas - Apocalipse</title>
+    <title>Gerenciador de Aulas - Apocalipse</title>
+
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dimension-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="banner">
-            <h1>APOCALIPSE: AS VISÕES DOS ÚLTIMOS DIAS</h1>
-        </div>
-        <nav>
-            <div class="nav-toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <!-- O menu será gerado dinamicamente pelo JavaScript -->
-            </ul>
-        </nav>
-    </header>
 
-    <main class="container">
-        <div class="page-title">
-            <h2>Gerenciar Status das Aulas</h2>
-        </div>
-        <div id="aulas-container"></div>
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Scripts JavaScript necessários para o gerenciamento -->
+    <!-- Configuração das aulas - carregado primeiro para definir estrutura -->
     <script src="../js/aulas-config.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="admin.js"></script>
+    <!-- Script de navegação - carregado após configuração -->
+    <script src="../js/navigation.js" defer></script>
+    <!-- Scripts específicos para gerenciamento -->
+    <script src="../js/unified-page.js" defer></script>
+    <script src="../js/apocalypse-scripts.js" defer></script>
+</head>
+
+<body>
+    <!-- Container de navegação - carregado dinamicamente -->
+    <div id="navigation-container"></div>
+
+    <!-- Seção principal do gerenciador -->
+    <main>
+        <!-- Título da página -->
+        <h1>Gerenciador de Aulas</h1>
+
+        <!-- Formulário para gerenciamento de aulas -->
+        <div class="form-container">
+            <form id="aula-form">
+                <!-- Campos do formulário -->
+                <div class="form-group">
+                    <label for="titulo">Título da Aula:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="video">Link do Vídeo:</label>
+                    <input type="text" id="video" name="video" required>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="button-group">
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="limparFormulario()">Limpar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Lista de aulas existentes -->
+        <div id="lista-aulas">
+            <!-- As aulas serão carregadas dinamicamente aqui -->
+        </div>
+    </main>
 </body>
+
 </html>

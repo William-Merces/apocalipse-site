@@ -1,897 +1,1105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bloco 1 - A Visão do Trono: Aula 3</title>
-    <link rel="stylesheet" href="../../css/styles.css" />
-    <link rel="stylesheet" href="../../css/dimension-styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <script src="../../js/aulas-config.js"></script>
-    <script src="../../js/navigation.js" defer></script>
-    <script src="../../js/main.js" defer></script>
-    <style>
-      .lesson-content {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 2rem;
-        margin-bottom: 2rem;
-      }
 
-      .dimension-heading {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 1rem;
-        margin: -2rem -2rem 2rem -2rem;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-        text-align: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloco 1 - A Visão do Trono: Aula 3</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/dimension-styles.css" />
+  <link rel="stylesheet" href="../../css/aula3-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="../../js/aulas-config.js"></script>
+  <script src="../../js/navigation.js" defer></script>
+  <script src="../../js/main.js" defer></script>
+  <style>
+    .lesson-content {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
 
-      .lesson-section {
-        margin-bottom: 2rem;
-        border-bottom: 1px solid #eaeaea;
-        padding-bottom: 2rem;
-      }
+    .dimension-heading {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      margin: -2rem -2rem 2rem -2rem;
+      border-radius: 8px 8px 0 0;
+      font-weight: bold;
+      text-align: center;
+    }
 
-      .lesson-section:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
+    .lesson-section {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 2rem;
+    }
 
-      .quote {
-        background-color: rgba(201, 162, 39, 0.1);
-        border-left: 4px solid var(--accent-color);
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        font-style: italic;
-      }
+    .lesson-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
-      .info-box {
-        background-color: rgba(5, 46, 111, 0.1);
-        border: 1px solid var(--primary-color);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-      }
+    .quote {
+      background-color: rgba(201, 162, 39, 0.1);
+      border-left: 4px solid var(--accent-color);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
 
-      .info-box h4 {
-        color: var(--primary-color);
-        margin-top: 0;
-      }
+    .info-box {
+      background-color: rgba(5, 46, 111, 0.1);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
 
-      .note {
-        background-color: rgba(5, 46, 111, 0.05);
-        border: 1px dashed var(--primary-color);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-      }
+    .info-box h4 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
 
-      .activity {
-        background-color: rgba(201, 162, 39, 0.05);
-        border: 1px solid var(--accent-color);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-      }
+    .note {
+      background-color: rgba(5, 46, 111, 0.05);
+      border: 1px dashed var(--primary-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
 
-      .table-container {
-        overflow-x: auto;
-        margin: 1.5rem 0;
-      }
+    .activity {
+      background-color: rgba(201, 162, 39, 0.05);
+      border: 1px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
 
-      th, td {
-        padding: 0.75rem;
-        text-align: left;
-        border: 1px solid #eaeaea;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-      th {
-        background-color: var(--primary-color);
-        color: white;
-      }
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid #eaeaea;
+    }
 
-      tr:nth-child(even) {
-        background-color: rgba(5, 46, 111, 0.05);
-      }
+    th {
+      background-color: var(--primary-color);
+      color: white;
+    }
 
+    tr:nth-child(even) {
+      background-color: rgba(5, 46, 111, 0.05);
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
       .two-columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 768px) {
-        .two-columns {
-          grid-template-columns: 1fr;
-        }
-      }
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
 
-      .navigation-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 2rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="navigation-container"></div>
+<body>
+  <div id="navigation-container"></div>
 
-    <main class="container">
-      <section class="lesson-content">
-        <div class="dimension-heading">BLOCO 1: A VISÃO DO TRONO (APOCALIPSE 4)</div>
+  <main class="container">
+    <section class="lesson-content">
+      <div class="dimension-heading">BLOCO 1: A VISÃO DO TRONO (APOCALIPSE 4)</div>
 
-        <h2>A PORTA ABERTA NO CÉU</h2>
+      <h2>A PORTA ABERTA NO CÉU</h2>
+
+      <div class="quote">
+        "Depois destas coisas, olhei, e eis não somente uma porta aberta no céu, como também a primeira voz que ouvi,
+        como de trombeta ao falar comigo, dizendo: Sobe para aqui, e te mostrarei o que deve acontecer depois destas
+        coisas." (Apocalipse 4:1)
+      </div>
+
+      <p>
+        Após as mensagens às sete igrejas, João é elevado a uma nova dimensão de revelação. A expressão "depois destas
+        coisas" marca uma transição crucial na narrativa apocalíptica:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Passado para Futuro:</strong> Das realidades presentes das sete igrejas para eventos futuros
+        </li>
+        <li>
+          <strong>Terra para Céu:</strong> Do plano terreno para o reino celestial
+        </li>
+        <li>
+          <strong>Temporal para Eterno:</strong> Das preocupações mortais para o conselho divino
+        </li>
+      </ul>
+
+      <p>
+        A "porta aberta no céu" representa o acesso divino às realidades celestiais normalmente veladas aos mortais.
+        Este símbolo potente nos ensina que o véu entre os mundos não é impenetrável — Deus pode abri-lo para revelar
+        Seus propósitos e glória.
+      </p>
+
+      <div class="info-box">
+        <h4>VOCÊ SABIA?</h4>
+        <p>
+          <em>
+            A "porta aberta no céu" tem paralelos em outras visões proféticas. Ezequiel viu "os céus se abrirem"
+            (Ezequiel 1:1). Estêvão, durante seu martírio, contemplou "os céus abertos, e o Filho do homem, em pé à
+            destra de Deus" (Atos 7:56). Joseph Smith e Sidney Rigdon viram "os céus abertos" (D&C 76:19) antes de
+            contemplar a visão dos três graus de glória. Estas aberturas dos céus representam momentos de revelação
+            profunda que transcendem a compreensão mortal comum.
+          </em>
+        </p>
+      </div>
+
+      <p>
+        O convite "Sobe para aqui" revela um princípio fundamental da revelação: para compreender as coisas divinas,
+        devemos ser elevados acima de nossa perspectiva terrena habitual. Como declara o Senhor em Isaías 55:9: "Assim
+        como os céus são mais altos do que a terra, também os meus caminhos são mais altos do que os vossos caminhos, e
+        os meus pensamentos, mais altos do que os vossos pensamentos."
+      </p>
+
+      <div class="activity">
+        <h4>MOMENTO DE REFLEXÃO</h4>
+        <p>
+          <em>
+            Pense em um momento em sua vida quando sentiu que uma "porta se abriu" para maior compreensão espiritual. O
+            que precipitou essa experiência? Como isso mudou sua perspectiva? Como você poderia convidar mais desses
+            momentos em sua vida?
+          </em>
+        </p>
+      </div>
+
+      <div class="note">
+        <h4>CHAVE INTERPRETATIVA</h4>
+        <p>
+          <em>
+            Toda a visão do capítulo 4 do Apocalipse deve ser compreendida como a descrição de um domínio celeste que
+            transcende nossas categorias terrenas. João está tentando descrever o indescritível, usando linguagem e
+            imagens que são inevitavelmente limitadas para capturar realidades divinas. O Élder Neal A. Maxwell
+            observou: "Os profetas recebem muitas vezes verdades que estão além da escala de suas experiências mortais e
+            categorias conceituais, e são obrigados a usar analogias imperfeitas para comunicá-las." Ao estudarmos estas
+            descrições, precisamos buscar seus significados simbólicos e espirituais, não apenas interpretações
+            literais.
+          </em>
+        </p>
+      </div>
+
+      <div class="lesson-section">
+        <h3>O TRONO E AQUELE QUE NELE SE ASSENTA</h3>
 
         <div class="quote">
-          "Depois destas coisas, olhei, e eis não somente uma porta aberta no céu, como também a primeira voz que ouvi, como de trombeta ao falar comigo, dizendo: Sobe para aqui, e te mostrarei o que deve acontecer depois destas coisas." (Apocalipse 4:1)
+          "Imediatamente, eu me achei em espírito, e eis armado no céu um trono, e, no trono, alguém sentado; e esse que
+          se acha assentado é semelhante, no aspecto, a pedra de jaspe e sardônio, e, ao redor do trono, há um arco-íris
+          semelhante, no aspecto, a esmeralda." (Apocalipse 4:2-3)
         </div>
 
         <p>
-          Após as mensagens às sete igrejas, João é elevado a uma nova dimensão de revelação. A expressão "depois destas coisas" marca uma transição crucial na narrativa apocalíptica:
+          O centro da visão de João é o trono de Deus — o símbolo supremo de autoridade, poder e majestade divina. Nos
+          tempos antigos, o trono representava não apenas um assento físico, mas o direito de governar, julgar e
+          legislar. Em sua visão, João observa:
+        </p>
+
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>ELEMENTO</th>
+              <th>DESCRIÇÃO</th>
+              <th>SIGNIFICADO SIMBÓLICO</th>
+            </tr>
+            <tr>
+              <td>Trono</td>
+              <td>Armado (estabelecido) no céu</td>
+              <td>Soberania incontestável e eterna de Deus</td>
+            </tr>
+            <tr>
+              <td>Aquele que se assenta</td>
+              <td>Não descrito em forma humana, mas em termos de pedras preciosas</td>
+              <td>Transcendência e glória divina além da compreensão humana</td>
+            </tr>
+            <tr>
+              <td>Jaspe</td>
+              <td>Pedra cristalina (possivelmente diamante na descrição antiga)</td>
+              <td>Pureza, clareza, luz resplandecente da santidade</td>
+            </tr>
+            <tr>
+              <td>Sardônio</td>
+              <td>Pedra vermelha (cornalina)</td>
+              <td>Vida, poder criador, sangue da redenção</td>
+            </tr>
+            <tr>
+              <td>Arco-íris</td>
+              <td>Circundando o trono, semelhante a esmeralda</td>
+              <td>Aliança, misericórdia, promessa divina (lembra o pacto com Noé)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <h4>RESPEITO À NATUREZA DIVINA</h4>
+          <p>
+            É significativo que João não descreva Deus em forma humana, mas através de símbolos de luz e cor. Isso
+            reflete a tradição judaica de evitar representações físicas da divindade, mas também sugere a incapacidade
+            das palavras humanas de capturar adequadamente a glória divina. Ao mesmo tempo, as revelações modernas
+            afirmam que Deus tem um corpo de carne e ossos (D&C 130:22). Esta aparente contradição se resolve quando
+            entendemos que as visões proféticas frequentemente usam símbolos para transmitir verdades espirituais, não
+            necessariamente descrições literais.
+          </p>
+        </div>
+
+        <p>
+          O arco-íris, com seu aspecto de esmeralda (predominantemente verde), é particularmente significativo. Desde o
+          dilúvio, o arco-íris tem simbolizado a aliança de Deus de nunca mais destruir toda a vida na terra (Gênesis
+          9:13-16). Sua presença ao redor do trono sugere que mesmo no momento de julgamento divino que se aproxima nos
+          capítulos seguintes, a misericórdia e a fidelidade às promessas divinas permanecem. A cor verde da esmeralda,
+          tradicionalmente associada à vida e renovação, reforça esta mensagem de esperança.
+        </p>
+
+        <div class="activity">
+          <h4>ESTUDO COMPARATIVO</h4>
+          <p>
+            Compare esta visão do trono em Apocalipse 4 com outras visões do trono divino nas escrituras. Quais
+            elementos são consistentes? Quais são únicos? O que isso nos ensina sobre como diferentes profetas
+            experimentam e descrevem a presença divina?
+          </p>
+          <ul>
+            <li>1 Reis 22:19 (Micaías)</li>
+            <li>Isaías 6:1-4 (Isaías)</li>
+            <li>Ezequiel 1:26-28 (Ezequiel)</li>
+            <li>Daniel 7:9-10 (Daniel)</li>
+            <li>D&C 76:19-23 (Joseph Smith e Sidney Rigdon)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <h3>OS VINTE E QUATRO ANCIÃOS</h3>
+
+        <div class="quote">
+          "Ao redor do trono, havia vinte e quatro tronos, e assentados neles, vinte e quatro anciãos vestidos de
+          branco, em cujas cabeças havia coroas de ouro." (Apocalipse 4:4)
+        </div>
+
+        <p>
+          Ao redor do trono central, João vê vinte e quatro tronos menores ocupados por anciãos. Quem são estes vinte e
+          quatro anciãos? As escrituras não os identificam explicitamente, mas várias interpretações têm sido propostas:
+        </p>
+
+        <ol>
+          <li>Seres celestiais: Anjos ou ministros divinos que participam do governo celestial.</li>
+          <li>Representantes da humanidade redimida: Doze patriarcas do Velho Testamento e doze apóstolos do Novo
+            Testamento, simbolizando a totalidade do povo do convênio de Deus em todas as dispensações.</li>
+          <li>Líderes de ordens sacerdotais: No templo de Jerusalém, havia vinte e quatro ordens de sacerdotes (1
+            Crônicas 24:1-19). Estes anciãos podem representar a função sacerdotal celestial.</li>
+          <li>Profetas exaltados: Homens justos de dispensações passadas que receberam sua exaltação e agora participam
+            do conselho divino.</li>
+        </ol>
+
+        <div class="info-box">
+          <h4>REVELAÇÃO MODERNA</h4>
+          <p>
+            Joseph Smith recebeu revelação específica sobre os vinte e quatro anciãos. Em resposta à pergunta "O que
+            devemos entender pelos vinte e quatro anciãos mencionados por João?", o Senhor respondeu: "Devemos entender
+            que esses anciãos que João viu eram élderes que haviam sido fiéis na obra do ministério e haviam morrido;
+            que pertenciam às sete igrejas e estavam então no paraíso de Deus" (D&C 77:5).
+          </p>
+          <p>
+            Esta revelação moderna esclarece que os anciãos eram líderes fiéis exaltados das sete igrejas da Ásia. Eles
+            demonstram o destino prometido a todos os que "vencem" como prometido nas cartas às sete igrejas (Apocalipse
+            2-3).
+          </p>
+        </div>
+
+        <p>Os anciãos possuem três características significativas:</p>
+
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>CARACTERÍSTICA</th>
+              <th>SIGNIFICADO</th>
+              <th>APLICAÇÃO PARA NÓS</th>
+            </tr>
+            <tr>
+              <td>Tronos</td>
+              <td>Autoridade delegada e responsabilidade no governo divino</td>
+              <td>Os fiéis receberão posições de responsabilidade na ordem celestial (Lucas 19:17-19)</td>
+            </tr>
+            <tr>
+              <td>Vestes brancas</td>
+              <td>Pureza, justiça, santificação através da expiação</td>
+              <td>O revestimento prometido aos que "não mancharam suas vestes" (Apocalipse 3:4-5)</td>
+            </tr>
+            <tr>
+              <td>Coroas de ouro</td>
+              <td>Vitória, realeza, exaltação e recompensa divina</td>
+              <td>A "coroa da vida" prometida aos fiéis (Apocalipse 2:10, Tiago 1:12)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <h4>O NÚMERO 24</h4>
+          <p>
+            O número 24 tem significado especial nas escrituras. Representa totalidade e completude multiplicada (12 x
+            2). Doze é o número dos filhos de Israel e dos apóstolos originais — juntos representando o povo do convênio
+            do Senhor em todas as dispensações. A duplicação deste número sugere a união do antigo e do novo, dos judeus
+            e dos gentios, dos santos antes e depois de Cristo — a plenitude do governo de Deus sobre todos os seus
+            filhos.
+          </p>
+        </div>
+
+        <p>
+          A presença destes anciãos entronizados revela importantes verdades sobre o destino dos fiéis. Como declarou o
+          Senhor: "Ao que vencer, dar-lhe-ei sentar-se comigo no meu trono, assim como também eu venci e me sentei com
+          meu Pai no seu trono" (Apocalipse 3:21).
+        </p>
+
+        <div class="activity">
+          <h4>PERGUNTA PARA REFLEXÃO</h4>
+          <p>
+            Os anciãos são descritos com três atributos específicos: tronos (autoridade), vestes brancas (pureza) e
+            coroas de ouro (vitória). Em sua jornada espiritual atual, qual destes aspectos você mais precisa
+            desenvolver? Como você pode se preparar agora para essas responsabilidades celestiais futuras?
+          </p>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <h3>OS FENÔMENOS CELESTIAIS</h3>
+
+        <div class="quote">
+          "Do trono saíam relâmpagos, vozes e trovões, e, diante do trono, ardiam sete tochas de fogo, que são os sete
+          Espíritos de Deus." (Apocalipse 4:5)
+        </div>
+
+        <p>
+          Do trono de Deus emanam manifestações impressionantes de poder e glória divina. Estas manifestações lembram a
+          teofania no Monte Sinai quando Deus se revelou a Israel com "trovões, relâmpagos, uma nuvem espessa sobre o
+          monte e um sonido de trombeta muito forte" (Êxodo 19:16).
+        </p>
+
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>MANIFESTAÇÃO</th>
+              <th>SIGNIFICADO</th>
+              <th>PARALELO NAS ESCRITURAS</th>
+            </tr>
+            <tr>
+              <td>Relâmpagos</td>
+              <td>Poder, glória, juízo divino, manifestação repentina</td>
+              <td>Êxodo 19:16, Ezequiel 1:13</td>
+            </tr>
+            <tr>
+              <td>Vozes</td>
+              <td>Revelação, comunicação divina, anúncios celestiais</td>
+              <td>1 Reis 19:12-13, D&C 88:89-90</td>
+            </tr>
+            <tr>
+              <td>Trovões</td>
+              <td>Autoridade, presença imponente, poder divino</td>
+              <td>Jó 37:5, João 12:28-29</td>
+            </tr>
+            <tr>
+              <td>Sete tochas de fogo</td>
+              <td>Plenitude do Espírito Santo, iluminação perfeita</td>
+              <td>Zacarias 4:2-6, Apocalipse 1:4</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>
+          As "sete tochas de fogo" são especificamente identificadas como "os sete Espíritos de Deus". Esta expressão,
+          também encontrada em Apocalipse 1:4 e 3:1, representa a plenitude ou totalidade do Espírito Santo em suas
+          diversas operações e manifestações. O número sete, simbolizando perfeição e completude, sugere a plenitude da
+          influência e poder do Espírito.
+        </p>
+
+        <div class="info-box">
+          <h4>PARALELO COM O TEMPLO</h4>
+          <p>
+            As sete tochas de fogo evocam o candelabro de sete braços (menorá) que ficava no lugar santo do tabernáculo
+            e do templo (Êxodo 25:31-40). Este candelabro sagrado provia luz constante diante do Santo dos Santos, assim
+            como o Espírito Santo ilumina nosso caminho para a presença de Deus. O profeta Zacarias viu uma visão
+            semelhante de um candelabro de ouro, que foi explicado como "não por força nem por poder, mas pelo meu
+            Espírito, diz o Senhor dos Exércitos" (Zacarias 4:6).
+          </p>
+        </div>
+
+        <p>
+          Estas manifestações celestiais comunicam importantes verdades sobre a natureza de Deus e Seu reino:
+        </p>
+
+        <ol>
+          <li>Majestade Transcendente: Deus não é um ser comum, mas o Soberano do universo cuja glória excede nossa
+            compreensão.</li>
+          <li>Poder e Juízo: As manifestações de trovões e relâmpagos advertem sobre o poder divino que será manifestado
+            nos juízos iminentes descritos nos capítulos seguintes.</li>
+          <li>Revelação Contínua: As "vozes" sugerem que o trono de Deus é um centro de comunicação e revelação
+            contínua.</li>
+          <li>Guia Espiritual: As sete tochas lembram que a luz e a orientação do Espírito Santo estão sempre
+            disponíveis para aqueles que servem a Deus.</li>
+        </ol>
+      </div>
+
+      <div class="lesson-section">
+        <h3>O MAR DE VIDRO E OS QUATRO SERES VIVENTES</h3>
+
+        <div class="quote">
+          "Havia também diante do trono um como que mar de vidro, semelhante ao cristal, e no meio do trono e à volta do
+          trono, quatro seres viventes cheios de olhos por diante e por detrás..." (Apocalipse 4:6)
+        </div>
+
+        <p>
+          A visão continua com dois elementos fascinantes: um "mar de vidro" e quatro "seres viventes" com
+          características extraordinárias. Estes elementos misteriosos têm sido objeto de diversas interpretações ao
+          longo dos séculos.
+        </p>
+
+        <h4>O MAR DE VIDRO</h4>
+
+        <p>
+          Diante do trono divino, João vê o que parece ser um "mar de vidro, semelhante ao cristal". Este mar
+          transparente e cristalino representa:
         </p>
 
         <ul>
-          <li>
-            <strong>Passado para Futuro:</strong> Das realidades presentes das sete igrejas para eventos futuros
+          <li>Pureza e Santidade: A cristalina transparência sugere a absoluta santidade e pureza do reino celestial.
           </li>
-          <li>
-            <strong>Terra para Céu:</strong> Do plano terreno para o reino celestial
-          </li>
-          <li>
-            <strong>Temporal para Eterno:</strong> Das preocupações mortais para o conselho divino
-          </li>
+          <li>Tranquilidade Celestial: Contrastando com os mares turbulentos da terra (que em Apocalipse 13:1 produzem a
+            besta), este mar celestial é pacífico e sereno.</li>
+          <li>Separação e Transcendência: Na cosmologia antiga, o firmamento separava as águas acima das águas abaixo
+            (Gênesis 1:6-7). O mar de vidro sugere esta separação entre o reino celestial e o terrestre.</li>
         </ul>
 
+        <div class="info-box">
+          <h4>REVELAÇÃO MODERNA SOBRE O MAR DE VIDRO</h4>
+          <p>
+            Em Doutrina e Convênios, o Senhor revelou informações adicionais sobre o mar de vidro: "O mar de vidro de
+            que falou João é a terra em seu estado santificado, imortal e eterno" (D&C 77:1). Esta revelação vincula o
+            mar de vidro à terra em seu estado final e glorificado, sugerindo que a visão de João abrange não apenas o
+            presente celestial, mas também o destino glorioso da criação de Deus.
+          </p>
+          <p>
+            Em outro lugar, o Senhor descreve: "Esta terra, em seu estado santificado e imortal, se tornará semelhante
+            ao cristal e será um Urim e Tumim para os habitantes que nela moram... então a terra branca, o Urim e Tumim,
+            será semelhante a um grande mar de vidro e fogo" (D&C 130:8-9). Estas revelações modernas expandem
+            grandemente nossa compreensão do símbolo, conectando-o ao destino final da terra e sua função como
+            instrumento de conhecimento divino.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h4>VOCÊ SABIA?</h4>
+          <p>
+            <em>
+              O Urim e Tumim, mencionado em conexão com o mar de vidro, era originalmente um instrumento sagrado usado
+              pelos sacerdotes israelitas para discernir a vontade divina (Êxodo 28:30). Joseph Smith utilizou um Urim e
+              Tumim para traduzir parte do Livro de Mórmon. Nas revelações modernas, aprendemos que cada pessoa digna
+              receberá sua própria "pedra branca" que funcionará como um Urim e Tumim pessoal (D&C 130:10-11). A conexão
+              destes instrumentos de revelação com o mar de vidro sugere que na eternidade, o conhecimento não será mais
+              limitado ou parcial — viveremos em um estado de iluminação e compreensão contínuas.
+            </em>
+          </p>
+        </div>
+
+        <h4>OS QUATRO SERES VIVENTES</h4>
+
+        <div class="quote">
+          "O primeiro ser vivente é semelhante a leão, o segundo, semelhante a novilho, o terceiro tem o rosto como de
+          homem, e o quarto ser vivente é semelhante à águia quando está voando. E os quatro seres viventes, tendo cada
+          um deles, respectivamente, seis asas, estão cheios de olhos, ao redor e por dentro, e não têm descanso, nem de
+          dia nem de noite, proclamando: Santo, Santo, Santo é o Senhor Deus, o Todo-Poderoso, aquele que era, que é e
+          que há de vir." (Apocalipse 4:7-8)
+        </div>
+
         <p>
-          A "porta aberta no céu" representa o acesso divino às realidades celestiais normalmente veladas aos mortais. Este símbolo potente nos ensina que o véu entre os mundos não é impenetrável — Deus pode abri-lo para revelar Seus propósitos e glória.
+          Estas criaturas extraordinárias têm paralelos em outras visões proféticas:
+        </p>
+
+        <ul>
+          <li>Os querubins na visão de Ezequiel (Ezequiel 1 e 10)</li>
+          <li>Os serafins vistos por Isaías (Isaías 6)</li>
+          <li>Os hayyoth (seres viventes) na literatura apocalíptica judaica</li>
+        </ul>
+
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>CARACTERÍSTICA</th>
+              <th>POSSÍVEL SIGNIFICADO</th>
+            </tr>
+            <tr>
+              <td>Quatro formas (leão, novilho, homem, águia)</td>
+              <td>
+                - Representam os aspectos mais nobres da criação: poder selvagem (leão), força domesticada (novilho),
+                inteligência (homem), e majestade (águia)<br>
+                - Simbolizam os quatro evangelhos: Mateus (homem), Marcos (leão), Lucas (novilho), João (águia)<br>
+                - Representam toda a criação adorando a Deus
+              </td>
+            </tr>
+            <tr>
+              <td>Cheios de olhos</td>
+              <td>
+                - Percepção e conhecimento completos<br>
+                - Vigilância constante<br>
+                - Consciência espiritual total
+              </td>
+            </tr>
+            <tr>
+              <td>Seis asas</td>
+              <td>
+                - Rapidez no serviço divino<br>
+                - Prontidão para executar a vontade de Deus<br>
+                - Conexão com os serafins de Isaías 6:2
+              </td>
+            </tr>
+            <tr>
+              <td>Adoração incessante</td>
+              <td>
+                - Devoção total e contínua<br>
+                - Reconhecimento perpétuo da santidade divina<br>
+                - Modelo celestial de adoração
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <h4>REVELAÇÃO MODERNA SOBRE OS SERES VIVENTES</h4>
+          <p>
+            Em Doutrina e Convênios 77:2-4, o Senhor esclarece o significado destes seres misteriosos:
+          </p>
+          <p>
+            "2. Q. O que devemos entender pelos quatro seres viventes de que João fala no mesmo versículo? R. São
+            expressões figuradas usadas pelo Revelador João ao descrever o céu, o paraíso de Deus, a felicidade do
+            homem, dos animais e dos répteis e das aves do ar; o que é espiritual sendo à semelhança do que é temporal e
+            o que é temporal à semelhança do que é espiritual; o espírito do homem à semelhança de sua pessoa, como
+            também o espírito do animal e de toda outra criatura que Deus criou.
+          </p>
+          <p>
+            3. Q. Os quatro seres viventes limitam-se a seres individuais ou representam classes ou ordens? R.
+            Limitam-se a quatro seres individuais que foram mostrados a João para representar a glória das classes de
+            seres na ordem ou esfera de criação que lhes foi designada, na fruição de sua felicidade eterna.
+          </p>
+          <p>
+            4. Q. O que devemos entender pelos olhos e asas que os seres viventes tinham? R. Seus olhos são uma
+            representação de luz e conhecimento, isto é, estão cheios de conhecimento; e suas asas representam poder
+            para mover-se, para agir, etc."
+          </p>
+        </div>
+
+        <p>
+          Esta revelação moderna amplia nossa compreensão, esclarecendo que os quatro seres representam classes de
+          criaturas em seu estado glorificado. Eles são representantes de toda a criação de Deus, demonstrando que todo
+          ser criado encontrará sua mais elevada expressão e propósito na adoração divina.
         </p>
 
         <div class="info-box">
           <h4>VOCÊ SABIA?</h4>
           <p>
             <em>
-              A "porta aberta no céu" tem paralelos em outras visões proféticas. Ezequiel viu "os céus se abrirem" (Ezequiel 1:1). Estêvão, durante seu martírio, contemplou "os céus abertos, e o Filho do homem, em pé à destra de Deus" (Atos 7:56). Joseph Smith e Sidney Rigdon viram "os céus abertos" (D&C 76:19) antes de contemplar a visão dos três graus de glória. Estas aberturas dos céus representam momentos de revelação profunda que transcendem a compreensão mortal comum.
+              A revelação do Senhor sobre os quatro seres viventes confirma uma verdade preciosa: os animais têm
+              espíritos e um lugar na eternidade! Brigham Young ensinou: "Tenho a opinião de que quando Deus criou
+              nossos espíritos que Ele criou também os espíritos de todo animal, ave e peixe, e que eles também terão
+              seu paraíso e alcançarão o objetivo de sua criação." O Elder Joseph Fielding Smith afirmou ainda mais
+              claramente: "Os animais, aves, e os peixes também são espirituais. Os animais vão ressuscitar, e terão um
+              estado de felicidade correspondente ao de uma ressurreição." Se você já perdeu um animal de estimação
+              amado, pode encontrar consolo nesta doutrina restaurada — você poderá vê-lo novamente!
             </em>
+          </p>
+        </div>
+
+        <div class="activity">
+          <h4>ATIVIDADE DE VISUALIZAÇÃO</h4>
+          <p>
+            <em>
+              Feche seus olhos por um momento e imagine a cena descrita por João: o trono radiante, os anciãos em
+              círculo, o mar cristalino, as tochas ardentes, os quatro seres viventes em constante adoração. Procure
+              sentir a atmosfera de reverência, glória e adoração. Observe como esta visão muda sua perspectiva sobre o
+              culto e a adoração que oferecemos a Deus. Como podemos trazer mais desta reverência celestial para nossa
+              adoração pessoal e coletiva?
+            </em>
+          </p>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <h3>A ADORAÇÃO CELESTIAL</h3>
+
+        <div class="quote">
+          "E, sempre que esses seres viventes dão glória, honra e ações de graças ao que se encontra sentado no trono,
+          ao que vive pelos séculos dos séculos, os vinte e quatro anciãos prostram-se diante daquele que se encontra
+          sentado no trono, adoram o que vive pelos séculos dos séculos e lançam as suas coroas diante do trono,
+          proclamando: Tu és digno, Senhor e Deus nosso, de receber a glória, a honra e o poder, porque todas as coisas
+          tu criaste, sim, por causa da tua vontade vieram a existir e foram criadas." (Apocalipse 4:9-11)
+        </div>
+
+        <p>
+          João agora testemunha uma extraordinária liturgia celestial - uma adoração perfeita que serve como modelo para
+          nossa própria adoração. Esta cena revela elementos essenciais da verdadeira adoração:
+        </p>
+
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>ELEMENTO DA ADORAÇÃO</th>
+              <th>DESCRIÇÃO NA VISÃO</th>
+              <th>APLICAÇÃO PARA NOSSA ADORAÇÃO</th>
+            </tr>
+            <tr>
+              <td>Reconhecimento de quem é Deus</td>
+              <td>O que está no trono, o que vive pelos séculos dos séculos</td>
+              <td>Focalizar na natureza eterna e soberana de Deus, não apenas em nossos pedidos</td>
+            </tr>
+            <tr>
+              <td>Postura de humildade</td>
+              <td>Os anciãos prostram-se diante do trono</td>
+              <td>Aproximar-se de Deus com humildade genuína, reconhecendo Sua majestade</td>
+            </tr>
+            <tr>
+              <td>Entrega de honras pessoais</td>
+              <td>Lançam suas coroas diante do trono</td>
+              <td>Reconhecer que todos os nossos talentos, conquistas e bênçãos vêm de Deus e pertencem a Ele</td>
+            </tr>
+            <tr>
+              <td>Proclamação verbal</td>
+              <td>Declaração "Tu és digno..."</td>
+              <td>Expressar adoração através de palavras específicas de louvor, não apenas sentimentos vagos</td>
+            </tr>
+            <tr>
+              <td>Raciocínio teológico</td>
+              <td>"porque todas as coisas tu criaste..."</td>
+              <td>Basear nossa adoração na compreensão de quem Deus é e o que Ele fez</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>
+          O ato de lançar as coroas diante do trono é particularmente significativo. As coroas representam autoridade,
+          conquista e recompensa - são símbolos de status e honra. Ao depor suas coroas diante de Deus, os anciãos
+          reconhecem que toda honra pertence ultimamente a Ele. Este gesto demonstra o princípio declarado por Paulo:
+          "Que tens tu que não tenhas recebido? E, se o recebeste, por que te glorias, como se o não houveras recebido?"
+          (1 Coríntios 4:7).
+        </p>
+
+        <div class="info-box">
+          <h4>ADORAÇÃO NO TEMPO E NA ETERNIDADE</h4>
+          <p>
+            A adoração descrita nesta visão não é apresentada como um evento único, mas como uma atividade contínua. Os
+            seres viventes "não têm descanso, nem de dia nem de noite" em seu louvor (4:8), e os anciãos respondem
+            "sempre que" os seres viventes dão glória a Deus (4:9). Esta continuidade sugere que a adoração não é apenas
+            um evento semanal na igreja, mas um estilo de vida que continuará e será aperfeiçoado na eternidade. Como
+            observou o Presidente David O. McKay: "A espiritualidade é a consciência da vitória sobre si mesmo e da
+            comunhão com o Infinito." Esta comunhão constante com Deus é o coração da adoração celestial.
           </p>
         </div>
 
         <p>
-          O convite "Sobe para aqui" revela um princípio fundamental da revelação: para compreender as coisas divinas, devemos ser elevados acima de nossa perspectiva terrena habitual. Como declara o Senhor em Isaías 55:9: "Assim como os céus são mais altos do que a terra, também os meus caminhos são mais altos do que os vossos caminhos, e os meus pensamentos, mais altos do que os vossos pensamentos."
+          O conteúdo da adoração é igualmente importante. Os anciãos reconhecem três atributos específicos de Deus que O
+          tornam digno de adoração:
         </p>
 
+        <ol>
+          <li>Sua glória intrínseca - A majestade e excelência de Seu ser</li>
+          <li>Sua honra e dignidade - O respeito e reverência que Lhe são devidos</li>
+          <li>Seu poder criador - Sua capacidade de trazer à existência tudo o que existe</li>
+        </ol>
+
+        <p>
+          A razão fundamental da adoração é declarada: "porque todas as coisas tu criaste, sim, por causa da tua vontade
+          vieram a existir e foram criadas." A criação é apresentada como um ato deliberado da vontade divina, não um
+          acidente cósmico ou uma necessidade impessoal. Esta declaração afirma que:
+        </p>
+
+        <ul>
+          <li>Deus é distinto de Sua criação (transcendência)</li>
+          <li>A criação depende de Deus para sua existência (contingência)</li>
+          <li>A criação tem propósito, refletindo a vontade consciente de Deus (teleologia)</li>
+        </ul>
+
         <div class="activity">
-          <h4>MOMENTO DE REFLEXÃO</h4>
+          <h4>APLICAÇÃO PESSOAL</h4>
           <p>
             <em>
-              Pense em um momento em sua vida quando sentiu que uma "porta se abriu" para maior compreensão espiritual. O que precipitou essa experiência? Como isso mudou sua perspectiva? Como você poderia convidar mais desses momentos em sua vida?
+              1. Como sua própria adoração a Deus se compara com este modelo celestial?<br>
+              2. Existem "coroas" (realizações, talentos, posses) que você tem dificuldade em "lançar diante do
+              trono"?<br>
+              3. De que maneiras você pode fazer com que sua adoração na igreja reflita mais o padrão celestial visto
+              por João?<br>
+              4. Como o entendimento da vontade criadora de Deus afeta sua compreensão de seu próprio propósito e valor?
+            </em>
+          </p>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <h3>PONTOS-CHAVE PARA REVISÃO</h3>
+
+        <ol>
+          <li>O capítulo 4 do Apocalipse revela uma transição das mensagens terrenas às sete igrejas para uma visão da
+            realidade celestial.</li>
+          <li>O trono representa a soberania absoluta de Deus sobre toda a criação e o centro do governo divino.</li>
+          <li>As pedras preciosas e o arco-íris simbolizam a glória, santidade e misericórdia divinas.</li>
+          <li>Os vinte e quatro anciãos representam líderes fiéis exaltados, mostrando o destino futuro dos que
+            "vencem".</li>
+          <li>O mar de vidro, segundo a revelação moderna, simboliza a terra em seu estado santificado e glorificado.
+          </li>
+          <li>Os quatro seres viventes representam toda a ordem criada, unida em perpétua adoração a Deus.</li>
+          <li>A adoração celestial demonstra humildade, reconhecimento da soberania divina e gratidão pelo poder criador
+            de Deus.</li>
+        </ol>
+
+        <div class="info-box">
+          <h4>CONEXÃO COM A RESTAURAÇÃO</h4>
+          <p>
+            O entendimento restaurado sobre os céus e a organização celestial expande significativamente nossa
+            compreensão desta visão de João. Doutrina e Convênios 76, 88, 130 e 131 revelam detalhes sobre a natureza
+            dos reinos celestiais que complementam e esclarecem o que João viu. Da mesma forma, as ordenanças do templo
+            moderno refletem muitos elementos da adoração celestial descrita nesta visão, incluindo o reconhecimento da
+            majestade divina e nossa completa dependência de Deus.
+          </p>
+        </div>
+
+        <div class="activity">
+          <h4>DESAFIO DE APLICAÇÃO SEMANAL</h4>
+          <p>
+            <em>
+              Durante esta semana, reserve cinco minutos diários para praticar "adoração celestial". Siga o padrão dos
+              anciãos:
+            </em>
+          </p>
+          <ol>
+            <li>Reconheça mentalmente a majestade de Deus</li>
+            <li>Adote uma postura de humildade (pode ser física ou espiritual)</li>
+            <li>Identifique uma "coroa" em sua vida (um talento, conquista ou bênção) e ofereça-a simbolicamente a Deus,
+              reconhecendo-O como a fonte</li>
+            <li>Verbalize uma expressão de adoração, incluindo reconhecimento específico do poder criador de Deus</li>
+          </ol>
+          <p>
+            <em>
+              Observe como este exercício influencia sua consciência espiritual e sua relação com Deus durante o resto
+              do dia.
+            </em>
+          </p>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <h3>A TERRA CELESTIALIZADA E O MAR DE VIDRO</h3>
+
+        <p>
+          Retornando à significativa revelação em D&C 130:8-9, vamos aprofundar nossa compreensão do mar de vidro e seu
+          significado para nosso destino eterno:
+        </p>
+
+        <div class="quote">
+          "Esta terra, em seu estado santificado e imortal, tornar-se-á como cristal e será um Urim e Tumim para os
+          habitantes que nela moram, por meio do qual todas as coisas pertinentes a um reino inferior, ou a todos os
+          reinos de uma ordem inferior, serão manifestadas aos que nela habitam; e esta terra será de Cristo."
+        </div>
+
+        <p>
+          Esta revelação extraordinária expande nossa visão da terra futura e nos dá um vislumbre de nossa herança
+          eterna. O mar de vidro que João viu representa não apenas o trono celestial presente, mas também nosso lar
+          futuro.
+        </p>
+
+        <div class="info-box">
+          <h4>VOCÊ SABIA?</h4>
+          <p>
+            <em>
+              O conceito da terra transformada tem profundas raízes nas escrituras. Isaías profetizou sobre "novos céus
+              e nova terra" (Isaías 65:17). Pedro falou de "novos céus e nova terra, em que habita a justiça" (2 Pedro
+              3:13). A Décima Regra de Fé declara: "...a Terra será renovada e receberá a sua glória paradisíaca." Esta
+              transformação não é meramente superficial, mas uma mudança fundamental na própria natureza do planeta.
             </em>
           </p>
         </div>
 
-        <div class="note">
-          <h4>CHAVE INTERPRETATIVA</h4>
+        <h4>A PEDRA BRANCA INDIVIDUAL</h4>
+
+        <p>
+          Em conexão direta com o mar de vidro, o Senhor revelou:
+        </p>
+
+        <div class="quote">
+          "E será dada a cada um daqueles que entrarem no reino celestial uma pedra branca, sobre a qual está escrito um
+          novo nome, que ninguém conhece a não ser aquele que o recebe. O novo nome é a palavra-chave." (D&C 130:11)
+        </div>
+
+        <p>
+          Esta revelação fascinante conecta o destino coletivo da terra transformada com uma experiência individual
+          profundamente pessoal. A pedra branca individual sugere que:
+        </p>
+
+        <ol>
+          <li>Conhecimento Personalizado: Cada indivíduo terá acesso a revelação e conhecimento personalizado</li>
+          <li>Identidade Celestial: O novo nome representa nossa identidade verdadeira e eterna</li>
+          <li>Intimidade com Deus: A natureza pessoal deste dom sugere um relacionamento íntimo com o Senhor</li>
+        </ol>
+
+        <div class="info-box">
+          <h4>VOCÊ SABIA?</h4>
           <p>
             <em>
-              Toda a visão do capítulo 4 do Apocalipse deve ser compreendida como a descrição de um domínio celeste que transcende nossas categorias terrenas. João está tentando descrever o indescritível, usando linguagem e imagens que são inevitavelmente limitadas para capturar realidades divinas. O Élder Neal A. Maxwell observou: "Os profetas recebem muitas vezes verdades que estão além da escala de suas experiências mortais e categorias conceituais, e são obrigados a usar analogias imperfeitas para comunicá-las." Ao estudarmos estas descrições, precisamos buscar seus significados simbólicos e espirituais, não apenas interpretações literais.
+              Na antiga cultura bíblica, dar um novo nome simbolizava uma mudança de identidade ou destino — como quando
+              Abrão se tornou Abraão (Gênesis 17:5) ou Jacó se tornou Israel (Gênesis 32:28). A pedra branca com um novo
+              nome sugere uma transformação fundamental de identidade. Como ensinou o Élder Bruce R. McConkie: "Receber
+              um novo nome significa receber uma nova identidade, um novo caráter, uma nova natureza, ou ser nascido de
+              novo. É um símbolo e um token de nosso status renovado como filhos da graça."
             </em>
           </p>
         </div>
 
-        <div class="lesson-section">
-          <h3>O TRONO E AQUELE QUE NELE SE ASSENTA</h3>
+        <h4>UMA JANELA PARA TODAS AS COISAS</h4>
 
-          <div class="quote">
-            "Imediatamente, eu me achei em espírito, e eis armado no céu um trono, e, no trono, alguém sentado; e esse que se acha assentado é semelhante, no aspecto, a pedra de jaspe e sardônio, e, ao redor do trono, há um arco-íris semelhante, no aspecto, a esmeralda." (Apocalipse 4:2-3)
-          </div>
+        <p>
+          O conceito do mar de vidro como um Urim e Tumim universal sugere uma dimensão do conhecimento que mal podemos
+          compreender agora:
+        </p>
 
-          <p>
-            O centro da visão de João é o trono de Deus — o símbolo supremo de autoridade, poder e majestade divina. Nos tempos antigos, o trono representava não apenas um assento físico, mas o direito de governar, julgar e legislar. Em sua visão, João observa:
-          </p>
-
-          <div class="table-container">
-            <table>
-              <tr>
-                <th>ELEMENTO</th>
-                <th>DESCRIÇÃO</th>
-                <th>SIGNIFICADO SIMBÓLICO</th>
-              </tr>
-              <tr>
-                <td>Trono</td>
-                <td>Armado (estabelecido) no céu</td>
-                <td>Soberania incontestável e eterna de Deus</td>
-              </tr>
-              <tr>
-                <td>Aquele que se assenta</td>
-                <td>Não descrito em forma humana, mas em termos de pedras preciosas</td>
-                <td>Transcendência e glória divina além da compreensão humana</td>
-              </tr>
-              <tr>
-                <td>Jaspe</td>
-                <td>Pedra cristalina (possivelmente diamante na descrição antiga)</td>
-                <td>Pureza, clareza, luz resplandecente da santidade</td>
-              </tr>
-              <tr>
-                <td>Sardônio</td>
-                <td>Pedra vermelha (cornalina)</td>
-                <td>Vida, poder criador, sangue da redenção</td>
-              </tr>
-              <tr>
-                <td>Arco-íris</td>
-                <td>Circundando o trono, semelhante a esmeralda</td>
-                <td>Aliança, misericórdia, promessa divina (lembra o pacto com Noé)</td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="info-box">
-            <h4>RESPEITO À NATUREZA DIVINA</h4>
-            <p>
-              É significativo que João não descreva Deus em forma humana, mas através de símbolos de luz e cor. Isso reflete a tradição judaica de evitar representações físicas da divindade, mas também sugere a incapacidade das palavras humanas de capturar adequadamente a glória divina. Ao mesmo tempo, as revelações modernas afirmam que Deus tem um corpo de carne e ossos (D&C 130:22). Esta aparente contradição se resolve quando entendemos que as visões proféticas frequentemente usam símbolos para transmitir verdades espirituais, não necessariamente descrições literais.
-            </p>
-          </div>
-
-          <p>
-            O arco-íris, com seu aspecto de esmeralda (predominantemente verde), é particularmente significativo. Desde o dilúvio, o arco-íris tem simbolizado a aliança de Deus de nunca mais destruir toda a vida na terra (Gênesis 9:13-16). Sua presença ao redor do trono sugere que mesmo no momento de julgamento divino que se aproxima nos capítulos seguintes, a misericórdia e a fidelidade às promessas divinas permanecem. A cor verde da esmeralda, tradicionalmente associada à vida e renovação, reforça esta mensagem de esperança.
-          </p>
-
-          <div class="activity">
-            <h4>ESTUDO COMPARATIVO</h4>
-            <p>
-              Compare esta visão do trono em Apocalipse 4 com outras visões do trono divino nas escrituras. Quais elementos são consistentes? Quais são únicos? O que isso nos ensina sobre como diferentes profetas experimentam e descrevem a presença divina?
-            </p>
-            <ul>
-              <li>1 Reis 22:19 (Micaías)</li>
-              <li>Isaías 6:1-4 (Isaías)</li>
-              <li>Ezequiel 1:26-28 (Ezequiel)</li>
-              <li>Daniel 7:9-10 (Daniel)</li>
-              <li>D&C 76:19-23 (Joseph Smith e Sidney Rigdon)</li>
-            </ul>
-          </div>
+        <div class="quote">
+          "Então tudo será manifesto, seja coisas que já se passaram ou coisas que virão, coisas que estão acima ou
+          coisas que estão abaixo, coisas que estão dentro da terra e sobre a terra e no céu." (D&C 101:32-34)
         </div>
 
-        <div class="lesson-section">
-          <h3>OS VINTE E QUATRO ANCIÃOS</h3>
+        <p>
+          Esta promessa sugere que no estado celestial, as limitações atuais do conhecimento serão removidas. Imagine:
+        </p>
 
-          <div class="quote">
-            "Ao redor do trono, havia vinte e quatro tronos, e assentados neles, vinte e quatro anciãos vestidos de branco, em cujas cabeças havia coroas de ouro." (Apocalipse 4:4)
-          </div>
+        <ul>
+          <li>Ver o processo de criação como realmente ocorreu</li>
+          <li>Compreender os mistérios do universo em sua plenitude</li>
+          <li>Testemunhar eventos históricos conforme realmente aconteceram</li>
+          <li>Perceber a intrincada interconexão de todas as coisas</li>
+        </ul>
 
+        <div class="activity">
+          <h4>APLICAÇÃO PRÁTICA: DESENVOLVENDO OLHOS PARA VER</h4>
           <p>
-            Ao redor do trono central, João vê vinte e quatro tronos menores ocupados por anciãos. Quem são estes vinte e quatro anciãos? As escrituras não os identificam explicitamente, mas várias interpretações têm sido propostas:
+            <em>
+              Em preparação para este futuro estado de conhecimento expandido, podemos começar a desenvolver agora nossa
+              capacidade de ver com olhos espirituais:
+            </em>
           </p>
-
           <ol>
-            <li>Seres celestiais: Anjos ou ministros divinos que participam do governo celestial.</li>
-            <li>Representantes da humanidade redimida: Doze patriarcas do Velho Testamento e doze apóstolos do Novo Testamento, simbolizando a totalidade do povo do convênio de Deus em todas as dispensações.</li>
-            <li>Líderes de ordens sacerdotais: No templo de Jerusalém, havia vinte e quatro ordens de sacerdotes (1 Crônicas 24:1-19). Estes anciãos podem representar a função sacerdotal celestial.</li>
-            <li>Profetas exaltados: Homens justos de dispensações passadas que receberam sua exaltação e agora participam do conselho divino.</li>
-          </ol>
-
-          <div class="info-box">
-            <h4>REVELAÇÃO MODERNA</h4>
-            <p>
-              Joseph Smith recebeu revelação específica sobre os vinte e quatro anciãos. Em resposta à pergunta "O que devemos entender pelos vinte e quatro anciãos mencionados por João?", o Senhor respondeu: "Devemos entender que esses anciãos que João viu eram élderes que haviam sido fiéis na obra do ministério e haviam morrido; que pertenciam às sete igrejas e estavam então no paraíso de Deus" (D&C 77:5).
-            </p>
-            <p>
-              Esta revelação moderna esclarece que os anciãos eram líderes fiéis exaltados das sete igrejas da Ásia. Eles demonstram o destino prometido a todos os que "vencem" como prometido nas cartas às sete igrejas (Apocalipse 2-3).
-            </p>
-          </div>
-
-          <p>Os anciãos possuem três características significativas:</p>
-
-          <div class="table-container">
-            <table>
-              <tr>
-                <th>CARACTERÍSTICA</th>
-                <th>SIGNIFICADO</th>
-                <th>APLICAÇÃO PARA NÓS</th>
-              </tr>
-              <tr>
-                <td>Tronos</td>
-                <td>Autoridade delegada e responsabilidade no governo divino</td>
-                <td>Os fiéis receberão posições de responsabilidade na ordem celestial (Lucas 19:17-19)</td>
-              </tr>
-              <tr>
-                <td>Vestes brancas</td>
-                <td>Pureza, justiça, santificação através da expiação</td>
-                <td>O revestimento prometido aos que "não mancharam suas vestes" (Apocalipse 3:4-5)</td>
-              </tr>
-              <tr>
-                <td>Coroas de ouro</td>
-                <td>Vitória, realeza, exaltação e recompensa divina</td>
-                <td>A "coroa da vida" prometida aos fiéis (Apocalipse 2:10, Tiago 1:12)</td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="info-box">
-            <h4>O NÚMERO 24</h4>
-            <p>
-              O número 24 tem significado especial nas escrituras. Representa totalidade e completude multiplicada (12 x 2). Doze é o número dos filhos de Israel e dos apóstolos originais — juntos representando o povo do convênio do Senhor em todas as dispensações. A duplicação deste número sugere a união do antigo e do novo, dos judeus e dos gentios, dos santos antes e depois de Cristo — a plenitude do governo de Deus sobre todos os seus filhos.
-            </p>
-          </div>
-
-          <p>
-            A presença destes anciãos entronizados revela importantes verdades sobre o destino dos fiéis. Como declarou o Senhor: "Ao que vencer, dar-lhe-ei sentar-se comigo no meu trono, assim como também eu venci e me sentei com meu Pai no seu trono" (Apocalipse 3:21).
-          </p>
-
-          <div class="activity">
-            <h4>PERGUNTA PARA REFLEXÃO</h4>
-            <p>
-              Os anciãos são descritos com três atributos específicos: tronos (autoridade), vestes brancas (pureza) e coroas de ouro (vitória). Em sua jornada espiritual atual, qual destes aspectos você mais precisa desenvolver? Como você pode se preparar agora para essas responsabilidades celestiais futuras?
-            </p>
-          </div>
-        </div>
-
-        <div class="lesson-section">
-          <h3>OS FENÔMENOS CELESTIAIS</h3>
-
-          <div class="quote">
-            "Do trono saíam relâmpagos, vozes e trovões, e, diante do trono, ardiam sete tochas de fogo, que são os sete Espíritos de Deus." (Apocalipse 4:5)
-          </div>
-
-          <p>
-            Do trono de Deus emanam manifestações impressionantes de poder e glória divina. Estas manifestações lembram a teofania no Monte Sinai quando Deus se revelou a Israel com "trovões, relâmpagos, uma nuvem espessa sobre o monte e um sonido de trombeta muito forte" (Êxodo 19:16).
-          </p>
-
-          <div class="table-container">
-            <table>
-              <tr>
-                <th>MANIFESTAÇÃO</th>
-                <th>SIGNIFICADO</th>
-                <th>PARALELO NAS ESCRITURAS</th>
-              </tr>
-              <tr>
-                <td>Relâmpagos</td>
-                <td>Poder, glória, juízo divino, manifestação repentina</td>
-                <td>Êxodo 19:16, Ezequiel 1:13</td>
-              </tr>
-              <tr>
-                <td>Vozes</td>
-                <td>Revelação, comunicação divina, anúncios celestiais</td>
-                <td>1 Reis 19:12-13, D&C 88:89-90</td>
-              </tr>
-              <tr>
-                <td>Trovões</td>
-                <td>Autoridade, presença imponente, poder divino</td>
-                <td>Jó 37:5, João 12:28-29</td>
-              </tr>
-              <tr>
-                <td>Sete tochas de fogo</td>
-                <td>Plenitude do Espírito Santo, iluminação perfeita</td>
-                <td>Zacarias 4:2-6, Apocalipse 1:4</td>
-              </tr>
-            </table>
-          </div>
-
-          <p>
-            As "sete tochas de fogo" são especificamente identificadas como "os sete Espíritos de Deus". Esta expressão, também encontrada em Apocalipse 1:4 e 3:1, representa a plenitude ou totalidade do Espírito Santo em suas diversas operações e manifestações. O número sete, simbolizando perfeição e completude, sugere a plenitude da influência e poder do Espírito.
-          </p>
-
-          <div class="info-box">
-            <h4>PARALELO COM O TEMPLO</h4>
-            <p>
-              As sete tochas de fogo evocam o candelabro de sete braços (menorá) que ficava no lugar santo do tabernáculo e do templo (Êxodo 25:31-40). Este candelabro sagrado provia luz constante diante do Santo dos Santos, assim como o Espírito Santo ilumina nosso caminho para a presença de Deus. O profeta Zacarias viu uma visão semelhante de um candelabro de ouro, que foi explicado como "não por força nem por poder, mas pelo meu Espírito, diz o Senhor dos Exércitos" (Zacarias 4:6).
-            </p>
-          </div>
-
-          <p>
-            Estas manifestações celestiais comunicam importantes verdades sobre a natureza de Deus e Seu reino:
-          </p>
-
-          <ol>
-            <li>Majestade Transcendente: Deus não é um ser comum, mas o Soberano do universo cuja glória excede nossa compreensão.</li>
-            <li>Poder e Juízo: As manifestações de trovões e relâmpagos advertem sobre o poder divino que será manifestado nos juízos iminentes descritos nos capítulos seguintes.</li>
-            <li>Revelação Contínua: As "vozes" sugerem que o trono de Deus é um centro de comunicação e revelação contínua.</li>
-            <li>Guia Espiritual: As sete tochas lembram que a luz e a orientação do Espírito Santo estão sempre disponíveis para aqueles que servem a Deus.</li>
+            <li>Estudo das Escrituras com Revelação: Não apenas ler, mas buscar a iluminação do Espírito para ver além
+              das palavras</li>
+            <li>Contemplação da Criação: Observar a natureza com gratidão e reverência, reconhecendo a mão de Deus</li>
+            <li>Meditação Espiritual: Reservar tempo para reflexão profunda sobre verdades espirituais</li>
+            <li>Experiências no Templo: Buscar compreensão mais profunda das ordenanças e símbolos sagrados</li>
           </ol>
         </div>
 
-        <div class="lesson-section">
-          <h3>O MAR DE VIDRO E OS QUATRO SERES VIVENTES</h3>
-
-          <div class="quote">
-            "Havia também diante do trono um como que mar de vidro, semelhante ao cristal, e no meio do trono e à volta do trono, quatro seres viventes cheios de olhos por diante e por detrás..." (Apocalipse 4:6)
-          </div>
-
+        <div class="activity">
+          <h4>EXERCÍCIO DE CONTEMPLAÇÃO</h4>
           <p>
-            A visão continua com dois elementos fascinantes: um "mar de vidro" e quatro "seres viventes" com características extraordinárias. Estes elementos misteriosos têm sido objeto de diversas interpretações ao longo dos séculos.
+            <em>
+              Durante uma caminhada ou momento ao ar livre esta semana, escolha um elemento da criação (uma folha, uma
+              nuvem, uma estrela) e contemple-o verdadeiramente. Considere sua origem, propósito e conexão com o plano
+              divino. Como esta prática muda sua perspectiva sobre o mundo ao seu redor?
+            </em>
           </p>
+        </div>
+      </div>
 
-          <h4>O MAR DE VIDRO</h4>
+      <div class="lesson-section">
+        <h3>A RESSURREIÇÃO DOS ANIMAIS E A PLENITUDE DA CRIAÇÃO</h3>
 
+        <p>
+          A revelação moderna sobre os quatro seres viventes abre uma janela para uma doutrina extraordinária: a
+          ressurreição e exaltação dos animais como parte da plenitude da criação de Deus.
+        </p>
+
+        <div class="quote">
+          "E a felicidade do homem, dos animais e dos répteis e das aves do ar... o que é espiritual sendo à semelhança
+          do que é temporal e o que é temporal à semelhança do que é espiritual; o espírito do homem à semelhança de sua
+          pessoa, como também o espírito do animal e de toda outra criatura que Deus criou." (D&C 77:2)
+        </div>
+
+        <p>
+          Esta revelação confirma a presença de animais no céu e sugere sua participação na ordem eterna. O Profeta
+          Joseph Smith declarou: "Diz João que viu animais estranhos no céu... na verdade eram animais que tinham vivido
+          ali e foram mortos em outros planetas, e depois levados para o céu. Todos os animais, aves e peixes têm
+          espírito e viverão para sempre." (Diário de Wilford Woodruff, 25 de abril de 1858)
+        </p>
+
+        <h4>OS ANIMAIS NO PLANO ETERNO</h4>
+
+        <p>
+          As escrituras e os ensinamentos proféticos revelam vários princípios sobre os animais no plano eterno:
+        </p>
+
+        <ol>
+          <li>Eles Têm Espíritos: "Porque todas as coisas que eu, o Senhor, fiz são espirituais; não foram naturais nem
+            temporais, nem carnais nem sensuais no princípio" (Moisés 3:5). Assim como os humanos, os animais foram
+            primeiro criados espiritualmente.</li>
+          <li>Eles Serão Ressuscitados: "Porque eu, o Deus Todo-Poderoso, criei todas as coisas de que falei,
+            espiritualmente, antes que existissem fisicamente na face da Terra... E eu, Deus, criei todas as coisas...
+            segundo sua espécie. E vi que todas as coisas que havia feito eram boas" (Moisés 3:5, 4:25, 2:31).</li>
+          <li>Eles Têm um Propósito Eterno: "Os quatro animais... mostram... que aquela classe de seres... goza de
+            felicidade eterna" (D&C 77:3). Os animais não são apenas decorações temporárias do mundo, mas participantes
+            no plano eterno de Deus.</li>
+        </ol>
+
+        <div class="info-box">
+          <h4>VOCÊ SABIA?</h4>
           <p>
-            Diante do trono divino, João vê o que parece ser um "mar de vidro, semelhante ao cristal". Este mar transparente e cristalino representa:
+            <em>
+              Joseph Fielding Smith ensinou: "A ressurreição se aplica aos animais... Os animais, aves e peixes têm
+              espíritos e devem ser ressuscitados. Os animais, aves e peixes e todas as outras criaturas serão
+              restaurados a seus estados corporais... e serão colocados em suas esferas específicas numa nova terra com
+              toda a imortalidade e glória com que foram designados." Esta doutrina revela a ampla abrangência da
+              expiação de Jesus Cristo para toda a criação.
+            </em>
           </p>
+        </div>
 
+        <h4>REENCONTRANDO ANIMAIS DE ESTIMAÇÃO</h4>
+
+        <p>
+          Um aspecto tocante desta doutrina é a promessa do reencontro com animais de estimação amados. O Presidente
+          Spencer W. Kimball ofereceu este consolo: "Se amarmos aquele animal de estimação, devemos confiar que o
+          teremos no mundo por vir." O Presidente Joseph F. Smith teve uma visão de sua mãe reunida com seu cavalo
+          favorito no mundo espiritual.
+        </p>
+
+        <p>
+          Esta doutrina poderosa:
+        </p>
+
+        <ul>
+          <li>Oferece consolo aos que perderam animais queridos</li>
+          <li>Revela o valor de toda criação aos olhos de Deus</li>
+          <li>Demonstra a abrangência da expiação de Cristo</li>
+          <li>Ilustra a plenitude e perfeição do plano de restauração</li>
+        </ul>
+
+        <div class="activity">
+          <h4>EXERCÍCIO DE REFLEXÃO</h4>
+          <p>
+            <em>
+              Se você já teve um animal de estimação especial que faleceu, escreva seus pensamentos sobre a promessa de
+              vê-lo novamente. Como esta doutrina influencia sua visão sobre:
+            </em>
+          </p>
           <ul>
-            <li>Pureza e Santidade: A cristalina transparência sugere a absoluta santidade e pureza do reino celestial.</li>
-            <li>Tranquilidade Celestial: Contrastando com os mares turbulentos da terra (que em Apocalipse 13:1 produzem a besta), este mar celestial é pacífico e sereno.</li>
-            <li>Separação e Transcendência: Na cosmologia antiga, o firmamento separava as águas acima das águas abaixo (Gênesis 1:6-7). O mar de vidro sugere esta separação entre o reino celestial e o terrestre.</li>
+            <li>A natureza da alma dos animais</li>
+            <li>O propósito dos animais na criação</li>
+            <li>Sua responsabilidade para com os animais durante a mortalidade</li>
+            <li>O escopo e magnitude da expiação de Cristo</li>
           </ul>
+        </div>
+      </div>
 
-          <div class="info-box">
-            <h4>REVELAÇÃO MODERNA SOBRE O MAR DE VIDRO</h4>
-            <p>
-              Em Doutrina e Convênios, o Senhor revelou informações adicionais sobre o mar de vidro: "O mar de vidro de que falou João é a terra em seu estado santificado, imortal e eterno" (D&C 77:1). Esta revelação vincula o mar de vidro à terra em seu estado final e glorificado, sugerindo que a visão de João abrange não apenas o presente celestial, mas também o destino glorioso da criação de Deus.
-            </p>
-            <p>
-              Em outro lugar, o Senhor descreve: "Esta terra, em seu estado santificado e imortal, se tornará semelhante ao cristal e será um Urim e Tumim para os habitantes que nela moram... então a terra branca, o Urim e Tumim, será semelhante a um grande mar de vidro e fogo" (D&C 130:8-9). Estas revelações modernas expandem grandemente nossa compreensão do símbolo, conectando-o ao destino final da terra e sua função como instrumento de conhecimento divino.
-            </p>
-          </div>
+      <div class="lesson-section">
+        <h3>A TERRA COMO URIM E TUMIM UNIVERSAL</h3>
 
-          <div class="info-box">
-            <h4>VOCÊ SABIA?</h4>
-            <p>
-              <em>
-                O Urim e Tumim, mencionado em conexão com o mar de vidro, era originalmente um instrumento sagrado usado pelos sacerdotes israelitas para discernir a vontade divina (Êxodo 28:30). Joseph Smith utilizou um Urim e Tumim para traduzir parte do Livro de Mórmon. Nas revelações modernas, aprendemos que cada pessoa digna receberá sua própria "pedra branca" que funcionará como um Urim e Tumim pessoal (D&C 130:10-11). A conexão destes instrumentos de revelação com o mar de vidro sugere que na eternidade, o conhecimento não será mais limitado ou parcial — viveremos em um estado de iluminação e compreensão contínuas.
-              </em>
-            </p>
-          </div>
+        <p>
+          O conceito da terra transformada em um Urim e Tumim celestial oferece um vislumbre fascinante de nosso futuro:
+        </p>
 
-          <h4>OS QUATRO SERES VIVENTES</h4>
-
-          <div class="quote">
-            "O primeiro ser vivente é semelhante a leão, o segundo, semelhante a novilho, o terceiro tem o rosto como de homem, e o quarto ser vivente é semelhante à águia quando está voando. E os quatro seres viventes, tendo cada um deles, respectivamente, seis asas, estão cheios de olhos, ao redor e por dentro, e não têm descanso, nem de dia nem de noite, proclamando: Santo, Santo, Santo é o Senhor Deus, o Todo-Poderoso, aquele que era, que é e que há de vir." (Apocalipse 4:7-8)
-          </div>
-
-          <p>
-            Estas criaturas extraordinárias têm paralelos em outras visões proféticas:
-          </p>
-
-          <ul>
-            <li>Os querubins na visão de Ezequiel (Ezequiel 1 e 10)</li>
-            <li>Os serafins vistos por Isaías (Isaías 6)</li>
-            <li>Os hayyoth (seres viventes) na literatura apocalíptica judaica</li>
-          </ul>
-
-          <div class="table-container">
-            <table>
-              <tr>
-                <th>CARACTERÍSTICA</th>
-                <th>POSSÍVEL SIGNIFICADO</th>
-              </tr>
-              <tr>
-                <td>Quatro formas (leão, novilho, homem, águia)</td>
-                <td>
-                  - Representam os aspectos mais nobres da criação: poder selvagem (leão), força domesticada (novilho), inteligência (homem), e majestade (águia)<br>
-                  - Simbolizam os quatro evangelhos: Mateus (homem), Marcos (leão), Lucas (novilho), João (águia)<br>
-                  - Representam toda a criação adorando a Deus
-                </td>
-              </tr>
-              <tr>
-                <td>Cheios de olhos</td>
-                <td>
-                  - Percepção e conhecimento completos<br>
-                  - Vigilância constante<br>
-                  - Consciência espiritual total
-                </td>
-              </tr>
-              <tr>
-                <td>Seis asas</td>
-                <td>
-                  - Rapidez no serviço divino<br>
-                  - Prontidão para executar a vontade de Deus<br>
-                  - Conexão com os serafins de Isaías 6:2
-                </td>
-              </tr>
-              <tr>
-                <td>Adoração incessante</td>
-                <td>
-                  - Devoção total e contínua<br>
-                  - Reconhecimento perpétuo da santidade divina<br>
-                  - Modelo celestial de adoração
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="info-box">
-            <h4>REVELAÇÃO MODERNA SOBRE OS SERES VIVENTES</h4>
-            <p>
-              Em Doutrina e Convênios 77:2-4, o Senhor esclarece o significado destes seres misteriosos:
-            </p>
-            <p>
-              "2. Q. O que devemos entender pelos quatro seres viventes de que João fala no mesmo versículo? R. São expressões figuradas usadas pelo Revelador João ao descrever o céu, o paraíso de Deus, a felicidade do homem, dos animais e dos répteis e das aves do ar; o que é espiritual sendo à semelhança do que é temporal e o que é temporal à semelhança do que é espiritual; o espírito do homem à semelhança de sua pessoa, como também o espírito do animal e de toda outra criatura que Deus criou.
-            </p>
-            <p>
-              3. Q. Os quatro seres viventes limitam-se a seres individuais ou representam classes ou ordens? R. Limitam-se a quatro seres individuais que foram mostrados a João para representar a glória das classes de seres na ordem ou esfera de criação que lhes foi designada, na fruição de sua felicidade eterna.
-            </p>
-            <p>
-              4. Q. O que devemos entender pelos olhos e asas que os seres viventes tinham? R. Seus olhos são uma representação de luz e conhecimento, isto é, estão cheios de conhecimento; e suas asas representam poder para mover-se, para agir, etc."
-            </p>
-          </div>
-
-          <p>
-            Esta revelação moderna amplia nossa compreensão, esclarecendo que os quatro seres representam classes de criaturas em seu estado glorificado. Eles são representantes de toda a criação de Deus, demonstrando que todo ser criado encontrará sua mais elevada expressão e propósito na adoração divina.
-          </p>
-
-          <div class="info-box">
-            <h4>VOCÊ SABIA?</h4>
-            <p>
-              <em>
-                A revelação do Senhor sobre os quatro seres viventes confirma uma verdade preciosa: os animais têm espíritos e um lugar na eternidade! Brigham Young ensinou: "Tenho a opinião de que quando Deus criou nossos espíritos que Ele criou também os espíritos de todo animal, ave e peixe, e que eles também terão seu paraíso e alcançarão o objetivo de sua criação." O Elder Joseph Fielding Smith afirmou ainda mais claramente: "Os animais, as aves, e os peixes também são espirituais. Os animais vão ressuscitar, e terão um estado de felicidade correspondente ao de uma ressurreição." Se você já perdeu um animal de estimação amado, pode encontrar consolo nesta doutrina restaurada — você poderá vê-lo novamente!
-              </em>
-            </p>
-          </div>
-
-          <div class="activity">
-            <h4>ATIVIDADE DE VISUALIZAÇÃO</h4>
-            <p>
-              <em>
-                Feche seus olhos por um momento e imagine a cena descrita por João: o trono radiante, os anciãos em círculo, o mar cristalino, as tochas ardentes, os quatro seres viventes em constante adoração. Procure sentir a atmosfera de reverência, glória e adoração. Observe como esta visão muda sua perspectiva sobre o culto e a adoração que oferecemos a Deus. Como podemos trazer mais desta reverência celestial para nossa adoração pessoal e coletiva?
-              </em>
-            </p>
-          </div>
+        <div class="quote">
+          "...e a terra inteira será semelhante a um mar de vidro e fogo, onde todas as coisas, tanto as que estão acima
+          como as que estão embaixo, serão manifestadas: todos os demônios, espíritos impuros, todos os abismos serão
+          revelados a todos os tronos." (Abraham Cannon Journal, 23 de junho de 1889, citando Joseph Smith)
         </div>
 
-        <div class="lesson-section">
-          <h3>A ADORAÇÃO CELESTIAL</h3>
+        <p>
+          Imagine a terra não apenas como um lugar para habitar, mas como um instrumento divino pelo qual o conhecimento
+          de todas as coisas é revelado. O mar de vidro que João viu não era apenas um elemento arquitetônico do trono
+          celestial, mas uma representação do próprio futuro glorificado da terra!
+        </p>
 
-          <div class="quote">
-            "E, sempre que esses seres viventes dão glória, honra e ações de graças ao que se encontra sentado no trono, ao que vive pelos séculos dos séculos, os vinte e quatro anciãos prostram-se diante daquele que se encontra sentado no trono, adoram o que vive pelos séculos dos séculos e lançam as suas coroas diante do trono, proclamando: Tu és digno, Senhor e Deus nosso, de receber a glória, a honra e o poder, porque todas as coisas tu criaste, sim, por causa da tua vontade vieram a existir e foram criadas." (Apocalipse 4:9-11)
-          </div>
+        <h4>APLICAÇÃO PARA A VIDA ATUAL</h4>
 
+        <p>
+          Embora a plenitude desta realidade celestial ainda esteja no futuro, podemos começar a viver de acordo com
+          seus princípios agora:
+        </p>
+
+        <ol>
+          <li>Buscar Conhecimento de Todas as Fontes: Como declarado em D&C 88:118: "Procurai conhecimento, sim, pelo
+            estudo e também pela fé." Nossa busca de conhecimento hoje antecipa o conhecimento universal que teremos na
+            eternidade.</li>
+          <li>Tratar a Terra com Reverência: Sabendo que este planeta será nosso lar eterno, devemos tratar a criação
+            com respeito e cuidado. Como disse o Presidente Russell M. Nelson: "Como mordomos da terra, temos a
+            responsabilidade de cuidar dela, preservar seus recursos e passá-los às gerações futuras."</li>
+          <li>Desenvolver Perspectiva Eterna: Quando enfrentamos dificuldades, podemos encontrar esperança na visão do
+            destino final da terra e de todos os que a habitam. As lutas temporárias têm significado quando vistas
+            através da lente da eternidade.</li>
+          <li>Valorizar Toda Vida: O conhecimento de que toda a criação — incluindo animais — tem lugar no plano eterno,
+            incentiva-nos a mostrar compaixão e respeito por todas as criaturas vivas.</li>
+        </ol>
+
+        <div class="activity">
+          <h4>VISUALIZAÇÃO GUIADA</h4>
           <p>
-            João agora testemunha uma extraordinária liturgia celestial - uma adoração perfeita que serve como modelo para nossa própria adoração. Esta cena revela elementos essenciais da verdadeira adoração:
+            <em>
+              Reserve um momento para visualizar a visão de João através desta lente expandida de entendimento:
+            </em>
           </p>
-
-          <div class="table-container">
-            <table>
-              <tr>
-                <th>ELEMENTO DA ADORAÇÃO</th>
-                <th>DESCRIÇÃO NA VISÃO</th>
-                <th>APLICAÇÃO PARA NOSSA ADORAÇÃO</th>
-              </tr>
-              <tr>
-                <td>Reconhecimento de quem é Deus</td>
-                <td>O que está no trono, o que vive pelos séculos dos séculos</td>
-                <td>Focalizar na natureza eterna e soberana de Deus, não apenas em nossos pedidos</td>
-              </tr>
-              <tr>
-                <td>Postura de humildade</td>
-                <td>Os anciãos prostram-se diante do trono</td>
-                <td>Aproximar-se de Deus com humildade genuína, reconhecendo Sua majestade</td>
-              </tr>
-              <tr>
-                <td>Entrega de honras pessoais</td>
-                <td>Lançam suas coroas diante do trono</td>
-                <td>Reconhecer que todos os nossos talentos, conquistas e bênçãos vêm de Deus e pertencem a Ele</td>
-              </tr>
-              <tr>
-                <td>Proclamação verbal</td>
-                <td>Declaração "Tu és digno..."</td>
-                <td>Expressar adoração através de palavras específicas de louvor, não apenas sentimentos vagos</td>
-              </tr>
-              <tr>
-                <td>Raciocínio teológico</td>
-                <td>"porque todas as coisas tu criaste..."</td>
-                <td>Basear nossa adoração na compreensão de quem Deus é e o que Ele fez</td>
-              </tr>
-            </table>
-          </div>
-
           <p>
-            O ato de lançar as coroas diante do trono é particularmente significativo. As coroas representam autoridade, conquista e recompensa - são símbolos de status e honra. Ao depor suas coroas diante de Deus, os anciãos reconhecem que toda honra pertence ultimamente a Ele. Este gesto demonstra o princípio declarado por Paulo: "Que tens tu que não tenhas recebido? E, se o recebeste, por que te glorias, como se o não houveras recebido?" (1 Coríntios 4:7).
-          </p>
-
-          <div class="info-box">
-            <h4>ADORAÇÃO NO TEMPO E NA ETERNIDADE</h4>
-            <p>
-              A adoração descrita nesta visão não é apresentada como um evento único, mas como uma atividade contínua. Os seres viventes "não têm descanso, nem de dia nem de noite" em seu louvor (4:8), e os anciãos respondem "sempre que" os seres viventes dão glória a Deus (4:9). Esta continuidade sugere que a adoração não é apenas um evento semanal na igreja, mas um estilo de vida que continuará e será aperfeiçoado na eternidade. Como observou o Presidente David O. McKay: "A espiritualidade é a consciência da vitória sobre si mesmo e da comunhão com o Infinito." Esta comunhão constante com Deus é o coração da adoração celestial.
-            </p>
-          </div>
-
-          <p>
-            O conteúdo da adoração é igualmente importante. Os anciãos reconhecem três atributos específicos de Deus que O tornam digno de adoração:
-          </p>
-
-          <ol>
-            <li>Sua glória intrínseca - A majestade e excelência de Seu ser</li>
-            <li>Sua honra e dignidade - O respeito e reverência que Lhe são devidos</li>
-            <li>Seu poder criador - Sua capacidade de trazer à existência tudo o que existe</li>
-          </ol>
-
-          <p>
-            A razão fundamental da adoração é declarada: "porque todas as coisas tu criaste, sim, por causa da tua vontade vieram a existir e foram criadas." A criação é apresentada como um ato deliberado da vontade divina, não um acidente cósmico ou uma necessidade impessoal. Esta declaração afirma que:
-          </p>
-
-          <ul>
-            <li>Deus é distinto de Sua criação (transcendência)</li>
-            <li>A criação depende de Deus para sua existência (contingência)</li>
-            <li>A criação tem propósito, refletindo a vontade consciente de Deus (teleologia)</li>
-          </ul>
-
-          <div class="activity">
-            <h4>APLICAÇÃO PESSOAL</h4>
-            <p>
-              <em>
-                1. Como sua própria adoração a Deus se compara com este modelo celestial?<br>
-                2. Existem "coroas" (realizações, talentos, posses) que você tem dificuldade em "lançar diante do trono"?<br>
-                3. De que maneiras você pode fazer com que sua adoração na igreja reflita mais o padrão celestial visto por João?<br>
-                4. Como o entendimento da vontade criadora de Deus afeta sua compreensão de seu próprio propósito e valor?
-              </em>
-            </p>
-          </div>
-        </div>
-
-        <div class="lesson-section">
-          <h3>PONTOS-CHAVE PARA REVISÃO</h3>
-
-          <ol>
-            <li>O capítulo 4 do Apocalipse revela uma transição das mensagens terrenas às sete igrejas para uma visão da realidade celestial.</li>
-            <li>O trono representa a soberania absoluta de Deus sobre toda a criação e o centro do governo divino.</li>
-            <li>As pedras preciosas e o arco-íris simbolizam a glória, santidade e misericórdia divinas.</li>
-            <li>Os vinte e quatro anciãos representam líderes fiéis exaltados, mostrando o destino futuro dos que "vencem".</li>
-            <li>O mar de vidro, segundo a revelação moderna, simboliza a terra em seu estado santificado e glorificado.</li>
-            <li>Os quatro seres viventes representam toda a ordem criada, unida em perpétua adoração a Deus.</li>
-            <li>A adoração celestial demonstra humildade, reconhecimento da soberania divina e gratidão pelo poder criador de Deus.</li>
-          </ol>
-
-          <div class="info-box">
-            <h4>CONEXÃO COM A RESTAURAÇÃO</h4>
-            <p>
-              O entendimento restaurado sobre os céus e a organização celestial expande significativamente nossa compreensão desta visão de João. Doutrina e Convênios 76, 88, 130 e 131 revelam detalhes sobre a natureza dos reinos celestiais que complementam e esclarecem o que João viu. Da mesma forma, as ordenanças do templo moderno refletem muitos elementos da adoração celestial descrita nesta visão, incluindo o reconhecimento da majestade divina e nossa completa dependência de Deus.
-            </p>
-          </div>
-
-          <div class="activity">
-            <h4>DESAFIO DE APLICAÇÃO SEMANAL</h4>
-            <p>
-              <em>
-                Durante esta semana, reserve cinco minutos diários para praticar "adoração celestial". Siga o padrão dos anciãos:
-              </em>
-            </p>
-            <ol>
-              <li>Reconheça mentalmente a majestade de Deus</li>
-              <li>Adote uma postura de humildade (pode ser física ou espiritual)</li>
-              <li>Identifique uma "coroa" em sua vida (um talento, conquista ou bênção) e ofereça-a simbolicamente a Deus, reconhecendo-O como a fonte</li>
-              <li>Verbalize uma expressão de adoração, incluindo reconhecimento específico do poder criador de Deus</li>
-            </ol>
-            <p>
-              <em>
-                Observe como este exercício influencia sua consciência espiritual e sua relação com Deus durante o resto do dia.
-              </em>
-            </p>
-          </div>
-        </div>
-
-        <div class="lesson-section">
-          <h3>A TERRA CELESTIALIZADA E O MAR DE VIDRO</h3>
-
-          <p>
-            Retornando à significativa revelação em D&C 130:8-9, vamos aprofundar nossa compreensão do mar de vidro e seu significado para nosso destino eterno:
-          </p>
-
-          <div class="quote">
-            "Esta terra, em seu estado santificado e imortal, tornar-se-á como cristal e será um Urim e Tumim para os habitantes que nela moram, por meio do qual todas as coisas pertinentes a um reino inferior, ou a todos os reinos de uma ordem inferior, serão manifestadas aos que nela habitam; e esta terra será de Cristo."
-          </div>
-
-          <p>
-            Esta revelação extraordinária expande nossa visão da terra futura e nos dá um vislumbre de nossa herança eterna. O mar de vidro que João viu representa não apenas o trono celestial presente, mas também nosso lar futuro.
-          </p>
-
-          <div class="info-box">
-            <h4>VOCÊ SABIA?</h4>
-            <p>
-              <em>
-                O conceito da terra transformada tem profundas raízes nas escrituras. Isaías profetizou sobre "novos céus e nova terra" (Isaías 65:17). Pedro falou de "novos céus e nova terra, em que habita a justiça" (2 Pedro 3:13). A Décima Regra de Fé declara: "...a Terra será renovada e receberá a sua glória paradisíaca." Esta transformação não é meramente superficial, mas uma mudança fundamental na própria natureza do planeta.
-              </em>
-            </p>
-          </div>
-
-          <h4>A PEDRA BRANCA INDIVIDUAL</h4>
-
-          <p>
-            Em conexão direta com o mar de vidro, o Senhor revelou:
-          </p>
-
-          <div class="quote">
-            "E será dada a cada um daqueles que entrarem no reino celestial uma pedra branca, sobre a qual está escrito um novo nome, que ninguém conhece a não ser aquele que o recebe. O novo nome é a palavra-chave." (D&C 130:11)
-          </div>
-
-          <p>
-            Esta revelação fascinante conecta o destino coletivo da terra transformada com uma experiência individual profundamente pessoal. A pedra branca individual sugere que:
-          </p>
-
-          <ol>
-            <li>Conhecimento Personalizado: Cada indivíduo terá acesso a revelação e conhecimento personalizado</li>
-            <li>Identidade Celestial: O novo nome representa nossa identidade verdadeira e eterna</li>
-            <li>Intimidade com Deus: A natureza pessoal deste dom sugere um relacionamento íntimo com o Senhor</li>
-          </ol>
-
-          <div class="info-box">
-            <h4>VOCÊ SABIA?</h4>
-            <p>
-              <em>
-                Na antiga cultura bíblica, dar um novo nome simbolizava uma mudança de identidade ou destino — como quando Abrão se tornou Abraão (Gênesis 17:5) ou Jacó se tornou Israel (Gênesis 32:28). A pedra branca com um novo nome sugere uma transformação fundamental de identidade. Como ensinou o Élder Bruce R. McConkie: "Receber um novo nome significa receber uma nova identidade, um novo caráter, uma nova natureza, ou ser nascido de novo. É um símbolo e um token de nosso status renovado como filhos da graça."
-              </em>
-            </p>
-          </div>
-
-          <h4>UMA JANELA PARA TODAS AS COISAS</h4>
-
-          <p>
-            O conceito do mar de vidro como um Urim e Tumim universal sugere uma dimensão do conhecimento que mal podemos compreender agora:
-          </p>
-
-          <div class="quote">
-            "Então tudo será manifesto, seja coisas que já se passaram ou coisas que virão, coisas que estão acima ou coisas que estão abaixo, coisas que estão dentro da terra e sobre a terra e no céu." (D&C 101:32-34)
-          </div>
-
-          <p>
-            Esta promessa sugere que no estado celestial, as limitações atuais do conhecimento serão removidas. Imagine:
-          </p>
-
-          <ul>
-            <li>Ver o processo de criação como realmente ocorreu</li>
-            <li>Compreender os mistérios do universo em sua plenitude</li>
-            <li>Testemunhar eventos históricos conforme realmente aconteceram</li>
-            <li>Perceber a intrincada interconexão de todas as coisas</li>
-          </ul>
-
-          <div class="activity">
-            <h4>APLICAÇÃO PRÁTICA: DESENVOLVENDO OLHOS PARA VER</h4>
-            <p>
-              <em>
-                Em preparação para este futuro estado de conhecimento expandido, podemos começar a desenvolver agora nossa capacidade de ver com olhos espirituais:
-              </em>
-            </p>
-            <ol>
-              <li>Estudo das Escrituras com Revelação: Não apenas ler, mas buscar a iluminação do Espírito para ver além das palavras</li>
-              <li>Contemplação da Criação: Observar a natureza com gratidão e reverência, reconhecendo a mão de Deus</li>
-              <li>Meditação Espiritual: Reservar tempo para reflexão profunda sobre verdades espirituais</li>
-              <li>Experiências no Templo: Buscar compreensão mais profunda das ordenanças e símbolos sagrados</li>
-            </ol>
-          </div>
-
-          <div class="activity">
-            <h4>EXERCÍCIO DE CONTEMPLAÇÃO</h4>
-            <p>
-              <em>
-                Durante uma caminhada ou momento ao ar livre esta semana, escolha um elemento da criação (uma folha, uma nuvem, uma estrela) e contemple-o verdadeiramente. Considere sua origem, propósito e conexão com o plano divino. Como esta prática muda sua perspectiva sobre o mundo ao seu redor?
-              </em>
-            </p>
-          </div>
-        </div>
-
-        <div class="lesson-section">
-          <h3>A RESSURREIÇÃO DOS ANIMAIS E A PLENITUDE DA CRIAÇÃO</h3>
-
-          <p>
-            A revelação moderna sobre os quatro seres viventes abre uma janela para uma doutrina extraordinária: a ressurreição e exaltação dos animais como parte da plenitude da criação de Deus.
-          </p>
-
-          <div class="quote">
-            "E a felicidade do homem, dos animais e dos répteis e das aves do ar... o que é espiritual sendo à semelhança do que é temporal e o que é temporal à semelhança do que é espiritual; o espírito do homem à semelhança de sua pessoa, como também o espírito do animal e de toda outra criatura que Deus criou." (D&C 77:2)
-          </div>
-
-          <p>
-            Esta revelação confirma a presença de animais no céu e sugere sua participação na ordem eterna. O Profeta Joseph Smith declarou: "Diz João que viu animais estranhos no céu... na verdade eram animais que tinham vivido ali e foram mortos em outros planetas, e depois levados para o céu. Todos os animais, aves e peixes têm espírito e viverão para sempre." (Diário de Wilford Woodruff, 25 de abril de 1858)
-          </p>
-
-          <h4>OS ANIMAIS NO PLANO ETERNO</h4>
-
-          <p>
-            As escrituras e os ensinamentos proféticos revelam vários princípios sobre os animais no plano eterno:
-          </p>
-
-          <ol>
-            <li>Eles Têm Espíritos: "Porque todas as coisas que eu, o Senhor, fiz são espirituais; não foram naturais nem temporais, nem carnais nem sensuais no princípio" (Moisés 3:5). Assim como os humanos, os animais foram primeiro criados espiritualmente.</li>
-            <li>Eles Serão Ressuscitados: "Porque eu, o Deus Todo-Poderoso, criei todas as coisas de que falei, espiritualmente, antes que existissem fisicamente na face da Terra... E eu, Deus, criei todas as coisas... segundo sua espécie. E vi que todas as coisas que havia feito eram boas" (Moisés 3:5, 4:25, 2:31).</li>
-            <li>Eles Têm um Propósito Eterno: "Os quatro animais... mostram... que aquela classe de seres... goza de felicidade eterna" (D&C 77:3). Os animais não são apenas decorações temporárias do mundo, mas participantes no plano eterno de Deus.</li>
-          </ol>
-
-          <div class="info-box">
-            <h4>VOCÊ SABIA?</h4>
-            <p>
-              <em>
-                Joseph Fielding Smith ensinou: "A ressurreição se aplica aos animais... Os animais, aves e peixes têm espíritos e devem ser ressuscitados. Os animais, aves e peixes e todas as outras criaturas serão restaurados a seus estados corporais... e serão colocados em suas esferas específicas numa nova terra com toda a imortalidade e glória com que foram designados." Esta doutrina revela a ampla abrangência da expiação de Jesus Cristo para toda a criação.
-              </em>
-            </p>
-          </div>
-
-          <h4>REENCONTRANDO ANIMAIS DE ESTIMAÇÃO</h4>
-
-          <p>
-            Um aspecto tocante desta doutrina é a promessa do reencontro com animais de estimação amados. O Presidente Spencer W. Kimball ofereceu este consolo: "Se amarmos aquele animal de estimação, devemos confiar que o teremos no mundo por vir." O Presidente Joseph F. Smith teve uma visão de sua mãe reunida com seu cavalo favorito no mundo espiritual.
-          </p>
-
-          <p>
-            Esta doutrina poderosa:
-          </p>
-
-          <ul>
-            <li>Oferece consolo aos que perderam animais queridos</li>
-            <li>Revela o valor de toda criação aos olhos de Deus</li>
-            <li>Demonstra a abrangência da expiação de Cristo</li>
-            <li>Ilustra a plenitude e perfeição do plano de restauração</li>
-          </ul>
-
-          <div class="activity">
-            <h4>EXERCÍCIO DE REFLEXÃO</h4>
-            <p>
-              <em>
-                Se você já teve um animal de estimação especial que faleceu, escreva seus pensamentos sobre a promessa de vê-lo novamente. Como esta doutrina influencia sua visão sobre:
-              </em>
-            </p>
-            <ul>
-              <li>A natureza da alma dos animais</li>
-              <li>O propósito dos animais na criação</li>
-              <li>Sua responsabilidade para com os animais durante a mortalidade</li>
-              <li>O escopo e magnitude da expiação de Cristo</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="lesson-section">
-          <h3>A TERRA COMO URIM E TUMIM UNIVERSAL</h3>
-
-          <p>
-            O conceito da terra transformada em um Urim e Tumim celestial oferece um vislumbre fascinante de nosso futuro:
-          </p>
-
-          <div class="quote">
-            "...e a terra inteira será semelhante a um mar de vidro e fogo, onde todas as coisas, tanto as que estão acima como as que estão embaixo, serão manifestadas: todos os demônios, espíritos impuros, todos os abismos serão revelados a todos os tronos." (Abraham Cannon Journal, 23 de junho de 1889, citando Joseph Smith)
-          </div>
-
-          <p>
-            Imagine a terra não apenas como um lugar para habitar, mas como um instrumento divino pelo qual o conhecimento de todas as coisas é revelado. O mar de vidro que João viu não era apenas um elemento arquitetônico do trono celestial, mas uma representação do próprio futuro glorificado da terra!
-          </p>
-
-          <h4>APLICAÇÃO PARA A VIDA ATUAL</h4>
-
-          <p>
-            Embora a plenitude desta realidade celestial ainda esteja no futuro, podemos começar a viver de acordo com seus princípios agora:
-          </p>
-
-          <ol>
-            <li>Buscar Conhecimento de Todas as Fontes: Como declarado em D&C 88:118: "Procurai conhecimento, sim, pelo estudo e também pela fé." Nossa busca de conhecimento hoje antecipa o conhecimento universal que teremos na eternidade.</li>
-            <li>Tratar a Terra com Reverência: Sabendo que este planeta será nosso lar eterno, devemos tratar a criação com respeito e cuidado. Como disse o Presidente Russell M. Nelson: "Como mordomos da terra, temos a responsabilidade de cuidar dela, preservar seus recursos e passá-los às gerações futuras."</li>
-            <li>Desenvolver Perspectiva Eterna: Quando enfrentamos dificuldades, podemos encontrar esperança na visão do destino final da terra e de todos os que a habitam. As lutas temporárias têm significado quando vistas através da lente da eternidade.</li>
-            <li>Valorizar Toda Vida: O conhecimento de que toda a criação — incluindo animais — tem lugar no plano eterno, incentiva-nos a mostrar compaixão e respeito por todas as criaturas vivas.</li>
-          </ol>
-
-          <div class="activity">
-            <h4>VISUALIZAÇÃO GUIADA</h4>
-            <p>
-              <em>
-                Reserve um momento para visualizar a visão de João através desta lente expandida de entendimento:
-              </em>
-            </p>
-            <p>
-              <em>
-                Imagine-se de pé à beira de um imenso mar de vidro cristalino. A superfície é perfeitamente clara, calma e translúcida. À medida que você olha para ele, começa a perceber que não está apenas vendo sua superfície, mas também através dele — observando o cosmos, a história, e todas as maravilhas da criação. O mar não é apenas água solidificada, mas a própria terra transformada, restaurada à sua glória paradisíaca. As criaturas ao seu redor — desde os poderosos seres viventes até os animais familiares que você conheceu na mortalidade — unem-se em adoração ao Criador de todas as coisas. Você percebe que está em casa, verdadeiramente em casa, pela primeira vez.
-              </em>
-            </p>
-          </div>
-
-          <h4>PENSAMENTO FINAL</h4>
-
-          <p>
-            A visão do trono em Apocalipse 4 não é apenas uma janela para o céu como ele existe agora, mas uma revelação do céu como ele será quando a terra for transformada e os justos receberem sua herança eterna. Ao contemplarmos o trono, o mar de vidro, os seres viventes e os anciãos coroados, não estamos apenas olhando para um reino distante, mas para nosso próprio destino celestial.
-          </p>
-
-          <p>
-            Como declarou o Profeta Joseph Smith: "E aquela mesma sociabilidade que existe entre nós, aqui, existirá entre nós lá, só que será acompanhada de glória eterna, glória essa que não experimentamos agora" (D&C 130:2). A ordem celestial que João contemplou não é apenas um espetáculo para admirar, mas uma realidade para a qual nos preparamos ativamente.
-          </p>
-
-          <p>
-            Na próxima dimensão, exploraremos como o governo celestial revelado nesta visão estabelece o padrão para o sacerdócio, as chaves e a ordem na Igreja e em nossos lares.
+            <em>
+              Imagine-se de pé à beira de um imenso mar de vidro cristalino. A superfície é perfeitamente clara, calma e
+              translúcida. À medida que você olha para ele, começa a perceber que não está apenas vendo sua superfície,
+              mas também através dele — observando o cosmos, a história, e todas as maravilhas da criação. O mar não é
+              apenas água solidificada, mas a própria terra transformada, restaurada à sua glória paradisíaca. As
+              criaturas ao seu redor — desde os poderosos seres viventes até os animais familiares que você conheceu na
+              mortalidade — unem-se em adoração ao Criador de todas as coisas. Você percebe que está em casa,
+              verdadeiramente em casa, pela primeira vez.
+            </em>
           </p>
         </div>
-      </section>
-    </main>
-  </body>
+
+        <h4>PENSAMENTO FINAL</h4>
+
+        <p>
+          A visão do trono em Apocalipse 4 não é apenas uma janela para o céu como ele existe agora, mas uma revelação
+          do céu como ele será quando a terra for transformada e os justos receberem sua herança eterna. Ao
+          contemplarmos o trono, o mar de vidro, os seres viventes e os anciãos coroados, não estamos apenas olhando
+          para um reino distante, mas para nosso próprio destino celestial.
+        </p>
+
+        <p>
+          Como declarou o Profeta Joseph Smith: "E aquela mesma sociabilidade que existe entre nós, aqui, existirá entre
+          nós lá, só que será acompanhada de glória eterna, glória essa que não experimentamos agora" (D&C 130:2). A
+          ordem celestial que João contemplou não é apenas um espetáculo para admirar, mas uma realidade para a qual nos
+          preparamos ativamente.
+        </p>
+
+        <p>
+          Na próximo Bloco, exploraremos como o governo celestial revelado nesta visão estabelece o padrão para o
+          sacerdócio, as chaves e a ordem na Igreja e em nossos lares.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>

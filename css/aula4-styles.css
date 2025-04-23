@@ -1,0 +1,746 @@
+/**
+ * Arquivo: aula4-styles.css
+ * Descrição: Estilos específicos para a Aula 4 do curso de Apocalipse - A Batalha Final
+ *
+ * Este arquivo contém estilos para:
+ * - Conteúdo das lições
+ * - Cabeçalhos e títulos
+ * - Boxes informativos
+ * - Citações e notas
+ * - Tabelas e grids
+ * - Elementos de atividade e reflexão
+ * - Elementos específicos da batalha final
+ */
+
+/* ==========================================================================
+   1. Conteúdo da Lição
+   Estilos base para o conteúdo das aulas
+   ========================================================================== */
+   .lesson-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .lesson-section {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 2rem;
+  }
+
+  .lesson-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* ==========================================================================
+     2. Cabeçalhos e Títulos
+     Estilos para títulos e elementos de destaque
+     ========================================================================== */
+  .dimension-heading {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    margin: -2rem -2rem 2rem -2rem;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .battle-heading {
+    background: linear-gradient(135deg, #700000 0%, #8B0000 100%);
+    color: white;
+    padding: 1.2rem;
+    margin: -2rem -2rem 2rem -2rem;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+  }
+
+  /* ==========================================================================
+     3. Boxes Informativos
+     Diferentes tipos de boxes para informações específicas
+     ========================================================================== */
+  .info-box {
+    background-color: rgba(5, 46, 111, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .info-box h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+
+  .note {
+    background-color: rgba(5, 46, 111, 0.05);
+    border: 1px dashed var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .activity {
+    background-color: rgba(201, 162, 39, 0.05);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  /* Caixas específicas da Batalha Final */
+  .warning-box {
+    background-color: rgba(139, 0, 0, 0.05);
+    border: 1px solid #8B0000;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .warning-box h4 {
+    color: #8B0000;
+    margin-top: 0;
+  }
+
+  .prophecy-box {
+    background-color: rgba(72, 61, 139, 0.05);
+    border: 1px solid #483D8B;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .prophecy-box h4 {
+    color: #483D8B;
+    margin-top: 0;
+  }
+
+  /* ==========================================================================
+     4. Citações e Destaques
+     Estilos para citações e textos em destaque
+     ========================================================================== */
+  .quote {
+    background-color: rgba(201, 162, 39, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .battle-quote {
+    background-color: rgba(139, 0, 0, 0.1);
+    border-left: 4px solid #8B0000;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  /* ==========================================================================
+     5. Tabelas
+     Estilos para apresentação de dados tabulares
+     ========================================================================== */
+  .table-container {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #eaeaea;
+  }
+
+  th {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(5, 46, 111, 0.05);
+  }
+
+  /* Tabela da Batalha */
+  .battle-table th {
+    background-color: #8B0000;
+    color: white;
+  }
+
+  .battle-table tr:nth-child(even) {
+    background-color: rgba(139, 0, 0, 0.05);
+  }
+
+  /* ==========================================================================
+     6. Layout em Colunas
+     Grids e layouts responsivos
+     ========================================================================== */
+  .two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .three-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 992px) {
+    .three-columns {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .two-columns, .three-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ==========================================================================
+     7. Navegação
+     Botões e elementos de navegação
+     ========================================================================== */
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  /* ==========================================================================
+     8. Elementos Específicos da Batalha Final
+     Estilos para elementos únicos da Aula 4
+     ========================================================================== */
+
+  /* Cards dos Antagonistas */
+  .antagonist-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 3px solid #8B0000;
+    transition: all 0.3s ease;
+  }
+
+  .antagonist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .antagonist-card h3 {
+    color: #8B0000;
+    margin-top: 0;
+  }
+
+  .antagonist-card .icon {
+    font-size: 2rem;
+    color: #8B0000;
+    margin-bottom: 1rem;
+  }
+
+  /* Timeline da Batalha */
+  .battle-timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+  }
+
+  .battle-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #052e6f, #8B0000);
+    border-radius: 4px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #8B0000;
+    box-shadow: 0 0 0 4px rgba(139, 0, 0, 0.3);
+  }
+
+  /* Botões Call to Action específicos da Batalha */
+  .btn-cta {
+    background-color: #ffc107;
+    color: #052e6f;
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+    letter-spacing: 1px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .btn-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s;
+  }
+
+  .btn-cta:hover {
+    background-color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-cta:hover::before {
+    transform: translateX(100%) rotate(45deg);
+  }
+
+  .btn-battle {
+    background-color: #8B0000;
+    color: white;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .btn-battle:hover {
+    background-color: #700000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.4);
+  }
+
+  /* Highlight cards */
+  .highlight-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    border-top: 5px solid #052e6f;
+    transform-origin: center bottom;
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(5, 46, 111, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    transform: scale(0.8);
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .highlight-card:hover .card-glow {
+    opacity: 1;
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  }
+
+  .highlight-card i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #052e6f;
+    color: white;
+    font-size: 2.2rem;
+    border-radius: 50%;
+    margin: -40px auto 1.5rem;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(5, 46, 111, 0.4);
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .highlight-card:hover i {
+    background-color: #ffc107;
+    color: #052e6f;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(255, 193, 7, 0.5);
+  }
+
+  .highlight-card h3 {
+    color: #052e6f;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .highlight-card p {
+    color: #555;
+    text-align: center;
+    padding: 0 2rem;
+    margin-bottom: 2.5rem;
+    min-height: 80px;
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+  }
+
+  .highlight-card .btn {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    padding: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .highlight-card .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .highlight-card .btn:hover::before {
+    transform: translateX(0);
+  }
+
+  /* Estilo para ícones específicos da Batalha */
+  .battle-icon {
+    color: #8B0000;
+  }
+
+  /* Estilo específico para os recursos complementares */
+  .resource-card.video .resource-icon {
+    background: #e53935;
+  }
+
+  .resource-card.pdf .resource-icon {
+    background: #4285f4;
+  }
+
+  /* Estilos para a seção de reflexão com tema de batalha */
+  .battle-reflection {
+    background: linear-gradient(135deg, #400000 0%, #8B0000 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2);
+  }
+
+  .battle-reflection h3 {
+    color: #ffc107;
+  }
+
+  /* Animação de chama para elementos específicos */
+  @keyframes flame {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 193, 7, 0.8), 0 0 30px rgba(255, 69, 0, 0.4);
+    }
+    100% {
+      text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+  }
+
+  .flame-text {
+    animation: flame 2s infinite;
+    color: #ffc107;
+  }
+
+  /* Seções específicas da batalha */
+  .battlefield-section {
+    background-color: rgba(139, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+
+  .battlefield-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background-image: url('../api/placeholder/120/120');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.07;
+  }
+/* ==========================================================================
+   Correções para os Recursos Complementares
+   ========================================================================== */
+
+/* Estilo para a seção de recursos complementares */
+.video-resources {
+  margin: 5rem 0;
+  padding: 3rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.video-container {
+  width: 100%;
+}
+
+.video-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.resource-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resource-icon {
+  margin-right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  background: #052e6f;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(5, 46, 111, 0.2);
+}
+
+.resource-card.video .resource-icon {
+  background: #e53935;
+}
+
+.resource-card.pdf .resource-icon {
+  background: #4285f4;
+}
+
+.resource-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.resource-content p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.btn-outline {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #052e6f;
+  color: #052e6f;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: #052e6f;
+  color: white;
+}
+
+/* Correção para os ícones dos blocos */
+.course-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin: 4rem 0;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  padding-top: 60px; /* Aumentar para dar espaço ao ícone */
+  overflow: visible; /* Alterado de 'hidden' para 'visible' */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  border-top: 5px solid #052e6f;
+  transform-origin: center bottom;
+  margin-top: 40px; /* Adicionado para dar espaço ao ícone */
+}
+
+.highlight-card i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #052e6f;
+  color: white;
+  font-size: 2.2rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px; /* Posiciona o ícone acima do card */
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 25px rgba(5, 46, 111, 0.4);
+  z-index: 10; /* Aumentado para garantir que fique acima de outros elementos */
+}
+
+.highlight-card:hover i {
+  background-color: #ffc107;
+  color: #052e6f;
+  transform: translateX(-50%) scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 30px rgba(255, 193, 7, 0.5);
+}
+
+/* Override importante para garantir estilos */
+.section-title {
+  text-align: center !important;
+  color: #052e6f !important;
+  margin-bottom: 3rem !important;
+  position: relative !important;
+  font-size: 2rem !important;
+}
+
+.section-title::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80px !important;
+  height: 3px !important;
+  background-color: #ffc107 !important;
+  border-radius: 3px !important;
+}
+
+/* Garantindo que os botões CTA tenham o estilo correto */
+.btn-cta {
+  background-color: #ffc107 !important;
+  color: #052e6f !important;
+  font-size: 1.2rem !important;
+  padding: 1.2rem 2.5rem !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3) !important;
+  letter-spacing: 1px !important;
+  border: none !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 1.2rem 2.5rem !important;
+  border-radius: 50px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}

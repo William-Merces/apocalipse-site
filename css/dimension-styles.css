@@ -1,86 +1,124 @@
+/**
+ * Arquivo: dimension-styles.css
+ * Descrição: Estilos para as páginas de dimensões do site Apocalipse
+ *
+ * Este arquivo contém todos os estilos necessários para:
+ * - Navegação secundária
+ * - Cabeçalhos de dimensão
+ * - Componentes informativos (info-box, notes, activities)
+ * - Layouts responsivos
+ * - Tabelas e grids
+ * - Botões de navegação
+ * - Cards de destaque
+ * - Adaptações para dispositivos móveis e impressão
+ */
+
+/* ====================================
+ * CONFIGURAÇÃO BÁSICA DA PÁGINA
+ * ==================================== */
 .dimension-page {
-  background-color: var(--light-bg);
-  padding-bottom: 3rem;
+  background-color: var(--light-bg); /* Cor de fundo clara usando variável CSS */
+  padding-bottom: 3rem; /* Espaçamento inferior para melhor respiro visual */
 }
 
+/* ====================================
+ * NAVEGAÇÃO SECUNDÁRIA
+ * Implementa uma barra de navegação fixa no topo com rolagem horizontal
+ * ==================================== */
 .secondary-nav {
   background-color: var(--primary-light);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+  position: sticky; /* Mantém a navegação fixa ao rolar */
   top: 0;
-  z-index: 90;
+  z-index: 90; /* Garante que fique acima de outros elementos */
 }
 
+/* Lista de navegação com rolagem horizontal */
 .secondary-nav ul {
-  display: flex;
+  display: flex; /* Layout flexível para itens em linha */
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow-x: auto; /* Permite rolagem horizontal quando necessário */
+  white-space: nowrap; /* Previne quebra de linha dos itens */
+  -ms-overflow-style: none; /* Remove barra de rolagem no IE/Edge */
+  scrollbar-width: none; /* Remove barra de rolagem no Firefox */
 }
 
+/* Remove a barra de rolagem visual no Chrome/Safari */
 .secondary-nav ul::-webkit-scrollbar {
   display: none;
 }
 
+/* ====================================
+ * ESTILIZAÇÃO DOS LINKS DE NAVEGAÇÃO
+ * Define aparência e comportamento dos links
+ * ==================================== */
 .secondary-nav li {
   margin: 0;
 }
 
 .secondary-nav a {
-  display: flex;
-  align-items: center;
+  display: flex; /* Layout flexível para alinhar ícone e texto */
+  align-items: center; /* Centralização vertical */
   padding: 1rem 1.5rem;
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  border-bottom: 3px solid transparent;
+  font-weight: 500; /* Peso da fonte semi-negrito */
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+  border-bottom: 3px solid transparent; /* Borda inferior para efeito hover */
 }
 
+/* Estilização dos ícones dentro dos links */
 .secondary-nav a i {
   margin-right: 0.5rem;
   font-size: 1.1rem;
 }
 
+/* Efeito hover nos links */
 .secondary-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo branco semi-transparente */
   color: white;
 }
 
+/* Estilo para o link ativo (página atual) */
 .secondary-nav a.active {
-  border-bottom: 3px solid var(--accent-color);
+  border-bottom: 3px solid var(--accent-color); /* Indicador visual de ativo */
   background-color: rgba(0, 0, 0, 0.1);
   color: var(--accent-color);
 }
 
+/* ====================================
+ * NAVEGAÇÃO DA DIMENSÃO
+ * Estilo alternativo de navegação com abas
+ * ==================================== */
 .dimension-nav {
   background-color: var(--primary-light);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+  position: sticky; /* Fixa no topo durante rolagem */
   top: 0;
   z-index: 90;
   margin-bottom: 2rem;
 }
 
+/* Abas de navegação com rolagem horizontal */
 .dimension-tabs {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-x: auto;
+  overflow-x: auto; /* Permite rolagem horizontal */
   white-space: nowrap;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none; /* Remove scrollbar no IE/Edge */
+  scrollbar-width: none; /* Remove scrollbar no Firefox */
 }
 
+/* Remove scrollbar visual no Chrome/Safari */
 .dimension-tabs::-webkit-scrollbar {
   display: none;
 }
 
+/* Estilização individual das abas */
 .dimension-tab {
   display: flex;
   align-items: center;
@@ -88,26 +126,33 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
   border-bottom: 3px solid transparent;
 }
 
+/* Ícones dentro das abas */
 .dimension-tab i {
   margin-right: 0.5rem;
   font-size: 1.1rem;
 }
 
+/* Efeito hover nas abas */
 .dimension-tab:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
 }
 
+/* Estilo para aba ativa */
 .dimension-tab.active {
   border-bottom: 3px solid var(--accent-color);
   background-color: rgba(0, 0, 0, 0.1);
   color: var(--accent-color);
 }
 
+/* ====================================
+ * CABEÇALHO DA DIMENSÃO
+ * Define o estilo do banner principal de cada dimensão
+ * ==================================== */
 .dimension-header {
   background-color: var(--primary-color);
   color: white;
@@ -117,6 +162,7 @@
   overflow: hidden;
 }
 
+/* Linha decorativa no final do cabeçalho */
 .dimension-header::after {
   content: '';
   position: absolute;
@@ -127,12 +173,14 @@
   background-color: var(--accent-color);
 }
 
+/* Título principal da dimensão */
 .dimension-header h2 {
   color: var(--accent-color);
   margin-bottom: 0.5rem;
   font-size: 2.2rem;
 }
 
+/* Descrição da dimensão */
 .dimension-header p {
   color: white;
   max-width: 800px;
@@ -140,6 +188,10 @@
   font-size: 1.2rem;
 }
 
+/* ====================================
+ * ELEMENTOS DE DESTAQUE E BADGES
+ * Componentes visuais para destacar informações
+ * ==================================== */
 .dimension-heading {
   display: inline-block;
   background-color: var(--accent-color);
@@ -166,6 +218,10 @@
   letter-spacing: 1px;
 }
 
+/* ====================================
+ * CONTEÚDO PRINCIPAL
+ * Estrutura e estilização do conteúdo da dimensão
+ * ==================================== */
 .dimension-content {
   background-color: white;
   border-radius: var(--border-radius);
@@ -174,18 +230,21 @@
   margin-bottom: 2rem;
 }
 
+/* Seções dentro do conteúdo */
 .dimension-section {
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--mid-bg);
   padding-bottom: 2rem;
 }
 
+/* Remove borda e margem da última seção */
 .dimension-section:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
+/* Títulos das seções */
 .dimension-section h3 {
   color: var(--primary-color);
   font-size: 1.8rem;
@@ -195,6 +254,7 @@
   display: inline-block;
 }
 
+/* Títulos com ícones */
 .dimension-section h3.with-icon {
   display: flex;
   align-items: center;
@@ -203,6 +263,7 @@
   padding-bottom: 0;
 }
 
+/* Estilização dos ícones nos títulos */
 .dimension-section h3.with-icon i {
   background-color: var(--primary-color);
   color: white;
@@ -216,15 +277,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Subtítulos das seções */
 .dimension-section h4 {
   color: var(--primary-color);
   font-size: 1.4rem;
   margin: 1.5rem 0 1rem;
 }
 
+/* ====================================
+ * COMPONENTE DE CITAÇÃO
+ * Estilização de citações e textos em destaque
+ * ==================================== */
 .quote {
   position: relative;
-  background-color: rgba(201, 162, 39, 0.1);
+  background-color: rgba(201, 162, 39, 0.1); /* Fundo sutil amarelado */
   border-left: 4px solid var(--accent-color);
   padding: 1.5rem 1.5rem 1.5rem 4.5rem;
   margin: 1.5rem 0;
@@ -232,6 +298,7 @@
   text-indent: 0;
 }
 
+/* Aspas decorativas */
 .quote::before {
   content: '"';
   position: absolute;
@@ -244,10 +311,15 @@
   line-height: 1;
 }
 
+/* Indentação do primeiro parágrafo */
 .quote p:first-of-type {
   text-indent: 2.5em;
 }
 
+/* ====================================
+ * BOXES INFORMATIVOS
+ * Componentes para diferentes tipos de informação
+ * ==================================== */
 .info-box,
 .note,
 .activity {
@@ -259,18 +331,20 @@
   overflow: hidden;
 }
 
+/* Variações de borda por tipo */
 .info-box {
-  border: 1px solid rgba(5, 46, 111, 0.3);
+  border: 1px solid rgba(5, 46, 111, 0.3); /* Azul para informações */
 }
 
 .note {
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  border: 1px solid rgba(201, 162, 39, 0.3); /* Amarelo para notas */
 }
 
 .activity {
-  border: 1px solid rgba(0, 128, 0, 0.3);
+  border: 1px solid rgba(0, 128, 0, 0.3); /* Verde para atividades */
 }
 
+/* Cabeçalhos dos boxes */
 .info-box h4,
 .note h4,
 .activity h4 {
@@ -282,6 +356,7 @@
   align-items: center;
 }
 
+/* Cores específicas para cada tipo de box */
 .info-box h4 {
   background-color: var(--primary-color);
 }
@@ -294,6 +369,7 @@
   background-color: #2a7e19;
 }
 
+/* Ícones nos cabeçalhos */
 .info-box h4::before,
 .note h4::before,
 .activity h4::before {
@@ -302,18 +378,20 @@
   font-weight: 900;
 }
 
+/* Ícones específicos para cada tipo */
 .info-box h4::before {
-  content: '\f05a';
+  content: '\f05a'; /* Ícone de informação */
 }
 
 .note h4::before {
-  content: '\f0eb';
+  content: '\f0eb'; /* Ícone de lâmpada */
 }
 
 .activity h4::before {
-  content: '\f044';
+  content: '\f044'; /* Ícone de lápis */
 }
 
+/* Conteúdo dos boxes */
 .info-box p,
 .note p,
 .activity p,
@@ -324,9 +402,13 @@
   margin: 0;
 }
 
+/* ====================================
+ * LAYOUTS E GRIDS
+ * Estruturas de layout responsivo
+ * ==================================== */
 .two-columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo automático */
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -336,9 +418,13 @@
   flex-direction: column;
 }
 
+/* ====================================
+ * TABELAS
+ * Estilização de tabelas e dados tabulares
+ * ==================================== */
 .table-container {
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
   margin: 1.5rem 0;
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
@@ -350,6 +436,7 @@ table {
   margin-bottom: 0;
 }
 
+/* Cabeçalho da tabela */
 th {
   background-color: var(--primary-color);
   color: white;
@@ -357,20 +444,27 @@ th {
   padding: 1rem;
 }
 
+/* Células da tabela */
 td {
   padding: 1rem;
   border-bottom: 1px solid var(--mid-bg);
 }
 
+/* Linhas zebradas para melhor legibilidade */
 tr:nth-child(even) {
   background-color: var(--light-bg);
 }
 
+/* Estilo especial para tabelas de símbolos */
 .symbol-table td:first-child {
   font-weight: bold;
   color: var(--primary-color);
 }
 
+/* ====================================
+ * LISTAS
+ * Estilização de listas ordenadas e não-ordenadas
+ * ==================================== */
 ul,
 ol {
   padding-left: 1.5rem;
@@ -381,6 +475,10 @@ li {
   margin-bottom: 0.5rem;
 }
 
+/* ====================================
+ * NAVEGAÇÃO ENTRE PÁGINAS
+ * Botões de navegação anterior/próximo
+ * ==================================== */
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
@@ -401,10 +499,11 @@ li {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Efeito hover nos botões */
 .nav-button:hover {
   background-color: var(--accent-color);
   color: white;
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Efeito de elevação */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -490,7 +589,12 @@ li {
   margin-right: 1rem;
 }
 
+/* ====================================
+ * RESPONSIVIDADE
+ * Adaptações para dispositivos móveis
+ * ==================================== */
 @media (max-width: 768px) {
+  /* Ajustes no cabeçalho */
   .dimension-header {
     padding: 2rem 0;
   }
@@ -499,30 +603,36 @@ li {
     font-size: 1.8rem;
   }
 
+  /* Ajustes no conteúdo */
   .dimension-content {
     padding: 1.5rem;
   }
 
+  /* Força layout de coluna única */
   .two-columns {
     grid-template-columns: 1fr;
   }
 
+  /* Ajustes nas tabelas */
   .table-container {
     margin: 1rem 0;
   }
 
+  /* Botões de navegação em coluna */
   .navigation-buttons,
   .dimension-navigation {
     flex-direction: column;
     gap: 1rem;
   }
 
+  /* Botões ocupam largura total */
   .nav-button,
   .dimension-nav-button {
     width: 100%;
     justify-content: center;
   }
 
+  /* Ajustes na navegação secundária */
   .secondary-nav ul,
   .dimension-tabs {
     padding: 0;
@@ -535,7 +645,12 @@ li {
   }
 }
 
+/* ====================================
+ * ESTILOS DE IMPRESSÃO
+ * Otimizações para impressão em papel
+ * ==================================== */
 @media print {
+  /* Remove cores de fundo e simplifica cabeçalho */
   .dimension-header {
     background-color: transparent;
     color: black;
@@ -550,19 +665,22 @@ li {
     color: black;
   }
 
+  /* Remove sombras e ajusta padding */
   .dimension-content {
     box-shadow: none;
     padding: 0;
   }
 
+  /* Simplifica boxes informativos */
   .info-box,
   .note,
   .activity {
     box-shadow: none;
     border: 1px solid #ccc;
-    break-inside: avoid;
+    break-inside: avoid; /* Evita quebra de página no meio do box */
   }
 
+  /* Simplifica cabeçalhos dos boxes */
   .info-box h4,
   .note h4,
   .activity h4 {
@@ -571,17 +689,20 @@ li {
     border-bottom: 1px solid #ccc;
   }
 
+  /* Simplifica citações */
   .quote {
     background-color: transparent;
     border-left: 2px solid #ccc;
   }
 
+  /* Simplifica tabelas */
   th {
     background-color: transparent;
     color: black;
     border-bottom: 2px solid #000;
   }
 
+  /* Remove elementos de navegação */
   .navigation-buttons,
   .dimension-navigation,
   .secondary-nav,
@@ -589,98 +710,11 @@ li {
     display: none;
   }
 }
-.course-highlights {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 3rem 0;
-}
 
-.highlight-card {
-  background-color: white;
-  border-radius: var(--border-radius);
-  padding: 2.5rem 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-}
-
-.highlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: var(--accent-color);
-  transition: height 0.3s ease;
-}
-
-.highlight-card i {
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.highlight-card h3 {
-  color: var(--primary-color);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.highlight-card p {
-  color: var(--text-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.highlight-card .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.highlight-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.highlight-card:hover i {
-  transform: scale(1.1);
-}
-
-.highlight-card:hover .btn-primary {
-  background-color: var(--accent-color);
-}
-
-@media (max-width: 768px) {
-  .course-highlights {
-    grid-template-columns: 1fr;
-    padding: 2rem 1rem;
-  }
-
-  .highlight-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .highlight-card h3 {
-    font-size: 1.5rem;
-  }
-
-  .highlight-card p {
-    font-size: 1rem;
-  }
-}
-
-/* Estilos para o botão de voltar ao topo */
+/* ====================================
+ * COMPONENTES ADICIONAIS
+ * Estilos para elementos específicos
+ * ==================================== */
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -697,6 +731,7 @@ li {
   background-color: var(--accent-color);
 }
 
+/* Componente de transmissão divina */
 .divine-transmission {
   background: linear-gradient(to right, #f8f9fa, #e2e6ea);
   border-radius: 15px;

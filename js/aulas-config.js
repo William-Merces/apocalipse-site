@@ -1,7 +1,27 @@
-// aulas-config.js
-// Configuração centralizada das aulas disponíveis no curso
+/**
+ * aulas-config.js
+ * Arquivo de configuração central das aulas do curso Apocalipse
+ *
+ * Este arquivo contém:
+ * - Estrutura completa das aulas do curso
+ * - Informações sobre disponibilidade das aulas
+ * - Detalhes de cada seção (visões, panorama, convergência)
+ * - Métodos utilitários para gerenciar as aulas
+ */
 
+/**
+ * Configuração global das aulas
+ * Objeto exposto globalmente como window.aulasConfig
+ *
+ * Estrutura de cada aula:
+ * - id: Identificador único da aula
+ * - title: Título completo da aula
+ * - description: Descrição detalhada do conteúdo
+ * - available: Status de disponibilidade
+ * - sections: Subseções da aula (visões, panorama, convergência)
+ */
 window.aulasConfig = {
+    // Array principal com todas as aulas do curso
     aulas: [
         {
             id: 1,
@@ -145,23 +165,38 @@ window.aulasConfig = {
         }
     ],
 
-    // Método para obter uma aula específica por ID
+    /**
+     * Obtém uma aula específica pelo seu ID
+     * @param {number} id - ID da aula desejada
+     * @returns {Object|undefined} Objeto da aula ou undefined se não encontrada
+     */
     getAulaById: function(id) {
         return this.aulas.find(aula => aula.id === parseInt(id));
     },
 
-    // Método para obter todas as aulas disponíveis
+    /**
+     * Retorna todas as aulas que estão marcadas como disponíveis
+     * @returns {Array} Array com todas as aulas disponíveis
+     */
     getAvailableAulas: function() {
         return this.aulas.filter(aula => aula.available);
     },
 
-    // Método para verificar se uma aula específica está disponível
+    /**
+     * Verifica se uma aula específica está disponível
+     * @param {number} id - ID da aula a verificar
+     * @returns {boolean} true se disponível, false caso contrário
+     */
     isAulaAvailable: function(id) {
         const aula = this.getAulaById(id);
         return aula ? aula.available : false;
     },
 
-    // Método para obter a próxima aula disponível após uma aula específica
+    /**
+     * Encontra a próxima aula disponível após a aula atual
+     * @param {number} currentId - ID da aula atual
+     * @returns {Object|null} Próxima aula disponível ou null se não houver
+     */
     getNextAvailableAula: function(currentId) {
         const availableAulas = this.getAvailableAulas();
         const currentIndex = availableAulas.findIndex(aula => aula.id === parseInt(currentId));
@@ -173,7 +208,11 @@ window.aulasConfig = {
         return null;
     },
 
-    // Método para obter a aula anterior disponível antes de uma aula específica
+    /**
+     * Encontra a aula disponível anterior à aula atual
+     * @param {number} currentId - ID da aula atual
+     * @returns {Object|null} Aula anterior disponível ou null se não houver
+     */
     getPreviousAvailableAula: function(currentId) {
         const availableAulas = this.getAvailableAulas();
         const currentIndex = availableAulas.findIndex(aula => aula.id === parseInt(currentId));
@@ -186,7 +225,7 @@ window.aulasConfig = {
     }
 };
 
-// Expor a configuração globalmente
+// Permite uso do módulo em ambientes Node.js
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = aulasConfig;
 }

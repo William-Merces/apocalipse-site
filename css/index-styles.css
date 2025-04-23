@@ -2,250 +2,675 @@
  * Estilos aprimorados da página inicial (index.html)
  * Curso: Apocalipse - As Visões dos Últimos Dias
  *
- * Versão otimizada com melhor contraste, organização e experiência do usuário
+ * Este arquivo contém todos os estilos específicos da página inicial,
+ * incluindo o banner principal (hero), seções de conteúdo, cards,
+ * acordeões de aulas e elementos interativos.
+ *
+ * Organização do arquivo:
+ * 1. Variáveis CSS (cores, sombras, transições)
+ * 2. Estilos globais
+ * 3. Seção Hero (Banner Principal)
+ * 4. Estrutura de Seções
+ * 5. Sistema de Cards
+ * 6. Accordion de Aulas
+ * 7. Blocos de Aprendizado
+ * 8. Elementos Interativos
+ * 9. Modal e Formulários
+ * 10. Responsividade
  */
 
-:root {
-  --primary-color: #052e6f; /* Azul escuro */
-  --primary-dark: #031d4c; /* Azul mais escuro */
-  --accent-color: #e9b44c; /* Dourado */
-  --accent-dark: #c4962f; /* Dourado escuro */
-  --light-bg: #f5f7fa; /* Fundo claro */
-  --dark-text: #333; /* Texto escuro para fundos claros */
-  --light-text: #fff; /* Texto claro para fundos escuros */
-  --text-secondary: #666; /* Texto secundário */
-  --border-radius: 8px; /* Arredondamento padrão */
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra padrão */
-  --transition-default: all 0.3s ease; /* Transição padrão */
-}
-
-/* Estilos globais para melhorar a legibilidade */
-body {
-  color: var(--dark-text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: var(--transition-default);
-}
-
-a:hover {
-  color: var(--accent-color);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
 /* ==========================================================================
-   Seção Hero (Banner Principal) - Melhorado contraste e legibilidade
+   1. Variáveis CSS - Definição do sistema de design
    ========================================================================== */
+   :root {
+    /* Cores principais do tema */
+    --primary-color: #052e6f; /* Azul escuro - Cor principal da marca */
+    --primary-dark: #031d4c; /* Azul mais escuro - Variação para contraste */
+    --accent-color: #e9b44c; /* Dourado - Cor de destaque para elementos importantes */
+    --accent-dark: #c4962f; /* Dourado escuro - Variação para hover e estados ativos */
 
-.hero {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-  color: var(--light-text);
-  padding: 5rem 0;
-  position: relative;
-  overflow: hidden;
-}
+    /* Cores de fundo e texto */
+    --light-bg: #f5f7fa; /* Fundo claro - Para seções alternadas */
+    --dark-text: #333; /* Texto escuro - Alta legibilidade em fundos claros */
+    --light-text: #fff; /* Texto claro - Para uso em fundos escuros */
+    --text-secondary: #666; /* Texto secundário - Para informações menos importantes */
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../api/placeholder/1200/600');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.2;
-  z-index: 0;
-}
+    /* Elementos de UI */
+    --border-radius: 8px; /* Arredondamento consistente em toda interface */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para elevação */
+    --transition-default: all 0.3s ease; /* Transição suave padrão */
+  }
 
-.hero__content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
+  /* ==========================================================================
+     2. Estilos Globais - Base para consistência visual
+     ========================================================================== */
+  body {
+    color: var(--dark-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    margin: 0;
+    padding: 0;
+  }
 
-.hero__title {
-  color: var(--light-text);
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  font-weight: bold;
-}
+  /* Links com transição suave no hover */
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-default);
+  }
 
-.hero__subtitle {
-  color: var(--accent-color);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
+  a:hover {
+    color: var(--accent-color);
+  }
 
-.hero__description {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  /* Container responsivo com largura máxima */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
 
-/* ==========================================================================
-   Estrutura de Seções - Melhor distribuição visual
-   ========================================================================== */
+  /* ==========================================================================
+     3. Seção Hero - Banner principal com chamada para ação
+     ========================================================================== */
+  .hero {
+    background: linear-gradient(rgba(5, 46, 111, 0.9), rgba(3, 29, 76, 0.95)),
+                url('../images/hero-bg.jpg') center/cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    color: var(--light-text);
+    position: relative;
+    overflow: hidden; /* Previne vazamento de elementos decorativos */
+  }
 
-.section {
-  padding: 5rem 0;
-  background-color: white;
-}
+  /* Versão mais compacta do hero */
+  .hero--compact {
+    min-height: 50vh;
+  }
 
-.section:nth-child(even) {
-  background-color: var(--light-bg);
-}
+  /* Conteúdo centralizado do Hero */
+  .hero__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique acima de elementos decorativos */
+  }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  padding-bottom: 1.5rem;
-  color: var(--primary-color);
-  font-size: 2.2rem;
-}
+  /* Título principal com destaque visual */
+  .hero__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--light-text);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil para legibilidade */
+  }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: var(--accent-color);
-}
+  /* Subtítulo com informações complementares */
+  .hero__description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9; /* Sutil diferenciação do título principal */
+  }
 
-.section-description {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem auto;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-}
+  /* Botão de chamada para ação */
+  .action-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
 
-/* ==========================================================================
-   Sistema de Cards - Melhorado para maior legibilidade
-   ========================================================================== */
+  .action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-default);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    min-width: 180px;
+  }
 
-.card {
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
+  .action-button--accent {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+  }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
+  .action-button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    color: var(--light-text);
+  }
 
-.card--info {
-  border-top: 4px solid var(--primary-color);
-}
+  .action-button--accent:hover {
+    color: var(--dark-text);
+  }
 
-.card--accent {
-  border-top: 4px solid var(--accent-color);
-}
+  .action-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
 
-.card__title {
-  color: var(--primary-color);
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eaeaea;
-  font-size: 1.4rem;
-}
+  .action-button__icon {
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+  }
 
-.card__content {
-  color: var(--dark-text);
-}
+  /* ==========================================================================
+     4. Estrutura de Seções - Layout e organização do conteúdo
+     ========================================================================== */
+  .section {
+    padding: 5rem 0;
+    background: var(--light-bg);
+  }
 
-/* ==========================================================================
-   Accordion de Aulas - Estrutura do curso compacta
-   ========================================================================== */
+  /* Seções alternadas com fundo branco para melhor contraste */
+  .section:nth-child(even) {
+    background: #fff;
+  }
 
-.course-cycle {
-  margin-bottom: 3rem;
-}
+  /* Cabeçalho das seções com título e descrição */
+  .section-title {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+  }
 
-.cycle-title {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent-color);
-}
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent-color);
+  }
 
-.lesson-accordion {
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-}
+  .section-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
 
-.lesson-item {
-  border-bottom: 1px solid #eee;
-}
+  /* ==========================================================================
+     5. Sistema de Cards - Apresentação de conteúdo em blocos
+     ========================================================================== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
 
-.lesson-item:last-child {
-  border-bottom: none;
-}
+  /* Card base com efeitos de hover */
+  .card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
 
-.lesson-header {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  font-family: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
 
-.lesson-header:hover {
-  background-color: var(--light-bg);
-}
+  .card--info {
+    border-top: 4px solid var(--primary-color);
+  }
 
-.lesson-header.active {
-  background-color: var(--primary-color);
-  color: white;
-}
+  /* Imagem do card com proporção fixa */
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--accent-color);
+  }
 
-.lesson-header.active .fa-chevron-down {
-  transform: rotate(180deg);
-}
+  /* Conteúdo do card com espaçamento adequado */
+  .card-content {
+    padding: 1.5rem;
+  }
 
-.lesson-number {
-  background-color: var(--accent-color);
-  color: var(--primary-dark);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  margin-right: 1rem;
+  .card__title {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 1.4rem;
+  }
+
+  .card-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ==========================================================================
+     6. Accordion de Aulas - Lista expansível de conteúdo
+     ========================================================================== */
+  .accordion {
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Mantém os cantos arredondados */
+  }
+
+  /* Item individual do accordion */
+  .accordion-item {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Cabeçalho do item com ícone de expansão */
+  .accordion-header {
+    padding: 1rem 1.5rem;
+    background: var(--light-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition-default);
+  }
+
+  .accordion-header:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+  }
+
+  /* Ícone de expansão animado */
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Conteúdo expansível do accordion */
+  .accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .accordion-item.active .accordion-content {
+    padding: 1.5rem;
+    max-height: 500px; /* Altura máxima para animação */
+  }
+
+  /* ==========================================================================
+     7. Blocos de Aprendizado - Seções informativas do curso
+     ========================================================================== */
+  .learning-block {
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: var(--card-shadow);
+  }
+
+  /* Cabeçalho do bloco com ícone */
+  .learning-block-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .learning-block-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: var(--light-text);
+  }
+
+  .learning-block-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  /* Lista de tópicos de aprendizado */
+  .learning-topics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .learning-topic {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+
+  .learning-topic:last-child {
+    border-bottom: none;
+  }
+
+  .learning-topic-icon {
+    color: var(--accent-color);
+    margin-right: 1rem;
+  }
+
+  /* ==========================================================================
+     8. Elementos Interativos - Botões e controles
+     ========================================================================== */
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition-default);
+    cursor: pointer;
+    border: none;
+  }
+
+  /* Variações de botões */
+  .button-primary {
+    background: var(--primary-color);
+    color: var(--light-text);
+  }
+
+  .button-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  .button-accent {
+    background: var(--accent-color);
+    color: var(--dark-text);
+  }
+
+  .button-accent:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+
+  .button-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .button-outline:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+  }
+
+  /* ==========================================================================
+     9. Modal e Formulários - Elementos de interação
+     ========================================================================== */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-default);
+  }
+
+  .modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Conteúdo do modal com animação */
+  .modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    max-height: 85vh;
+    overflow: hidden;
+  }
+
+  .modal-content--scrollable {
+    overflow-y: auto;
+  }
+
+  .modal.active .modal-content {
+    transform: translateY(0);
+  }
+
+  /* Botão de fechar do modal */
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition-default);
+  }
+
+  .modal-close:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+  }
+
+  /* Header e Footer do Modal */
+  .modal-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+  }
+
+  .modal-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  .modal-body {
+    padding: 1rem 0;
+  }
+
+  /* ==========================================================================
+     10. Responsividade - Adaptações para diferentes telas
+     ========================================================================== */
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 960px;
+    }
+
+    .hero__title {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .container {
+      max-width: 720px;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__title {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      max-width: 540px;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+
+    .hero__title {
+      font-size: 2rem;
+    }
+
+    .hero__description {
+      font-size: 1.1rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .action-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+    }
+
+    .card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* ==========================================================================
+     Animações e transições
+     ========================================================================== */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+
+  /* ==========================================================================
+     11. Estrutura do Curso
+     ========================================================================== */
+  .course-cycle {
+    margin-bottom: 3rem;
+  }
+
+  .cycle-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+  }
+
+  /* Accordion de aulas */
+  .lesson-accordion {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+
+  .lesson-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .lesson-item:last-child {
+    border-bottom: none;
+  }
+
+  .lesson-header {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .lesson-header:hover {
+    background-color: var(--light-bg);
+  }
+
+  .lesson-header.active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .lesson-number {
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-right: 1rem;
   font-weight: bold;
 }
 
@@ -266,6 +691,7 @@ a:hover {
 
 .lesson-header.active .fa-chevron-down {
   color: white;
+  transform: rotate(180deg);
 }
 
 .lesson-content {
@@ -280,32 +706,10 @@ a:hover {
   animation: slideDown 0.3s ease;
 }
 
-.lesson-content p {
-  margin-bottom: 1rem;
-  color: var(--dark-text);
-}
-
-.lesson-content p:last-child {
-  margin-bottom: 0;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==========================================================================
-   Blocos de Aprendizado Compactos
-   ========================================================================== */
+/* Blocos de aprendizado */
 .learning-blocks-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -372,14 +776,16 @@ a:hover {
   animation: fadeIn 0.3s ease;
 }
 
-/* ==========================================================================
-   Grade de Revelações Compacta
-   ========================================================================== */
+/* Grade de Revelações */
 .revelations-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+}
+
+.revelations-grid--expanded .revelation-item__details {
+  display: block;
 }
 
 .revelation-item {
@@ -389,6 +795,11 @@ a:hover {
   padding: 1.5rem;
   text-align: center;
   transition: var(--transition-default);
+}
+
+.revelation-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .revelation-item__icon {
@@ -419,7 +830,6 @@ a:hover {
 }
 
 .revelation-item__details {
-  display: none;
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #eee;
@@ -431,37 +841,79 @@ a:hover {
   animation: fadeIn 0.3s ease;
 }
 
-/* ==========================================================================
-   Plano de Salvação Tradicional Diagram
-   ========================================================================== */
-.plan-of-salvation-diagram {
+/* Cartão do Autor */
+.author-card {
+  display: flex;
+  gap: 2rem;
   margin: 2rem 0;
-  text-align: center;
-}
-
-.plan-of-salvation-diagram svg {
-  max-width: 100%;
-  height: auto;
-}
-
-/* ==========================================================================
-   Card Destaque (para a seção de motivação sobre formatura)
-   ========================================================================== */
-.card--highlight {
-  background-color: #fafafa;
-  border-top: 4px solid var(--accent-color);
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
   padding: 2rem;
-  margin: 2rem 0;
+  box-shadow: var(--card-shadow);
+  border-left: 5px solid var(--accent-color);
 }
 
-.card__action {
-  margin-top: 1.5rem;
+.author-card__info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.author-card__name {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.author-card__title {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.author-card__bio {
+  color: var(--dark-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Ícones Colaborativos */
+.collaborative-icons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.collab-icon {
   text-align: center;
+  transition: var(--transition-default);
 }
 
-/* ==========================================================================
-   Créditos Horizontais (versão compacta)
-   ========================================================================== */
+.collab-icon:hover {
+  transform: translateY(-5px);
+}
+
+.collab-icon__icon {
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  transition: var(--transition-default);
+}
+
+.collab-icon:hover .collab-icon__icon {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+.collab-icon__label {
+  margin: 0;
+  color: var(--dark-text);
+  font-weight: bold;
+}
+
+/* Créditos Horizontais */
 .credits-horizontal {
   display: flex;
   justify-content: space-between;
@@ -508,451 +960,7 @@ a:hover {
   color: white;
 }
 
-/* ==========================================================================
-   Avatar do Professor (placeholder)
-   ========================================================================== */
-.author-card__avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.author-card__avatar svg {
-  width: 180px;
-  height: 180px;
-}
-
-/* ==========================================================================
-   Modal
-   ========================================================================== */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  overflow-y: auto;
-}
-
-.modal.active {
-  display: block;
-}
-
-.modal-content {
-  background-color: white;
-  margin: 50px auto;
-  width: 90%;
-  max-width: 800px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.modal-header {
-  padding: 1.5rem;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.modal-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0 0.5rem;
-  line-height: 1;
-}
-
-.modal-close:hover {
-  opacity: 0.8;
-}
-
-.modal-body {
-  padding: 2rem;
-}
-
-.modal-footer {
-  padding: 1rem 2rem;
-  background-color: var(--light-bg);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  font-weight: bold;
-  text-align: center;
-  color: var(--primary-color);
-}
-
-/* ==========================================================================
-   Lista de Objetivos - Melhor visualização
-   ========================================================================== */
-
-.objectives-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.objectives-list li {
-  padding-left: 2rem;
-  position: relative;
-  margin-bottom: 1.5rem;
-  color: var(--dark-text);
-}
-
-.objectives-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--accent-color);
-}
-
-/* ==========================================================================
-   Card do Autor/Professor - Melhor organização
-   ========================================================================== */
-
-.author-card {
-  display: flex;
-  gap: 2rem;
-  margin: 2rem 0;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: var(--light-bg);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  box-shadow: var(--card-shadow);
-  border-left: 5px solid var(--accent-color);
-}
-
-.author-card__info {
-  flex: 1;
-  min-width: 300px;
-}
-
-.author-card__name {
-  margin-top: 0;
-  color: var(--primary-color);
-  font-size: 1.8rem;
-}
-
-.author-card__title {
-  color: var(--accent-color);
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.author-card__bio {
-  color: var(--dark-text);
-  margin-bottom: 1.5rem;
-}
-
-/* ==========================================================================
-   Callout Cards - Cards de destaque com melhor contraste
-   ========================================================================== */
-
-.callout-card {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  color: white;
-  border-radius: var(--border-radius);
-  padding: 2.5rem;
-  margin: 2.5rem 0;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.callout-card__title {
-  color: var(--accent-color);
-  margin-top: 0;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.callout-card__content {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-/* ==========================================================================
-   Features do Aplicativo - Melhor visualização
-   ========================================================================== */
-
-.app-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin: 2.5rem 0;
-}
-
-.app-feature {
-  flex: 1;
-  min-width: 260px;
-  max-width: 300px;
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: 2rem;
-  text-align: center;
-  transition: var(--transition-default);
-  border-top: 3px solid transparent;
-}
-
-.app-feature:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  border-top-color: var(--accent-color);
-}
-
-.app-feature__icon {
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  transition: var(--transition-default);
-}
-
-.app-feature:hover .app-feature__icon {
-  transform: scale(1.1);
-}
-
-.app-feature__title {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.app-feature__description {
-  color: var(--dark-text);
-}
-
-/* ==========================================================================
-   Citações - Melhorada legibilidade
-   ========================================================================== */
-
-.quote-box {
-  background-color: rgba(5, 46, 111, 0.05);
-  border-left: 7px solid var(--primary-color);
-  padding: 1.5rem 2rem;
-  margin: 2rem 0;
-  font-style: italic;
-  position: relative;
-  color: var(--dark-text);
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
-.quote-box::before {
-  content: '\201C';
-  position: absolute;
-  top: -20px;
-  left: 10px;
-  font-size: 50px;
-  color: var(--accent-color);
-  opacity: 0.5;
-  font-family: Georgia, serif;
-}
-
-.quote-box__text {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.quote-box__attribution {
-  text-align: right;
-  color: var(--primary-color);
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* ==========================================================================
-   Ícones Colaborativos - Melhor organização
-   ========================================================================== */
-
-.collaborative-icons {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin: 3rem 0;
-  flex-wrap: wrap;
-}
-
-.collab-icon {
-  text-align: center;
-  transition: var(--transition-default);
-}
-
-.collab-icon:hover {
-  transform: translateY(-5px);
-}
-
-.collab-icon__icon {
-  font-size: 2.8rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  transition: var(--transition-default);
-}
-
-.collab-icon:hover .collab-icon__icon {
-  transform: scale(1.1);
-  color: var(--primary-color);
-}
-
-.collab-icon__label {
-  margin: 0;
-  color: var(--dark-text);
-  font-weight: bold;
-}
-
-/* ==========================================================================
-   Formulários - Melhor legibilidade e feedback
-   ========================================================================== */
-
-.form-group {
-  margin-bottom: 1.8rem;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 0.7rem;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition-default);
-}
-
-.form-control:focus {
-  border-color: var(--primary-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(5, 46, 111, 0.1);
-}
-
-.form-control--textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.form-control::placeholder {
-  color: #aaa;
-}
-
-/* ==========================================================================
-   Botões de Ação - Melhor feedback visual
-   ========================================================================== */
-
-.action-buttons {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 3rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.action-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition-default);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: none;
-  cursor: pointer;
-  min-width: 180px;
-}
-
-.action-button:hover {
-  background-color: var(--accent-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  color: white;
-}
-
-.action-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.action-button--outline {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
-
-.action-button--outline:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.action-button__icon {
-  margin-right: 0.75rem;
-  font-size: 1.2rem;
-}
-
-/* ==========================================================================
-   Botão Voltar ao Topo
-   ========================================================================== */
-
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-default);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.back-to-top:hover {
-  background-color: var(--accent-color);
-  transform: translateY(-5px);
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
+/* Footer */
 footer {
   background-color: var(--primary-dark);
   color: white;
@@ -1007,61 +1015,443 @@ footer {
   opacity: 0.7;
 }
 
+/* Formulários */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-default);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 46, 111, 0.1);
+}
+
+.form-control--textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+/* Animações */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* ==========================================================================
-   Media Queries - Responsividade aprimorada
+   Novos estilos para os elementos atualizados
    ========================================================================== */
 
+/* Highlight Banner - Para mensagens de destaque */
+.highlight-banner {
+  background: linear-gradient(90deg, var(--accent-color), #f5b642);
+  color: var(--dark-text);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M95,50 L75,35 L75,65 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  opacity: 0.2;
+}
+
+.highlight-banner h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+/* Objetivos com cards */
+.objectives-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.objective-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid var(--accent-color);
+}
+
+.objective-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.objective-card__icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(233, 180, 76, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.objective-card__icon i {
+  font-size: 2rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.objective-card:hover .objective-card__icon i {
+  transform: scale(1.2);
+}
+
+.objective-card__title {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.objective-card__description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Experiência VISIONS - estilo aprimorado */
+.visions-experience {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.visions-experience__header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.visions-experience__icon {
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.visions-experience__icon i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.visions-experience__title {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.visions-experience__subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.visions-experience__content {
+  padding: 2rem;
+}
+
+.visions-experience__download {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.visions-experience__note {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Seção de formatura do instituto */
+.instituto-formatura {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.instituto-formatura__header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.instituto-formatura__icon {
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instituto-formatura__icon i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.instituto-formatura__title {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.instituto-formatura__content {
+  padding: 2rem;
+}
+
+.instituto-formatura__benefits {
+  margin-bottom: 3rem;
+}
+
+.instituto-formatura__benefits h4,
+.instituto-formatura__credits h4 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.instituto-formatura__benefits h4::after,
+.instituto-formatura__credits h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.instituto-formatura__benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instituto-formatura__benefits-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  align-items: center;
+}
+
+.instituto-formatura__benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.instituto-formatura__benefits-list li i {
+  color: var(--accent-color);
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Cards de créditos */
+.credits-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.credit-card {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.credit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+.credit-card__number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  transition: var(--transition-default);
+}
+
+.credit-card:hover .credit-card__number {
+  transform: scale(1.1);
+}
+
+.credit-card__title {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.credit-card__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.credit-card__details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.credit-card__details li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+}
+
+.credit-card__details li:last-child {
+  border-bottom: none;
+}
+
+.credit-card__description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.credit-card--total {
+  background: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.credit-card--total .credit-card__number {
+  color: var(--accent-color);
+}
+
+.credit-card--total .credit-card__title {
+  color: white;
+}
+
+.credit-card--total .credit-card__highlight {
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+}
+
+/* Responsividade adicional */
 @media (max-width: 992px) {
-  .hero__title {
-    font-size: 2.5rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
   .learning-blocks-grid {
     grid-template-columns: 1fr;
   }
 
-  .learning-block {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 1rem;
+  .revelations-grid {
+    grid-template-columns: 1fr;
   }
 
-  .learning-block__number {
-    position: static;
-    margin-right: 1rem;
+  .credits-horizontal {
+    flex-direction: column;
   }
 
-  .learning-block__title {
-    flex: 1;
+  .collaborative-icons {
+    gap: 2rem;
   }
 
-  .learning-block__duration {
-    margin: 0 1rem;
+  .objectives-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
-  .learning-block__details {
-    flex-basis: 100%;
+  .credits-cards {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .hero__title {
-    font-size: 2.2rem;
-  }
-
-  .hero__subtitle {
-    font-size: 1.3rem;
-  }
-
-  .section {
-    padding: 4rem 0;
-  }
-
   .author-card {
     flex-direction: column;
     text-align: center;
@@ -1085,85 +1475,42 @@ footer {
     padding: 0.2rem 0.6rem;
   }
 
-  .revelations-grid {
-    grid-template-columns: 1fr;
+  .visions-experience__header {
+    padding: 1.5rem;
   }
 
-  .credits-horizontal {
-    flex-direction: column;
+  .visions-experience__icon {
+    width: 60px;
+    height: 60px;
   }
 
-  .collaborative-icons {
-    gap: 2rem;
+  .visions-experience__title {
+    font-size: 1.5rem;
   }
 
-  .action-button {
-    width: 100%;
+  .instituto-formatura__header {
+    padding: 1.5rem;
+  }
+
+  .instituto-formatura__title {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
-  .hero {
-    padding: 3rem 0;
+  .footer-content {
+    grid-template-columns: 1fr;
   }
 
-  .hero__title {
-    font-size: 1.8rem;
-  }
-
-  .hero__subtitle {
-    font-size: 1.1rem;
-  }
-
-  .section {
-    padding: 3rem 0;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .app-features {
+  .collaborative-icons {
     gap: 1.5rem;
   }
 
-  .modal-content {
-    margin: 20px auto;
-    width: 95%;
+  .objective-card__title {
+    min-height: auto;
   }
 
-  .modal-header {
-    padding: 1rem;
+  .credit-card {
+    padding: 1.5rem;
   }
-
-  .modal-header h2 {
-    font-size: 1.3rem;
-  }
-
-  .modal-body {
-    padding: 1rem;
-  }
-}
-
-/* ==========================================================================
-   Animações e transições
-   ========================================================================== */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease;
 }

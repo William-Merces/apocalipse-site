@@ -1,209 +1,255 @@
-// unified-page.js - Script específico para a página unificada
+/**
+ * unified-page.js
+ * Script responsável pela funcionalidade da página unificada do curso
+ *
+ * Este arquivo gerencia:
+ * - Sistema de abas (tabs)
+ * - Seções expansíveis/colapsáveis
+ * - Funcionalidade de impressão
+ * - Rolagem suave entre seções
+ * - Animações de elementos ao rolar
+ */
 
+// Inicializa todas as funcionalidades quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
-  // Sistema de tabs
-  initTabs();
+    // Inicializa o sistema de abas
+    initTabs();
 
-  // Inicializar seções expansíveis
-  initCollapsibleSections();
+    // Configura as seções que podem ser expandidas/recolhidas
+    initCollapsibleSections();
 
-  // Configurar botão de impressão
-  initPrintButton();
+    // Configura o botão de impressão com tratamento especial
+    initPrintButton();
 
-  // Configurar navegação suave entre seções
-  initSmoothScroll();
+    // Configura rolagem suave para links internos
+    initSmoothScroll();
 
-  // Animar elementos quando eles entram na viewport
-  initScrollAnimations();
+    // Configura animações de elementos ao entrar na viewport
+    initScrollAnimations();
 });
 
 /**
-* Inicializa o sistema de tabs
-*/
+ * Inicializa o sistema de abas (tabs)
+ *
+ * Esta função:
+ * 1. Configura os eventos de clique nas abas
+ * 2. Gerencia a exibição do conteúdo das abas
+ * 3. Persiste a aba selecionada no localStorage
+ * 4. Restaura a última aba ativa ao carregar a página
+ */
 function initTabs() {
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const tabContents = document.querySelectorAll('.tab-content');
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-  if (!tabButtons.length) return;
+    if (!tabButtons.length) return;
 
-  tabButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          const tabId = this.getAttribute('data-tab');
+    // Configura os eventos de clique para cada botão de aba
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
 
-          // Remover classes ativas
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(content => content.classList.remove('active'));
+            // Remove classes ativas de todas as abas
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
 
-          // Adicionar classe ativa no botão e conteúdo correspondente
-          this.classList.add('active');
-          document.getElementById(tabId).classList.add('active');
+            // Ativa a aba selecionada e seu conteúdo
+            this.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
 
-          // Salvar a tab ativa no localStorage para persistência
-          localStorage.setItem('activeTab', tabId);
-      });
-  });
+            // Salva a seleção para persistência
+            localStorage.setItem('activeTab', tabId);
+        });
+    });
 
-  // Restaurar a última tab ativa
-  const lastActiveTab = localStorage.getItem('activeTab');
-  if (lastActiveTab) {
-      const lastActiveButton = document.querySelector(`.tab-button[data-tab="${lastActiveTab}"]`);
-      if (lastActiveButton) {
-          lastActiveButton.click();
-      }
-  }
+    // Restaura a última aba ativa
+    const lastActiveTab = localStorage.getItem('activeTab');
+    if (lastActiveTab) {
+        const lastActiveButton = document.querySelector(`.tab-button[data-tab="${lastActiveTab}"]`);
+        if (lastActiveButton) {
+            lastActiveButton.click();
+        }
+    }
 }
 
 /**
-* Inicializa as seções expansíveis
-*/
+ * Inicializa as seções expansíveis/colapsáveis
+ *
+ * Esta função:
+ * 1. Configura os eventos de clique nos cabeçalhos
+ * 2. Gerencia a animação de expansão/colapso
+ * 3. Atualiza os ícones de toggle
+ * 4. Controla as alturas das seções dinamicamente
+ */
 function initCollapsibleSections() {
-  const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
 
-  if (!collapsibleHeaders.length) return;
+    if (!collapsibleHeaders.length) return;
 
-  collapsibleHeaders.forEach(header => {
-      header.addEventListener('click', function() {
-          this.classList.toggle('expanded');
-          const content = this.nextElementSibling;
+    collapsibleHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+            const content = this.nextElementSibling;
 
-          if (content.classList.contains('expanded')) {
-              content.style.maxHeight = '0';
-              setTimeout(() => {
-                  content.classList.remove('expanded');
-              }, 10);
-          } else {
-              content.classList.add('expanded');
-              content.style.maxHeight = content.scrollHeight + 'px';
-              setTimeout(() => {
-                  content.style.maxHeight = '';
-              }, 500);
-          }
+            // Gerencia a animação de altura
+            if (content.classList.contains('expanded')) {
+                content.style.maxHeight = '0';
+                setTimeout(() => {
+                    content.classList.remove('expanded');
+                }, 10);
+            } else {
+                content.classList.add('expanded');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                setTimeout(() => {
+                    content.style.maxHeight = '';
+                }, 500);
+            }
 
-          // Atualizar o ícone de toggle
-          const toggleIcon = this.querySelector('.toggle-icon i');
-          if (toggleIcon) {
-              toggleIcon.classList.toggle('fa-chevron-down');
-              toggleIcon.classList.toggle('fa-chevron-up');
-          }
-      });
-  });
+            // Atualiza o ícone de toggle
+            const toggleIcon = this.querySelector('.toggle-icon i');
+            if (toggleIcon) {
+                toggleIcon.classList.toggle('fa-chevron-down');
+                toggleIcon.classList.toggle('fa-chevron-up');
+            }
+        });
+    });
 }
 
 /**
-* Inicializa o botão de impressão
-*/
+ * Inicializa a funcionalidade de impressão
+ *
+ * Esta função:
+ * 1. Configura o botão de impressão
+ * 2. Expande todas as seções antes de imprimir
+ * 3. Restaura o estado original após a impressão
+ * 4. Gerencia os ícones durante o processo
+ */
 function initPrintButton() {
-  const printBtn = document.querySelector('.print-btn');
-  if (!printBtn) return;
+    const printBtn = document.querySelector('.print-btn');
+    if (!printBtn) return;
 
-  printBtn.addEventListener('click', function() {
-      // Expandir todas as seções colapsadas antes de imprimir
-      const collapsibleContents = document.querySelectorAll('.collapsible-content:not(.expanded)');
-      const expandedSections = [];
+    printBtn.addEventListener('click', function() {
+        // Armazena as seções que precisam ser expandidas
+        const collapsibleContents = document.querySelectorAll('.collapsible-content:not(.expanded)');
+        const expandedSections = [];
 
-      // Expandir todas as seções para impressão
-      collapsibleContents.forEach(content => {
-          const header = content.previousElementSibling;
-          if (header && header.classList.contains('collapsible-header')) {
-              expandedSections.push({ header, content });
-              content.classList.add('expanded');
-              content.style.maxHeight = 'none';
+        // Expande todas as seções para impressão
+        collapsibleContents.forEach(content => {
+            const header = content.previousElementSibling;
+            if (header && header.classList.contains('collapsible-header')) {
+                expandedSections.push({ header, content });
+                content.classList.add('expanded');
+                content.style.maxHeight = 'none';
 
-              // Atualizar ícone
-              const toggleIcon = header.querySelector('.toggle-icon i');
-              if (toggleIcon) {
-                  toggleIcon.classList.remove('fa-chevron-down');
-                  toggleIcon.classList.add('fa-chevron-up');
-              }
-          }
-      });
+                // Atualiza o ícone para expandido
+                const toggleIcon = header.querySelector('.toggle-icon i');
+                if (toggleIcon) {
+                    toggleIcon.classList.remove('fa-chevron-down');
+                    toggleIcon.classList.add('fa-chevron-up');
+                }
+            }
+        });
 
-      // Imprimir
-      window.print();
+        // Aciona a impressão
+        window.print();
 
-      // Restaurar estado anterior após a impressão
-      setTimeout(() => {
-          expandedSections.forEach(section => {
-              section.content.classList.remove('expanded');
+        // Restaura o estado original após a impressão
+        setTimeout(() => {
+            expandedSections.forEach(section => {
+                section.content.classList.remove('expanded');
 
-              // Restaurar ícone
-              const toggleIcon = section.header.querySelector('.toggle-icon i');
-              if (toggleIcon) {
-                  toggleIcon.classList.add('fa-chevron-down');
-                  toggleIcon.classList.remove('fa-chevron-up');
-              }
-          });
-      }, 1000);
-  });
+                // Restaura o ícone para colapsado
+                const toggleIcon = section.header.querySelector('.toggle-icon i');
+                if (toggleIcon) {
+                    toggleIcon.classList.add('fa-chevron-down');
+                    toggleIcon.classList.remove('fa-chevron-up');
+                }
+            });
+        }, 1000);
+    });
 }
 
 /**
-* Inicializa o scroll suave para links de âncora
-*/
+ * Inicializa a rolagem suave para links internos
+ *
+ * Esta função:
+ * 1. Configura links que apontam para elementos na mesma página
+ * 2. Calcula offset considerando menus fixos
+ * 3. Realiza rolagem suave até o elemento
+ * 4. Atualiza a URL sem recarregar a página
+ */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-              e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
 
-              // Calcular offset considerando menus fixos
-              let offset = 80; // Ajustar conforme altura dos menus fixos
-              const secondaryNav = document.getElementById('secondary-nav');
-              if (secondaryNav && window.getComputedStyle(secondaryNav).display !== 'none') {
-                  offset += secondaryNav.offsetHeight;
-              }
+                // Calcula o offset total considerando menus fixos
+                let offset = 80; // Altura base para menus fixos
+                const secondaryNav = document.getElementById('secondary-nav');
+                if (secondaryNav && window.getComputedStyle(secondaryNav).display !== 'none') {
+                    offset += secondaryNav.offsetHeight;
+                }
 
-              window.scrollTo({
-                  top: targetElement.offsetTop - offset,
-                  behavior: 'smooth'
-              });
+                // Realiza a rolagem suave
+                window.scrollTo({
+                    top: targetElement.offsetTop - offset,
+                    behavior: 'smooth'
+                });
 
-              // Atualizar URL sem recarregar a página
-              history.pushState(null, null, targetId);
-          }
-      });
-  });
+                // Atualiza a URL mantendo o histórico
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
 }
 
 /**
-* Inicializa animações ao scroll
-*/
+ * Inicializa animações de elementos ao rolar
+ *
+ * Esta função:
+ * 1. Identifica elementos que devem ser animados
+ * 2. Configura estado inicial dos elementos
+ * 3. Monitora a posição de rolagem
+ * 4. Anima elementos quando entram na viewport
+ */
 function initScrollAnimations() {
-  // Elementos que serão animados
-  const animatedElements = document.querySelectorAll(
-      '.feature-card, .highlight-box, .lesson-card, .timeline-item, .info-box'
-  );
+    // Seleciona elementos que receberão animação
+    const animatedElements = document.querySelectorAll(
+        '.feature-card, .highlight-box, .lesson-card, .timeline-item, .info-box'
+    );
 
-  if (!animatedElements.length) return;
+    if (!animatedElements.length) return;
 
-  // Adicionar classe inicial
-  animatedElements.forEach(element => {
-      element.classList.add('animate-on-scroll');
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(20px)';
-      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  });
+    // Configura estado inicial dos elementos
+    animatedElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
 
-  // Função que verifica se o elemento está visível
-  function checkIfInView() {
-      animatedElements.forEach(element => {
-          if (isElementInViewport(element) && element.style.opacity === '0') {
-              setTimeout(() => {
-                  element.style.opacity = '1';
-                  element.style.transform = 'translateY(0)';
-              }, 100);
-          }
-      });
-  }
+    // Função que verifica e anima elementos visíveis
+    function checkIfInView() {
+        animatedElements.forEach(element => {
+            if (isElementInViewport(element) && element.style.opacity === '0') {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+    }
 
-  // Verificar inicialmente e adicionar listener para scroll
-  checkIfInView();
-  window.addEventListener('scroll', checkIfInView);
-  window.addEventListener('resize', checkIfInView);
+    // Monitora eventos de rolagem
+    window.addEventListener('scroll', checkIfInView);
+    window.addEventListener('resize', checkIfInView);
+
+    // Verifica elementos visíveis no carregamento inicial
+    checkIfInView();
 }
 
 /**

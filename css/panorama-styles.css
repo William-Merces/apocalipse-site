@@ -1,10 +1,27 @@
-/* Estilos específicos para a página de panorama */
+/**
+ * Arquivo: panorama-styles.css
+ * Descrição: Estilos específicos para a página de panorama do Apocalipse
+ *
+ * Este arquivo contém estilos para:
+ * - Linha do tempo e marcadores
+ * - Tabelas comparativas
+ * - Mapas conceituais
+ * - Destaques de escrituras
+ * - Elementos de reflexão
+ * - Elementos decorativos
+ */
+
+/* ==========================================================================
+   1. Seção da Linha do Tempo
+   Implementa uma visualização cronológica com marcadores
+   ========================================================================== */
 .timeline-section {
   position: relative;
   padding-left: 3rem;
   margin-bottom: 2rem;
 }
 
+/* Linha vertical contínua */
 .timeline-section::before {
   content: "";
   position: absolute;
@@ -16,6 +33,7 @@
   opacity: 0.3;
 }
 
+/* Marcador circular na linha do tempo */
 .timeline-marker {
   position: absolute;
   left: 0;
@@ -27,11 +45,16 @@
   box-shadow: 0 0 0 4px rgba(5, 46, 111, 0.2);
 }
 
+/* ==========================================================================
+   2. Tabelas Comparativas
+   Estilização para tabelas de comparação de conceitos
+   ========================================================================== */
 .comparison-table {
   width: 100%;
   margin: 2rem 0;
 }
 
+/* Cabeçalho da tabela */
 .comparison-table th {
   text-align: center;
   background-color: var(--primary-color);
@@ -40,11 +63,16 @@
   font-size: 1.1rem;
 }
 
+/* Células da tabela */
 .comparison-table td {
   padding: 0.75rem 1rem;
   border: 1px solid var(--mid-bg);
 }
 
+/* ==========================================================================
+   3. Container de Mapas Conceituais
+   Área para exibição de mapas e diagramas
+   ========================================================================== */
 .map-container {
   background-color: var(--light-bg);
   border-radius: var(--border-radius);
@@ -54,11 +82,13 @@
   text-align: center;
 }
 
+/* Título do mapa conceitual */
 .map-container h4 {
   margin-top: 0;
   color: var(--primary-color);
 }
 
+/* Caixas de conceitos individuais */
 .concept-box {
   display: inline-block;
   background-color: var(--primary-light);
@@ -71,10 +101,15 @@
   transition: transform 0.3s ease;
 }
 
+/* Efeito hover nas caixas de conceito */
 .concept-box:hover {
   transform: translateY(-3px);
 }
 
+/* ==========================================================================
+   4. Destaques de Escrituras
+   Estilização para citações bíblicas e textos importantes
+   ========================================================================== */
 .scripture-highlight {
   font-size: 1.25rem;
   font-style: italic;
@@ -84,6 +119,10 @@
   margin: 1.5rem 0;
 }
 
+/* ==========================================================================
+   5. Elementos de Reflexão
+   Componentes para promover reflexão e aplicação pessoal
+   ========================================================================== */
 .reflection-prompt {
   background-color: rgba(201, 162, 39, 0.15);
   border-radius: var(--border-radius);
@@ -92,17 +131,23 @@
   font-style: italic;
 }
 
+/* Rótulo "Reflexão:" antes do conteúdo */
 .reflection-prompt::before {
   content: "Reflexão: ";
   font-weight: bold;
   color: var(--accent-color);
 }
 
+/* ==========================================================================
+   6. Elementos Decorativos
+   Elementos visuais para melhorar a estética
+   ========================================================================== */
 .infinity-bg {
   position: relative;
   overflow: hidden;
 }
 
+/* Símbolo do infinito como elemento decorativo */
 .infinity-bg::before {
   content: "∞";
   position: absolute;

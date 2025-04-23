@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Área Administrativa</title>
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/dimension-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Container principal do login -->
+  <div class="login-container">
+    <!-- Formulário de login -->
+    <form id="login-form" class="login-form">
+      <h2>Login Administrativo</h2>
+
+      <!-- Campo de usuário -->
+      <div class="form-group">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <!-- Campo de senha -->
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <!-- Botão de submissão -->
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <!-- Scripts JavaScript -->
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

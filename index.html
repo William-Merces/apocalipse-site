@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+    <!-- Configurações básicas do documento -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apocalipse: As Visões dos Últimos Dias</title>
+
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/index-styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Carrega primeiro a configuração de aulas -->
+
+    <!-- Scripts JavaScript - Ordem de carregamento importante -->
+    <!-- 1. Configuração das aulas - deve ser carregado primeiro -->
     <script src="js/aulas-config.js"></script>
-    <!-- Em seguida o script de navegação -->
+    <!-- 2. Script de navegação - carregado após a configuração -->
     <script src="js/navigation.js" defer></script>
-    <!-- Por último o script principal -->
+    <!-- 3. Script principal - carregado por último -->
     <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <!-- Componente de navegação -->
+    <!-- Componente de navegação - carregado dinamicamente via JavaScript -->
     <div id="navigation-container"></div>
     <main>
         <!-- SEÇÃO 1: ABERTURA & VISÃO GERAL DO CURSO -->
-        <!-- Seção Hero -->
-        <section class="hero">
+        <!-- Seção Hero (reduzida em tamanho) -->
+        <section class="hero hero--compact">
             <div class="hero__content">
                 <h1 class="hero__title">Revelações Divinas para Nosso Tempo</h1>
                 <p class="hero__description">
                     Uma jornada transformadora através das visões proféticas de João, revelando a majestade
                     de Cristo e seu plano para os últimos dias.
                 </p>
-                <div class="action-buttons">
-                    <a href="aulas/aula1.html" class="action-button">
-                        <i class="action-button__icon fas fa-book-open"></i>Iniciar Aula 1
-                    </a>
-                    <a href="#about-course" class="action-button">
-                        <i class="action-button__icon fas fa-info-circle"></i>Saiba Mais
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -78,7 +76,7 @@
             <div class="container">
                 <h2 class="section-title">CONVITE À TRANSFORMAÇÃO</h2>
 
-                <div class="quote-box">
+                <div class="quote">
                     "Bem-aventurado aquele que lê, e os que ouvem as palavras desta profecia, e guardam as
                     coisas que nela estão escritas; porque o tempo está próximo." (Apocalipse 1:3)
                 </div>
@@ -111,7 +109,7 @@
                     </li>
                 </ul>
 
-                <div class="quote-box">
+                <div class="quote">
                     "E agora, depois dos muitos testemunhos que se prestaram dele, este é o testemunho,
                     último de todos, que nós damos dele: Que ele vive!" (D&C 76:22)
                 </div>
@@ -125,10 +123,7 @@
                 <div class="callout-card">
                     <h3 class="callout-card__title">PRONTO PARA COMEÇAR SUA JORNADA?</h3>
                     <div class="action-buttons">
-                        <a href="aulas/aula1.html" class="action-button">
-                            <i class="action-button__icon fas fa-book-open"></i>Iniciar Aula 1
-                        </a>
-                        <a href="#" class="action-button">
+                        <a href="#" class="action-button action-button--accent">
                             <i class="action-button__icon fas fa-mobile-alt"></i>Baixar App VISIONS
                         </a>
                     </div>
@@ -149,8 +144,8 @@
                     milenares, mas de participar ativamente delas.
                 </p>
 
-                <div class="callout-card">
-                    <h3 class="callout-card__title">
+                <div class="highlight-banner">
+                    <h3>
                         Esta não é uma fantasia distante — é a realidade única que você vive como membro
                         da Igreja nos últimos dias!
                     </h3>
@@ -161,12 +156,11 @@
                     revelação divina:
                 </p>
 
-                <div class="revelations-grid">
+                <div class="revelations-grid revelations-grid--expanded">
                     <div class="revelation-item">
                         <i class="revelation-item__icon fas fa-eye"></i>
                         <h3 class="revelation-item__title">Acesso a Múltiplas Visões</h3>
-                        <button class="revelation-item__expand">Ver detalhes</button>
-                        <div class="revelation-item__details">
+                        <div class="revelation-item__details active">
                             <p>
                                 Temos acesso não a uma, mas a múltiplas visões dos últimos dias. Néfi viu a
                                 mesma visão que João, mas registrou partes diferentes. Isaías, Daniel, Ezequiel,
@@ -179,8 +173,7 @@
                     <div class="revelation-item">
                         <i class="revelation-item__icon fas fa-question-circle"></i>
                         <h3 class="revelation-item__title">Perguntas e Respostas Diretas</h3>
-                        <button class="revelation-item__expand">Ver detalhes</button>
-                        <div class="revelation-item__details">
+                        <div class="revelation-item__details active">
                             <p>
                                 Possuímos o privilégio único de perguntas e respostas diretas sobre o
                                 Apocalipse. Em Doutrina e Convênios 77, temos literalmente uma entrevista com
@@ -193,8 +186,7 @@
                     <div class="revelation-item">
                         <i class="revelation-item__icon fas fa-history"></i>
                         <h3 class="revelation-item__title">Testemunhas do Cumprimento</h3>
-                        <button class="revelation-item__expand">Ver detalhes</button>
-                        <div class="revelation-item__details">
+                        <div class="revelation-item__details active">
                             <p>
                                 Testemunhamos o cumprimento atual de profecias que o resto do mundo cristão
                                 ainda espera. Enquanto muitos aguardam os eventos dos últimos dias, nós
@@ -207,8 +199,7 @@
                     <div class="revelation-item">
                         <i class="revelation-item__icon fas fa-microphone-alt"></i>
                         <h3 class="revelation-item__title">Profetas Vivos e Atuais</h3>
-                        <button class="revelation-item__expand">Ver detalhes</button>
-                        <div class="revelation-item__details">
+                        <div class="revelation-item__details active">
                             <p>
                                 Temos profetas vivos que continuam a revelar e esclarecer eventos apocalípticos.
                                 Quando surgem dúvidas sobre interpretações obscuras, não precisamos depender
@@ -219,8 +210,8 @@
                     </div>
                 </div>
 
-                <div class="callout-card">
-                    <h3 class="callout-card__title">
+                <div class="highlight-banner">
+                    <h3>
                         Você não está simplesmente estudando o Apocalipse — você está VIVENDO o
                         Apocalipse!
                     </h3>
@@ -298,7 +289,7 @@
                     ensinou:
                 </p>
 
-                <div class="quote-box">
+                <div class="quote">
                     "Todos os profetas que escreveram desde os dias do justo Abel até o último homem que
                     deixou qualquer testemunho registrado... falaram mais ou menos claramente sobre a
                     dispensação dos últimos dias e <strong>ansiaram pelo dia em que viveriam</strong>."
@@ -341,37 +332,62 @@
                     provocar uma transformação espiritual profunda:
                 </p>
 
-                <ul class="objectives-list">
-                    <li>
-                        <strong>Revelar Jesus Cristo em Sua Majestade Total</strong> — Descobrir e adorar
-                        o Salvador em todos os Seus papéis divinos: o Jeová do Velho Testamento, o
-                        Redentor Compassivo, o Juiz Justo e o Rei Glorioso que em breve retornará.
-                    </li>
+                <div class="objectives-cards">
+                    <div class="objective-card">
+                        <div class="objective-card__icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="objective-card__title">Revelar Jesus Cristo em Sua Majestade Total</h3>
+                        <p class="objective-card__description">
+                            Descobrir e adorar o Salvador em todos os Seus papéis divinos: o Jeová do Velho Testamento,
+                            o Redentor Compassivo, o Juiz Justo e o Rei Glorioso que em breve retornará.
+                        </p>
+                    </div>
 
-                    <li>
-                        <strong>Descobrir Seu Propósito Divino e Pessoal</strong> — Compreender por que
-                        você especificamente foi reservado para estes dias particulares e qual missão
-                        única Deus preparou para você no drama culminante da história da Terra.
-                    </li>
+                    <div class="objective-card">
+                        <div class="objective-card__icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3 class="objective-card__title">Descobrir Seu Propósito Divino e Pessoal</h3>
+                        <p class="objective-card__description">
+                            Compreender por que você especificamente foi reservado para estes dias particulares
+                            e qual missão única Deus preparou para você no drama culminante da história da Terra.
+                        </p>
+                    </div>
 
-                    <li>
-                        <strong>Construir Seu Mapa Pessoal do Plano Divino</strong> — Visualizar como as
-                        revelações de todas as dispensações se unem para formar um panorama coerente e
-                        completo do plano eterno, permitindo que você localize sua posição exata nele.
-                    </li>
+                    <div class="objective-card">
+                        <div class="objective-card__icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="objective-card__title">Construir Seu Mapa Pessoal do Plano Divino</h3>
+                        <p class="objective-card__description">
+                            Visualizar como as revelações de todas as dispensações se unem para formar um
+                            panorama coerente e completo do plano eterno, permitindo que você localize sua posição exata nele.
+                        </p>
+                    </div>
 
-                    <li>
-                        <strong>Desenvolver Discernimento Espiritual para Nossos Tempos</strong> —
-                        Adquirir as ferramentas para interpretar os sinais dos tempos com sabedoria e
-                        distinguir entre vozes confusas em uma era de desinformação.
-                    </li>
+                    <div class="objective-card">
+                        <div class="objective-card__icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="objective-card__title">Desenvolver Discernimento Espiritual</h3>
+                        <p class="objective-card__description">
+                            Adquirir as ferramentas para interpretar os sinais dos tempos com sabedoria
+                            e distinguir entre vozes confusas em uma era de desinformação.
+                        </p>
+                    </div>
 
-                    <li>
-                        <strong>Cultivar Esperança Inabalável em Tempos Turbulentos</strong> — Encontrar
-                        paz, propósito e alegria mesmo diante de profecias que podem parecer
-                        perturbadoras, reconhecendo o triunfo final de Deus.
-                    </li>
-                </ul>
+                    <div class="objective-card">
+                        <div class="objective-card__icon">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h3 class="objective-card__title">Cultivar Esperança Inabalável</h3>
+                        <p class="objective-card__description">
+                            Encontrar paz, propósito e alegria mesmo diante de profecias que podem parecer
+                            perturbadoras, reconhecendo o triunfo final de Deus.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -391,10 +407,7 @@
                         <div class="learning-block__number">1</div>
                         <h3 class="learning-block__title">As Visões de João</h3>
                         <div class="learning-block__duration">30 min</div>
-                        <button class="learning-block__expand">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <div class="learning-block__details">
+                        <div class="learning-block__details active">
                             <p>
                                 Estudaremos juntos os impressionantes símbolos e visões do Apocalipse,
                                 interpretando-os à luz da revelação moderna. Esta experiência será enriquecida
@@ -412,10 +425,7 @@
                         <div class="learning-block__number">2</div>
                         <h3 class="learning-block__title">O Plano por Trás da Visão</h3>
                         <div class="learning-block__duration">30 min</div>
-                        <button class="learning-block__expand">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <div class="learning-block__details">
+                        <div class="learning-block__details active">
                             <p>
                                 Você provavelmente já viu o tradicional "mapa do plano de salvação" — com
                                 círculos representando a vida pré-mortal, a mortalidade, o mundo espiritual e
@@ -424,64 +434,84 @@
                             <div class="plan-of-salvation-diagram">
                                 <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
                                     <!-- Vida Pré-Mortal -->
-                                    <circle cx="100" cy="150" r="40" fill="#d0e8ff" stroke="#0066cc" stroke-width="2"/>
-                                    <text x="100" y="140" text-anchor="middle" font-size="10" fill="#000">Vida Pré-Mortal</text>
+                                    <circle cx="100" cy="150" r="40" fill="#d0e8ff" stroke="#0066cc" stroke-width="2" />
+                                    <text x="100" y="140" text-anchor="middle" font-size="10" fill="#000">Vida
+                                        Pré-Mortal</text>
                                     <text x="100" y="160" text-anchor="middle" font-size="8" fill="#000">0 Véu</text>
 
                                     <!-- Círculo Nuvenzinhas -->
-                                    <path d="M85 110 C 85 105, 95 105, 95 110 C 100 110, 100 120, 95 120 C 95 125, 85 125, 85 120 C 80 120, 80 110, 85 110" fill="#89CFF0" stroke="#0066cc" stroke-width="1"/>
+                                    <path
+                                        d="M85 110 C 85 105, 95 105, 95 110 C 100 110, 100 120, 95 120 C 95 125, 85 125, 85 120 C 80 120, 80 110, 85 110"
+                                        fill="#89CFF0" stroke="#0066cc" stroke-width="1" />
 
                                     <!-- Seta -->
-                                    <path d="M150 150 L190 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                    <path d="M150 150 L190 150" stroke="#333" stroke-width="2" fill="none"
+                                        marker-end="url(#arrowhead)" />
 
                                     <!-- Terra (Mortalidade) -->
-                                    <circle cx="240" cy="150" r="40" fill="#90EE90" stroke="#006400" stroke-width="2"/>
-                                    <text x="240" y="140" text-anchor="middle" font-size="10" fill="#000">Vida Mortal</text>
+                                    <circle cx="240" cy="150" r="40" fill="#90EE90" stroke="#006400" stroke-width="2" />
+                                    <text x="240" y="140" text-anchor="middle" font-size="10" fill="#000">Vida
+                                        Mortal</text>
                                     <text x="240" y="160" text-anchor="middle" font-size="9" fill="#000">Terra</text>
 
                                     <!-- Seta com Morte label -->
                                     <g transform="translate(290, 120)">
-                                        <path d="M0 0 L0 60 M0 60 Q10 60 10 70 L10 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                        <path d="M0 0 L0 60 M0 60 Q10 60 10 70 L10 90" stroke="#333" stroke-width="2"
+                                            fill="none" marker-end="url(#arrowhead)" />
                                         <text x="-5" y="50" font-size="8" fill="#000">Morte</text>
                                     </g>
 
                                     <!-- Mundo Espiritual -->
-                                    <rect x="340" y="65" width="80" height="170" rx="10" fill="#f0f0f0" stroke="#666" stroke-width="2"/>
-                                    <text x="380" y="145" text-anchor="middle" font-size="10" fill="#000">Mundo Espiritual</text>
+                                    <rect x="340" y="65" width="80" height="170" rx="10" fill="#f0f0f0" stroke="#666"
+                                        stroke-width="2" />
+                                    <text x="380" y="145" text-anchor="middle" font-size="10" fill="#000">Mundo
+                                        Espiritual</text>
 
                                     <!-- Divisão no Mundo Espiritual -->
-                                    <rect x="345" y="70" width="70" height="75" rx="5" fill="#fff9d0" stroke="#ccc" stroke-width="1"/>
+                                    <rect x="345" y="70" width="70" height="75" rx="5" fill="#fff9d0" stroke="#ccc"
+                                        stroke-width="1" />
                                     <text x="380" y="85" text-anchor="middle" font-size="9" fill="#000">Paraíso</text>
-                                    <rect x="345" y="155" width="70" height="75" rx="5" fill="#ffd4d4" stroke="#ccc" stroke-width="1"/>
+                                    <rect x="345" y="155" width="70" height="75" rx="5" fill="#ffd4d4" stroke="#ccc"
+                                        stroke-width="1" />
                                     <text x="380" y="170" text-anchor="middle" font-size="9" fill="#000">Prisão</text>
 
                                     <!-- Seta para Ressurreição -->
-                                    <path d="M425 150 L465 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                    <path d="M425 150 L465 150" stroke="#333" stroke-width="2" fill="none"
+                                        marker-end="url(#arrowhead)" />
                                     <text x="445" y="140" font-size="8" fill="#000">Ressurreição</text>
 
                                     <!-- Julgamento -->
-                                    <rect x="470" y="130" width="40" height="40" fill="#e6ccff" stroke="#9932CC" stroke-width="2"/>
-                                    <text x="490" y="155" text-anchor="middle" font-size="9" fill="#000">Julgamento</text>
+                                    <rect x="470" y="130" width="40" height="40" fill="#e6ccff" stroke="#9932CC"
+                                        stroke-width="2" />
+                                    <text x="490" y="155" text-anchor="middle" font-size="9"
+                                        fill="#000">Julgamento</text>
 
                                     <!-- Setas para os Reinos -->
-                                    <path d="M510 140 L530 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-                                    <path d="M510 150 L530 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-                                    <path d="M510 160 L530 210" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                    <path d="M510 140 L530 90" stroke="#333" stroke-width="2" fill="none"
+                                        marker-end="url(#arrowhead)" />
+                                    <path d="M510 150 L530 150" stroke="#333" stroke-width="2" fill="none"
+                                        marker-end="url(#arrowhead)" />
+                                    <path d="M510 160 L530 210" stroke="#333" stroke-width="2" fill="none"
+                                        marker-end="url(#arrowhead)" />
 
                                     <!-- Reinos de Glória -->
-                                    <circle cx="560" cy="85" r="25" fill="#fff9d0" stroke="#ffcc00" stroke-width="2"/>
-                                    <text x="560" y="90" text-anchor="middle" font-size="9" fill="#000">Reino Celestial</text>
+                                    <circle cx="560" cy="85" r="25" fill="#fff9d0" stroke="#ffcc00" stroke-width="2" />
+                                    <text x="560" y="90" text-anchor="middle" font-size="9" fill="#000">Reino
+                                        Celestial</text>
 
-                                    <circle cx="560" cy="150" r="25" fill="#bde0ff" stroke="#0066cc" stroke-width="2"/>
-                                    <text x="560" y="155" text-anchor="middle" font-size="9" fill="#000">Reino Terrestrial</text>
+                                    <circle cx="560" cy="150" r="25" fill="#bde0ff" stroke="#0066cc" stroke-width="2" />
+                                    <text x="560" y="155" text-anchor="middle" font-size="9" fill="#000">Reino
+                                        Terrestrial</text>
 
-                                    <circle cx="560" cy="215" r="25" fill="#c8b6e2" stroke="#9370DB" stroke-width="2"/>
-                                    <text x="560" y="220" text-anchor="middle" font-size="9" fill="#000">Reino Telestial</text>
+                                    <circle cx="560" cy="215" r="25" fill="#c8b6e2" stroke="#9370DB" stroke-width="2" />
+                                    <text x="560" y="220" text-anchor="middle" font-size="9" fill="#000">Reino
+                                        Telestial</text>
 
                                     <!-- Marcação de seta -->
                                     <defs>
-                                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                                            <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+                                            orient="auto">
+                                            <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
                                         </marker>
                                     </defs>
                                 </svg>
@@ -502,10 +532,7 @@
                         <div class="learning-block__number">3</div>
                         <h3 class="learning-block__title">Conexões Proféticas</h3>
                         <div class="learning-block__duration">30 min</div>
-                        <button class="learning-block__expand">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <div class="learning-block__details">
+                        <div class="learning-block__details active">
                             <p>
                                 "Convidaremos" dois profetas de diferentes dispensações para cada aula,
                                 mostrando como suas visões complementam, expandem e esclarecem as revelações
@@ -524,755 +551,823 @@
             <div class="container">
                 <h2 class="section-title">A EXPERIÊNCIA VISIONS</h2>
 
-                <div class="callout-card">
-                    <h3 class="callout-card__title">APLICATIVO VISIONS</h3>
-                    <p>Transforme seu estudo do Apocalipse em uma experiência imersiva e interativa</p>
-                </div>
-
-                <p>
-                    O aplicativo VISIONS foi desenvolvido como complemento essencial para este curso,
-                    oferecendo duas experiências principais que enriquecem significativamente seu estudo
-                    do Apocalipse:
-                </p>
-
-                <div class="app-features">
-                    <div class="app-feature">
-                        <i class="app-feature__icon fas fa-vr-cardboard"></i>
-                        <h4 class="app-feature__title">Vivência Imersiva das Visões</h4>
-                        <p>
-                            Através de narrativas envolventes e imagens impactantes, o aplicativo permite
-                            que você experimente as visões de João de forma sensorial e emocional. Esta
-                            abordagem imersiva ajuda você a "ver o que João viu", transformando descrições
-                            textuais complexas em experiências vívidas.
+                <div class="visions-experience">
+                    <div class="visions-experience__header">
+                        <div class="visions-experience__icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="visions-experience__title" style="color: white;">APLICATIVO VISIONS</h3>
+                        <p class="visions-experience__subtitle">
+                            Transforme seu estudo do Apocalipse em uma experiência imersiva e interativa
                         </p>
                     </div>
 
-                    <div class="app-feature">
-                        <i class="app-feature__icon fas fa-puzzle-piece"></i>
-                        <h4 class="app-feature__title">Atlas Interativo de Símbolos</h4>
-                        <p>
-                            Após vivenciar cada visão, o aplicativo oferece um recurso interativo onde você
-                            pode explorar os símbolos apocalípticos em detalhes. Ao clicar em cada elemento
-                            visual, você recebe explicações sobre seus significados históricos, culturais e
-                            espirituais.
-                        </p>
-                    </div>
-                </div>
+                    <div class="visions-experience__content">
+                        <div class="app-features">
+                            <div class="app-feature">
+                                <i class="app-feature__icon fas fa-vr-cardboard"></i>
+                                <h4 class="app-feature__title">Vivência Imersiva das Visões</h4>
+                                <p>
+                                    Através de narrativas envolventes e imagens impactantes, o aplicativo permite
+                                    que você experimente as visões de João de forma sensorial e emocional. Esta
+                                    abordagem imersiva ajuda você a "ver o que João viu", transformando descrições
+                                    textuais complexas em experiências vívidas.
+                                </p>
+                            </div>
 
-                <div class="card card--info">
-                    <h3 class="card__title"><i class="fas fa-lightbulb"></i> RECOMENDAÇÃO</h3>
-                    <p>
-                        Recomendamos explorar o aplicativo VISIONS por 20-30 minutos antes de cada aula
-                        para maximizar sua experiência de aprendizado e preparar-se para discussões mais
-                        profundas durante os encontros.
-                    </p>
+                            <div class="app-feature">
+                                <i class="app-feature__icon fas fa-puzzle-piece"></i>
+                                <h4 class="app-feature__title">Atlas Interativo de Símbolos</h4>
+                                <p>
+                                    Após vivenciar cada visão, o aplicativo oferece um recurso interativo onde você
+                                    pode explorar os símbolos apocalípticos em detalhes. Ao clicar em cada elemento
+                                    visual, você recebe explicações sobre seus significados históricos, culturais e
+                                    espirituais.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="visions-experience__download">
+                            <a href="#" class="action-button action-button--accent">
+                                <i class="action-button__icon fas fa-download"></i>Baixar App VISIONS
+                            </a>
+                            <p class="visions-experience__note">
+                                Recomendamos explorar o aplicativo VISIONS por 20-30 minutos antes de cada aula
+                                para maximizar sua experiência de aprendizado.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- SEÇÃO 4: ESTRUTURA COMPLETA DO CURSO -->
         <section class="section">
-          <div class="container">
-              <h2 class="section-title">ESTRUTURA COMPLETA DO CURSO</h2>
-
-              <!-- CICLO I: FUNDAÇÃO — VISÕES DO CONSELHO CELESTIAL -->
-              <div class="course-cycle">
-                  <h3 class="cycle-title">CICLO I: FUNDAÇÃO — VISÕES DO CONSELHO CELESTIAL</h3>
-
-                  <div class="lesson-accordion">
-                      <!-- Aula 1 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 1</span>
-                              <span class="lesson-title">O Chamado do Vidente</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> O Cristo Glorificado e as Sete Igrejas (Apocalipse 1-3)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> Inteligências Eternas e a Escolha Pré-mortal</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Abraão (Abraão 3) e Joseph Smith (D&C 138)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 2 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 2</span>
-                              <span class="lesson-title">A Corte Celestial</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> O Trono, os 24 Anciãos e Quatro Seres (Apocalipse 4)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> O Grande Conselho nos Céus e o Conflito</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Isaías (Isaías 6) e Moisés (Moisés 1)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 3 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 3</span>
-                              <span class="lesson-title">Prelúdio do Juízo</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> O Livro Selado e os Quatro Cavaleiros (Apocalipse 5-6)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Criação dos Mundos e o Propósito da Mortalidade</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Enoque (Moisés 7) e Ezequiel (Ezequiel 1)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 4 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 4</span>
-                              <span class="lesson-title">O Clamor dos Justos</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> Os Três Selos Finais e o Clamor dos Mártires (Apocalipse 6:9-17)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Queda, o Livre-Arbítrio e a Necessidade da Oposição</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Leí (2 Néfi 2) e Zacarias (Zacarias 1-6)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 5 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 5</span>
-                              <span class="lesson-title">Os Selados do Senhor</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> Os 144.000 Selados e a Multidão em Branco (Apocalipse 7)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> O Estabelecimento de Convênios e o Poder Selador</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Jacó (Jacó 5-6) e Joseph Smith (D&C 77:8-11)</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- CICLO II: CONFLITO — A BATALHA MULTIDIMENSIONAL -->
-              <div class="course-cycle">
-                  <h3 class="cycle-title">CICLO II: CONFLITO — A BATALHA MULTIDIMENSIONAL</h3>
-
-                  <div class="lesson-accordion">
-                      <!-- Aula 6 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 6</span>
-                              <span class="lesson-title">Advertências Cósmicas</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> As Quatro Primeiras Trombetas e Calamidades Naturais (Apocalipse 8)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Expiação Infinita e o Sofrimento Divino</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Alma (Alma 36) e Joel (Joel 2-3)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 7 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 7</span>
-                              <span class="lesson-title">Invasões Demoníacas</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> A Quinta e Sexta Trombetas (Apocalipse 9)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> Os Espíritos em Prisão e as Forças Adversárias</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Joseph Smith (D&C 138) e Isaías (Isaías 24-27)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 8 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 8</span>
-                              <span class="lesson-title">A Missão Final</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> O Livrinho e as Duas Testemunhas (Apocalipse 10-11)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Restauração do Evangelho e a Obra Missionária Final</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Morôni (Morôni 7-10) e Paulo (1 Coríntios 15)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 9 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 9</span>
-                              <span class="lesson-title">Guerra nas Múltiplas Esferas</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> A Mulher, o Dragão e a Guerra Celestial Continuada (Apocalipse 12)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> O Padrão de Oposição nas Múltiplas Esferas de Existência</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Mórmon (Mórmon 8) e Daniel (Daniel 7:9-14)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 10 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 10</span>
-                              <span class="lesson-title">O Reino vs. Babilônia</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> As Duas Bestas e Babilônia (Apocalipse 13-14)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> Os Sistemas do Mundo vs. o Reino de Deus</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Néfi (1 Néfi 13-14) e Daniel (Daniel 2)</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- CICLO III: CONSUMAÇÃO — O TRIUNFO FINAL E A GLÓRIA ETERNA -->
-              <div class="course-cycle">
-                  <h3 class="cycle-title">CICLO III: CONSUMAÇÃO — O TRIUNFO FINAL E A GLÓRIA ETERNA</h3>
-
-                  <div class="lesson-accordion">
-                      <!-- Aula 11 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 11</span>
-                              <span class="lesson-title">A Ira Divina Derramada</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> As Sete Taças da Ira e o Armagedom (Apocalipse 15-16)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Segunda Vinda em Glória e a Destruição dos Ímpios</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Mateus (Mateus 24) e Jeremias (Jeremias 25)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 12 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 12</span>
-                              <span class="lesson-title">A Queda de Babilônia</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> O Julgamento da Grande Meretriz (Apocalipse 17-18)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> O Fim dos Sistemas Mundanos e a Libertação dos Cativos</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Davi (Salmos 2, 110) e Joseph Smith (D&C 29)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 13 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 13</span>
-                              <span class="lesson-title">O Reino Milenar</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> A Segunda Vinda e o Milênio (Apocalipse 19-20)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Restauração de Todas as Coisas e o Governo Perfeito</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Isaías (Isaías 11) e Joseph Smith (D&C 88:87-116)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 14 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 14</span>
-                              <span class="lesson-title">A Nova Jerusalém</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> Novos Céus, Nova Terra e a Nova Jerusalém (Apocalipse 21:1-8)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Terra Celestializada e a Presença Plena de Deus</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Éter (Éter 13) e Joseph Smith (D&C 130)</p>
-                          </div>
-                      </div>
-
-                      <!-- Aula 15 -->
-                      <div class="lesson-item">
-                          <button class="lesson-header">
-                              <span class="lesson-number">Aula 15</span>
-                              <span class="lesson-title">A Cidade de Deus</span>
-                              <i class="fas fa-chevron-down"></i>
-                          </button>
-                          <div class="lesson-content">
-                              <p><strong>VISÕES DE JOÃO:</strong> A Geometria Sagrada e o Rio da Vida (Apocalipse 21:9-22:21)</p>
-                              <p><strong>PANORAMA ETERNO:</strong> A Comunhão Perfeita com Deus e a Vida Eterna</p>
-                              <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Ezequiel (Ezequiel 40-48) e Miquéias (Miquéias 4)</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <!-- SEÇÃO 5: INFORMAÇÕES PRÁTICAS -->
-      <section class="section">
-          <div class="container">
-              <h2 class="section-title">ASPECTOS PRÁTICOS DO CURSO</h2>
-
-              <div class="course-structure">
-                  <div class="card card--info">
-                      <h3 class="card__title"><i class="fas fa-university"></i> INFORMAÇÕES GERAIS</h3>
-                      <ul>
-                          <li>Ofertado pelo INSTITUTO OSASCO - SP e pelo INSTITUTO CONQUISTA - BA</li>
-                          <li>Os encontros ocorrem às quartas-feiras às 20:00h</li>
-                          <li>Duração: 90 minutos por encontro</li>
-                          <li>Vale 2 créditos eletivos para formatura no Instituto</li>
-                          <li>Recuperação de aulas através do material online</li>
-                      </ul>
-                  </div>
-
-                  <div class="card card--info">
-                      <h3 class="card__title"><i class="fas fa-user-plus"></i> QUEM PODE PARTICIPAR</h3>
-                      <p>Este curso é aberto a todos! Veja como você pode participar:</p>
-                      <ul>
-                          <li>
-                              <strong>Jovens adultos de 18 a 35 anos</strong> de qualquer Instituto podem
-                              receber os 2 créditos eletivos pelo curso, mesmo que não pertençam ao
-                              Instituto Osasco ou Conquista.
-                          </li>
-                          <li>
-                              <strong>Membros de outras faixas etárias</strong> são muito bem-vindos como
-                              convidados e poderão participar normalmente de todas as atividades.
-                          </li>
-                          <li>
-                              <strong>Não-membros interessados</strong> no estudo do Apocalipse também podem
-                              se juntar a nós nesta jornada!
-                          </li>
-                      </ul>
-                      <p>
-                          Quanto mais pessoas estudando juntas, mais rica será nossa experiência coletiva!
-                      </p>
-                  </div>
-
-                  <div class="card card--info">
-                      <h3 class="card__title"><i class="fas fa-user-plus"></i> COMO SE MATRICULAR</h3>
-                      <p>
-                          Para fazer sua matrícula, forneça seu nome completo, estaca e data de nascimento
-                          para um dos presidentes de classe:
-                      </p>
-                      <ul>
-                          <li><strong>Artemísia</strong> (Instituto Osasco)</li>
-                          <li><strong>André</strong> (Instituto Conquista)</li>
-                      </ul>
-                  </div>
-
-                  <div class="card card--info">
-                      <h3 class="card__title"><i class="fab fa-whatsapp"></i> GRUPO DE WHATSAPP</h3>
-                      <p>
-                          Participe do nosso grupo para receber avisos, materiais complementares e
-                          interagir com colegas de classe!
-                      </p>
-                      <a href="#" class="btn btn-primary">Link do Grupo</a>
-                      <p><small>(Em breve o link será disponibilizado)</small></p>
-                  </div>
-              </div>
-
-              <!-- Seção motivacional sobre a importância da formatura -->
-              <div class="card card--highlight">
-                  <h3 class="card__title"><i class="fas fa-graduation-cap"></i> A IMPORTÂNCIA DA FORMATURA NO INSTITUTO</h3>
-                  <p>
-                      Ao buscar sua formatura no Instituto, você está seguindo o conselho profético de fazer do Instituto uma prioridade em sua vida. Esta decisão traz bênçãos espirituais e temporais significativas:
-                  </p>
-                  <ul>
-                      <li>Fortalece seu testemunho e aprofunda seu conhecimento das escrituras</li>
-                      <li>Prepara você para servir melhor na Igreja e em seus relacionamentos</li>
-                      <li>Cria conexões valiosas com outros jovens adultos comprometidos com o evangelho</li>
-                      <li>Proporciona reconhecimento oficial de seu comprometimento com o estudo do evangelho</li>
-                  </ul>
-                  <div class="card__action">
-                      <button class="btn btn-primary" onclick="openModal('creditsModal')">
-                          <i class="fas fa-info-circle"></i> Saiba mais sobre os Créditos do Instituto
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <!-- SEÇÃO 6: INFORMAÇÕES FINAIS -->
-      <!-- Sobre o Professor -->
-      <section class="section">
-          <div class="container">
-              <h2 class="section-title">SOBRE O PROFESSOR</h2>
-
-              <div class="author-card">
-                  <div class="author-card__avatar">
-                      <svg width="180" height="180" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="50" cy="50" r="49" fill="#f0f0f0" stroke="#052e6f" stroke-width="2"/>
-                          <circle cx="50" cy="40" r="20" fill="#e9b44c"/>
-                          <path d="M50 60 C30 60, 20 80, 20 100 L80 100 C80 80, 70 60, 50 60Z" fill="#e9b44c"/>
-                          <text x="50" y="105" text-anchor="middle" font-size="14" fill="#052e6f">William</text>
-                      </svg>
-                  </div>
-
-                  <div class="author-card__info">
-                      <h3 class="author-card__name">William Mercês</h3>
-                      <p>
-                          Professor do Instituto de Religião, William combina sua habilidade técnica e
-                          experiência em programação, desenvolvimento web e engenharia de dados com sua
-                          paixão pelo estudo das escrituras e pelo ensino do evangelho.
-                      </p>
-
-                      <p>
-                          Ao longo de sua jornada como professor do Instituto, teve o privilégio de
-                          ministrar diversos cursos, incluindo: Preparação Missionária, Pérola de Grande
-                          Valor, Escritos de João, o Amado e O Evangelho e a Vida Produtiva
-                      </p>
-
-                      <p>
-                          Sua abordagem de ensino busca integrar rigor escriturístico com aplicações
-                          práticas para a vida contemporânea, tornando princípios eternos relevantes para
-                          os desafios atuais. Como professor, acredita que o Apocalipse não é apenas um
-                          livro para ser estudado, mas uma revelação viva que pode transformar nossa
-                          perspectiva sobre o mundo e nosso lugar nele.
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <!-- Contribua com o Projeto -->
-      <section class="section">
-          <div class="container">
-              <h2 class="section-title">CONTRIBUA COM O PROJETO</h2>
-
-              <div class="callout-card">
-                  <h3 class="callout-card__title">Este é um curso em desenvolvimento contínuo!</h3>
-                  <p>
-                      Sua contribuição é fundamental para aprimorarmos este material e torná-lo mais útil
-                      para todos os alunos. Estamos buscando talentos em diversas áreas:
-                  </p>
-
-                  <div class="collaborative-icons">
-                      <div class="collab-icon">
-                          <i class="collab-icon__icon fas fa-code"></i>
-                          <p class="collab-icon__label">Programadores</p>
-                      </div>
-
-                      <div class="collab-icon">
-                          <i class="collab-icon__icon fas fa-paint-brush"></i>
-                          <p class="collab-icon__label">Designers</p>
-                      </div>
-
-                      <div class="collab-icon">
-                          <i class="collab-icon__icon fas fa-microphone"></i>
-                          <p class="collab-icon__label">Dubladores</p>
-                      </div>
-
-                      <div class="collab-icon">
-                          <i class="collab-icon__icon fas fa-pen"></i>
-                          <p class="collab-icon__label">Redatores</p>
-                      </div>
-
-                      <div class="collab-icon">
-                          <i class="collab-icon__icon fas fa-music"></i>
-                          <p class="collab-icon__label">Músicos</p>
-                      </div>
-                  </div>
-
-                  <p>
-                      Se você sente que pode contribuir com suas habilidades ou tem ideias para melhorar o
-                      curso, por favor nos ajude!
-                  </p>
-
-                  <div class="card__action">
-                      <button class="btn btn-primary" onclick="openModal('feedbackModal')">
-                          <i class="fas fa-comment-dots"></i> Compartilhe suas Ideias e Feedback
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </section>
-  </main>
-
-  <footer>
-      <div class="container">
-          <div class="footer-content">
-              <div class="footer-info">
-                  <h3>Apocalipse: As Visões dos Últimos Dias</h3>
-                  <p>Um curso de estudo profundo sobre o livro de Apocalipse</p>
-              </div>
-              <div class="footer-links">
-                  <h4>Links Rápidos</h4>
-                  <ul>
-                      <li><a href="index.html">Início</a></li>
-                      <li><a href="aulas/aula1.html">Aula 1</a></li>
-                      <li><a href="aulas/aula2.html">Aula 2</a></li>
-                      <li><a href="recursos.html">Recursos</a></li>
-                  </ul>
-              </div>
-              <div class="footer-contact">
-                  <h4>Informações</h4>
-                  <p>
-                      Este material de apoio não é uma publicação oficial de A Igreja de Jesus Cristo dos
-                      Santos dos Últimos Dias
-                  </p>
-              </div>
-          </div>
-          <div class="footer-bottom">
-              <p>&copy; 2025 • Todos os direitos reservados</p>
-          </div>
-      </div>
-  </footer>
-
-  <button id="back-to-top" class="back-to-top">
-      <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Modal para Créditos do Instituto -->
-  <div id="creditsModal" class="modal">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h2>CRÉDITOS DO INSTITUTO</h2>
-              <button class="modal-close" onclick="closeModal('creditsModal')">&times;</button>
-          </div>
-          <div class="modal-body">
-              <p>
-                  Para se formar no Instituto de Religião, os alunos precisam completar um total
-                  de 14 créditos, divididos entre cursos fundamentais e eletivos:
-              </p>
-
-              <div class="credits-horizontal">
-                  <div class="credit-block-h">
-                      <div class="credit-block-h__number">8</div>
-                      <div class="credit-block-h__label">Créditos Fundamentais</div>
-                  </div>
-
-                  <div class="credit-block-h">
-                      <div class="credit-block-h__number">6</div>
-                      <div class="credit-block-h__label">Créditos Eletivos</div>
-                  </div>
-
-                  <div class="credit-block-h credit-block-h--total">
-                      <div class="credit-block-h__number">14</div>
-                      <div class="credit-block-h__label">Total para Formatura</div>
-                  </div>
-              </div>
-
-              <h4>Cursos Fundamentais (8 créditos)</h4>
-              <ul>
-                  <li><strong>Jesus Cristo e o Evangelho Eterno</strong> - 2 créditos</li>
-                  <li>
-                      <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> - 2
-                      créditos
-                  </li>
-                  <li><strong>Alicerces da Restauração</strong> - 2 créditos</li>
-                  <li><strong>A Família Eterna</strong> - 2 créditos</li>
-              </ul>
-
-              <h4>Cursos Eletivos (6 créditos)</h4>
-              <p>
-                  Os créditos eletivos podem ser obtidos por meio de outros cursos oferecidos
-                  pelo Instituto, como este curso sobre o Apocalipse.
-              </p>
-
-              <div class="card card--highlight">
-                  <h4>Benefícios Adicionais da Formatura</h4>
-                  <ul>
-                      <li>Créditos acadêmicos em universidades da Igreja (BYU, BYU-Idaho, BYU-Hawaii, Ensign College)</li>
-                      <li>Carga horária complementar em cursos relacionados (teologia, filosofia, história)</li>
-                      <li>Certificado oficial de conclusão reconhecido pela Igreja</li>
-                      <li>Distinção especial em eventos e cerimônias do Instituto</li>
-                  </ul>
-              </div>
-          </div>
-          <div class="modal-footer">
-              Este curso especial do Apocalipse vale 2 créditos eletivos para sua formatura!
-          </div>
-      </div>
-  </div>
-
-  <!-- Modal para Feedback -->
-  <div id="feedbackModal" class="modal">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h2>Formulário de Feedback e Contribuição</h2>
-              <button class="modal-close" onclick="closeModal('feedbackModal')">&times;</button>
-          </div>
-          <div class="modal-body">
-              <p>
-                  Compartilhe suas ideias, sugestões ou ofereça seus talentos para ajudar no
-                  desenvolvimento do curso:
-              </p>
-
-              <form action="#" method="post">
-                  <div class="form-group">
-                      <label for="name" class="form-label">Nome:</label>
-                      <input type="text" id="name" name="name" class="form-control" required />
-                  </div>
-
-                  <div class="form-group">
-                      <label for="email" class="form-label">E-mail:</label>
-                      <input type="email" id="email" name="email" class="form-control" required />
-                  </div>
-
-                  <div class="form-group">
-                      <label for="phone" class="form-label">Telefone (opcional):</label>
-                      <input type="tel" id="phone" name="phone" class="form-control" />
-                  </div>
-
-                  <div class="form-group">
-                      <label for="subject" class="form-label">Tipo de Contribuição:</label>
-                      <select id="subject" name="subject" class="form-control" required>
-                          <option value="">Selecione uma opção...</option>
-                          <option value="feedback">Feedback sobre o conteúdo</option>
-                          <option value="correction">Sugestão de correção</option>
-                          <option value="idea">Ideia para melhorar o curso</option>
-                          <option value="volunteer">Oferecer habilidades como voluntário</option>
-                          <option value="other">Outro</option>
-                      </select>
-                  </div>
-
-                  <div class="form-group">
-                      <label for="skills" class="form-label">Suas habilidades (para voluntários):</label>
-                      <input
-                          type="text"
-                          id="skills"
-                          name="skills"
-                          class="form-control"
-                          placeholder="Ex: programação, design, narração, música, etc."
-                      />
-                  </div>
-
-                  <div class="form-group">
-                      <label for="message" class="form-label">Sua mensagem:</label>
-                      <textarea
-                          id="message"
-                          name="message"
-                          class="form-control form-control--textarea"
-                          required
-                      ></textarea>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary">Enviar Contribuição</button>
-
-                  <p><small>Formulário em desenvolvimento. Em breve estará funcionando!</small></p>
-              </form>
-          </div>
-      </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-  <script>
-      // Script para scroll suave nos links internos
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-
-              const targetId = this.getAttribute('href');
-              const targetElement = document.querySelector(targetId);
-
-              if (targetElement) {
-                  window.scrollTo({
-                      top: targetElement.offsetTop - 100,
-                      behavior: 'smooth',
-                  });
-              }
-          });
-      });
-
-      // Script para mostrar/ocultar o botão de voltar ao topo
-      window.addEventListener('scroll', function () {
-          const backToTopButton = document.getElementById('back-to-top');
-
-          if (window.pageYOffset > 300) {
-              backToTopButton.classList.add('visible');
-          } else {
-              backToTopButton.classList.remove('visible');
-          }
-      });
-
-      // Script para o botão de voltar ao topo
-      document.getElementById('back-to-top').addEventListener('click', function () {
-          window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-          });
-      });
-
-      // Script para accordion de aulas
-      document.addEventListener('DOMContentLoaded', function() {
-          const lessonHeaders = document.querySelectorAll('.lesson-header');
-
-          lessonHeaders.forEach(header => {
-              header.addEventListener('click', function() {
-                  const content = this.nextElementSibling;
-                  const isActive = this.classList.contains('active');
-
-                  // Fecha todos os outros
-                  lessonHeaders.forEach(h => {
-                      h.classList.remove('active');
-                      h.nextElementSibling.classList.remove('active');
-                  });
-
-                  // Abre/fecha o atual
-                  if (!isActive) {
-                      this.classList.add('active');
-                      content.classList.add('active');
-                  }
-              });
-          });
-      });
-
-      // Script para os blocos de aprendizado expandíveis
-      document.addEventListener('DOMContentLoaded', function() {
-          const learningBlocks = document.querySelectorAll('.learning-block__expand');
-
-          learningBlocks.forEach(button => {
-              button.addEventListener('click', function() {
-                  const details = this.nextElementSibling;
-                  const icon = this.querySelector('i');
-
-                  details.classList.toggle('active');
-                  icon.classList.toggle('fa-plus');
-                  icon.classList.toggle('fa-minus');
-              });
-          });
-
-          // Para os itens de revelação
-          const revelationExpands = document.querySelectorAll('.revelation-item__expand');
-
-          revelationExpands.forEach(button => {
-              button.addEventListener('click', function() {
-                  const details = this.nextElementSibling;
-
-                  details.classList.toggle('active');
-                  this.textContent = details.classList.contains('active') ? 'Fechar' : 'Ver detalhes';
-              });
-          });
-      });
-
-      // Script para modais
-      function openModal(modalId) {
-          document.getElementById(modalId).classList.add('active');
-          document.body.style.overflow = 'hidden'; // Previne scroll do body quando modal está aberto
-      }
-
-      function closeModal(modalId) {
-          document.getElementById(modalId).classList.remove('active');
-          document.body.style.overflow = ''; // Restaura scroll do body
-      }
-
-      // Fechar modal quando clicar fora
-      window.onclick = function(event) {
-          if (event.target.classList.contains('modal')) {
-              event.target.classList.remove('active');
-              document.body.style.overflow = '';
-          }
-      }
-
-      // Fechar modal com ESC
-      document.addEventListener('keydown', function(event) {
-          if (event.key === 'Escape') {
-              const activeModal = document.querySelector('.modal.active');
-              if (activeModal) {
-                  activeModal.classList.remove('active');
-                  document.body.style.overflow = '';
-              }
-          }
-      });
-  </script>
+            <div class="container">
+                <h2 class="section-title">ESTRUTURA COMPLETA DO CURSO</h2>
+
+                <!-- CICLO I: FUNDAÇÃO — VISÕES DO CONSELHO CELESTIAL -->
+                <div class="course-cycle">
+                    <h3 class="cycle-title">CICLO I: FUNDAÇÃO — VISÕES DO CONSELHO CELESTIAL</h3>
+
+                    <div class="lesson-accordion">
+                        <!-- Aula 1 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 1</span>
+                                <span class="lesson-title">O Chamado do Vidente</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> O Cristo Glorificado e as Sete Igrejas (Apocalipse
+                                    1-3)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> Inteligências Eternas e a Escolha Pré-mortal</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Abraão (Abraão 3) e Joseph Smith (D&C 138)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 2 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 2</span>
+                                <span class="lesson-title">A Corte Celestial</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> O Trono, os 24 Anciãos e Quatro Seres (Apocalipse 4)
+                                </p>
+                                <p><strong>PANORAMA ETERNO:</strong> O Grande Conselho nos Céus e o Conflito</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Isaías (Isaías 6) e Moisés (Moisés 1)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 3 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 3</span>
+                                <span class="lesson-title">Prelúdio do Juízo</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> O Livro Selado e os Quatro Cavaleiros (Apocalipse
+                                    5-6)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Criação dos Mundos e o Propósito da Mortalidade
+                                </p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Enoque (Moisés 7) e Ezequiel (Ezequiel 1)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 4 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 4</span>
+                                <span class="lesson-title">O Clamor dos Justos</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> Os Três Selos Finais e o Clamor dos Mártires
+                                    (Apocalipse 6:9-17)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Queda, o Livre-Arbítrio e a Necessidade da
+                                    Oposição</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Leí (2 Néfi 2) e Zacarias (Zacarias 1-6)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 5 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 5</span>
+                                <span class="lesson-title">Os Selados do Senhor</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> Os 144.000 Selados e a Multidão em Branco
+                                    (Apocalipse 7)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> O Estabelecimento de Convênios e o Poder Selador
+                                </p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Jacó (Jacó 5-6) e Joseph Smith (D&C 77:8-11)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CICLO II: CONFLITO — A BATALHA MULTIDIMENSIONAL -->
+                <div class="course-cycle">
+                    <h3 class="cycle-title">CICLO II: CONFLITO — A BATALHA MULTIDIMENSIONAL</h3>
+
+                    <div class="lesson-accordion">
+                        <!-- Aula 6 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 6</span>
+                                <span class="lesson-title">Advertências Cósmicas</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> As Quatro Primeiras Trombetas e Calamidades Naturais
+                                    (Apocalipse 8)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Expiação Infinita e o Sofrimento Divino</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Alma (Alma 36) e Joel (Joel 2-3)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 7 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 7</span>
+                                <span class="lesson-title">Invasões Demoníacas</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> A Quinta e Sexta Trombetas (Apocalipse 9)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> Os Espíritos em Prisão e as Forças Adversárias</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Joseph Smith (D&C 138) e Isaías (Isaías
+                                    24-27)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 8 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 8</span>
+                                <span class="lesson-title">A Missão Final</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> O Livrinho e as Duas Testemunhas (Apocalipse 10-11)
+                                </p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Restauração do Evangelho e a Obra Missionária
+                                    Final</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Morôni (Morôni 7-10) e Paulo (1 Coríntios
+                                    15)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 9 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 9</span>
+                                <span class="lesson-title">Guerra nas Múltiplas Esferas</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> A Mulher, o Dragão e a Guerra Celestial Continuada
+                                    (Apocalipse 12)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> O Padrão de Oposição nas Múltiplas Esferas de
+                                    Existência</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Mórmon (Mórmon 8) e Daniel (Daniel 7:9-14)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 10 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 10</span>
+                                <span class="lesson-title">O Reino vs. Babilônia</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> As Duas Bestas e Babilônia (Apocalipse 13-14)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> Os Sistemas do Mundo vs. o Reino de Deus</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Néfi (1 Néfi 13-14) e Daniel (Daniel 2)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CICLO III: CONSUMAÇÃO — O TRIUNFO FINAL E A GLÓRIA ETERNA -->
+                <div class="course-cycle">
+                    <h3 class="cycle-title">CICLO III: CONSUMAÇÃO — O TRIUNFO FINAL E A GLÓRIA ETERNA</h3>
+
+                    <div class="lesson-accordion">
+                        <!-- Aula 11 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 11</span>
+                                <span class="lesson-title">A Ira Divina Derramada</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> As Sete Taças da Ira e o Armagedom (Apocalipse
+                                    15-16)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Segunda Vinda em Glória e a Destruição dos Ímpios
+                                </p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Mateus (Mateus 24) e Jeremias (Jeremias 25)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 12 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 12</span>
+                                <span class="lesson-title">A Queda de Babilônia</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> O Julgamento da Grande Meretriz (Apocalipse 17-18)
+                                </p>
+                                <p><strong>PANORAMA ETERNO:</strong> O Fim dos Sistemas Mundanos e a Libertação dos
+                                    Cativos</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Davi (Salmos 2, 110) e Joseph Smith (D&C 29)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 13 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 13</span>
+                                <span class="lesson-title">O Reino Milenar</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> A Segunda Vinda e o Milênio (Apocalipse 19-20)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Restauração de Todas as Coisas e o Governo
+                                    Perfeito</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Isaías (Isaías 11) e Joseph Smith (D&C
+                                    88:87-116)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 14 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 14</span>
+                                <span class="lesson-title">A Nova Jerusalém</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> Novos Céus, Nova Terra e a Nova Jerusalém
+                                    (Apocalipse 21:1-8)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Terra Celestializada e a Presença Plena de Deus
+                                </p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Éter (Éter 13) e Joseph Smith (D&C 130)</p>
+                            </div>
+                        </div>
+
+                        <!-- Aula 15 -->
+                        <div class="lesson-item">
+                            <button class="lesson-header">
+                                <span class="lesson-number">Aula 15</span>
+                                <span class="lesson-title">A Cidade de Deus</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="lesson-content">
+                                <p><strong>VISÕES DE JOÃO:</strong> A Geometria Sagrada e o Rio da Vida (Apocalipse
+                                    21:9-22:21)</p>
+                                <p><strong>PANORAMA ETERNO:</strong> A Comunhão Perfeita com Deus e a Vida Eterna</p>
+                                <p><strong>CONVERGÊNCIA PROFÉTICA:</strong> Ezequiel (Ezequiel 40-48) e Miquéias
+                                    (Miquéias 4)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: INFORMAÇÕES PRÁTICAS -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">ASPECTOS PRÁTICOS DO CURSO</h2>
+
+                <div class="instituto-formatura">
+                    <div class="instituto-formatura__header">
+                        <div class="instituto-formatura__icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="instituto-formatura__title" style="color: white;">A IMPORTÂNCIA DA FORMATURA NO INSTITUTO</h3>
+                    </div>
+
+                    <div class="instituto-formatura__content">
+                        <div class="instituto-formatura__benefits">
+                            <h4>Por que buscar sua formatura?</h4>
+                            <p>
+                                Ao completar sua formatura no Instituto, você está seguindo o conselho profético
+                                e desfrutando de bênçãos espirituais e temporais significativas:
+                            </p>
+                            <ul class="instituto-formatura__benefits-list">
+                                <li><i class="fas fa-star"></i> Fortalecimento de seu testemunho e conhecimento das escrituras</li>
+                                <li><i class="fas fa-hands-helping"></i> Melhor preparação para servir na Igreja e em relacionamentos</li>
+                                <li><i class="fas fa-users"></i> Conexões valiosas com outros jovens adultos dedicados</li>
+                                <li><i class="fas fa-certificate"></i> Reconhecimento oficial de seu comprometimento com o estudo do evangelho</li>
+                            </ul>
+                        </div>
+
+                        <div class="instituto-formatura__credits">
+                            <h4>O que é necessário para formar-se?</h4>
+
+                            <div class="credits-cards">
+                                <div class="credit-card">
+                                    <div class="credit-card__number">8</div>
+                                    <h5 class="credit-card__title">Créditos Fundamentais</h5>
+                                    <ul class="credit-card__details">
+                                        <li> <strong>Jesus Cristo e o Evangelho Eterno</strong> (2 créditos)</li>
+                                        <li> <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> (2 créditos)</li>
+                                        <li> <strong>Alicerces da Restauração</strong> (2 créditos)</li>
+                                        <li> <strong>A Família Eterna</strong> (2 créditos)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="credit-card">
+                                    <div class="credit-card__number">6</div>
+                                    <h5 class="credit-card__title">Créditos Eletivos</h5>
+                                    <p class="credit-card__description">
+                                        Obtidos através de cursos como este sobre o <strong>Apocalipse</strong> (2 créditos)
+                                        e outros cursos oferecidos pelo Instituto.
+                                    </p>
+                                </div>
+
+                                <div class="credit-card credit-card--total">
+                                    <div class="credit-card__number">14</div>
+                                    <h5 class="credit-card__title">Total para Formatura</h5>
+                                    <p class="credit-card__highlight">
+                                        Este curso especial do Apocalipse vale 2 créditos eletivos!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-structure">
+                    <div class="card card--info">
+                        <h3 class="card__title"><i class="fas fa-university"></i> INFORMAÇÕES GERAIS</h3>
+                        <ul>
+                            <li>Ofertado pelo <strong>INSTITUTO OSASCO - SP</strong> e pelo <strong>INSTITUTO CONQUISTA - BA</strong></li>
+                            <li>Os encontros ocorrem <strong>às quartas-feiras às 20:00h</strong></li>
+                            <li>Duração: <strong>90 minutos por encontro</strong></li>
+                            <li>Vale <strong>2 créditos eletivos</strong> para formatura no Instituto</li>
+                            <li>Recuperação de aulas através do material online</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card--info">
+                        <h3 class="card__title"><i class="fas fa-user-plus"></i> QUEM PODE PARTICIPAR</h3>
+                        <p>Este curso é aberto a todos! Veja como você pode participar:</p>
+                        <ul>
+                            <li>
+                                <strong>Jovens adultos de 18 a 35 anos</strong> de qualquer Instituto podem
+                                receber os 2 créditos eletivos pelo curso, mesmo que não pertençam ao
+                                Instituto Osasco ou Conquista.
+                            </li>
+                            <li>
+                                <strong>Membros de outras faixas etárias</strong> são muito bem-vindos como
+                                convidados e poderão participar normalmente de todas as atividades.
+                            </li>
+                            <li>
+                                <strong>Não-membros interessados</strong> no estudo do Apocalipse também podem
+                                se juntar a nós nesta jornada!
+                            </li>
+                        </ul>
+                        <p>
+                            Quanto mais pessoas estudando juntas, mais rica será nossa experiência coletiva!
+                        </p>
+                    </div>
+
+                    <div class="card card--info">
+                        <h3 class="card__title"><i class="fas fa-user-plus"></i> COMO SE MATRICULAR</h3>
+                        <p>
+                            Para fazer sua matrícula, forneça seu nome completo, estaca e data de nascimento
+                            para um dos presidentes de classe:
+                        </p>
+                        <ul>
+                            <li><strong>Artemísia</strong> (Instituto Osasco)</li>
+                            <li><strong>André</strong> (Instituto Conquista)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card--info">
+                        <h3 class="card__title"><i class="fab fa-whatsapp"></i> GRUPO DE WHATSAPP</h3>
+                        <p>
+                            Participe do nosso grupo para receber avisos, materiais complementares e
+                            interagir com colegas de classe!
+                        </p>
+                        <a href="#" class="btn btn-primary">Link do Grupo</a>
+                        <p><small>(Em breve o link será disponibilizado)</small></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: INFORMAÇÕES FINAIS -->
+        <!-- Sobre o Professor -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">SOBRE O PROFESSOR</h2>
+
+                <div class="author-card">
+                    <div class="author-card__avatar">
+                        <svg width="180" height="180" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="49" fill="#f0f0f0" stroke="#052e6f" stroke-width="2" />
+                            <circle cx="50" cy="40" r="20" fill="#e9b44c" />
+                            <path d="M50 60 C30 60, 20 80, 20 100 L80 100 C80 80, 70 60, 50 60Z" fill="#e9b44c" />
+                            <text x="50" y="105" text-anchor="middle" font-size="14" fill="#052e6f">William</text>
+                        </svg>
+                    </div>
+
+                    <div class="author-card__info">
+                        <h3 class="author-card__name">William Mercês</h3>
+                        <p>
+                            Professor do Instituto de Religião, William combina sua habilidade técnica e
+                            experiência em programação, desenvolvimento web e engenharia de dados com sua
+                            paixão pelo estudo das escrituras e pelo ensino do evangelho.
+                        </p>
+
+                        <p>
+                            Ao longo de sua jornada como professor do Instituto, teve o privilégio de
+                            ministrar diversos cursos, incluindo: Preparação Missionária, Pérola de Grande
+                            Valor, Escritos de João, o Amado e O Evangelho e a Vida Produtiva
+                        </p>
+
+                        <p>
+                            Sua abordagem de ensino busca integrar rigor escriturístico com aplicações
+                            práticas para a vida contemporânea, tornando princípios eternos relevantes para
+                            os desafios atuais. Como professor, acredita que o Apocalipse não é apenas um
+                            livro para ser estudado, mas uma revelação viva que pode transformar nossa
+                            perspectiva sobre o mundo e nosso lugar nele.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribua com o Projeto -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">CONTRIBUA COM O PROJETO</h2>
+
+                <div class="callout-card">
+                    <h3 class="callout-card__title">Este é um curso em desenvolvimento contínuo!</h3>
+                    <p>
+                        Sua contribuição é fundamental para aprimorarmos este material e torná-lo mais útil
+                        para todos os alunos. Estamos buscando talentos em diversas áreas:
+                    </p>
+
+                    <div class="collaborative-icons">
+                        <div class="collab-icon">
+                            <i class="collab-icon__icon fas fa-code"></i>
+                            <p class="collab-icon__label">Programadores</p>
+                        </div>
+
+                        <div class="collab-icon">
+                            <i class="collab-icon__icon fas fa-paint-brush"></i>
+                            <p class="collab-icon__label">Designers</p>
+                        </div>
+
+                        <div class="collab-icon">
+                            <i class="collab-icon__icon fas fa-microphone"></i>
+                            <p class="collab-icon__label">Dubladores</p>
+                        </div>
+
+                        <div class="collab-icon">
+                            <i class="collab-icon__icon fas fa-pen"></i>
+                            <p class="collab-icon__label">Redatores</p>
+                        </div>
+
+                        <div class="collab-icon">
+                            <i class="collab-icon__icon fas fa-music"></i>
+                            <p class="collab-icon__label">Músicos</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Se você sente que pode contribuir com suas habilidades ou tem ideias para melhorar o
+                        curso, por favor nos ajude!
+                    </p>
+
+                    <div class="card__action">
+                        <button class="btn btn-primary" onclick="openModal('feedbackModal')">
+                            <i class="fas fa-comment-dots"></i> Compartilhe suas Ideias e Feedback
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Apocalipse: As Visões dos Últimos Dias</h3>
+                    <p>Um curso de estudo profundo sobre o livro de Apocalipse</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="aulas/aula1.html">Aula 1</a></li>
+                        <li><a href="aulas/aula2.html">Aula 2</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Informações</h4>
+                    <p>
+                        Este material de apoio não é uma publicação oficial de A Igreja de Jesus Cristo dos
+                        Santos dos Últimos Dias
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 • Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+<!-- Modal para Créditos do Instituto -->
+<div id="creditsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>CRÉDITOS DO INSTITUTO</h2>
+            <button class="modal-close" onclick="closeModal('creditsModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>
+                Para se formar no Instituto de Religião, os alunos precisam completar um total
+                de 14 créditos, divididos entre cursos fundamentais e eletivos:
+            </p>
+
+            <div class="credits-horizontal">
+                <div class="credit-block-h">
+                    <div class="credit-block-h__number">8</div>
+                    <div class="credit-block-h__label">Créditos Fundamentais</div>
+                </div>
+
+                <div class="credit-block-h">
+                    <div class="credit-block-h__number">6</div>
+                    <div class="credit-block-h__label">Créditos Eletivos</div>
+                </div>
+
+                <div class="credit-block-h credit-block-h--total">
+                    <div class="credit-block-h__number">14</div>
+                    <div class="credit-block-h__label">Total para Formatura</div>
+                </div>
+            </div>
+
+            <h4>Cursos Fundamentais (8 créditos)</h4>
+            <ul>
+                <li><strong>Jesus Cristo e o Evangelho Eterno</strong> - 2 créditos</li>
+                <li>
+                    <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> - 2
+                    créditos
+                </li>
+                <li><strong>Alicerces da Restauração</strong> - 2 créditos</li>
+                <li><strong>A Família Eterna</strong> - 2 créditos</li>
+            </ul>
+
+            <h4>Cursos Eletivos (6 créditos)</h4>
+            <p>
+                Os créditos eletivos podem ser obtidos por meio de outros cursos oferecidos
+                pelo Instituto, como este curso sobre o Apocalipse.
+            </p>
+
+            <div class="card card--highlight">
+                <h4>Benefícios Adicionais da Formatura</h4>
+                <ul>
+                    <li>Créditos acadêmicos em universidades da Igreja (BYU, BYU-Idaho, BYU-Hawaii, Ensign College)
+                    </li>
+                    <li>Carga horária complementar em cursos relacionados (teologia, filosofia, história)</li>
+                    <li>Certificado oficial de conclusão reconhecido pela Igreja</li>
+                    <li>Distinção especial em eventos e cerimônias do Instituto</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            Este curso especial do Apocalipse vale 2 créditos eletivos para sua formatura!
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Feedback -->
+<div id="feedbackModal" class="modal">
+    <div class="modal-content modal-content--scrollable">
+        <div class="modal-header">
+            <h2>Formulário de Feedback e Contribuição</h2>
+            <button class="modal-close" onclick="closeModal('feedbackModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>
+                Compartilhe suas ideias, sugestões ou ofereça seus talentos para ajudar no
+                desenvolvimento do curso:
+            </p>
+
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nome:</label>
+                    <input type="text" id="name" name="name" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" id="email" name="email" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Telefone (opcional):</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" class="form-label">Tipo de Contribuição:</label>
+                    <select id="subject" name="subject" class="form-control" required>
+                        <option value="">Selecione uma opção...</option>
+                        <option value="feedback">Feedback sobre o conteúdo</option>
+                        <option value="correction">Sugestão de correção</option>
+                        <option value="idea">Ideia para melhorar o curso</option>
+                        <option value="volunteer">Oferecer habilidades como voluntário</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills" class="form-label">Suas habilidades (para voluntários):</label>
+                    <input type="text" id="skills" name="skills" class="form-control"
+                        placeholder="Ex: programação, design, narração, música, etc." />
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Sua mensagem:</label>
+                    <textarea id="message" name="message" class="form-control form-control--textarea"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar Contribuição</button>
+
+                <p><small>Formulário em desenvolvimento. Em breve estará funcionando!</small></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<script>
+    // Script para scroll suave nos links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth',
+                });
+            }
+        });
+    });
+
+    // Script para mostrar/ocultar o botão de voltar ao topo
+    window.addEventListener('scroll', function () {
+        const backToTopButton = document.getElementById('back-to-top');
+
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    // Script para o botão de voltar ao topo
+    document.getElementById('back-to-top').addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    });
+
+    // Script para accordion de aulas
+    document.addEventListener('DOMContentLoaded', function () {
+        const lessonHeaders = document.querySelectorAll('.lesson-header');
+
+        lessonHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // Fecha todos os outros
+                lessonHeaders.forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+
+                // Abre/fecha o atual
+                if (!isActive) {
+                    this.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // Script para os blocos de aprendizado expandíveis
+    document.addEventListener('DOMContentLoaded', function () {
+        const learningBlocks = document.querySelectorAll('.learning-block__expand');
+
+        learningBlocks.forEach(button => {
+            button.addEventListener('click', function () {
+                const details = this.nextElementSibling;
+                const icon = this.querySelector('i');
+
+                details.classList.toggle('active');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            });
+        });
+
+        // Para os itens de revelação
+        const revelationExpands = document.querySelectorAll('.revelation-item__expand');
+
+        revelationExpands.forEach(button => {
+            button.addEventListener('click', function () {
+                const details = this.nextElementSibling;
+
+                details.classList.toggle('active');
+                this.textContent = details.classList.contains('active') ? 'Fechar' : 'Ver detalhes';
+            });
+        });
+    });
+
+    // Script para modais
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.add('active');
+        document.body.style.overflow = 'hidden'; // Previne scroll do body quando modal está aberto
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll do body
+    }
+
+    // Fechar modal quando clicar fora
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Fechar modal com ESC
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.active');
+            if (activeModal) {
+                activeModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+</script>
 </body>
+
 </html>
