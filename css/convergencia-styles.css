@@ -1,6 +1,8 @@
 /* Estilos específicos para a página de convergência */
 .prophet-card {
-  background-color: white;
+  background-color: var(--white);
+  color: var(--text-color);
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
   overflow: hidden;
@@ -15,10 +17,11 @@
 
 .prophet-header {
   background-color: var(--primary-color);
-  color: white;
-  padding: 1.5rem;
+  color: var(--white);
+  padding: 1rem;
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .prophet-header h4 {
@@ -100,7 +103,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 1rem;
   font-weight: bold;
@@ -150,6 +153,7 @@
 
 .insight-box {
   background-color: var(--light-bg);
+  color: var(--text-color);
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -166,7 +170,7 @@
 .insight-type {
   display: inline-block;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   font-size: 0.8rem;
@@ -181,7 +185,7 @@
 
 .convergence-chart th {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
   padding: 1rem;
   text-align: center;
 }
@@ -190,6 +194,8 @@
   padding: 1rem;
   border: 1px solid var(--mid-bg);
   vertical-align: top;
+  background-color: var(--white);
+  color: var(--text-color);
 }
 
 .convergence-chart th:first-child,
@@ -233,7 +239,7 @@
 /* Estilo para os testemunhos e citações */
 .testimony-box {
   background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-  color: white;
+  color: var(--white);
   border-radius: var(--border-radius);
   padding: 2rem;
   margin: 2rem 0;
@@ -278,7 +284,7 @@
 /* Estilo para citações */
 .quote {
   background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-  color: white;
+  color: var(--white);
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -353,6 +359,7 @@
   flex: 1;
   min-width: 300px;
   background-color: var(--light-bg);
+  color: var(--text-color);
   border-radius: var(--border-radius);
   padding: 1.5rem;
   position: relative;
@@ -398,11 +405,11 @@
     top: auto;
     bottom: 0;
   }
-  
+
   .prophet-comparison {
     flex-direction: column;
   }
-  
+
   .prophet-column {
     min-width: 100%;
   }

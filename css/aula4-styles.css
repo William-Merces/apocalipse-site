@@ -65,11 +65,12 @@
      Diferentes tipos de boxes para informações específicas
      ========================================================================== */
   .info-box {
-    background-color: rgba(5, 46, 111, 0.1);
+    background-color: #f5f8fc;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    color: #333;
   }
 
   .info-box h4 {
@@ -78,28 +79,31 @@
   }
 
   .note {
-    background-color: rgba(5, 46, 111, 0.05);
+    background-color: #f8fafd;
     border: 1px dashed var(--primary-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    color: #333;
   }
 
   .activity {
-    background-color: rgba(201, 162, 39, 0.05);
+    background-color: #fdfbf5;
     border: 1px solid var(--accent-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    color: #333;
   }
 
   /* Caixas específicas da Batalha Final */
   .warning-box {
-    background-color: rgba(139, 0, 0, 0.05);
+    background-color: #fff5f5;
     border: 1px solid #8B0000;
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    color: #333;
   }
 
   .warning-box h4 {
@@ -108,11 +112,12 @@
   }
 
   .prophecy-box {
-    background-color: rgba(72, 61, 139, 0.05);
+    background-color: #f7f6fb;
     border: 1px solid #483D8B;
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    color: #333;
   }
 
   .prophecy-box h4 {
@@ -125,19 +130,21 @@
      Estilos para citações e textos em destaque
      ========================================================================== */
   .quote {
-    background-color: rgba(201, 162, 39, 0.1);
+    background-color: #fdfaf2;
     border-left: 4px solid var(--accent-color);
     padding: 1.5rem;
     margin: 1.5rem 0;
     font-style: italic;
+    color: #333;
   }
 
   .battle-quote {
-    background-color: rgba(139, 0, 0, 0.1);
+    background-color: #fff5f5;
     border-left: 4px solid #8B0000;
     padding: 1.5rem;
     margin: 1.5rem 0;
     font-style: italic;
+    color: #333;
   }
 
   /* ==========================================================================
@@ -158,6 +165,7 @@
     padding: 0.75rem;
     text-align: left;
     border: 1px solid #eaeaea;
+    color: #333;
   }
 
   th {
@@ -166,7 +174,11 @@
   }
 
   tr:nth-child(even) {
-    background-color: rgba(5, 46, 111, 0.05);
+    background-color: #f8fafd;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #ffffff;
   }
 
   /* Tabela da Batalha */
@@ -176,7 +188,11 @@
   }
 
   .battle-table tr:nth-child(even) {
-    background-color: rgba(139, 0, 0, 0.05);
+    background-color: #fff5f5;
+  }
+
+  .battle-table tr:nth-child(odd) {
+    background-color: #ffffff;
   }
 
   /* ==========================================================================

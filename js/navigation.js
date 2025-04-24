@@ -6,224 +6,338 @@
  * - Carregamento dinâmico do componente de navegação
  * - Ajuste de links baseado na estrutura de diretórios
  * - Menu dropdown de aulas
- * - Navegação mobile
+ * - Navegação responsiva para todos os dispositivos
  * - Menu secundário
  * - Destaques de links ativos
  */
 
+// Flags globais para controle
+window.navInitialized = false;
+window.navComponentLoading = false;
+
 // Inicializa a navegação quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // Verifica se precisamos carregar o componente dinamicamente
-    if (document.getElementById('navigation-container')) {
-        loadNavigationComponent();
-    } else {
-        // Se o componente já estiver no DOM, apenas inicializa as funções
-        initializeNavigation();
-    }
+    // Primeiro carrega o componente de navegação
+    loadNavigationComponent();
 });
 
 /**
- * Carrega o componente de navegação dinamicamente
- *
- * Esta função:
- * 1. Verifica se o container existe
- * 2. Determina o caminho base correto baseado na URL atual
- * 3. Carrega o HTML do componente
- * 4. Ajusta os links para o contexto atual
+ * Inicializa todas as funcionalidades de navegação
  */
-function loadNavigationComponent() {
-    const container = document.getElementById('navigation-container');
-    if (!container) return;
-
-    // Determina o caminho base analisando a URL atual
-    const currentPath = window.location.pathname;
-    let basePath = './';
-
-    // Ajusta o caminho base dependendo da profundidade do diretório atual
-    if (currentPath.includes('/aulas/aula')) {
-        // Página dentro de uma aula específica (ex: /aulas/aula1/visoes.html)
-        basePath = '../../';
-    } else if (currentPath.includes('/aulas/')) {
-        // Página de aula (ex: /aulas/aula1.html)
-        basePath = '../';
-    }
-
-    // Carrega o componente de navegação via fetch
-    fetch(basePath + 'components/navigation.html')
-        .then(response => response.text())
-        .then(html => {
-            container.innerHTML = html;
-
-            // Ajusta os links para o contexto atual
-            adjustNavigationLinks(basePath);
-
-            // Inicializa todas as funcionalidades de navegação
-            initializeNavigation();
-        })
-        .catch(error => {
-            console.error('Erro ao carregar o componente de navegação:', error);
-        });
+function initializeNavigation() {
+    console.log('Inicializando navegação...');
+    setupDropdown();
+    setupMobileMenu();
+    highlightActiveLinks();
+    adjustNavigationLinks();
+    setupSecondaryNav();
 }
 
 /**
- * Ajusta os links de navegação para o caminho base correto
- *
- * @param {string} basePath - O caminho base relativo à localização atual
- *
- * Esta função:
- * 1. Ajusta links principais do menu
- * 2. Configura links do menu secundário para aulas
- * 3. Atualiza informações específicas da aula atual
+ * Determina o caminho base para os arquivos
  */
-function adjustNavigationLinks(basePath) {
-    // Ajusta os links principais do menu
-    const homeLink = document.getElementById('home-link');
-    if (homeLink) homeLink.href = basePath + 'index.html';
+function getNavigationBasePath() {
+    const currentPath = window.location.pathname;
+    console.log('Determinando caminho base para navegação:', currentPath);
 
-    const introLink = document.getElementById('intro-link');
-    if (introLink) introLink.href = basePath + 'introducao.html';
+    // Normaliza o caminho para usar forward slashes
+    const normalizedPath = currentPath.replace(/\\/g, '/');
 
-    const resourcesLink = document.getElementById('resources-link');
-    if (resourcesLink) {
-        resourcesLink.href = basePath + 'recursos.html';
+    // Verifica os diferentes padrões de caminho
+    if (normalizedPath.includes('/aulas/aula')) {
+        console.log('Detectado: página de aula específica');
+        return '../../';
+    } else if (normalizedPath.includes('/admin/')) {
+        console.log('Detectado: página admin');
+        return '../';
+    } else if (normalizedPath.includes('/aulas/')) {
+        console.log('Detectado: subdiretório de aulas');
+        return '../';
+    } else if (normalizedPath.includes('/recursos')) {
+        console.log('Detectado: página recursos');
+        return './';
+    } else if (normalizedPath.endsWith('/index.html') || normalizedPath.endsWith('/')) {
+        console.log('Detectado: página inicial');
+        return './';
     }
 
-    const aboutLink = document.getElementById('about-link');
-    if (aboutLink) aboutLink.href = basePath + 'sobre.html';
+    console.log('Caminho padrão, usando raiz');
+    return './';
+}
 
-    // Configura links específicos se estiver em uma página de aula
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('/aulas/aula')) {
-        // Extrai o número da aula da URL atual
-        const aulaMatch = currentPath.match(/aula(\d+)/);
-        if (aulaMatch && aulaMatch[1]) {
-            const aulaNum = aulaMatch[1];
+/**
+ * Carrega o componente de navegação se ele não estiver presente
+ */
+function loadNavigationComponent() {
+    // Evita execuções repetidas
+    if (window.navComponentLoading) {
+        console.log('Navegação já está carregando...');
+        return;
+    }
 
-            // Atualiza o número da aula no menu secundário
-            const aulaNumElement = document.getElementById('current-aula-num');
-            if (aulaNumElement) {
-                aulaNumElement.textContent = aulaNum;
+    const navigationContainer = document.getElementById('navigation-container');
+    if (!navigationContainer) {
+        console.error('Container de navegação não encontrado!');
+        return;
+    }
+
+    if (navigationContainer.innerHTML.trim() === '') {
+        console.log('Carregando componente de navegação...');
+        // Sinaliza que o carregamento está em andamento
+        window.navComponentLoading = true;
+
+        // Requisição para carregar o componente de navegação
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    console.log('Navegação carregada com sucesso!');
+                    navigationContainer.innerHTML = this.responseText;
+
+                    // Reset da flag de carregamento
+                    window.navComponentLoading = false;
+
+                    // IMPORTANTE: Execute as funções de setup AQUI, após o conteúdo ser inserido
+                    if (!window.navInitialized) {
+                        console.log('Inicializando navegação...');
+                        window.navInitialized = true;
+
+                        // Modifica a estrutura da navegação para mobile se necessário
+                        modifyNavigationForMobile();
+
+                        // Configura todas as funcionalidades na ordem correta
+                        adjustNavigationLinks(); // Primeiro ajusta os links
+                        setupDropdown();
+                        highlightActiveLinks();
+                        setupSecondaryNav();
+                        generateMenuItems();
+
+                        // Marca o componente como inicializado
+                        navigationContainer.setAttribute('data-initialized', 'true');
+                        console.log('Navegação inicializada com sucesso!');
+                    }
+                } else {
+                    console.error('Erro ao carregar navegação:', this.status);
+                    window.navComponentLoading = false;
+                }
             }
+        };
 
-            // Configura todos os links do menu secundário
-            const currentLessonLink = document.getElementById('current-lesson-link');
-            if (currentLessonLink) currentLessonLink.href = basePath + 'aulas/aula' + aulaNum + '.html';
+        // Determina o caminho base para carregar o componente
+        const basePath = getNavigationBasePath();
+        const navigationPath = basePath + 'components/navigation.html';
 
-            const visionsLink = document.getElementById('visions-link');
-            if (visionsLink) visionsLink.href = basePath + 'aulas/aula' + aulaNum + '/visoes.html';
+        console.log('Carregando navegação de:', navigationPath);
+        xhr.open('GET', navigationPath, true);
+        xhr.send();
+    } else {
+        console.log('Navegação já está carregada, configurando...');
+        // O componente já está carregado, configure-o diretamente
+        if (!window.navInitialized) {
+            window.navInitialized = true;
 
-            const panoramaLink = document.getElementById('panorama-link');
-            if (panoramaLink) panoramaLink.href = basePath + 'aulas/aula' + aulaNum + '/panorama.html';
+            // Modifica a estrutura da navegação para mobile se necessário
+            modifyNavigationForMobile();
 
-            const convergenceLink = document.getElementById('convergence-link');
-            if (convergenceLink) convergenceLink.href = basePath + 'aulas/aula' + aulaNum + '/convergencia.html';
+            // Configura todas as funcionalidades na ordem correta
+            adjustNavigationLinks(); // Primeiro ajusta os links
+            setupDropdown();
+            highlightActiveLinks();
+            setupSecondaryNav();
+            generateMenuItems();
 
-            // Exibe o menu secundário
-            const secondaryNav = document.getElementById('secondary-nav');
-            if (secondaryNav) secondaryNav.style.display = 'block';
+            // Marca como inicializado
+            navigationContainer.setAttribute('data-initialized', 'true');
         }
     }
 }
 
 /**
- * Inicializa todas as funcionalidades de navegação
- *
- * Esta função é o ponto central que chama todas as outras
- * funções necessárias para configurar a navegação completa
+ * Modifica a estrutura da navegação para ter aparência consistente em mobile e desktop
+ * Mantém os links "Início", "Aulas" e "Recursos" sempre visíveis
  */
-function initializeNavigation() {
-    // 1. Gera o menu dropdown de aulas
-    generateAulasMenu();
+function modifyNavigationForMobile() {
+    // Remove o botão de toggle original
+    const navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+        navToggle.remove();
+    }
 
-    // 2. Configura o menu mobile
-    setupMobileNav();
+    // Garante que o menu principal sempre seja exibido (removendo classes que o ocultam em mobile)
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        // Adiciona estilos CSS inline para garantir que o menu seja sempre visível
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                .nav-menu {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    position: static !important;
+                    box-shadow: none !important;
+                    justify-content: center !important;
+                    width: 100% !important;
+                }
 
-    // 3. Destaca os links ativos
-    highlightActiveLinks();
+                .nav-menu li {
+                    padding: 0 !important;
+                }
 
-    // 4. Configura o menu secundário
-    setupSecondaryNav();
+                .nav-link {
+                    padding: 10px !important;
+                    font-size: 14px !important;
+                    text-align: center !important;
+                    border: none !important;
+                }
 
-    // 5. Configura os dropdowns
-    setupDropdown();
+                .dropdown-menu {
+                    position: absolute !important;
+                    top: 100% !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    width: 100% !important;
+                    max-height: 70vh !important;
+                    overflow-y: auto !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
 /**
- * Gera o menu dropdown de aulas dinamicamente
- *
- * Esta função:
- * 1. Verifica a configuração das aulas
- * 2. Cria os links para cada aula
- * 3. Adiciona indicadores de "Em breve" para aulas não disponíveis
- * 4. Configura eventos de clique apropriados
+ * Configura o comportamento do dropdown
  */
-function generateAulasMenu() {
-    const dropdownMenu = document.getElementById('dropdown-menu');
-    if (!dropdownMenu) return;
+function setupDropdown() {
+    console.log('Configurando dropdown...');
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    // Limpa o menu atual
-    dropdownMenu.innerHTML = '';
-
-    // Verifica se a configuração das aulas existe
-    if (typeof aulasConfig === 'undefined') {
-        console.warn('aulasConfig não está definido. Carregando configuração padrão.');
-
-        // Configuração padrão de fallback
-        window.aulasConfig = {
-            aulas: [
-                { id: 1, title: "Aula 1: O Chamado do Vidente", available: true },
-                { id: 2, title: "Aula 2: A Corte Celestial", available: true },
-                { id: 3, title: "Aula 3: Prelúdio do Juízo", available: false },
-                { id: 4, title: "Aula 4: O Clamor dos Justos", available: false },
-                { id: 5, title: "Aula 5: Os Selados do Senhor", available: false },
-                { id: 6, title: "Aula 6: Advertências Cósmicas", available: false },
-                { id: 7, title: "Aula 7: A Ira Divina Derramada", available: false }
-            ]
-        };
+    if (!dropdown || !dropdownToggle || !dropdownMenu) {
+        console.error('Elementos do dropdown não encontrados');
+        return;
     }
 
-    // Determina o caminho base correto
-    const currentPath = window.location.pathname;
-    let basePath = './';
+    // Função para abrir o dropdown
+    function openDropdown() {
+        dropdown.classList.add('active');
+        dropdownToggle.setAttribute('aria-expanded', 'true');
+        dropdownMenu.style.opacity = '1';
+        dropdownMenu.style.visibility = 'visible';
+        dropdownMenu.style.transform = 'translateY(0)';
+    }
 
-    if (currentPath.includes('/aulas/aula')) {
+    // Função para fechar o dropdown
+    function closeDropdown() {
+        dropdown.classList.remove('active');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.style.opacity = '0';
+        dropdownMenu.style.visibility = 'hidden';
+        dropdownMenu.style.transform = 'translateY(-10px)';
+    }
+
+    // Handler para o clique no toggle
+    dropdownToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log('Clique no toggle do dropdown');
+
+        if (dropdown.classList.contains('active')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+
+    // Fecha o dropdown quando clicar fora
+    document.addEventListener('click', function(event) {
+        if (!dropdown.contains(event.target)) {
+            closeDropdown();
+        }
+    });
+
+    // Fecha o dropdown com a tecla ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeDropdown();
+        }
+    });
+
+    // Gera os itens do menu se ainda não foram gerados
+    if (!dropdownMenu.hasAttribute('data-generated')) {
+        generateMenuItems();
+    }
+}
+
+/**
+ * Gera os itens do menu dropdown de aulas
+ */
+function generateMenuItems() {
+    console.log('Gerando itens do menu...');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    if (!dropdownMenu) {
+        console.error('Menu dropdown não encontrado!');
+        return;
+    }
+
+    // Verifica se a configuração de aulas existe
+    if (typeof window.aulasConfig === 'undefined') {
+        console.error('Configuração de aulas não encontrada!');
+        return;
+    }
+
+    // Evita gerar itens duplicados
+    if (dropdownMenu.hasAttribute('data-generated')) {
+        console.log('Itens já foram gerados anteriormente');
+        return;
+    }
+
+    console.log('Configuração de aulas encontrada:', window.aulasConfig);
+
+    // Limpa o menu existente
+    dropdownMenu.innerHTML = '';
+
+    // Determina o caminho base
+    const currentPath = window.location.pathname;
+    let basePath = '';
+
+    if (currentPath.includes('/aulas/')) {
         basePath = '../../';
-    } else if (currentPath.includes('/aulas/')) {
+    } else if (currentPath.includes('/admin/')) {
+        basePath = '../';
+    } else if (currentPath.includes('/aulas')) {
         basePath = '../';
     }
 
-    // Cria os itens do menu de aulas
-    aulasConfig.aulas.forEach(aula => {
+    console.log('Gerando itens com basePath:', basePath);
+
+    // Gera os itens do menu
+    window.aulasConfig.aulas.forEach(aula => {
         const li = document.createElement('li');
         const a = document.createElement('a');
 
-        // Define o link da aula ou # se não disponível
-        a.href = aula.available ? basePath + 'aulas/aula' + aula.id + '.html' : '#';
-        a.className = 'dropdown-item';
+        a.href = aula.available ? `${basePath}aulas/aula${aula.id}.html` : '#';
+        a.className = 'dropdown-item' + (!aula.available ? ' coming-soon' : '');
 
-        // Cria o círculo com o número da aula
-        const aulaNumSpan = document.createElement('span');
-        aulaNumSpan.className = aula.available ? 'aula-num available' : 'aula-num coming-soon';
-        aulaNumSpan.textContent = aula.id;
+        const numSpan = document.createElement('span');
+        numSpan.className = 'aula-num';
+        numSpan.textContent = aula.id;
 
-        // Cria o span com o título da aula
         const titleSpan = document.createElement('span');
         titleSpan.className = 'aula-title';
-        titleSpan.textContent = aula.title.replace(/^Aula \d+: /, '');
+        titleSpan.textContent = aula.title;
 
-        // Monta a estrutura do item
-        a.appendChild(aulaNumSpan);
+        a.appendChild(numSpan);
         a.appendChild(titleSpan);
 
-        // Adiciona badge "Em breve" se necessário
         if (!aula.available) {
-            const badge = document.createElement('span');
-            badge.className = 'badge';
-            badge.textContent = 'Em breve';
-            a.appendChild(badge);
+            const badgeSpan = document.createElement('span');
+            badgeSpan.className = 'badge-em-breve';
+            badgeSpan.textContent = 'Em breve';
+            a.appendChild(badgeSpan);
 
-            // Adiciona evento de clique para aulas não disponíveis
-            a.addEventListener('click', (e) => {
+            a.addEventListener('click', function(e) {
                 e.preventDefault();
                 alert('Esta aula estará disponível em breve!');
             });
@@ -232,223 +346,170 @@ function generateAulasMenu() {
         li.appendChild(a);
         dropdownMenu.appendChild(li);
     });
+
+    // Marca como gerado para evitar duplicação
+    dropdownMenu.setAttribute('data-generated', 'true');
+    console.log('Itens do menu gerados com sucesso!');
 }
 
-/**
- * Configura a navegação para dispositivos móveis
- *
- * Esta função:
- * 1. Configura o botão de toggle do menu
- * 2. Adiciona eventos para fechar o menu ao clicar fora
- * 3. Fecha o menu ao clicar em links (em modo mobile)
- */
-function setupMobileNav() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+function setupMobileMenu() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const navMenu = document.querySelector('.nav-menu');
 
-    if (!navToggle || !navMenu) {
-        console.error('Elementos de navegação mobile não encontrados');
-        return;
-    }
-
-    // Alterna a visibilidade do menu ao clicar no botão
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-
-    // Fecha o menu se o usuário clicar fora dele
-    document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-        }
-    });
-
-    // Fecha o menu após clicar em um link (apenas no modo mobile)
-    const navLinks = document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
+    if (mobileMenuButton && navMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuButton.classList.toggle('active');
         });
-    });
+    }
 }
 
 /**
  * Destaca os links ativos com base na URL atual
- *
- * Esta função:
- * 1. Identifica a página atual pela URL
- * 2. Destaca o link correspondente no menu principal
- * 3. Destaca links no menu secundário (se existir)
- * 4. Trata casos especiais como páginas de aula
  */
 function highlightActiveLinks() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
 
+    if (navLinks.length === 0) {
+        return;
+    }
+
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (!href) return;
-
-        // Compara apenas o nome do arquivo, ignorando o caminho
-        const hrefFile = href.split('/').pop();
-        const currentFile = currentPath.split('/').pop();
-
-        if (currentFile === hrefFile) {
+        if (href && currentPath.includes(href) && href !== '#') {
             link.classList.add('active');
-        } else if (currentPath.includes('aula') && link.classList.contains('dropdown-toggle')) {
-            // Caso especial: destaca o dropdown de aulas quando em uma página de aula
-            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
+}
 
-    // Destaca links no menu secundário, se existir
-    if (document.getElementById('secondary-nav')) {
-        const secondaryLinks = document.querySelectorAll('.secondary-link');
-        secondaryLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && currentPath.includes(href.split('/').pop())) {
-                link.classList.add('active');
-            }
-        });
+/**
+ * Ajusta os links da navegação com base no caminho atual
+ */
+function adjustNavigationLinks() {
+    console.log('Ajustando links de navegação...');
+    const currentPath = window.location.pathname;
+    let basePath = '';
+
+    // Determina o caminho base
+    if (currentPath.includes('/aulas/')) {
+        basePath = '../../';
+    } else if (currentPath.includes('/admin/')) {
+        basePath = '../';
+    } else if (currentPath.includes('/aulas')) {
+        basePath = '../';
+    }
+
+    // Ajusta os links principais
+    const homeLink = document.getElementById('home-link');
+    const resourcesLink = document.getElementById('resources-link');
+
+    if (homeLink) {
+        homeLink.href = basePath + 'index.html';
+    }
+
+    if (resourcesLink) {
+        resourcesLink.href = basePath + 'recursos.html';
     }
 }
 
 /**
- * Configura o menu secundário
- *
- * Esta função:
- * 1. Verifica se está em uma página de aula
- * 2. Mostra/esconde o menu secundário apropriadamente
- * 3. Atualiza o número da aula atual
- * 4. Configura a responsividade do menu
+ * Configura o menu secundário e seus links
  */
 function setupSecondaryNav() {
+    console.log('Configurando navegação secundária...');
     const secondaryNav = document.getElementById('secondary-nav');
     if (!secondaryNav) {
-        console.warn('Menu secundário não encontrado');
         return;
     }
 
     const currentPath = window.location.pathname;
-    const isAulaPage = currentPath.includes('/aulas/');
-
-    if (isAulaPage) {
+    if (currentPath.includes('/aulas/')) {
         secondaryNav.style.display = 'block';
 
-        // Atualiza o número da aula no menu
+        // Determina o número da aula atual
         const aulaMatch = currentPath.match(/aula(\d+)/);
         if (aulaMatch && aulaMatch[1]) {
-            const aulaNumElement = document.getElementById('current-aula-num');
-            if (aulaNumElement) {
-                aulaNumElement.textContent = aulaMatch[1];
+            const aulaNum = document.getElementById('current-aula-num');
+            if (aulaNum) {
+                aulaNum.textContent = aulaMatch[1];
             }
+
+            // Configura os links dos blocos
+            const basePath = '../../aulas/';
+            const currentAulaNum = parseInt(aulaMatch[1]);
+
+            const visionsLink = document.getElementById('visions-link');
+            const panoramaLink = document.getElementById('panorama-link');
+            const convergenceLink = document.getElementById('convergence-link');
+
+            if (visionsLink) {
+                visionsLink.href = `${basePath}aula${currentAulaNum}/visoes.html`;
+            }
+            if (panoramaLink) {
+                panoramaLink.href = `${basePath}aula${currentAulaNum}/panorama.html`;
+            }
+            if (convergenceLink) {
+                convergenceLink.href = `${basePath}aula${currentAulaNum}/convergencia.html`;
+            }
+
+            // Destaca o link ativo do bloco atual
+            const currentBlock = currentPath.split('/').pop().replace('.html', '');
+            const secondaryLinks = document.querySelectorAll('.secondary-link');
+            secondaryLinks.forEach(link => {
+                if (link.href.includes(currentBlock)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
         }
     } else {
         secondaryNav.style.display = 'none';
     }
-
-    // Configura a responsividade do menu secundário
-    handleSecondaryNavResponsiveness();
-
-    // Atualiza a responsividade quando a janela é redimensionada
-    window.addEventListener('resize', handleSecondaryNavResponsiveness);
-}
-
-/**
- * Ajusta o menu secundário para responsividade
- *
- * Esta função:
- * 1. Configura rolagem horizontal em telas pequenas
- * 2. Centraliza automaticamente o item ativo
- * 3. Ajusta estilos baseado no tamanho da tela
- */
-function handleSecondaryNavResponsiveness() {
-    const secondaryMenu = document.querySelector('.secondary-menu');
-    if (!secondaryMenu) return;
-
-    // Configurações especiais para telas pequenas
-    if (window.innerWidth <= 768) {
-        // Habilita rolagem horizontal
-        secondaryMenu.style.overflowX = 'auto';
-        secondaryMenu.style.whiteSpace = 'nowrap';
-
-        // Centraliza o item ativo na viewport do menu
-        const activeItem = secondaryMenu.querySelector('.active');
-        if (activeItem) {
-            setTimeout(() => {
-                const menuWidth = secondaryMenu.offsetWidth;
-                const itemLeft = activeItem.offsetLeft;
-                const itemWidth = activeItem.offsetWidth;
-
-                // Calcula posição para centralizar
-                secondaryMenu.scrollLeft = itemLeft - (menuWidth / 2) + (itemWidth / 2);
-            }, 100);
-        }
-    } else {
-        // Remove estilos especiais em telas maiores
-        secondaryMenu.style.overflowX = '';
-        secondaryMenu.style.whiteSpace = '';
-    }
-}
-
-/**
- * Configura o comportamento do dropdown
- *
- * Esta função:
- * 1. Implementa comportamento hover em desktop
- * 2. Implementa comportamento de clique em mobile
- * 3. Ajusta interações baseado no tamanho da tela
- */
-function setupDropdown() {
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-
-    if (!dropdown || !dropdownToggle) return;
-
-    // Comportamento hover para desktop
-    if (window.innerWidth > 768) {
-        dropdown.addEventListener('mouseenter', function() {
-            this.classList.add('active');
-        });
-
-        dropdown.addEventListener('mouseleave', function() {
-            this.classList.remove('active');
-        });
-    }
-    // Comportamento de clique para mobile
-    else {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
-        });
-    }
-}
-
-// Observador de mutação para garantir que o componente seja inicializado quando adicionado dinamicamente
-if (typeof MutationObserver !== 'undefined') {
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                // Verifica se o componente de navegação foi adicionado ao DOM
-                if (document.getElementById('nav-menu') &&
-                    !document.getElementById('nav-menu').hasAttribute('data-initialized')) {
-                    initializeNavigation();
-                    document.getElementById('nav-menu').setAttribute('data-initialized', 'true');
-                }
-            }
-        });
-    });
-
-    // Configurar o observador para monitorar mudanças no DOM
-    observer.observe(document.body, { childList: true, subtree: true });
 }
 
 // Garante que os links são atualizados ao mudar de página com histórico do navegador
 window.addEventListener('popstate', function() {
-    if (document.getElementById('nav-menu')) {
-        highlightActiveLinks();
-        setupSecondaryNav();
+    loadNavigationComponent(); // Adiciona aqui também
+});
+
+// Adiciona um listener para garantir que o dropdown seja configurado após a navegação ser carregada
+window.addEventListener('load', function() {
+    if (!window.navInitialized) {
+        loadNavigationComponent();
     }
 });
+
+// Para evitar loops de inicialização, usamos um observer limitado
+if (typeof MutationObserver !== 'undefined' && !window.navObserverInitialized) {
+    window.navObserverInitialized = true;
+
+    const observer = new MutationObserver(function(mutations) {
+        if (!window.navInitialized) {
+            const navContainer = document.getElementById('navigation-container');
+            if (navContainer && navContainer.innerHTML.trim() !== '' && !navContainer.hasAttribute('data-initialized')) {
+                window.navInitialized = true;
+
+                modifyNavigationForMobile();
+                adjustNavigationLinks(); // Adiciona aqui também
+                setupDropdown();
+                highlightActiveLinks();
+                setupSecondaryNav();
+                generateMenuItems();
+
+                navContainer.setAttribute('data-initialized', 'true');
+                observer.disconnect();
+            }
+        } else {
+            observer.disconnect();
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}

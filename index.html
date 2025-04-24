@@ -5,7 +5,7 @@
     <!-- Configurações básicas do documento -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apocalipse: As Visões dos Últimos Dias</title>
+    <title>Apocalipse - As Visões dos Últimos Dias</title>
 
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/styles.css" />
@@ -15,9 +15,10 @@
     <!-- Scripts JavaScript - Ordem de carregamento importante -->
     <!-- 1. Configuração das aulas - deve ser carregado primeiro -->
     <script src="js/aulas-config.js"></script>
-    <!-- 2. Script de navegação - carregado após a configuração -->
+    <!-- 2. Script de inicialização - carregado após a configuração -->
+    <script src="js/init.js"></script>
+    <!-- 3. Scripts adicionais - carregados por último -->
     <script src="js/navigation.js" defer></script>
-    <!-- 3. Script principal - carregado por último -->
     <script src="js/main.js" defer></script>
 </head>
 
@@ -362,7 +363,8 @@
                         <h3 class="objective-card__title">Construir Seu Mapa Pessoal do Plano Divino</h3>
                         <p class="objective-card__description">
                             Visualizar como as revelações de todas as dispensações se unem para formar um
-                            panorama coerente e completo do plano eterno, permitindo que você localize sua posição exata nele.
+                            panorama coerente e completo do plano eterno, permitindo que você localize sua posição exata
+                            nele.
                         </p>
                     </div>
 
@@ -879,7 +881,8 @@
                         <div class="instituto-formatura__icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="instituto-formatura__title" style="color: white;">A IMPORTÂNCIA DA FORMATURA NO INSTITUTO</h3>
+                        <h3 class="instituto-formatura__title" style="color: white;">A IMPORTÂNCIA DA FORMATURA NO
+                            INSTITUTO</h3>
                     </div>
 
                     <div class="instituto-formatura__content">
@@ -890,10 +893,14 @@
                                 e desfrutando de bênçãos espirituais e temporais significativas:
                             </p>
                             <ul class="instituto-formatura__benefits-list">
-                                <li><i class="fas fa-star"></i> Fortalecimento de seu testemunho e conhecimento das escrituras</li>
-                                <li><i class="fas fa-hands-helping"></i> Melhor preparação para servir na Igreja e em relacionamentos</li>
-                                <li><i class="fas fa-users"></i> Conexões valiosas com outros jovens adultos dedicados</li>
-                                <li><i class="fas fa-certificate"></i> Reconhecimento oficial de seu comprometimento com o estudo do evangelho</li>
+                                <li><i class="fas fa-star"></i> Fortalecimento de seu testemunho e conhecimento das
+                                    escrituras</li>
+                                <li><i class="fas fa-hands-helping"></i> Melhor preparação para servir na Igreja e em
+                                    relacionamentos</li>
+                                <li><i class="fas fa-users"></i> Conexões valiosas com outros jovens adultos dedicados
+                                </li>
+                                <li><i class="fas fa-certificate"></i> Reconhecimento oficial de seu comprometimento com
+                                    o estudo do evangelho</li>
                             </ul>
                         </div>
 
@@ -906,7 +913,8 @@
                                     <h5 class="credit-card__title">Créditos Fundamentais</h5>
                                     <ul class="credit-card__details">
                                         <li> <strong>Jesus Cristo e o Evangelho Eterno</strong> (2 créditos)</li>
-                                        <li> <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> (2 créditos)</li>
+                                        <li> <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> (2
+                                            créditos)</li>
                                         <li> <strong>Alicerces da Restauração</strong> (2 créditos)</li>
                                         <li> <strong>A Família Eterna</strong> (2 créditos)</li>
                                     </ul>
@@ -916,7 +924,8 @@
                                     <div class="credit-card__number">6</div>
                                     <h5 class="credit-card__title">Créditos Eletivos</h5>
                                     <p class="credit-card__description">
-                                        Obtidos através de cursos como este sobre o <strong>Apocalipse</strong> (2 créditos)
+                                        Obtidos através de cursos como este sobre o <strong>Apocalipse</strong> (2
+                                        créditos)
                                         e outros cursos oferecidos pelo Instituto.
                                     </p>
                                 </div>
@@ -937,7 +946,8 @@
                     <div class="card card--info">
                         <h3 class="card__title"><i class="fas fa-university"></i> INFORMAÇÕES GERAIS</h3>
                         <ul>
-                            <li>Ofertado pelo <strong>INSTITUTO OSASCO - SP</strong> e pelo <strong>INSTITUTO CONQUISTA - BA</strong></li>
+                            <li>Ofertado pelo <strong>INSTITUTO OSASCO - SP</strong> e pelo <strong>INSTITUTO CONQUISTA
+                                    - BA</strong></li>
                             <li>Os encontros ocorrem <strong>às quartas-feiras às 20:00h</strong></li>
                             <li>Duração: <strong>90 minutos por encontro</strong></li>
                             <li>Vale <strong>2 créditos eletivos</strong> para formatura no Instituto</li>
@@ -1123,251 +1133,251 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-<!-- Modal para Créditos do Instituto -->
-<div id="creditsModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>CRÉDITOS DO INSTITUTO</h2>
-            <button class="modal-close" onclick="closeModal('creditsModal')">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>
-                Para se formar no Instituto de Religião, os alunos precisam completar um total
-                de 14 créditos, divididos entre cursos fundamentais e eletivos:
-            </p>
-
-            <div class="credits-horizontal">
-                <div class="credit-block-h">
-                    <div class="credit-block-h__number">8</div>
-                    <div class="credit-block-h__label">Créditos Fundamentais</div>
-                </div>
-
-                <div class="credit-block-h">
-                    <div class="credit-block-h__number">6</div>
-                    <div class="credit-block-h__label">Créditos Eletivos</div>
-                </div>
-
-                <div class="credit-block-h credit-block-h--total">
-                    <div class="credit-block-h__number">14</div>
-                    <div class="credit-block-h__label">Total para Formatura</div>
-                </div>
+    <!-- Modal para Créditos do Instituto -->
+    <div id="creditsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>CRÉDITOS DO INSTITUTO</h2>
+                <button class="modal-close" onclick="closeModal('creditsModal')">&times;</button>
             </div>
+            <div class="modal-body">
+                <p>
+                    Para se formar no Instituto de Religião, os alunos precisam completar um total
+                    de 14 créditos, divididos entre cursos fundamentais e eletivos:
+                </p>
 
-            <h4>Cursos Fundamentais (8 créditos)</h4>
-            <ul>
-                <li><strong>Jesus Cristo e o Evangelho Eterno</strong> - 2 créditos</li>
-                <li>
-                    <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> - 2
-                    créditos
-                </li>
-                <li><strong>Alicerces da Restauração</strong> - 2 créditos</li>
-                <li><strong>A Família Eterna</strong> - 2 créditos</li>
-            </ul>
+                <div class="credits-horizontal">
+                    <div class="credit-block-h">
+                        <div class="credit-block-h__number">8</div>
+                        <div class="credit-block-h__label">Créditos Fundamentais</div>
+                    </div>
 
-            <h4>Cursos Eletivos (6 créditos)</h4>
-            <p>
-                Os créditos eletivos podem ser obtidos por meio de outros cursos oferecidos
-                pelo Instituto, como este curso sobre o Apocalipse.
-            </p>
+                    <div class="credit-block-h">
+                        <div class="credit-block-h__number">6</div>
+                        <div class="credit-block-h__label">Créditos Eletivos</div>
+                    </div>
 
-            <div class="card card--highlight">
-                <h4>Benefícios Adicionais da Formatura</h4>
+                    <div class="credit-block-h credit-block-h--total">
+                        <div class="credit-block-h__number">14</div>
+                        <div class="credit-block-h__label">Total para Formatura</div>
+                    </div>
+                </div>
+
+                <h4>Cursos Fundamentais (8 créditos)</h4>
                 <ul>
-                    <li>Créditos acadêmicos em universidades da Igreja (BYU, BYU-Idaho, BYU-Hawaii, Ensign College)
+                    <li><strong>Jesus Cristo e o Evangelho Eterno</strong> - 2 créditos</li>
+                    <li>
+                        <strong>Os Ensinamentos e a Doutrina do Livro de Mórmon</strong> - 2
+                        créditos
                     </li>
-                    <li>Carga horária complementar em cursos relacionados (teologia, filosofia, história)</li>
-                    <li>Certificado oficial de conclusão reconhecido pela Igreja</li>
-                    <li>Distinção especial em eventos e cerimônias do Instituto</li>
+                    <li><strong>Alicerces da Restauração</strong> - 2 créditos</li>
+                    <li><strong>A Família Eterna</strong> - 2 créditos</li>
                 </ul>
+
+                <h4>Cursos Eletivos (6 créditos)</h4>
+                <p>
+                    Os créditos eletivos podem ser obtidos por meio de outros cursos oferecidos
+                    pelo Instituto, como este curso sobre o Apocalipse.
+                </p>
+
+                <div class="card card--highlight">
+                    <h4>Benefícios Adicionais da Formatura</h4>
+                    <ul>
+                        <li>Créditos acadêmicos em universidades da Igreja (BYU, BYU-Idaho, BYU-Hawaii, Ensign College)
+                        </li>
+                        <li>Carga horária complementar em cursos relacionados (teologia, filosofia, história)</li>
+                        <li>Certificado oficial de conclusão reconhecido pela Igreja</li>
+                        <li>Distinção especial em eventos e cerimônias do Instituto</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                Este curso especial do Apocalipse vale 2 créditos eletivos para sua formatura!
             </div>
         </div>
-        <div class="modal-footer">
-            Este curso especial do Apocalipse vale 2 créditos eletivos para sua formatura!
+    </div>
+
+    <!-- Modal para Feedback -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content modal-content--scrollable">
+            <div class="modal-header">
+                <h2>Formulário de Feedback e Contribuição</h2>
+                <button class="modal-close" onclick="closeModal('feedbackModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Compartilhe suas ideias, sugestões ou ofereça seus talentos para ajudar no
+                    desenvolvimento do curso:
+                </p>
+
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome:</label>
+                        <input type="text" id="name" name="name" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail:</label>
+                        <input type="email" id="email" name="email" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefone (opcional):</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Tipo de Contribuição:</label>
+                        <select id="subject" name="subject" class="form-control" required>
+                            <option value="">Selecione uma opção...</option>
+                            <option value="feedback">Feedback sobre o conteúdo</option>
+                            <option value="correction">Sugestão de correção</option>
+                            <option value="idea">Ideia para melhorar o curso</option>
+                            <option value="volunteer">Oferecer habilidades como voluntário</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills" class="form-label">Suas habilidades (para voluntários):</label>
+                        <input type="text" id="skills" name="skills" class="form-control"
+                            placeholder="Ex: programação, design, narração, música, etc." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Sua mensagem:</label>
+                        <textarea id="message" name="message" class="form-control form-control--textarea"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar Contribuição</button>
+
+                    <p><small>Formulário em desenvolvimento. Em breve estará funcionando!</small></p>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal para Feedback -->
-<div id="feedbackModal" class="modal">
-    <div class="modal-content modal-content--scrollable">
-        <div class="modal-header">
-            <h2>Formulário de Feedback e Contribuição</h2>
-            <button class="modal-close" onclick="closeModal('feedbackModal')">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>
-                Compartilhe suas ideias, sugestões ou ofereça seus talentos para ajudar no
-                desenvolvimento do curso:
-            </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        // Script para scroll suave nos links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="name" class="form-label">Nome:</label>
-                    <input type="text" id="name" name="name" class="form-control" required />
-                </div>
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
 
-                <div class="form-group">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" id="email" name="email" class="form-control" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="phone" class="form-label">Telefone (opcional):</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" />
-                </div>
-
-                <div class="form-group">
-                    <label for="subject" class="form-label">Tipo de Contribuição:</label>
-                    <select id="subject" name="subject" class="form-control" required>
-                        <option value="">Selecione uma opção...</option>
-                        <option value="feedback">Feedback sobre o conteúdo</option>
-                        <option value="correction">Sugestão de correção</option>
-                        <option value="idea">Ideia para melhorar o curso</option>
-                        <option value="volunteer">Oferecer habilidades como voluntário</option>
-                        <option value="other">Outro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="skills" class="form-label">Suas habilidades (para voluntários):</label>
-                    <input type="text" id="skills" name="skills" class="form-control"
-                        placeholder="Ex: programação, design, narração, música, etc." />
-                </div>
-
-                <div class="form-group">
-                    <label for="message" class="form-label">Sua mensagem:</label>
-                    <textarea id="message" name="message" class="form-control form-control--textarea"
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Enviar Contribuição</button>
-
-                <p><small>Formulário em desenvolvimento. Em breve estará funcionando!</small></p>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-<script>
-    // Script para scroll suave nos links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth',
-                });
-            }
-        });
-    });
-
-    // Script para mostrar/ocultar o botão de voltar ao topo
-    window.addEventListener('scroll', function () {
-        const backToTopButton = document.getElementById('back-to-top');
-
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-
-    // Script para o botão de voltar ao topo
-    document.getElementById('back-to-top').addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    });
-
-    // Script para accordion de aulas
-    document.addEventListener('DOMContentLoaded', function () {
-        const lessonHeaders = document.querySelectorAll('.lesson-header');
-
-        lessonHeaders.forEach(header => {
-            header.addEventListener('click', function () {
-                const content = this.nextElementSibling;
-                const isActive = this.classList.contains('active');
-
-                // Fecha todos os outros
-                lessonHeaders.forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.classList.remove('active');
-                });
-
-                // Abre/fecha o atual
-                if (!isActive) {
-                    this.classList.add('active');
-                    content.classList.add('active');
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth',
+                    });
                 }
             });
         });
-    });
 
-    // Script para os blocos de aprendizado expandíveis
-    document.addEventListener('DOMContentLoaded', function () {
-        const learningBlocks = document.querySelectorAll('.learning-block__expand');
+        // Script para mostrar/ocultar o botão de voltar ao topo
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.getElementById('back-to-top');
 
-        learningBlocks.forEach(button => {
-            button.addEventListener('click', function () {
-                const details = this.nextElementSibling;
-                const icon = this.querySelector('i');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
 
-                details.classList.toggle('active');
-                icon.classList.toggle('fa-plus');
-                icon.classList.toggle('fa-minus');
+        // Script para o botão de voltar ao topo
+        document.getElementById('back-to-top').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
             });
         });
 
-        // Para os itens de revelação
-        const revelationExpands = document.querySelectorAll('.revelation-item__expand');
+        // Script para accordion de aulas
+        document.addEventListener('DOMContentLoaded', function () {
+            const lessonHeaders = document.querySelectorAll('.lesson-header');
 
-        revelationExpands.forEach(button => {
-            button.addEventListener('click', function () {
-                const details = this.nextElementSibling;
+            lessonHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
 
-                details.classList.toggle('active');
-                this.textContent = details.classList.contains('active') ? 'Fechar' : 'Ver detalhes';
+                    // Fecha todos os outros
+                    lessonHeaders.forEach(h => {
+                        h.classList.remove('active');
+                        h.nextElementSibling.classList.remove('active');
+                    });
+
+                    // Abre/fecha o atual
+                    if (!isActive) {
+                        this.classList.add('active');
+                        content.classList.add('active');
+                    }
+                });
             });
         });
-    });
 
-    // Script para modais
-    function openModal(modalId) {
-        document.getElementById(modalId).classList.add('active');
-        document.body.style.overflow = 'hidden'; // Previne scroll do body quando modal está aberto
-    }
+        // Script para os blocos de aprendizado expandíveis
+        document.addEventListener('DOMContentLoaded', function () {
+            const learningBlocks = document.querySelectorAll('.learning-block__expand');
 
-    function closeModal(modalId) {
-        document.getElementById(modalId).classList.remove('active');
-        document.body.style.overflow = ''; // Restaura scroll do body
-    }
+            learningBlocks.forEach(button => {
+                button.addEventListener('click', function () {
+                    const details = this.nextElementSibling;
+                    const icon = this.querySelector('i');
 
-    // Fechar modal quando clicar fora
-    window.onclick = function (event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.classList.remove('active');
-            document.body.style.overflow = '';
+                    details.classList.toggle('active');
+                    icon.classList.toggle('fa-plus');
+                    icon.classList.toggle('fa-minus');
+                });
+            });
+
+            // Para os itens de revelação
+            const revelationExpands = document.querySelectorAll('.revelation-item__expand');
+
+            revelationExpands.forEach(button => {
+                button.addEventListener('click', function () {
+                    const details = this.nextElementSibling;
+
+                    details.classList.toggle('active');
+                    this.textContent = details.classList.contains('active') ? 'Fechar' : 'Ver detalhes';
+                });
+            });
+        });
+
+        // Script para modais
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Previne scroll do body quando modal está aberto
         }
-    }
 
-    // Fechar modal com ESC
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            const activeModal = document.querySelector('.modal.active');
-            if (activeModal) {
-                activeModal.classList.remove('active');
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = ''; // Restaura scroll do body
+        }
+
+        // Fechar modal quando clicar fora
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
                 document.body.style.overflow = '';
             }
         }
-    });
-</script>
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

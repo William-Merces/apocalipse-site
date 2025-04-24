@@ -53,11 +53,12 @@
    Diferentes tipos de boxes para informações específicas
    ========================================================================== */
 .info-box {
-  background-color: rgba(5, 46, 111, 0.1);
+  background-color: #f5f8fc;
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1.5rem 0;
+  color: #333;
 }
 
 .info-box h4 {
@@ -66,19 +67,21 @@
 }
 
 .note {
-  background-color: rgba(5, 46, 111, 0.05);
+  background-color: #f8fafd;
   border: 1px dashed var(--primary-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1.5rem 0;
+  color: #333;
 }
 
 .activity {
-  background-color: rgba(201, 162, 39, 0.05);
+  background-color: #fdfbf5;
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1.5rem 0;
+  color: #333;
 }
 
 /* ==========================================================================
@@ -86,11 +89,12 @@
    Estilos para citações e textos em destaque
    ========================================================================== */
 .quote {
-  background-color: rgba(201, 162, 39, 0.1);
+  background-color: #fdfaf2;
   border-left: 4px solid var(--accent-color);
   padding: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
+  color: #333;
 }
 
 /* ==========================================================================
@@ -111,6 +115,7 @@ th, td {
   padding: 0.75rem;
   text-align: left;
   border: 1px solid #eaeaea;
+  color: #333;
 }
 
 th {
@@ -119,7 +124,11 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: rgba(5, 46, 111, 0.05);
+  background-color: #f8fafd;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 /* ==========================================================================
